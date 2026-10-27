@@ -26,22 +26,22 @@
 
     
     :root {
-      --hw-bg: #EDE5D8;
-      --hw-bg-alt: #E5DCCD;
-      --hw-surface-soft: #F3EDE2;
-      --hw-card: #F3EDE2;
-      --hw-ink: #241914;
-      --hw-muted: #3B2E25;
-      --hw-light: #6E5D4F;
+      --hw-bg: #FAF7F2;
+      --hw-bg-alt: #F3EFE6;
+      --hw-surface-soft: #F6F3EC;
+      --hw-card: #FFFFFF;
+      --hw-ink: #1C1A17;
+      --hw-muted: #5A4B40;
+      --hw-light: #8A7B70;
       --hw-accent: #3B2314;
-      --hw-accent-secondary: #282924;
-      --hw-border: rgba(36, 25, 20, 0.16);
-      --hw-border-strong: rgba(36, 25, 20, 0.38);
-      --hw-header-bg: rgba(237, 229, 216, 0.96);
-      --hw-masters-bg: #EDE5D8;
-      --hw-footer-bg: #EDE5D8;
-      --hw-footer-ink: #241914;
-      --hw-footer-border: rgba(36, 25, 20, 0.18);
+      --hw-accent-secondary: #4E301D;
+      --hw-border: rgba(59, 35, 20, 0.14);
+      --hw-border-strong: rgba(59, 35, 20, 0.36);
+      --hw-header-bg: rgba(250, 247, 242, 0.97);
+      --hw-masters-bg: #F6F3EC;
+      --hw-footer-bg: #FAF7F2;
+      --hw-footer-ink: #1C1A17;
+      --hw-footer-border: rgba(59, 35, 20, 0.14);
       --font-heading: 'Porter', 'Porter Medium', 'Cormorant Garamond', Georgia, serif;
       --font-body: 'Junicode', 'EB Garamond', Georgia, serif;
       --font-mono: 'Noto Sans Mono', monospace;
@@ -91,7 +91,7 @@
     .hw-nav-right { justify-content: flex-end; }
     .hw-header-subbar-v2 {
       border-top: 1px solid var(--hw-border);
-      background: rgba(237, 229, 216, 0.85);
+      background: rgba(246, 243, 236, 0.65);
     }
     .hw-header-subbar-v2-inner {
       max-width: 1540px;
@@ -539,11 +539,11 @@
     .hw-v2-panel {
       position: sticky;
       top: 90px;
-      background: transparent;
-      border: none;
+      background: #FFFFFF;
+      border: 1px solid var(--hw-border);
       border-top: 1px solid var(--hw-border-strong);
-      padding: 24px 0 8px 0;
-      box-shadow: none;
+      padding: 32px 34px;
+      box-shadow: 0 20px 50px -28px rgba(28, 26, 23, 0.08);
       animation: hwDossierSlide 0.75s var(--hw-ease-silk) 0.08s both;
     }
     .hw-v2-breadcrumb {
@@ -3013,7 +3013,6 @@
         <button onclick="openCollection('${p.category}')">${p.category}</button>
         <span>/</span>
         <span style="color:var(--hw-ink);">${p.subtitle}</span>
-        ${p.sku ? `<span style="margin-left:auto; color:var(--hw-muted);">SKU: ${p.sku}</span>` : ''}
       `;
 
       document.getElementById('pdp-title').textContent = p.title;
@@ -3092,7 +3091,7 @@
         },
         {
           step: '04 · Provenance',
-          val: p.origin + (p.sku ? ' · ' + p.sku : ''),
+          val: p.origin,
           desc: `Crafted in small batches in ${p.origin} in direct partnership with heritage weaving, block-printing, and goldsmith guilds.`,
           mId: 'naturaldye',
           mLabel: '06 · Natural Dye'

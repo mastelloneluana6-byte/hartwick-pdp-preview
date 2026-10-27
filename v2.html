@@ -3013,7 +3013,6 @@
         <button onclick="openCollection('${p.category}')">${p.category}</button>
         <span>/</span>
         <span style="color:var(--hw-ink);">${p.subtitle}</span>
-        ${p.sku ? `<span style="margin-left:auto; color:var(--hw-muted);">SKU: ${p.sku}</span>` : ''}
       `;
 
       document.getElementById('pdp-title').textContent = p.title;
@@ -3092,7 +3091,7 @@
         },
         {
           step: '04 · Provenance',
-          val: p.origin + (p.sku ? ' · ' + p.sku : ''),
+          val: p.origin,
           desc: `Crafted in small batches in ${p.origin} in direct partnership with heritage weaving, block-printing, and goldsmith guilds.`,
           mId: 'naturaldye',
           mLabel: '06 · Natural Dye'
