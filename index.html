@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HARTWICK — Tribeca Skirt (Option 1 &amp; Option 2 Final Review)</title>
+  <title>HARTWICK — Tribeca Skirt &amp; Made By Masters</title>
 
   <!-- BRAND GUIDELINES FONTS:
        1. HEADING — Porter Medium (Geometric Uppercase Display Sans: Jost / Porter Medium 500)
@@ -182,27 +182,13 @@
     }
 
     /* ==========================================================================
-       VIEW MANAGEMENT (OPTION 1 vs OPTION 2 vs MADE BY MASTERS)
+       VIEW MANAGEMENT (PRODUCT PAGE VERSION 2 vs MADE BY MASTERS)
        ========================================================================== */
     .hw-page-view {
       display: none;
     }
 
     .hw-page-view.is-active-view {
-      display: block;
-    }
-
-    body[data-version="v1"] .hw-v1-only {
-      display: block;
-    }
-    body[data-version="v1"] .hw-v2-only {
-      display: none !important;
-    }
-
-    body[data-version="v2"] .hw-v1-only {
-      display: none !important;
-    }
-    body[data-version="v2"] .hw-v2-only {
       display: block;
     }
 
@@ -239,7 +225,7 @@
       color: var(--hw-ink);
     }
 
-    /* 1. HEADING — PORTER MEDIUM: Short heading to introduce a collection, story or idea */
+    /* 1. HEADING — PORTER MEDIUM */
     .hw-porter-heading {
       font-family: var(--hw-font-heading);
       font-size: clamp(1.35rem, 1.85vw, 1.7rem);
@@ -251,7 +237,7 @@
       margin: 0 0 6px 0;
     }
 
-    /* 3. DETAIL — NOTO SANS MONO SEMI-BOLD: Captions, credits & practical info */
+    /* 3. DETAIL — NOTO SANS MONO SEMI-BOLD */
     .hw-mono-caption {
       font-family: var(--hw-font-detail);
       font-size: 11px;
@@ -262,7 +248,7 @@
       line-height: 1.45;
     }
 
-    /* 2. STORY — JUNICODE MEDIUM: Passage in Angela's voice sitting comfortably beside the image */
+    /* 2. STORY — JUNICODE MEDIUM */
     .hw-story-passage {
       display: flex;
       flex-direction: column;
@@ -517,7 +503,7 @@
 
     .hw-variations-rail {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 132px));
+      grid-template-columns: repeat(2, minmax(0, 138px));
       gap: 14px;
     }
 
@@ -600,32 +586,14 @@
     }
 
     /* ==========================================================================
-       SHARED PURCHASE CONTROLS (PRICE, SIZE XS-XL, ADD TO BAG)
+       PURCHASE CONTROLS (PRICE, SIZE XS-XL, ADD TO BAG)
        ========================================================================== */
-    .hw-pdp__price-block {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--hw-rule);
-      margin-bottom: 20px;
-    }
-
     .hw-pdp__price {
       font-family: var(--hw-font-detail);
       font-size: 18px;
       font-weight: 600;
       letter-spacing: 0.04em;
       color: var(--hw-ink);
-    }
-
-    .hw-pdp__edition-tag {
-      font-family: var(--hw-font-detail);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--hw-ink-muted);
     }
 
     .hw-pdp__size-block {
@@ -716,155 +684,8 @@
       background: #2C2621;
     }
 
-    .hw-pdp__appointment-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 11px 14px;
-      margin: 0 0 22px 0;
-      border: 1px solid var(--hw-rule);
-      background: rgba(250, 248, 244, 0.55);
-      text-decoration: none;
-      font-family: var(--hw-font-detail);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--hw-ink);
-      transition: border-color 0.25s ease;
-    }
-
-    .hw-pdp__appointment-link:hover {
-      border-color: var(--hw-ink);
-    }
-
-    .hw-right-notes {
-      border-top: 1px solid var(--hw-rule);
-      padding-top: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .hw-right-note-item {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .hw-right-note-title {
-      font-family: var(--hw-font-heading);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--hw-ink);
-    }
-
-    .hw-right-note-desc {
-      font-family: var(--hw-font-detail);
-      font-size: 10.5px;
-      font-weight: 500;
-      line-height: 1.5;
-      color: var(--hw-ink-soft);
-      margin: 0;
-    }
-
     /* ==========================================================================
-       OPTION 1: REFINED 3-COLUMN EDITORIAL LAYOUT (CLEAN, BREATHABLE, NOT WORD-HEAVY)
-       ========================================================================== */
-    .hw-v1-section {
-      padding: 112px clamp(1.5rem, 4vw, 4.5rem) 88px;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .hw-v1-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.02fr) minmax(0, 1.08fr) minmax(0, 0.9fr);
-      gap: clamp(2.2rem, 3.8vw, 4.2rem);
-      align-items: start;
-    }
-
-    .hw-pdp__center {
-      position: sticky;
-      top: 104px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .hw-pdp__main-media {
-      width: 100%;
-      aspect-ratio: 3 / 4;
-      background: #E8E2D9;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .hw-pdp__main-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.85s var(--hw-ease-luxury), opacity 0.25s ease;
-    }
-
-    .hw-pdp__main-media img.is-switching {
-      opacity: 0.25;
-    }
-
-    .hw-pdp__media-caption-bar {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      font-family: var(--hw-font-detail);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--hw-ink-muted);
-      padding: 2px 1px;
-    }
-
-    .hw-pdp__thumbs {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-    }
-
-    .hw-pdp__thumb {
-      width: 100%;
-      aspect-ratio: 3 / 4;
-      padding: 0;
-      border: 1px solid transparent;
-      background: #E8E2D9;
-      overflow: hidden;
-      cursor: pointer;
-      opacity: 0.65;
-      transition: all 0.25s ease;
-    }
-
-    .hw-pdp__thumb:hover {
-      opacity: 0.9;
-    }
-
-    .hw-pdp__thumb.active {
-      opacity: 1;
-      border-color: var(--hw-ink);
-    }
-
-    .hw-pdp__thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ==========================================================================
-       OPTION 2: MODERN 2-COLUMN ASYMMETRIC EDITORIAL LAYOUT
-       Left: 2x2 Architectural Lookbook Grid of the active Tribeca Skirt
-       Right: Clean Sticky Editorial Column with Porter + Junicode + Noto Sans Mono
+       CHOSEN PRODUCT PAGE: VERSION 2 (2-COLUMN ASYMMETRIC EDITORIAL LAYOUT)
        ========================================================================== */
     .hw-v2-section {
       padding: 112px clamp(1.5rem, 4vw, 4.5rem) 96px;
@@ -946,21 +767,26 @@
     }
 
     /* ==========================================================================
-       MADE BY MASTERS VIEW (WITH INTEGRATED HERITAGE TEXTILE ARCHIVE)
+       MADE BY MASTERS VIEW — TECHNIQUE BUTTONS ON THE LEFT
+       Left Column: Sticky Vertical Technique Buttons (01 · Khadi ... 14 · Muga Silk)
+       Center Column: Sticky Archival Visual Frame
+       Right Column: Accordion Chapters
        ========================================================================== */
     .hw-masters-page {
-      padding: 120px clamp(1.5rem, 4vw, 4.5rem) 96px;
+      padding: 118px clamp(1.5rem, 4vw, 4.5rem) 96px;
     }
 
     .hw-masters-shell {
-      max-width: 1180px;
+      max-width: 1380px;
       margin: 0 auto;
     }
 
     .hw-masters-intro {
-      max-width: 720px;
-      margin: 0 auto 38px;
+      max-width: 760px;
+      margin: 0 auto 44px;
       text-align: center;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--hw-rule);
     }
 
     .hw-masters-back {
@@ -1006,45 +832,81 @@
       font-weight: 500;
       line-height: 1.6;
       color: var(--hw-ink);
-      margin: 0;
+      margin: 0 0 12px 0;
     }
 
-    .hw-masters-index-bar {
+    .hw-masters-nuance {
+      font-family: var(--hw-font-story);
+      font-style: italic;
+      font-size: 18px;
+      color: var(--hw-accent);
+      margin: 12px 0 0 0;
+    }
+
+    /* 3-COLUMN WORKBENCH:
+       1. LEFT: Technique Buttons Vertical Stack
+       2. CENTER: Sticky Archival Photo
+       3. RIGHT: Technique Chapters */
+    .hw-masters-workbench {
+      display: grid;
+      grid-template-columns: 245px minmax(250px, 0.36fr) minmax(0, 0.64fr);
+      gap: clamp(1.8rem, 3.2vw, 3.5rem);
+      align-items: start;
+    }
+
+    .hw-masters-left-nav {
+      position: sticky;
+      top: 104px;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      padding: 18px 0;
-      margin-bottom: 40px;
-      border-top: 1px solid var(--hw-rule);
+      flex-direction: column;
+      gap: 6px;
+      padding-right: 16px;
+      border-right: 1px solid var(--hw-rule);
+    }
+
+    .hw-masters-left-nav__label {
+      font-family: var(--hw-font-heading);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--hw-ink-muted);
+      margin-bottom: 8px;
+      padding-bottom: 8px;
       border-bottom: 1px solid var(--hw-rule);
     }
 
     .hw-masters-pill {
+      width: 100%;
+      text-align: left;
       background: transparent;
-      border: 1px solid var(--hw-rule-strong);
-      padding: 8px 14px;
+      border: 1px solid rgba(24, 21, 18, 0.16);
+      padding: 9px 12px;
       font-family: var(--hw-font-detail);
       font-size: 10px;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--hw-ink-soft);
       cursor: pointer;
-      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      transition: all 0.25s var(--hw-ease-luxury);
+    }
+
+    .hw-masters-pill:hover {
+      border-color: var(--hw-ink);
+      color: var(--hw-ink);
+      transform: translateX(3px);
     }
 
     .hw-masters-pill.is-active {
       background: var(--hw-ink);
       color: var(--hw-surface);
       border-color: var(--hw-ink);
-    }
-
-    .hw-masters-grid {
-      display: grid;
-      grid-template-columns: minmax(260px, 0.38fr) minmax(0, 0.62fr);
-      gap: clamp(2.2rem, 4.5vw, 4.5rem);
-      align-items: start;
+      transform: translateX(4px);
     }
 
     .hw-masters-visual {
@@ -1064,6 +926,7 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.8s var(--hw-ease-luxury);
     }
 
     .hw-masters-visual__caption {
@@ -1157,58 +1020,12 @@
       color: var(--hw-ink);
     }
 
-    /* ==========================================================================
-       FLOATING OPTION SWITCHER BAR (BOTTOM RIGHT — CLEAN MONOSPACE DETAIL)
-       ========================================================================== */
-    .hw-studio-switcher {
-      position: fixed;
-      bottom: 22px;
-      right: 22px;
-      z-index: 999999;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(24, 21, 18, 0.94);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(250, 248, 244, 0.22);
-      padding: 6px 8px;
-      border-radius: 999px;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.26);
+    .hw-m-item__body p {
+      margin: 0 0 12px 0;
     }
 
-    .hw-studio-switcher__label {
-      font-family: var(--hw-font-detail);
-      font-size: 9.5px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(250, 248, 244, 0.6);
-      padding: 0 8px 0 10px;
-    }
-
-    .hw-studio-switcher__btn {
-      background: transparent;
-      border: 1px solid transparent;
-      color: rgba(250, 248, 244, 0.82);
-      font-family: var(--hw-font-detail);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 7px 14px;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: all 0.25s ease;
-    }
-
-    .hw-studio-switcher__btn:hover {
-      color: #FAF8F4;
-    }
-
-    .hw-studio-switcher__btn.is-active {
-      background: #FAF8F4;
-      color: #181512;
+    .hw-m-item__body p:last-child {
+      margin-bottom: 0;
     }
 
     /* Size Guide Modal */
@@ -1295,23 +1112,26 @@
       color: var(--hw-ink-muted);
     }
 
-    @media only screen and (max-width: 980px) {
-      .hw-v1-grid,
+    @media only screen and (max-width: 1024px) {
       .hw-v2-layout,
-      .hw-masters-grid {
+      .hw-masters-workbench {
         grid-template-columns: 1fr;
       }
-      .hw-pdp__center,
-      .hw-v2-panel {
+      .hw-v2-panel,
+      .hw-masters-left-nav,
+      .hw-masters-visual {
         position: static;
       }
-      .hw-pdp__center {
-        order: -1;
+      .hw-masters-left-nav {
+        border-right: none;
+        border-bottom: 1px solid var(--hw-rule);
+        padding-right: 0;
+        padding-bottom: 20px;
       }
     }
   </style>
 </head>
-<body data-version="v1">
+<body>
 
   <!-- ==========================================================================
        HEADER NAVIGATION WITH UPDATED HARTWICK CREST LOGO & MADE BY MASTERS RIGHT
@@ -1351,317 +1171,10 @@
   </header>
 
   <!-- ==========================================================================
-       PRODUCT VIEW (CONTAINS BOTH OPTION 1 & OPTION 2 FINALS)
+       PRODUCT VIEW — VERSION 2 (2-COLUMN EDITORIAL LOOKBOOK)
        ========================================================================== -->
   <div id="HwProductView" class="hw-page-view is-active-view">
-
-    <!-- ========================================================================
-         OPTION 1: REFINED 3-COLUMN EDITORIAL LAYOUT
-         - Strictly follows Brand Guidelines:
-           1. HEADING: Porter Medium (Short uppercase entry point)
-           2. STORY:   Junicode Medium (Angela's two paragraphs beside the image)
-           3. DETAIL:  Noto Sans Mono Semi-Bold (Captions, specs, Fibre to Garment)
-         - Only actual Tribeca Skirt variations in the switcher (Emerald & Checkerboard Navy)
-         ======================================================================== -->
-    <section class="hw-v1-section hw-v1-only">
-      <div class="hw-v1-grid">
-
-        <!-- LEFT COLUMN: STORY & DETAILS -->
-        <div class="hw-v1-left">
-          <nav class="hw-breadcrumb">
-            <a href="#collection">&larr; Skirts + Dresses</a>
-            <span>/</span>
-            <span class="hw-breadcrumb__current">Tribeca</span>
-          </nav>
-
-          <!-- 1. HEADING (PORTER MEDIUM) -->
-          <h1 class="hw-porter-heading js-pdp-title">Tribeca Emerald</h1>
-          <!-- 3. DETAIL CAPTION (NOTO SANS MONO SEMI-BOLD) -->
-          <p class="hw-mono-caption js-pdp-subtitle">Handwoven Emerald Matka Silk &middot; Changeant Weave</p>
-
-          <!-- 2. STORY (JUNICODE MEDIUM): Paragraph 1 = Style (Tribeca), Paragraph 2 = Specific Fabric -->
-          <div class="hw-story-passage">
-            <p class="hw-story-paragraph js-pdp-style-copy">
-              The Tribeca Skirt is a high waisted full length skirt tailored with dropped, deep box pleats and hidden pockets, making an elegant and very comfortable skirt.
-            </p>
-            <p class="hw-story-paragraph js-pdp-textile-copy">
-              The fabric for this skirt is exquisite. Tailored with handspun matka silk, handwoven in jewel-tone emerald green with a black silk weft to create complex tonal layers using a technique made popular in 18th century ball gowns (changeant silk). This full skirt has a striking, dark iridescence. It&rsquo;s a real showstopper.
-            </p>
-          </div>
-
-          <!-- 3. DETAILS (NOTO SANS MONO SEMI-BOLD) -->
-          <div class="hw-detail-section">
-            <h2 class="hw-section-kicker">Details</h2>
-            <ul class="hw-mono-details-list js-pdp-specs-list">
-              <li>Full skirt</li>
-              <li>Handwoven and handspun matka silk</li>
-              <li>Jewel-tone emerald green with black silk weft (changeant weave)</li>
-              <li>High waist and dropped, deep box pleats</li>
-              <li>Hidden pockets</li>
-              <li>Full length</li>
-              <li>Hidden left side zipper and top button loop closure</li>
-            </ul>
-          </div>
-
-          <!-- FIBRE TO GARMENT (HOVER TO REVEAL + LINK TO MADE BY MASTERS) -->
-          <div class="hw-f2g-block">
-            <div class="hw-f2g-header">
-              <h2 class="hw-section-kicker" style="margin:0;">Fibre to Garment</h2>
-              <span class="hw-f2g-hint">Hover step for craft note</span>
-            </div>
-            <div class="hw-f2g-list">
-              <div class="hw-f2g-row is-open" onmouseenter="hwAutoOpenF2G(this)" onclick="hwToggleF2GRow(this)">
-                <button type="button" class="hw-f2g-trigger">
-                  <span class="hw-f2g-step">Fibre</span>
-                  <span class="hw-f2g-val">
-                    <span class="js-f2g-fibre">100% Handspun Matka Silk</span>
-                    <span class="hw-f2g-arrow">&nearr;</span>
-                  </span>
-                </button>
-                <div class="hw-f2g-drawer">
-                  <div class="hw-f2g-drawer__inner">
-                    <div class="hw-f2g-drawer__box">
-                      <p class="hw-f2g-drawer__text">
-                        From harvest to yarn to weave, made by hand without machines or electricity—draping and breathing with a supple softness.
-                      </p>
-                      <button type="button" class="hw-f2g-masters-link" onclick="event.stopPropagation(); hwNavigateToMasters('khadi')">
-                        <span>Explore in Made By Masters</span>
-                        <span>&nearr;</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="hw-f2g-row" onmouseenter="hwAutoOpenF2G(this)" onclick="hwToggleF2GRow(this)">
-                <button type="button" class="hw-f2g-trigger">
-                  <span class="hw-f2g-step">Spinning</span>
-                  <span class="hw-f2g-val">
-                    <span class="js-f2g-spinning">Handspun by Artisans (0 kWh)</span>
-                    <span class="hw-f2g-arrow">&nearr;</span>
-                  </span>
-                </button>
-                <div class="hw-f2g-drawer">
-                  <div class="hw-f2g-drawer__inner">
-                    <div class="hw-f2g-drawer__box">
-                      <p class="hw-f2g-drawer__text">
-                        Natural fibres drawn out and twisted together by hand to form a living yarn with subtle human texture.
-                      </p>
-                      <button type="button" class="hw-f2g-masters-link" onclick="event.stopPropagation(); hwNavigateToMasters('hand-spun')">
-                        <span>Explore Hand Spun in Made By Masters</span>
-                        <span>&nearr;</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="hw-f2g-row" onmouseenter="hwAutoOpenF2G(this)" onclick="hwToggleF2GRow(this)">
-                <button type="button" class="hw-f2g-trigger">
-                  <span class="hw-f2g-step">Weaving</span>
-                  <span class="hw-f2g-val">
-                    <span class="js-f2g-weaving">Handloom Changeant Weave</span>
-                    <span class="hw-f2g-arrow">&nearr;</span>
-                  </span>
-                </button>
-                <div class="hw-f2g-drawer">
-                  <div class="hw-f2g-drawer__inner">
-                    <div class="hw-f2g-drawer__box">
-                      <p class="hw-f2g-drawer__text">
-                        Handspun yarns woven together on a wooden handloom without electricity by master weavers in India.
-                      </p>
-                      <button type="button" class="hw-f2g-masters-link" onclick="event.stopPropagation(); hwNavigateToMasters('handwoven')">
-                        <span>Explore Handwoven in Made By Masters</span>
-                        <span>&nearr;</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="hw-f2g-row" onmouseenter="hwAutoOpenF2G(this)" onclick="hwToggleF2GRow(this)">
-                <button type="button" class="hw-f2g-trigger">
-                  <span class="hw-f2g-step">Finishing</span>
-                  <span class="hw-f2g-val">
-                    <span class="js-f2g-finishing">Pure Cotton Thread &middot; Mother of Pearl</span>
-                    <span class="hw-f2g-arrow">&nearr;</span>
-                  </span>
-                </button>
-                <div class="hw-f2g-drawer">
-                  <div class="hw-f2g-drawer__inner">
-                    <div class="hw-f2g-drawer__box">
-                      <p class="hw-f2g-drawer__text">
-                        Tailored with deep box pleats, hidden side-seam pockets, pure cotton thread, and top button loop closure.
-                      </p>
-                      <button type="button" class="hw-f2g-masters-link" onclick="event.stopPropagation(); hwNavigateToMasters('natural-dye')">
-                        <span>Explore Craft in Made By Masters</span>
-                        <span>&nearr;</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- CARE & AGING -->
-          <div class="hw-care-block">
-            <h2 class="hw-section-kicker js-pdp-care-heading">Care &amp; Aging &middot; Handwoven Matka Silk</h2>
-            <p class="hw-care-text js-pdp-care-copy">
-              Handspun silk softens and moulds to your movement with each wear. Gently hand wash cold with pH-neutral silk soap or eco dry clean; line dry in shade.
-            </p>
-          </div>
-        </div>
-
-        <!-- CENTER COLUMN: STICKY GALLERY OF ACTUAL TRIBECA PHOTOS -->
-        <div class="hw-pdp__center">
-          <div class="hw-pdp__main-media">
-            <img
-              class="js-pdp-main-img"
-              src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/42944944-2834-4141-9e1e-d2abcd74e90d/001034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg"
-              alt="Tribeca Skirt"
-            >
-          </div>
-
-          <div class="hw-pdp__media-caption-bar">
-            <span class="js-pdp-caption-left">STYLE: TRIBECA &middot; EMERALD SILK</span>
-            <span>HANDWOVEN IN INDIA</span>
-          </div>
-
-          <div class="hw-pdp__thumbs js-pdp-thumbs-rail">
-            <button
-              type="button"
-              class="hw-pdp__thumb active"
-              data-image-src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/42944944-2834-4141-9e1e-d2abcd74e90d/001034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg"
-              onclick="hwSelectProductImage(this)"
-            >
-              <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/42944944-2834-4141-9e1e-d2abcd74e90d/001034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg" alt="Tribeca View 1">
-            </button>
-            <button
-              type="button"
-              class="hw-pdp__thumb"
-              data-image-src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1739196356336-KNT5ZK14XF9A3FFNLL2S/034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w"
-              onclick="hwSelectProductImage(this)"
-            >
-              <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1739196356336-KNT5ZK14XF9A3FFNLL2S/034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w" alt="Tribeca View 2">
-            </button>
-            <button
-              type="button"
-              class="hw-pdp__thumb"
-              data-image-src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/178ae04a-638b-4b68-b167-aa7da9160b0d/035__HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w"
-              onclick="hwSelectProductImage(this)"
-            >
-              <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/178ae04a-638b-4b68-b167-aa7da9160b0d/035__HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w" alt="Tribeca View 3">
-            </button>
-            <button
-              type="button"
-              class="hw-pdp__thumb"
-              data-image-src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/d37cc784-75b8-4b37-976f-cd8a1befd013/005_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_TOKYO_SHIRT_SILK_ZARI.jpg?format=1500w"
-              onclick="hwSelectProductImage(this)"
-            >
-              <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/d37cc784-75b8-4b37-976f-cd8a1befd013/005_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_TOKYO_SHIRT_SILK_ZARI.jpg?format=1500w" alt="Tribeca View 4">
-            </button>
-          </div>
-        </div>
-
-        <!-- RIGHT COLUMN: TRIBECA VARIATIONS, SIZE & PURCHASE -->
-        <div class="hw-v1-right">
-          <div class="hw-pdp__price-block">
-            <span class="hw-pdp__price js-pdp-price">&euro;696 EUR</span>
-            <span class="hw-pdp__edition-tag">Limited By Nature</span>
-          </div>
-
-          <!-- ONLY ACTUAL TRIBECA SKIRT VARIATIONS -->
-          <div class="hw-variations-block">
-            <div class="hw-variations-header">
-              <span class="hw-variations-label">Tribeca Skirt</span>
-              <span class="hw-variations-active-name js-pdp-active-varname">Emerald Matka Silk</span>
-            </div>
-            <div class="hw-variations-rail">
-              <button
-                type="button"
-                class="hw-var-card is-active"
-                onclick="hwSelectTribecaProduct('emerald')"
-                data-key="emerald"
-              >
-                <div class="hw-var-thumb">
-                  <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/42944944-2834-4141-9e1e-d2abcd74e90d/001034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg" alt="Tribeca Emerald">
-                </div>
-                <span class="hw-var-name">Tribeca Emerald</span>
-                <span class="hw-var-sub">Changeant Matka Silk</span>
-              </button>
-
-              <button
-                type="button"
-                class="hw-var-card"
-                onclick="hwSelectTribecaProduct('checkerboard')"
-                data-key="checkerboard"
-              >
-                <div class="hw-var-thumb">
-                  <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1761396465263-0INBDHKVY8T2913ALOTW/001_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_AMMAN_SHIRT_LIMINAL_BYZANTINE_CHAIN.jpg?format=1500w" alt="Tribeca Checkerboard Navy">
-                </div>
-                <span class="hw-var-name">Tribeca Checkerboard</span>
-                <span class="hw-var-sub">Handspun Fine Cotton</span>
-              </button>
-            </div>
-          </div>
-
-          <form onsubmit="event.preventDefault(); hwDemoAddToBag();">
-            <div class="hw-pdp__size-block">
-              <div class="hw-pdp__size-top">
-                <span class="hw-pdp__field-label">
-                  Size &nbsp;&middot;&nbsp; <strong class="js-pdp-size-label">M</strong>
-                </span>
-                <button type="button" class="hw-pdp__size-guide-btn" onclick="hwOpenSizeGuide('demo')">
-                  Size Guide (XS&ndash;XL)
-                </button>
-              </div>
-              <div class="hw-pdp__size-grid">
-                <button type="button" class="hw-size-btn" data-size-title="XS" onclick="hwSelectSizeVariant(this)">XS</button>
-                <button type="button" class="hw-size-btn" data-size-title="S" onclick="hwSelectSizeVariant(this)">S</button>
-                <button type="button" class="hw-size-btn active" data-size-title="M" onclick="hwSelectSizeVariant(this)">M</button>
-                <button type="button" class="hw-size-btn" data-size-title="L" onclick="hwSelectSizeVariant(this)">L</button>
-                <button type="button" class="hw-size-btn" data-size-title="XL" onclick="hwSelectSizeVariant(this)">XL</button>
-              </div>
-            </div>
-
-            <button type="submit" class="hw-pdp__atc-btn js-pdp-atc" data-current-price="€696">
-              Add Size M to Bag &mdash; &euro;696
-            </button>
-          </form>
-
-          <a href="#contact" class="hw-pdp__appointment-link">
-            <span>Private Appointments &amp; Inquiries</span>
-            <span>&rarr;</span>
-          </a>
-
-          <div class="hw-right-notes">
-            <div class="hw-right-note-item">
-              <span class="hw-right-note-title">True Sustainability</span>
-              <p class="hw-right-note-desc">
-                Handspun and handwoven without electricity in limited quantities. Zero-waste studio practice; off-cuts become handmade rag hangtags.
-              </p>
-            </div>
-            <div class="hw-right-note-item">
-              <span class="hw-right-note-title">Artisanal Nuances &amp; Exchanges</span>
-              <p class="hw-right-note-desc">
-                Handwork naturally results in subtle variations cherished for their human touch. Exchanges for size within 7 days.
-              </p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ========================================================================
-         OPTION 2: MODERN 2-COLUMN ASYMMETRIC EDITORIAL LAYOUT
-         - Left: Multi-frame architectural lookbook of the active Tribeca Skirt
-         - Right: Single clear point of entry (Porter Medium Heading + Price),
-           Tribeca variations, Size/Bag, Angela's Story (Junicode Medium),
-           and Practical Details & Fibre to Garment (Noto Sans Mono Semi-Bold).
-         ======================================================================== -->
-    <section class="hw-v2-section hw-v2-only">
+    <section class="hw-v2-section">
       <div class="hw-v2-layout">
 
         <!-- LEFT: ARCHITECTURAL LOOKBOOK GALLERY OF ACTUAL TRIBECA SKIRT -->
@@ -1920,11 +1433,10 @@
 
       </div>
     </section>
-
   </div>
 
   <!-- ==========================================================================
-       MADE BY MASTERS VIEW (INTEGRATED HERITAGE ARCHIVE)
+       MADE BY MASTERS VIEW — WITH ALL 14 TECHNIQUE BUTTONS ON THE LEFT
        ========================================================================== -->
   <div id="HwMastersView" class="hw-page-view">
     <section class="hw-masters-page">
@@ -1933,27 +1445,44 @@
         <header class="hw-masters-intro">
           <button type="button" class="hw-masters-back" onclick="hwShowProductView()">
             <span>&larr;</span>
-            <span>Back to Tribeca Skirt</span>
+            <span>Back to Product Page</span>
           </button>
           <span class="hw-masters-eyebrow">HARTWICK &middot; HERITAGE CRAFT ARCHIVE</span>
           <h1 class="hw-masters-title">Made By Masters</h1>
           <p class="hw-masters-lead">
-            Textile History dates back to the beginning of human civilization. Hartwick specializes in hand spun and handwoven fabrics, natural and ayurvedic dyes, and exquisite heritage handwork relying on rare knowledge and the natural cycles of the sun, wind and rain.
+            Textile History dates back to the beginning of human civilization. Hartwick specializes in hand spun and handwoven fabrics, natural and ayurvedic dyes, and exquisite heritage handwork. These artisanal techniques rely on rare knowledge and the natural cycles of the sun, wind and rain.
+          </p>
+          <p class="hw-masters-nuance">
+            &ldquo;Handwork naturally results in variations. We cherish these nuances for their human touch.&rdquo;
           </p>
         </header>
 
-        <nav class="hw-masters-index-bar" aria-label="Made By Masters Techniques">
-          <button type="button" class="hw-masters-pill is-active" data-pill-slug="khadi" onclick="hwOpenMasterEntry('khadi')">01 &middot; Khadi</button>
-          <button type="button" class="hw-masters-pill" data-pill-slug="hand-spun" onclick="hwOpenMasterEntry('hand-spun')">02 &middot; Hand Spun</button>
-          <button type="button" class="hw-masters-pill" data-pill-slug="handwoven" onclick="hwOpenMasterEntry('handwoven')">03 &middot; Handwoven</button>
-          <button type="button" class="hw-masters-pill" data-pill-slug="natural-dye" onclick="hwOpenMasterEntry('natural-dye')">04 &middot; Natural Dye</button>
-          <button type="button" class="hw-masters-pill" data-pill-slug="block-printed" onclick="hwOpenMasterEntry('block-printed')">05 &middot; Block Printed By Hand</button>
-        </nav>
+        <div class="hw-masters-workbench">
 
-        <div class="hw-masters-grid">
+          <!-- LEFT COLUMN: VERTICAL TECHNIQUE BUTTONS ON THE LEFT -->
+          <nav class="hw-masters-left-nav" aria-label="Made By Masters Techniques">
+            <span class="hw-masters-left-nav__label">Heritage Techniques</span>
+            <button type="button" class="hw-masters-pill is-active" data-pill-slug="khadi" onclick="hwOpenMasterEntry('khadi')"><span>01 &middot; Khadi</span><span>&rarr;</span></button>
+            <button type="button" class="hw-masters-pill" data-pill-slug="hand-spun" onclick="hwOpenMasterEntry('hand-spun')"><span>02 &middot; Hand Spun</span><span>&rarr;</span></button>
+            <button type="button" class="hw-masters-pill" data-pill-slug="handwoven" onclick="hwOpenMasterEntry('handwoven')"><span>03 &middot; Handwoven</span><span>&rarr;</span></button>
+            <button type="button" class="hw-masters-pill" data-pill-slug="block-printed" onclick="hwOpenMasterEntry('block-printed')"><span>04 &middot; Block Printed by Hand</span><span>&rarr;</span></button>
+            <button type="button" class="hw-masters-pill" data-pill-slug="wooden-blocks" onclick="hwOpenMasterEntry('wooden-blocks')"><span>05 &middot; Wooden Blocks</span><span>&rarr;</span></button>
+            <button type="button" class="hw-masters-pill" data-pill-slug="natural-dye" onclick="hwOpenMasterEntry('natural-dye')"><span>06 &middot; Natural Dye</span><span>&rarr;</span></button>
+            <button type="button" class="hw-masters-pill" data-pill-slug="ajrakh" onclick="hwOpenMasterEntry('ajrakh')"><span>07 &middot; Ajrakh</span><span>&rarr;</span></button>
+            <button type="button" class="hw-masters-pill" data-pill-slug="ikat" onclick="hwOpenMasterEntry('ikat')"><span>08 &middot; Ikat</span><span>&rarr;</span></button>
+            <button type="button" class="hw-masters-pill" data-pill-slug="gota-patti" onclick="hwOpenMasterEntry('gota-patti')"><span>09 &middot; Gota Patti</span><span>&rarr;</span></button>
+            <button type="button" class="hw-masters-pill" data-pill-slug="jamdani" onclick="hwOpenMasterEntry('jamdani')"><span>10 &middot; Jamdani</span><span>&rarr;</span></button>
+            <button type="button" class="hw-masters-pill" data-pill-slug="banaras-brocade" onclick="hwOpenMasterEntry('banaras-brocade')"><span>11 &middot; Banaras Brocade</span><span>&rarr;</span></button>
+            <button type="button" class="hw-masters-pill" data-pill-slug="mashru-silk" onclick="hwOpenMasterEntry('mashru-silk')"><span>12 &middot; Mashru Silk</span><span>&rarr;</span></button>
+            <button type="button" class="hw-masters-pill" data-pill-slug="kora" onclick="hwOpenMasterEntry('kora')"><span>13 &middot; Kora</span><span>&rarr;</span></button>
+            <button type="button" class="hw-masters-pill" data-pill-slug="muga-silk" onclick="hwOpenMasterEntry('muga-silk')"><span>14 &middot; Muga Silk</span><span>&rarr;</span></button>
+          </nav>
+
+          <!-- CENTER COLUMN: ARCHIVAL VISUAL -->
           <aside class="hw-masters-visual">
             <div class="hw-masters-visual__frame">
               <img
+                id="HwGlossaryVisualImg"
                 src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/3a6786b9-45ce-459e-83cb-4bee1d2e3554/184_HARTWICK_STYLE_FABRIC4R1A8940.jpg"
                 alt="Made By Masters Archival Textile"
               >
@@ -1964,6 +1493,7 @@
             </div>
           </aside>
 
+          <!-- RIGHT COLUMN: ALL 14 VERBATIM CHAPTERS -->
           <div class="hw-masters-list">
             <article class="hw-m-item is-open" data-master-slug="khadi">
               <button type="button" class="hw-m-item__trigger" onclick="hwOpenMasterEntry('khadi')">
@@ -1977,7 +1507,8 @@
               <div class="hw-m-item__panel">
                 <div class="hw-m-item__inner">
                   <div class="hw-m-item__body">
-                    <p style="margin:0;">Wearing handspun and handwoven fabric has a different feeling than wearing industrially produced fabrics; handwoven natural fibres drape and breathe with a supple softness in a rhythm that can only be created by skilled human hands. From the harvest to the yarn to the weave, the material is made by hand without the use of machines, and without electricity.</p>
+                    <p>Khadi is made from handspun and handwoven natural fibers. From the harvest to the yarn to the weave, the material is made by hand without the use of electricity. It is a textile that holds the story of nature and sustainable economies, community and ancient craft.</p>
+                    <p>Wearing Khadi has a different feeling than wearing industrially produced fabrics &mdash; khadi drapes and breathes with a supple softness in a rhythm that can only be created by skilled human hands. The feeling is truly luxurious.</p>
                   </div>
                 </div>
               </div>
@@ -1995,7 +1526,7 @@
               <div class="hw-m-item__panel">
                 <div class="hw-m-item__inner">
                   <div class="hw-m-item__body">
-                    <p style="margin:0;">Hand spinning is an art form where natural fibers, such as cotton, wool or silk, are drawn out and twisted together by hand to form a yarn. Typically spun using a charkha (spinning wheel), it requires great skill to pull the fiber in a continuous rhythm into a strong, fine thread without breaking.</p>
+                    <p>Hand spinning is an art form where natural fibers, such as cotton, wool or silk, are drawn out and twisted together by hand to form a yarn. Typically spun using a charkha (spinning wheel), it requires great skill to pull the fiber in a continuous rhythm into a strong, fine thread without breaking.</p>
                   </div>
                 </div>
               </div>
@@ -2013,25 +1544,7 @@
               <div class="hw-m-item__panel">
                 <div class="hw-m-item__inner">
                   <div class="hw-m-item__body">
-                    <p style="margin:0;">Handloom weaving is a labour of love, patience, and rhythm. Threads are stretched across a wooden loom and interlaced by hand and foot pedals without electricity, creating a breathable, living textile with a subtle, human irregularity.</p>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="hw-m-item" data-master-slug="natural-dye">
-              <button type="button" class="hw-m-item__trigger" onclick="hwOpenMasterEntry('natural-dye')">
-                <span class="hw-m-item__num">04</span>
-                <div>
-                  <h2 class="hw-m-item__name">Natural Dye</h2>
-                  <span class="hw-m-item__sub">ANCIENT AYURVEDIC BOTANICAL &amp; MINERAL DYES</span>
-                </div>
-                <span>+</span>
-              </button>
-              <div class="hw-m-item__panel">
-                <div class="hw-m-item__inner">
-                  <div class="hw-m-item__body">
-                    <p style="margin:0;">Derived from locally sourced plants and minerals, natural dyes draw from thousands of years of Ayurvedic knowledge. Master Colorists use wild indigo, pomegranate bark and seeds, tamarind, turmeric, marigold, jaggery, ash, and iron—harmonizing with the sun, wind, and mineral-rich water.</p>
+                    <p>Handloom weaving is a labour of love, patience, and rhythm. Threads are stretched across a wooden loom and interlaced by hand and foot pedals without electricity, creating a breathable, living textile with a subtle, human irregularity.</p>
                   </div>
                 </div>
               </div>
@@ -2039,9 +1552,9 @@
 
             <article class="hw-m-item" data-master-slug="block-printed">
               <button type="button" class="hw-m-item__trigger" onclick="hwOpenMasterEntry('block-printed')">
-                <span class="hw-m-item__num">05</span>
+                <span class="hw-m-item__num">04</span>
                 <div>
-                  <h2 class="hw-m-item__name">Block Printed By Hand</h2>
+                  <h2 class="hw-m-item__name">Block Printed by Hand</h2>
                   <span class="hw-m-item__sub">PRINTED BY HAND USING HANDCARVED WOODEN BLOCKS</span>
                 </div>
                 <span>+</span>
@@ -2049,12 +1562,193 @@
               <div class="hw-m-item__panel">
                 <div class="hw-m-item__inner">
                   <div class="hw-m-item__body">
-                    <p style="margin:0;">The art of block printing by hand has been passed down from generation to generation. Master artisans carve intricate motifs into seasoned teakwood blocks and stamp each colour layer by hand with remarkable precision.</p>
+                    <p>In India, artisans have used hand carved wooden blocks to print on handwoven fabric for nearly four thousand years. Each block print started as a tree, then a wood block, carved by hand into sets of intricate patterns, dipped and stamped layer by layer, revealing ancient motifs of Earth and sky.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="hw-m-item" data-master-slug="wooden-blocks">
+              <button type="button" class="hw-m-item__trigger" onclick="hwOpenMasterEntry('wooden-blocks')">
+                <span class="hw-m-item__num">05</span>
+                <div>
+                  <h2 class="hw-m-item__name">Hand Carved Wooden Blocks</h2>
+                  <span class="hw-m-item__sub">EACH COLOR IN A PRINT IS LAYERED USING A DIFFERENT BLOCK FROM THE SET</span>
+                </div>
+                <span>+</span>
+              </button>
+              <div class="hw-m-item__panel">
+                <div class="hw-m-item__inner">
+                  <div class="hw-m-item__body">
+                    <p>For multi color prints, one wooden block must be carved by hand with tiny chisels for each color, creating a set of blocks for each design that will be used one at a time to layer the colors of the print.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="hw-m-item" data-master-slug="natural-dye">
+              <button type="button" class="hw-m-item__trigger" onclick="hwOpenMasterEntry('natural-dye')">
+                <span class="hw-m-item__num">06</span>
+                <div>
+                  <h2 class="hw-m-item__name">Natural Dye</h2>
+                  <span class="hw-m-item__sub">AYURVEDIC BOTANICALS &amp; MINERALS</span>
+                </div>
+                <span>+</span>
+              </button>
+              <div class="hw-m-item__panel">
+                <div class="hw-m-item__inner">
+                  <div class="hw-m-item__body">
+                    <p>Derived from locally sourced plants and minerals, natural dyes draw from thousands of years of Ayurvedic knowledge. Master Colorists use wild indigo, pomegranate bark and seeds, tamarind, turmeric, marigold, jaggery, ash, and iron—harmonizing with the sun, wind, and mineral-rich water.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="hw-m-item" data-master-slug="ajrakh">
+              <button type="button" class="hw-m-item__trigger" onclick="hwOpenMasterEntry('ajrakh')">
+                <span class="hw-m-item__num">07</span>
+                <div>
+                  <h2 class="hw-m-item__name">Ajrakh</h2>
+                  <span class="hw-m-item__sub">AJRAKH USES THE NATURAL RHYTHMS OF THE SUN, WIND, AND WATER</span>
+                </div>
+                <span>+</span>
+              </button>
+              <div class="hw-m-item__panel">
+                <div class="hw-m-item__inner">
+                  <div class="hw-m-item__body">
+                    <p>Using hand carved wooden blocks, Master Printers print each colour, layer by layer using resist dyeing techniques to create intricate interpretations of floral and celestial patterns. Each piece requires a minimum of 16 processes.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="hw-m-item" data-master-slug="ikat">
+              <button type="button" class="hw-m-item__trigger" onclick="hwOpenMasterEntry('ikat')">
+                <span class="hw-m-item__num">08</span>
+                <div>
+                  <h2 class="hw-m-item__name">Ikat</h2>
+                  <span class="hw-m-item__sub">TIED, DYED AND WOVEN</span>
+                </div>
+                <span>+</span>
+              </button>
+              <div class="hw-m-item__panel">
+                <div class="hw-m-item__inner">
+                  <div class="hw-m-item__body">
+                    <p>The defining characteristic of ikat is that the patterns are dyed onto the yarns before the fabric is woven through a masterful process of resist dyeing on either the warp or weft fibers, or on both.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="hw-m-item" data-master-slug="gota-patti">
+              <button type="button" class="hw-m-item__trigger" onclick="hwOpenMasterEntry('gota-patti')">
+                <span class="hw-m-item__num">09</span>
+                <div>
+                  <h2 class="hw-m-item__name">Gota Patti</h2>
+                  <span class="hw-m-item__sub">THE HISTORY OF GOTA PATTI CAN BE TRACED BACK TO THE 3RD CENTURY</span>
+                </div>
+                <span>+</span>
+              </button>
+              <div class="hw-m-item__panel">
+                <div class="hw-m-item__inner">
+                  <div class="hw-m-item__body">
+                    <p>Gota Patti is a type of Indian embroidery from Rajasthan originally used in garments for Rajput and Mughal royalty. Small pieces of zari ribbon are applied onto the fabric with the edges sewn down by hand.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="hw-m-item" data-master-slug="jamdani">
+              <button type="button" class="hw-m-item__trigger" onclick="hwOpenMasterEntry('jamdani')">
+                <span class="hw-m-item__num">10</span>
+                <div>
+                  <h2 class="hw-m-item__name">Jamdani</h2>
+                  <span class="hw-m-item__sub">UNESCO CULTURAL HERITAGE OF HUMANITY DESIGNATION 2013</span>
+                </div>
+                <span>+</span>
+              </button>
+              <div class="hw-m-item__panel">
+                <div class="hw-m-item__inner">
+                  <div class="hw-m-item__body">
+                    <p>Each motif is inlaid into the fabric by hand on the loom by adding denser threads to fine warp threads—declared a UNESCO Intangible Cultural Heritage of Humanity in 2013.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="hw-m-item" data-master-slug="banaras-brocade">
+              <button type="button" class="hw-m-item__trigger" onclick="hwOpenMasterEntry('banaras-brocade')">
+                <span class="hw-m-item__num">11</span>
+                <div>
+                  <h2 class="hw-m-item__name">Banaras Brocade</h2>
+                  <span class="hw-m-item__sub">RICHLY DECORATIVE HANDLOOM FABRICS OF VARANASI</span>
+                </div>
+                <span>+</span>
+              </button>
+              <div class="hw-m-item__panel">
+                <div class="hw-m-item__inner">
+                  <div class="hw-m-item__body">
+                    <p>Banaras brocade is a living skill practiced by master weavers in Varanasi, where special pattern threads and Zari (gold and silver threads) are transfixed between the warp and weft.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="hw-m-item" data-master-slug="mashru-silk">
+              <button type="button" class="hw-m-item__trigger" onclick="hwOpenMasterEntry('mashru-silk')">
+                <span class="hw-m-item__num">12</span>
+                <div>
+                  <h2 class="hw-m-item__name">Mashru Silk</h2>
+                  <span class="hw-m-item__sub">LUSTROUS SILK EXTERIOR WITH BREATHABLE COTTON BACKING</span>
+                </div>
+                <span>+</span>
+              </button>
+              <div class="hw-m-item__panel">
+                <div class="hw-m-item__inner">
+                  <div class="hw-m-item__body">
+                    <p>Mashru pairs a lustrous pure silk exterior with a fine layer of cotton on the backside against the skin, creating an exceptional softness and supple drape.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="hw-m-item" data-master-slug="kora">
+              <button type="button" class="hw-m-item__trigger" onclick="hwOpenMasterEntry('kora')">
+                <span class="hw-m-item__num">13</span>
+                <div>
+                  <h2 class="hw-m-item__name">Kora</h2>
+                  <span class="hw-m-item__sub">RAW AND UNBLEACHED PURE COTTON</span>
+                </div>
+                <span>+</span>
+              </button>
+              <div class="hw-m-item__panel">
+                <div class="hw-m-item__inner">
+                  <div class="hw-m-item__body">
+                    <p>Kora is raw and unbleached fabric, off-white in colour, much like the cotton ball in all its purity.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="hw-m-item" data-master-slug="muga-silk">
+              <button type="button" class="hw-m-item__trigger" onclick="hwOpenMasterEntry('muga-silk')">
+                <span class="hw-m-item__num">14</span>
+                <div>
+                  <h2 class="hw-m-item__name">Muga Silk</h2>
+                  <span class="hw-m-item__sub">RARE SHIMMERING GOLDEN SILK</span>
+                </div>
+                <span>+</span>
+              </button>
+              <div class="hw-m-item__panel">
+                <div class="hw-m-item__inner">
+                  <div class="hw-m-item__body">
+                    <p>Muga silk is rare and coveted, famous for its inherent shimmering, glossy texture and natural rich cream tone.</p>
                   </div>
                 </div>
               </div>
             </article>
           </div>
+
         </div>
 
       </div>
@@ -2090,23 +1784,7 @@
     </div>
   </div>
 
-  <!-- ==========================================================================
-       FLOATING OPTION SWITCHER BAR (OPTION 1 | OPTION 2)
-       ========================================================================== -->
-  <div class="hw-studio-switcher" id="HwStudioSwitcher">
-    <span class="hw-studio-switcher__label">Review Layout</span>
-    <button type="button" class="hw-studio-switcher__btn is-active" id="HwBtnV1" onclick="hwSwitchVersion('v1')">
-      Option 1 (3-Column)
-    </button>
-    <button type="button" class="hw-studio-switcher__btn" id="HwBtnV2" onclick="hwSwitchVersion('v2')">
-      Option 2 (2-Column Editorial)
-    </button>
-  </div>
-
   <script>
-    /* ==========================================================================
-       AUTHENTIC TRIBECA SKIRT PRODUCT DATA & PHOTOS FROM HARTWICK DATABASE
-       ========================================================================== */
     var TRIBECA_PRODUCTS = {
       emerald: {
         title: 'Tribeca Emerald',
@@ -2137,8 +1815,7 @@
         images: [
           'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/42944944-2834-4141-9e1e-d2abcd74e90d/001034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg',
           'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1739196356336-KNT5ZK14XF9A3FFNLL2S/034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w',
-          'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/178ae04a-638b-4b68-b167-aa7da9160b0d/035__HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w',
-          'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/d37cc784-75b8-4b37-976f-cd8a1befd013/005_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_TOKYO_SHIRT_SILK_ZARI.jpg?format=1500w'
+          'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/178ae04a-638b-4b68-b167-aa7da9160b0d/035__HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w'
         ]
       },
       checkerboard: {
@@ -2170,8 +1847,7 @@
         images: [
           'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1761396465263-0INBDHKVY8T2913ALOTW/001_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_AMMAN_SHIRT_LIMINAL_BYZANTINE_CHAIN.jpg?format=1500w',
           'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/22f420f3-d593-49c6-84c5-3274f1092a17/052_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_AMMAN_SHIRT_LIMINAL_BYZANTINE_CHAIN.jpg?format=1500w',
-          'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/85c5fbaa-c250-4600-a35d-0d4758ce944d/024_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_AMMAN_SHIRT_LIMINAL_BYZANTINE_CHAIN.jpg?format=1500w',
-          'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/7cc1a6d4-ab61-4929-a96b-e7c9e388ed54/002_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_TOKYO_SHIRT_IKAT_03.jpg?format=1500w'
+          'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/85c5fbaa-c250-4600-a35d-0d4758ce944d/024_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_AMMAN_SHIRT_LIMINAL_BYZANTINE_CHAIN.jpg?format=1500w'
         ]
       }
     };
@@ -2189,25 +1865,6 @@
     function hwToggleF2GRow(rowEl) {
       if (!rowEl) return;
       rowEl.classList.toggle('is-open');
-    }
-
-    function hwSelectProductImage(btn) {
-      var newSrc = btn.getAttribute('data-image-src');
-      if (!newSrc) return;
-      document.querySelectorAll('.js-pdp-main-img').forEach(function(img) {
-        img.classList.add('is-switching');
-        setTimeout(function() {
-          img.src = newSrc;
-          img.classList.remove('is-switching');
-        }, 140);
-      });
-      var container = btn.closest('.hw-pdp__thumbs');
-      if (container) {
-        container.querySelectorAll('.hw-pdp__thumb').forEach(function(b) {
-          b.classList.remove('active');
-        });
-        btn.classList.add('active');
-      }
     }
 
     function hwSelectTribecaProduct(key) {
@@ -2246,22 +1903,6 @@
         atcBtn.textContent = 'Add Size ' + activeSz + ' to Bag — ' + pData.priceShort;
       });
 
-      /* Update Option 1 Main Image + 4 Authentic Tribeca Thumbnails */
-      document.querySelectorAll('.js-pdp-main-img').forEach(function(mainImg) {
-        mainImg.classList.add('is-switching');
-        setTimeout(function() {
-          mainImg.src = pData.images[0];
-          mainImg.classList.remove('is-switching');
-        }, 140);
-      });
-
-      document.querySelectorAll('.js-pdp-thumbs-rail').forEach(function(rail) {
-        rail.innerHTML = pData.images.map(function(src, idx) {
-          return '<button type="button" class="hw-pdp__thumb ' + (idx === 0 ? 'active' : '') + '" data-image-src="' + src + '" onclick="hwSelectProductImage(this)"><img src="' + src + '" alt="Tribeca View ' + (idx + 1) + '"></button>';
-        }).join('');
-      });
-
-      /* Update Option 2 Lookbook Images */
       var img0 = document.querySelector('.js-v2-img-0');
       var img1 = document.querySelector('.js-v2-img-1');
       var img2 = document.querySelector('.js-v2-img-2');
@@ -2342,17 +1983,7 @@
       document.getElementById('HwProductView').classList.add('is-active-view');
       var navBtn = document.getElementById('HwNavMastersBtn');
       if (navBtn) navBtn.classList.remove('is-active');
-      document.querySelectorAll('.hw-studio-switcher__btn').forEach(function(b) {
-        b.classList.remove('is-active');
-      });
-      var curVer = document.body.getAttribute('data-version') || 'v1';
-      document.getElementById(curVer === 'v2' ? 'HwBtnV2' : 'HwBtnV1').classList.add('is-active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function hwSwitchVersion(ver) {
-      document.body.setAttribute('data-version', ver);
-      hwShowProductView();
     }
   </script>
 </body>
