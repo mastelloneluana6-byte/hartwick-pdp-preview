@@ -6,7 +6,7 @@
   <title>Hartwick — Complete Interactive Website Preview</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600;700&family=Noto+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=Montserrat:wght@400;500;600;700&family=Noto+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     @font-face {
       font-family: 'Junicode';
@@ -770,176 +770,377 @@
     }
 
     /* ==========================================================================
-       MADE BY MASTERS — NATURAL LEFT-TO-RIGHT READING FLOW:
-       [1. 14 Technique Buttons (Left)] -> [2. Story & Chapters (Center)] -> [3. Photo & Garments (Right)]
+       MADE BY MASTERS — EXACT DESIGN FROM SCREENSHOTS FLIPPED ANDERSOM (LEFT-TO-RIGHT):
+       [LEFT COLUMN: 14 Accordion Chapters + Story + "Pieces Crafted In..."]
+       [RIGHT COLUMN: Sticky Framed Archival Photo]
        ========================================================================== */
-    .hw-masters-wrap {
-      max-width: 1520px;
+    :root {
+      --hw-m-serif: 'Bodoni Moda', 'Didot', 'Playfair Display', Georgia, serif;
+      --hw-m-italic: 'Cormorant Garamond', Georgia, serif;
+      --hw-m-sans: 'Jost', 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+      --hw-m-ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --hw-m-silk: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .hw-masters-page {
+      background-color: #F6F3EC;
+      color: #181614;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 56px clamp(1.5rem, 5vw, 5.5rem) 96px;
+      font-family: var(--hw-m-sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    .hw-masters-shell {
+      width: 100%;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 36px 40px 90px;
     }
-    .hw-masters-hero {
-      text-align: left;
-      margin-bottom: 28px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      gap: 20px;
+    @keyframes hwImageBreath {
+      0% { transform: scale(1.06); filter: blur(4px); opacity: 0.25; }
+      100% { transform: scale(1); filter: blur(0px); opacity: 1; }
     }
-    .hw-masters-workbench {
-      display: grid;
-      grid-template-columns: 230px 1.15fr 0.95fr;
-      gap: 36px;
-      align-items: start;
-      border-top: 1px solid var(--hw-border);
-      padding-top: 28px;
+    .hw-masters-intro {
+      max-width: 760px;
+      margin: 0 auto 36px;
+      text-align: center;
     }
-    .hw-masters-left-nav {
-      position: sticky;
-      top: 90px;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      border-right: 1px solid var(--hw-border);
-      padding-right: 18px;
-    }
-    .hw-masters-nav-label {
-      font-family: var(--font-mono);
+    .hw-masters-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--hw-m-sans);
       font-size: 9px;
-      font-weight: 600;
+      font-weight: 400;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #787167;
+      background: none;
+      border: none;
+      border-bottom: 1px solid rgba(24, 22, 20, 0.22);
+      padding: 0 0 2px 0;
+      margin-bottom: 22px;
+      cursor: pointer;
+      transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s var(--hw-m-ease);
+    }
+    .hw-masters-back:hover {
+      color: #181614;
+      border-color: #181614;
+      transform: translateX(-3px);
+    }
+    .hw-masters-eyebrow {
+      display: block;
+      font-family: var(--hw-m-sans);
+      font-size: 9.5px;
+      font-weight: 400;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: #8C6A48;
+      margin-bottom: 12px;
+    }
+    .hw-masters-title {
+      font-family: var(--hw-m-serif);
+      font-size: clamp(1.85rem, 3.1vw, 2.75rem);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: 0.03em;
+      color: #181614;
+      margin: 0 0 20px 0;
+    }
+    .hw-masters-lead-p {
+      font-family: var(--hw-m-sans);
+      font-size: clamp(13px, 1.02vw, 14.5px);
+      font-weight: 300;
+      line-height: 1.82;
+      letter-spacing: 0.02em;
+      color: #3E3A35;
+      margin: 0 0 12px 0;
+    }
+    .hw-masters-nuance {
+      font-family: var(--hw-m-italic);
+      font-style: italic;
+      font-size: clamp(15.5px, 1.25vw, 18px);
+      font-weight: 400;
+      color: #6E5A49;
+      margin: 16px 0 0 0;
+    }
+    .hw-masters-index-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin: 0 auto 48px;
+      max-width: 980px;
+    }
+    .hw-masters-pill {
+      background: transparent;
+      border: 1px solid rgba(24, 22, 20, 0.16);
+      padding: 8px 14px;
+      font-family: var(--hw-m-sans);
+      font-size: 9.5px;
+      font-weight: 500;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--hw-light);
-      margin-bottom: 6px;
-    }
-    .hw-master-btn {
-      width: 100%;
-      text-align: left;
-      padding: 8px 11px;
-      background: #FFFFFF;
-      border: 1px solid var(--hw-border);
-      font-family: var(--font-mono);
-      font-size: 9.5px;
-      font-weight: 600;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-      color: var(--hw-muted);
-      display: flex;
-      justify-content: space-between;
+      color: #4A453E;
+      cursor: pointer;
+      display: inline-flex;
       align-items: center;
-      transition: all 0.16s;
+      gap: 8px;
+      transition: all 0.3s var(--hw-m-ease);
     }
-    .hw-master-btn:hover, .hw-master-btn.active {
-      background: var(--hw-ink);
-      color: #FAF7F2;
-      border-color: var(--hw-ink);
+    .hw-masters-pill:hover {
+      border-color: #181614;
+      color: #181614;
+      transform: translateY(-2px);
     }
-    .hw-masters-body {
-      background: #FFFFFF;
-      border: 1px solid var(--hw-border);
-      padding: 34px 36px;
-      text-align: left;
+    .hw-masters-pill.is-active {
+      background: #181614;
+      color: #FAF8F4;
+      border-color: #181614;
     }
-    .hw-masters-num {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--hw-accent);
-      margin-bottom: 6px;
-    }
-    .hw-masters-name {
-      font-family: var(--font-heading);
-      font-size: 30px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-    .hw-masters-sub {
-      font-family: var(--font-body);
-      font-size: 17px;
-      font-style: italic;
-      color: var(--hw-muted);
-      margin-bottom: 20px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--hw-border);
-    }
-    .hw-masters-lead {
-      font-family: var(--font-body);
-      font-size: 17px;
-      line-height: 1.7;
-      margin-bottom: 16px;
-      color: var(--hw-ink);
-    }
-    .hw-masters-p {
-      font-family: var(--font-body);
-      font-size: 15.5px;
-      line-height: 1.7;
-      color: var(--hw-muted);
-      margin-bottom: 14px;
+    /* 2-COLUMN LAYOUT ANDERSOM: LEFT = ACCORDION CHAPTERS + TEXT + GARMENTS, RIGHT = STICKY FRAMED PHOTO */
+    .hw-masters-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.62fr) minmax(280px, 0.38fr);
+      gap: clamp(2.2rem, 4.5vw, 4.5rem);
+      align-items: start;
     }
     .hw-masters-visual {
       position: sticky;
-      top: 90px;
+      top: 110px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
-    .hw-masters-visual-frame {
-      aspect-ratio: 4 / 4.8;
-      background: #EFECE5;
+    .hw-masters-visual__frame {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: #E8E2D7;
       overflow: hidden;
-      margin-bottom: 14px;
-      border: 1px solid var(--hw-border);
+      position: relative;
+      box-shadow: 0 18px 40px -18px rgba(24, 22, 20, 0.14);
     }
-    .hw-masters-visual-frame img {
+    .hw-masters-visual__frame::after {
+      content: '';
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(250, 248, 244, 0.32);
+      pointer-events: none;
+      transition: inset 0.6s var(--hw-m-ease);
+    }
+    .hw-masters-visual__frame:hover::after { inset: 14px; }
+    .hw-masters-visual__frame img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: opacity 0.55s var(--hw-m-silk), transform 1.6s var(--hw-m-ease);
     }
-    .hw-masters-meta-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      background: #FFFFFF;
-      border: 1px solid var(--hw-border);
-      padding: 14px;
-      margin-bottom: 18px;
-    }
-    .hw-masters-meta-k {
-      font-family: var(--font-mono);
+    .hw-masters-visual__frame:hover img { transform: scale(1.045); }
+    .hw-masters-visual__frame img.is-switching { animation: hwImageBreath 0.65s var(--hw-m-silk) forwards; }
+    .hw-masters-visual__caption {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-family: var(--hw-m-sans);
       font-size: 8.5px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--hw-light);
-      margin-bottom: 3px;
+      color: #787167;
+      padding-top: 6px;
+      border-top: 1px solid rgba(24, 22, 20, 0.12);
     }
-    .hw-masters-meta-v {
-      font-family: var(--font-mono);
-      font-size: 10.5px;
-      font-weight: 600;
-      color: var(--hw-ink);
+    .hw-masters-list {
+      border-top: 1px solid rgba(24, 22, 20, 0.14);
     }
-    .hw-masters-garments {
-      margin-top: 24px;
-      padding-top: 20px;
-      border-top: 1px solid var(--hw-border);
+    .hw-m-item {
+      position: relative;
+      border-bottom: 1px solid rgba(24, 22, 20, 0.12);
+      scroll-margin-top: 110px;
+      transition: background-color 0.4s ease, padding-left 0.4s var(--hw-m-ease);
     }
-    .hw-masters-garments-title {
-      font-family: var(--font-mono);
-      font-size: 9.5px;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--hw-ink);
-      margin-bottom: 14px;
+    .hw-m-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 18px;
+      bottom: 18px;
+      width: 1.5px;
+      background: #8C6A48;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.5s var(--hw-m-silk);
     }
-    .hw-masters-garments-grid {
+    .hw-m-item.is-open::before { transform: scaleY(1); }
+    .hw-m-item.is-open {
+      padding-left: 14px;
+      background: linear-gradient(90deg, rgba(140, 106, 72, 0.035) 0%, rgba(246, 243, 236, 0) 65%);
+    }
+    .hw-m-item__trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 22px 0;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-      gap: 14px;
+      grid-template-columns: 34px 1fr auto;
+      align-items: baseline;
+      gap: 12px;
+      text-align: left;
+      cursor: pointer;
+      color: #181614;
+      transition: opacity 0.25s ease;
+    }
+    .hw-m-item__trigger:hover { opacity: 0.78; }
+    .hw-m-item__trigger:hover .hw-m-item__name { transform: translateX(4px); }
+    .hw-m-item__num {
+      font-family: var(--hw-m-sans);
+      font-size: 9.5px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      color: #8C6A48;
+    }
+    .hw-m-item.is-open .hw-m-item__num { color: #181614; font-weight: 500; }
+    .hw-m-item__headings { display: flex; flex-direction: column; gap: 4px; }
+    .hw-m-item__name {
+      font-family: var(--hw-m-serif);
+      font-size: clamp(1.15rem, 1.5vw, 1.4rem);
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      color: #181614;
+      margin: 0;
+      transition: transform 0.4s var(--hw-m-ease);
+    }
+    .hw-m-item__sub {
+      font-family: var(--hw-m-sans);
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #787167;
+    }
+    .hw-m-item.is-open .hw-m-item__sub { color: #8C6A48; }
+    .hw-m-item__icon {
+      font-family: var(--hw-m-sans);
+      font-size: 16px;
+      font-weight: 300;
+      color: #181614;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      transition: transform 0.5s var(--hw-m-silk), background-color 0.35s ease, color 0.35s ease;
+    }
+    .hw-m-item.is-open .hw-m-item__icon {
+      transform: rotate(135deg);
+      background-color: #181614;
+      color: #FAF8F4;
+    }
+    .hw-m-item__panel {
+      display: grid;
+      grid-template-rows: 0fr;
+      opacity: 0;
+      transition: grid-template-rows 0.55s var(--hw-m-silk), opacity 0.45s var(--hw-m-silk);
+    }
+    .hw-m-item.is-open .hw-m-item__panel {
+      grid-template-rows: 1fr;
+      opacity: 1;
+    }
+    .hw-m-item__inner { overflow: hidden; }
+    .hw-m-item__content {
+      padding: 2px 0 28px 46px;
+    }
+    .hw-m-item__body p {
+      font-family: var(--hw-m-sans);
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.82;
+      letter-spacing: 0.02em;
+      color: #36322D;
+      margin: 0 0 12px 0;
+      max-width: 620px;
+    }
+    .hw-m-item__body p:last-child { margin-bottom: 0; }
+    .hw-m-item__body em {
+      font-family: var(--hw-m-italic);
+      font-style: italic;
+      font-size: 15px;
+      color: #6E5A49;
+    }
+    .hw-m-garments {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(24, 22, 20, 0.08);
+    }
+    .hw-m-garments__label {
+      display: block;
+      font-family: var(--hw-m-sans);
+      font-size: 8.5px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #8C6A48;
+      margin-bottom: 12px;
+    }
+    .hw-m-garments__grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 118px));
+      gap: 12px;
+    }
+    .hw-m-garment-card {
+      text-decoration: none;
+      color: #181614;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      transition: transform 0.4s var(--hw-m-ease);
+    }
+    .hw-m-garment-card:hover { transform: translateY(-3px); }
+    .hw-m-garment-card__img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: #EAE4D9;
+      overflow: hidden;
+    }
+    .hw-m-garment-card__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.75s var(--hw-m-ease);
+    }
+    .hw-m-garment-card:hover .hw-m-garment-card__img img { transform: scale(1.06); }
+    .hw-m-garment-card__title {
+      font-family: var(--hw-m-sans);
+      font-size: 8.5px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #2B2723;
+      line-height: 1.3;
+    }
+    .hw-masters-dyes {
+      margin-top: 64px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(24, 22, 20, 0.12);
+      text-align: center;
+    }
+    .hw-masters-dyes__grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 18px;
+      max-width: 820px;
+      margin: 20px auto 0;
+    }
+    .hw-masters-dye-tag {
+      font-family: var(--hw-m-serif);
+      font-style: italic;
+      font-size: 15px;
+      color: #3E3A35;
+      padding: 4px 10px;
+      border-bottom: 1px solid rgba(140, 106, 72, 0.3);
     }
 
     /* ==========================================================================
@@ -1146,8 +1347,8 @@
       .hw-product-grid { grid-template-columns: repeat(2, 1fr); }
       .hw-v2-grid { grid-template-columns: 1fr; }
       .hw-v2-panel { position: static; }
-      .hw-masters-workbench { grid-template-columns: 1fr; }
-      .hw-masters-left-nav, .hw-masters-visual { position: static; border-right: none; padding-right: 0; }
+      .hw-masters-grid { grid-template-columns: 1fr; }
+      .hw-masters-visual { position: static; max-width: 420px; margin: 0 auto 20px; }
       .hw-story-grid, .hw-sqs-footer-main { grid-template-columns: 1fr 1fr; }
       .hw-sqs-ig-grid { grid-template-columns: repeat(3, 1fr); }
     }
@@ -1354,57 +1555,74 @@
   </section>
 
   <!-- ==========================================================================
-       VIEW 3: MADE BY MASTERS — NATURAL LEFT-TO-RIGHT READING FLOW:
-       [1. 14 Buttons (Left)] -> [2. Story & Chapters (Middle)] -> [3. Archival Photo & Garments (Right)]
+       VIEW 3: MADE BY MASTERS — EXACT DESIGN FROM SCREENSHOTS FLIPPED ANDERSOM:
+       [LEFT: 14 Accordion Chapters + Story + "Pieces Crafted In..."]
+       [RIGHT: Sticky Framed Archival Photo]
        ========================================================================== -->
   <section id="view-masters" class="hw-view">
-    <div class="hw-masters-wrap">
-      <div class="hw-masters-hero">
-        <div>
-          <div class="hw-collection-kicker" style="text-align:left; font-family:var(--font-mono); font-size:9.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--hw-accent); margin-bottom:6px;">The Living Craft Glossary</div>
-          <h1 style="font-family:var(--font-heading); font-size:32px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase;">Made By Masters</h1>
-        </div>
-        <button class="hw-v2-atc" id="masters-return-btn" onclick="openProduct(currentProduct ? currentProduct.id : 1)">← Return to Tribeca Emerald</button>
-      </div>
+    <div class="hw-masters-page" id="glossary">
+      <div class="hw-masters-shell">
 
-      <div class="hw-masters-workbench">
-        <!-- 1. LEFT COLUMN: All 14 Technique Buttons -->
-        <aside class="hw-masters-left-nav">
-          <div class="hw-masters-nav-label">1. Select Technique</div>
-          <div id="masters-btn-list" style="display:flex; flex-direction:column; gap:5px;"></div>
-        </aside>
+        <!-- 1. EDITORIAL INTRO -->
+        <header class="hw-masters-intro">
+          <button type="button" class="hw-masters-back" id="masters-return-btn" onclick="openProduct(currentProduct ? currentProduct.id : 1)">
+            <span>← RETURN TO PREVIOUS PAGE</span>
+          </button>
+          <span class="hw-masters-eyebrow">HARTWICK ATELIER &middot; MADE BY MASTERS</span>
+          <h1 class="hw-masters-title">The Heritage Glossary</h1>
+          <p class="hw-masters-lead-p">
+            Textile History dates back to the beginning of human civilization. Hartwick Atelier specializes in hand spun and handwoven fabrics, natural and ayurvedic dyes, and exquisite heritage handwork. These artisanal techniques rely on rare knowledge and the natural cycles of the sun, wind and rain.
+          </p>
+          <p class="hw-masters-lead-p">
+            Each handcrafted piece in the collection is a glimpse into the rich history, intricate process, and generations of skill that have gone into its creation.
+          </p>
+          <p class="hw-masters-nuance">
+            &ldquo;Handwork naturally results in variations. We cherish these nuances for their human touch.&rdquo;
+          </p>
+        </header>
 
-        <!-- 2. CENTER COLUMN: Narrative Story & Chapters (Read directly left-to-right from buttons!) -->
-        <div class="hw-masters-body">
-          <div class="hw-masters-num" id="master-num"></div>
-          <h2 class="hw-masters-name" id="master-name"></h2>
-          <div class="hw-masters-sub" id="master-sub"></div>
-          <p class="hw-masters-lead" id="master-lead"></p>
-          <p class="hw-masters-p" id="master-c1"></p>
-          <p class="hw-masters-p" id="master-c2"></p>
+        <!-- 2. HORIZONTAL INDEX PILLS -->
+        <nav class="hw-masters-index-bar" id="masters-pill-bar" aria-label="Made By Masters Techniques"></nav>
 
-          <div class="hw-masters-garments">
-            <div class="hw-masters-garments-title" id="master-garments-title">Pieces Crafted With This Technique — Click to Complete the Circle</div>
-            <div class="hw-masters-garments-grid" id="master-garments-grid"></div>
-          </div>
-        </div>
+        <!-- 3. 2-COLUMN LAYOUT ANDERSOM: LEFT = ACCORDION CHAPTERS + TEXT + GARMENTS, RIGHT = STICKY FRAMED PHOTO -->
+        <div class="hw-masters-grid">
 
-        <!-- 3. RIGHT COLUMN: Archival Photo + Provenance Metadata -->
-        <div class="hw-masters-visual">
-          <div class="hw-masters-visual-frame">
-            <img id="master-img" src="" alt="Craft Lineage" />
-          </div>
-          <div class="hw-masters-meta-grid">
-            <div>
-              <div class="hw-masters-meta-k">Craft Region</div>
-              <div class="hw-masters-meta-v" id="master-region"></div>
+          <!-- LEFT COLUMN: ALL 14 VERBATIM GLOSSARY CHAPTERS + PIECES CRAFTED IN... -->
+          <div class="hw-masters-list" id="masters-accordion-list"></div>
+
+          <!-- RIGHT COLUMN: STICKY ARCHIVAL PHOTO -->
+          <aside class="hw-masters-visual">
+            <div class="hw-masters-visual__frame">
+              <img id="HwMastersActiveImg" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/3a6786b9-45ce-459e-83cb-4bee1d2e3554/184_HARTWICK_STYLE_FABRIC4R1A8940.jpg" alt="Hartwick Heritage Craft">
             </div>
-            <div>
-              <div class="hw-masters-meta-k">Time & Energy</div>
-              <div class="hw-masters-meta-v" id="master-hours"></div>
+            <div class="hw-masters-visual__caption">
+              <span id="HwMastersActiveLabel">01 &middot; KHADI</span>
+              <span>MADE BY MASTERS</span>
             </div>
+          </aside>
+
+        </div>
+
+        <!-- 4. BOTANICAL & MINERAL DYES INDEX -->
+        <div class="hw-masters-dyes">
+          <span class="hw-masters-eyebrow">LIVING ALCHEMY &middot; AYURVEDIC BOTANICALS &amp; MINERALS</span>
+          <h2 class="hw-masters-title" style="font-size: clamp(1.35rem, 2.1vw, 1.85rem); margin-bottom: 8px;">Natural Dyes in Our Collection</h2>
+          <div class="hw-masters-dyes__grid">
+            <span class="hw-masters-dye-tag">Wild Indigo</span>
+            <span class="hw-masters-dye-tag">Henna</span>
+            <span class="hw-masters-dye-tag">Turmeric</span>
+            <span class="hw-masters-dye-tag">Marigold</span>
+            <span class="hw-masters-dye-tag">Pomegranate Bark &amp; Seeds</span>
+            <span class="hw-masters-dye-tag">Tamarind</span>
+            <span class="hw-masters-dye-tag">Madder Root</span>
+            <span class="hw-masters-dye-tag">Jaggery</span>
+            <span class="hw-masters-dye-tag">Rhubarb Root</span>
+            <span class="hw-masters-dye-tag">Iron</span>
+            <span class="hw-masters-dye-tag">Wood Ash</span>
+            <span class="hw-masters-dye-tag">River Mud &amp; Red Clay</span>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -1821,7 +2039,100 @@
       if (btn) btn.classList.add('active');
     }
 
-    function openMasters(masterId) {
+    function buildMasterAccordionOnce() {
+      const pillBar = document.getElementById('masters-pill-bar');
+      const accList = document.getElementById('masters-accordion-list');
+      if (!pillBar || !accList || accList.children.length > 0) return;
+
+      pillBar.innerHTML = MASTERS.map((item, idx) => `
+        <button type="button" class="hw-masters-pill ${idx === 0 ? 'is-active' : ''}" data-master-id="${item.id}" onclick="openMasters('${item.id}', true)">
+          <span>${item.num} &middot; ${item.name}</span>
+        </button>
+      `).join('');
+
+      accList.innerHTML = MASTERS.map((item, idx) => {
+        let matching = PRODUCTS.filter(p => p.masterId === item.id);
+        if (matching.length === 0) {
+          const kw = item.name.toLowerCase().split(' ')[0];
+          matching = PRODUCTS.filter(p => (p.technique + ' ' + p.fibre + ' ' + p.commercial + ' ' + p.tags).toLowerCase().includes(kw));
+        }
+        if (matching.length === 0) matching = PRODUCTS.slice(0, 4);
+        const top4 = matching.slice(0, 4);
+
+        const garmentsHtml = `
+          <div class="hw-m-garments">
+            <span class="hw-m-garments__label">PIECES CRAFTED IN ${item.name.toUpperCase()}</span>
+            <div class="hw-m-garments__grid">
+              ${top4.map(prod => `
+                <a class="hw-m-garment-card" onclick="openProduct(${prod.id})">
+                  <div class="hw-m-garment-card__img">
+                    <img src="${prod.imgs[0]}" alt="${prod.title}" loading="lazy">
+                  </div>
+                  <span class="hw-m-garment-card__title">${prod.title}</span>
+                </a>
+              `).join('')}
+            </div>
+          </div>
+        `;
+
+        return `
+          <article class="hw-m-item ${idx === 0 ? 'is-open' : ''}" id="master-acc-${item.id}" data-master-id="${item.id}" data-img="${item.img}" data-title="${item.num} · ${item.name.toUpperCase()}">
+            <button type="button" class="hw-m-item__trigger" onclick="toggleMasterAccordion('${item.id}')">
+              <span class="hw-m-item__num">${item.num}</span>
+              <div class="hw-m-item__headings">
+                <h2 class="hw-m-item__name">${item.name}</h2>
+                <span class="hw-m-item__sub">${item.sub}</span>
+              </div>
+              <span class="hw-m-item__icon">+</span>
+            </button>
+            <div class="hw-m-item__panel">
+              <div class="hw-m-item__inner">
+                <div class="hw-m-item__content">
+                  <div class="hw-m-item__body">
+                    <p><strong>${item.name.toUpperCase()}:</strong> ${item.lead}</p>
+                    <p>${item.c1}</p>
+                    <p>${item.c2}</p>
+                    <p><em>Handwork naturally results in variations. We cherish these nuances for their human touch.</em></p>
+                  </div>
+                  ${garmentsHtml}
+                </div>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function syncMasterPhoto(m) {
+      const imgEl = document.getElementById('HwMastersActiveImg');
+      const lblEl = document.getElementById('HwMastersActiveLabel');
+      if (imgEl && m.img && imgEl.src !== m.img) {
+        imgEl.classList.remove('is-switching');
+        void imgEl.offsetWidth;
+        imgEl.src = m.img;
+        imgEl.classList.add('is-switching');
+      }
+      if (lblEl) {
+        lblEl.textContent = m.num + ' · ' + m.name.toUpperCase();
+      }
+    }
+
+    function toggleMasterAccordion(masterId) {
+      const m = MASTERS.find(x => x.id === masterId) || MASTERS[0];
+      const article = document.getElementById('master-acc-' + m.id);
+      if (!article) return;
+      const isOpen = article.classList.toggle('is-open');
+      if (isOpen) {
+        syncMasterPhoto(m);
+        document.getElementById('circle-master-name').textContent = m.name;
+        document.querySelectorAll('.hw-masters-pill').forEach(p => {
+          p.classList.toggle('is-active', p.getAttribute('data-master-id') === m.id);
+        });
+      }
+    }
+
+    function openMasters(masterId, scrollToItem) {
+      buildMasterAccordionOnce();
       setActiveNav('nav-masters');
       setActiveCircle('circle-masters');
       const m = MASTERS.find(x => x.id === masterId) || MASTERS[0];
@@ -1829,46 +2140,27 @@
 
       const retBtn = document.getElementById('masters-return-btn');
       if (retBtn && currentProduct) {
-        retBtn.textContent = '← Return to ' + currentProduct.title;
+        retBtn.innerHTML = '<span>← RETURN TO ' + currentProduct.title.toUpperCase() + '</span>';
       }
 
-      document.getElementById('masters-btn-list').innerHTML = MASTERS.map(item => `
-        <button class="hw-master-btn ${item.id === m.id ? 'active' : ''}" onclick="openMasters('${item.id}')">
-          <span>${item.num} · ${item.name}</span>
-          <span>→</span>
-        </button>
-      `).join('');
+      document.querySelectorAll('.hw-masters-pill').forEach(p => {
+        p.classList.toggle('is-active', p.getAttribute('data-master-id') === m.id);
+      });
 
-      document.getElementById('master-img').src = m.img;
-      document.getElementById('master-region').textContent = m.region;
-      document.getElementById('master-hours').textContent = m.hours;
-      document.getElementById('master-num').textContent = 'ARCHIVE DOSSIER NO. ' + m.num;
-      document.getElementById('master-name').textContent = m.name;
-      document.getElementById('master-sub').textContent = m.sub;
-      document.getElementById('master-lead').textContent = m.lead;
-      document.getElementById('master-c1').textContent = m.c1;
-      document.getElementById('master-c2').textContent = m.c2;
-
-      let matching = PRODUCTS.filter(p => p.masterId === m.id);
-      if (matching.length === 0) {
-        const kw = m.name.toLowerCase().split(' ')[0];
-        matching = PRODUCTS.filter(p => (p.technique + ' ' + p.fibre + ' ' + p.commercial + ' ' + p.tags).toLowerCase().includes(kw));
+      const targetArticle = document.getElementById('master-acc-' + m.id);
+      if (targetArticle && !targetArticle.classList.contains('is-open')) {
+        targetArticle.classList.add('is-open');
       }
-      if (matching.length === 0) matching = PRODUCTS.slice(0, 4);
-
-      document.getElementById('master-garments-title').textContent = `Pieces Crafted With ${m.name} — Click Any Piece to Return to Product`;
-      document.getElementById('master-garments-grid').innerHTML = matching.slice(0, 8).map(item => `
-        <div style="cursor:pointer;" onclick="openProduct(${item.id})">
-          <div style="aspect-ratio:3/4; background:#EFECE5; overflow:hidden; margin-bottom:6px; border:1px solid var(--hw-border);">
-            <img src="${item.imgs[0]}" alt="${item.title}" style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy" />
-          </div>
-          <div style="font-family:var(--font-heading); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--hw-ink);">${item.styleHead}</div>
-          <div style="font-family:var(--font-mono); font-size:8.5px; text-transform:uppercase; color:var(--hw-muted);">${item.variantSub}</div>
-        </div>
-      `).join('');
+      syncMasterPhoto(m);
 
       openView('masters');
       history.replaceState(null, '', '#masters/' + m.id);
+
+      if (scrollToItem && targetArticle) {
+        setTimeout(() => {
+          targetArticle.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 80);
+      }
     }
 
     function addCurrentToBag() {
