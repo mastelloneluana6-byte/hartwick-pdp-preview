@@ -26,22 +26,22 @@
 
     
     :root {
-      --hw-bg: #FAF7F2;
-      --hw-bg-alt: #F3EFE6;
-      --hw-surface-soft: #F6F3EC;
-      --hw-card: #FFFFFF;
-      --hw-ink: #1C1A17;
-      --hw-muted: #5A4B40;
-      --hw-light: #8A7B70;
+      --hw-bg: #EDE5D8;
+      --hw-bg-alt: #E5DCCD;
+      --hw-surface-soft: #F3EDE2;
+      --hw-card: #F3EDE2;
+      --hw-ink: #241914;
+      --hw-muted: #3B2E25;
+      --hw-light: #6E5D4F;
       --hw-accent: #3B2314;
-      --hw-accent-secondary: #4E301D;
-      --hw-border: rgba(59, 35, 20, 0.14);
-      --hw-border-strong: rgba(59, 35, 20, 0.36);
-      --hw-header-bg: rgba(250, 247, 242, 0.97);
-      --hw-masters-bg: #F6F3EC;
-      --hw-footer-bg: #FAF7F2;
-      --hw-footer-ink: #1C1A17;
-      --hw-footer-border: rgba(59, 35, 20, 0.14);
+      --hw-accent-secondary: #282924;
+      --hw-border: rgba(36, 25, 20, 0.16);
+      --hw-border-strong: rgba(36, 25, 20, 0.38);
+      --hw-header-bg: rgba(237, 229, 216, 0.96);
+      --hw-masters-bg: #EDE5D8;
+      --hw-footer-bg: #EDE5D8;
+      --hw-footer-ink: #241914;
+      --hw-footer-border: rgba(36, 25, 20, 0.18);
       --font-heading: 'Porter', 'Porter Medium', 'Cormorant Garamond', Georgia, serif;
       --font-body: 'Junicode', 'EB Garamond', Georgia, serif;
       --font-mono: 'Noto Sans Mono', monospace;
@@ -91,7 +91,7 @@
     .hw-nav-right { justify-content: flex-end; }
     .hw-header-subbar-v2 {
       border-top: 1px solid var(--hw-border);
-      background: rgba(246, 243, 236, 0.65);
+      background: rgba(237, 229, 216, 0.85);
     }
     .hw-header-subbar-v2-inner {
       max-width: 1540px;
@@ -480,9 +480,9 @@
       margin-bottom: 3px;
     }
     .hw-card-variant-line {
-      font-family: 'Montserrat', var(--font-mono), sans-serif;
-      font-size: 11px;
-      font-weight: 400;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--hw-muted);
@@ -539,10 +539,11 @@
     .hw-v2-panel {
       position: sticky;
       top: 90px;
-      background: #FFFFFF;
-      border: 1px solid var(--hw-border);
-      padding: 32px 34px;
-      box-shadow: 0 20px 50px -28px rgba(28, 26, 23, 0.08);
+      background: transparent;
+      border: none;
+      border-top: 1px solid var(--hw-border-strong);
+      padding: 24px 0 8px 0;
+      box-shadow: none;
       animation: hwDossierSlide 0.75s var(--hw-ease-silk) 0.08s both;
     }
     .hw-v2-breadcrumb {
@@ -584,15 +585,16 @@
       font-family: var(--font-heading);
       font-size: clamp(22px, 2.2vw, 30px);
       font-weight: 500;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       line-height: 1.15;
       color: var(--hw-ink);
     }
     .hw-v2-price {
-      font-family: var(--font-heading);
-      font-size: 21px;
+      font-family: var(--font-mono);
+      font-size: 15px;
       font-weight: 500;
+      letter-spacing: 0.06em;
       color: var(--hw-ink);
       white-space: nowrap;
     }
@@ -813,9 +815,17 @@
       transition: max-height 0.3s ease, opacity 0.25s ease, padding-bottom 0.25s ease;
     }
     .hw-collapsible-block.open .hw-collapsible-body {
-      max-height: 360px;
+      max-height: 920px;
       opacity: 1;
       padding-bottom: 16px;
+    }
+    .hw-mono-spec-p {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--hw-ink);
+      margin: 0;
     }
     .hw-v2-bullets {
       list-style: none;
@@ -1311,11 +1321,12 @@
 
     /* ==========================================================================
        OUR STORY (100% VERBATIM CHRONOLOGICAL ARCHIVE) & LUXURY CONCIERGE CONTACT
+       STRICT BRAND GUIDELINE TYPE HIERARCHY: PORTER / JUNICODE / NOTO SANS MONO
        ========================================================================== */
     :root {
-      --hw-st-serif: 'Bodoni Moda', 'Didot', 'Playfair Display', Georgia, serif;
-      --hw-st-italic: 'Cormorant Garamond', Georgia, serif;
-      --hw-st-sans: 'Jost', 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+      --hw-st-serif: var(--font-heading);
+      --hw-st-italic: var(--font-body);
+      --hw-st-sans: var(--font-mono);
       --hw-st-silk: cubic-bezier(0.22, 1, 0.36, 1);
     }
     .hw-story {
@@ -1324,7 +1335,7 @@
       width: 100%;
       box-sizing: border-box;
       padding: 56px clamp(1.5rem, 5vw, 5.5rem) 104px;
-      font-family: var(--hw-st-sans);
+      font-family: var(--font-body);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
@@ -1339,29 +1350,30 @@
     }
     .hw-story__eyebrow {
       display: inline-block;
-      font-family: var(--hw-st-sans);
+      font-family: var(--font-mono);
       font-size: 9.5px;
-      font-weight: 400;
-      letter-spacing: 0.34em;
+      font-weight: 500;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--hw-accent);
       margin-bottom: 16px;
     }
     .hw-story__title {
-      font-family: var(--hw-st-serif);
-      font-size: clamp(2.2rem, 4vw, 3.6rem);
-      font-weight: 400;
-      line-height: 1.08;
-      letter-spacing: 0.02em;
+      font-family: var(--font-heading);
+      font-size: clamp(2.1rem, 3.6vw, 3.2rem);
+      font-weight: 500;
+      line-height: 1.12;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: var(--hw-ink);
       margin: 0 0 22px 0;
     }
     .hw-story__subtitle {
-      font-family: var(--hw-st-italic);
+      font-family: var(--font-body);
       font-style: italic;
-      font-size: clamp(1.2rem, 1.65vw, 1.5rem);
+      font-size: clamp(1.2rem, 1.65vw, 1.48rem);
       font-weight: 400;
-      line-height: 1.55;
+      line-height: 1.58;
       color: var(--hw-muted);
       margin: 0 0 24px 0;
       max-width: 520px;
@@ -1370,9 +1382,10 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px 18px;
-      font-family: var(--hw-st-sans);
+      font-family: var(--font-mono);
       font-size: 9px;
-      letter-spacing: 0.24em;
+      font-weight: 500;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--hw-light);
       padding-top: 18px;
@@ -1398,7 +1411,7 @@
       position: sticky;
       top: 58px;
       z-index: 15;
-      background: rgba(250, 247, 242, 0.94);
+      background: rgba(237, 229, 216, 0.94);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       display: flex;
@@ -1512,11 +1525,12 @@
       margin-bottom: 8px;
     }
     .hw-chapter__year {
-      font-family: var(--hw-st-serif);
-      font-size: clamp(2rem, 3.2vw, 3rem);
-      font-weight: 400;
-      line-height: 1.05;
-      letter-spacing: 0.03em;
+      font-family: var(--font-heading);
+      font-size: clamp(1.85rem, 2.8vw, 2.6rem);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: var(--hw-ink);
       margin: 0 0 18px 0;
       padding-bottom: 14px;
@@ -1524,18 +1538,17 @@
       min-width: 140px;
     }
     .hw-chapter__text p {
-      font-family: var(--hw-st-sans);
-      font-size: clamp(13.2px, 1.02vw, 14.6px);
-      font-weight: 300;
-      line-height: 1.86;
-      letter-spacing: 0.02em;
+      font-family: var(--font-body);
+      font-size: clamp(15.5px, 1.15vw, 17px);
+      font-weight: 500;
+      line-height: 1.72;
       color: var(--hw-ink);
       margin: 0 0 14px 0;
-      max-width: 480px;
+      max-width: 490px;
     }
     .hw-chapter__text p:last-child { margin-bottom: 0; }
     .hw-chapter__pullquote {
-      font-family: var(--hw-st-italic);
+      font-family: var(--font-body);
       font-style: italic;
       font-size: clamp(1.2rem, 1.5vw, 1.4rem) !important;
       line-height: 1.45 !important;
@@ -1551,14 +1564,16 @@
       scroll-margin-top: 120px;
     }
     .hw-finale__year {
-      font-family: var(--hw-st-serif);
-      font-size: clamp(2.4rem, 4vw, 3.6rem);
-      font-weight: 400;
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 3.6vw, 3.2rem);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: var(--hw-ink);
       margin: 0 0 6px 0;
     }
     .hw-finale__voila {
-      font-family: var(--hw-st-italic);
+      font-family: var(--font-body);
       font-style: italic;
       font-size: clamp(1.5rem, 2.2vw, 2rem);
       color: var(--hw-accent);
@@ -1572,11 +1587,10 @@
       gap: 16px;
     }
     .hw-finale__body p {
-      font-family: var(--hw-st-sans);
-      font-size: clamp(13.5px, 1.08vw, 15px);
-      font-weight: 300;
-      line-height: 1.88;
-      letter-spacing: 0.02em;
+      font-family: var(--font-body);
+      font-size: clamp(16px, 1.2vw, 17.5px);
+      font-weight: 500;
+      line-height: 1.72;
       color: var(--hw-ink);
       margin: 0;
     }
@@ -1679,16 +1693,17 @@
       display: block;
     }
     .hw-concierge__title {
-      font-family: var(--hw-st-serif);
-      font-size: clamp(1.95rem, 3vw, 2.75rem);
-      font-weight: 400;
-      line-height: 1.12;
-      letter-spacing: 0.02em;
+      font-family: var(--font-heading);
+      font-size: clamp(1.85rem, 2.7vw, 2.45rem);
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: var(--hw-ink);
       margin: 0 0 18px 0;
     }
     .hw-concierge__lead {
-      font-family: var(--hw-st-italic);
+      font-family: var(--font-body);
       font-style: italic;
       font-size: clamp(1.15rem, 1.45vw, 1.35rem);
       font-weight: 400;
@@ -1744,10 +1759,11 @@
       display: block;
     }
     .hw-concierge__form-wrap {
-      background: var(--hw-card);
-      border: 1px solid var(--hw-border);
-      padding: clamp(2rem, 4.5vw, 3.75rem);
-      box-shadow: 0 24px 54px -28px rgba(24, 22, 20, 0.08);
+      background: transparent;
+      border: none;
+      border-top: 1px solid var(--hw-border-strong);
+      padding: 28px 0 0 0;
+      box-shadow: none;
     }
     .hw-concierge__topics { margin-bottom: 34px; }
     .hw-concierge__topics-label {
@@ -2259,24 +2275,40 @@
             </div>
           </div>
 
-          <!-- COLLAPSING CARE & AGING WITH ELEGANT "+" -->
+          <!-- COLLAPSING CARE & AGING WITH ELEGANT "+" (COMPACT & NOTO SANS MONO) -->
           <div class="hw-collapsible-block" id="pdp-care-acc">
             <button type="button" class="hw-collapsible-trigger" onclick="this.parentElement.classList.toggle('open')">
               <span class="hw-collapsible-title" id="pdp-care-title">Care & Aging</span>
               <span class="hw-collapsible-plus">+</span>
             </button>
             <div class="hw-collapsible-body">
-              <p class="hw-ftg-drawer-p" id="pdp-care-text"></p>
+              <p class="hw-mono-spec-p" id="pdp-care-text"></p>
             </div>
           </div>
 
-          <!-- FIBRE TO GARMENT — PERMANENTLY OPEN (NOT COLLAPSING) -->
-          <div class="hw-ftg-section" id="pdp-ftg-anchor">
-            <div class="hw-ftg-heading" onclick="openMasters(currentProduct ? currentProduct.masterId : 'khadi', true)" title="Open Made By Masters for this garment">
-              <span class="hw-ftg-heading-title">Fibre to Garment</span>
-              <span class="hw-ftg-heading-hint">Click any step to enter Made By Masters →</span>
+          <!-- COLLAPSING COMPACT SHIPPING & RETURNS WITH ELEGANT "+" -->
+          <div class="hw-collapsible-block" id="pdp-shipping-acc">
+            <button type="button" class="hw-collapsible-trigger" onclick="this.parentElement.classList.toggle('open')">
+              <span class="hw-collapsible-title">Shipping & Returns</span>
+              <span class="hw-collapsible-plus">+</span>
+            </button>
+            <div class="hw-collapsible-body">
+              <p class="hw-mono-spec-p" id="pdp-shipping-text">Complimentary insured express courier delivery worldwide. Dispatched within 2–3 business days in archival cloth packaging. Returns accepted within 14 days of receipt in unworn condition with original tags attached.</p>
             </div>
-            <div class="hw-ftg-list" id="pdp-ftg-list"></div>
+          </div>
+
+          <!-- COLLAPSIBLE FIBRE TO GARMENT · CRAFT ORIGINS (OPEN BY DEFAULT, EXPANDABLE ACCORDION) -->
+          <div class="hw-collapsible-block open hw-ftg-section" id="pdp-ftg-anchor">
+            <button type="button" class="hw-collapsible-trigger" onclick="this.parentElement.classList.toggle('open')">
+              <span class="hw-collapsible-title">Fibre to Garment · Craft Origins</span>
+              <span class="hw-collapsible-plus">+</span>
+            </button>
+            <div class="hw-collapsible-body">
+              <div class="hw-ftg-heading" onclick="openMasters(currentProduct ? currentProduct.masterId : 'khadi', true)" title="Open Made By Masters for this garment">
+                <span class="hw-ftg-heading-hint">Click any step to enter Made By Masters →</span>
+              </div>
+              <div class="hw-ftg-list" id="pdp-ftg-list"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -2981,6 +3013,7 @@
         <button onclick="openCollection('${p.category}')">${p.category}</button>
         <span>/</span>
         <span style="color:var(--hw-ink);">${p.subtitle}</span>
+        ${p.sku ? `<span style="margin-left:auto; color:var(--hw-muted);">SKU: ${p.sku}</span>` : ''}
       `;
 
       document.getElementById('pdp-title').textContent = p.title;
@@ -3021,6 +3054,10 @@
       document.getElementById('pdp-bullets').innerHTML = bullets.map(b => `<li>${b}</li>`).join('');
       document.getElementById('pdp-bullets-acc').classList.remove('open');
       document.getElementById('pdp-care-acc').classList.remove('open');
+      const shipAcc = document.getElementById('pdp-shipping-acc');
+      if (shipAcc) shipAcc.classList.remove('open');
+      const ftgAcc = document.getElementById('pdp-ftg-anchor');
+      if (ftgAcc) ftgAcc.classList.add('open');
 
       document.getElementById('pdp-care-title').textContent = 'Care & Aging — ' + p.title;
       document.getElementById('pdp-care-text').textContent = buildCareCopy(p);
