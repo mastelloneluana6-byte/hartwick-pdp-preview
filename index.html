@@ -3,15 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HARTWICK ATELIER — Interactive Product Page (Version 1 &amp; Version 2)</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap">
+  <title>HARTWICK — Tribeca Skirt (Option 1 &amp; Option 2 Final Review)</title>
+
+  <!-- BRAND GUIDELINES FONTS:
+       1. HEADING — Porter Medium (Geometric Uppercase Display Sans: Jost / Porter Medium 500)
+       2. STORY   — Junicode Medium (Classical Old-Style Book Serif in Angela's voice)
+       3. DETAIL  — Noto Sans Mono Semi-Bold (Captions, Credits & Practical Information) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/junicode">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@400;500;600&family=Noto+Sans+Mono:wght@400;500;600&display=swap">
 
   <style>
+    @font-face {
+      font-family: 'JunicodeFallback';
+      src: local('Junicode'), local('Junicode-Medium'), local('EB Garamond');
+      font-weight: 500;
+    }
+
     :root {
-      /* HET VOGUE LETTERTYPE OVERAL ALS HOOFDFONT */
-      --hw-vogue-display: 'Bodoni Moda', 'Didot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
-      --hw-vogue-body: 'Cormorant Garamond', 'Bodoni Moda', Georgia, serif;
-      --hw-vogue-micro: 'Bodoni Moda', Georgia, serif;
+      /* ========================================================================
+         STRICT 3-TIER BRAND GUIDELINES TYPOGRAPHY SYSTEM
+         ======================================================================== */
+      /* FIRST: HEADING — PORTER MEDIUM */
+      --hw-font-heading: 'Porter', 'Porter Medium', 'Jost', 'Futura PT', -apple-system, BlinkMacSystemFont, sans-serif;
+      /* SECOND: STORY — JUNICODE MEDIUM */
+      --hw-font-story: 'Junicode', 'JunicodeFallback', 'EB Garamond', Georgia, serif;
+      /* THIRD: DETAIL — NOTO SANS MONO SEMI-BOLD */
+      --hw-font-detail: 'Noto Sans Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+      --hw-bg: #F3EFEA;
+      --hw-surface: #FAF8F4;
+      --hw-ink: #181512;
+      --hw-ink-soft: #4A443D;
+      --hw-ink-muted: #787067;
+      --hw-accent: #6E5239;
+      --hw-rule: rgba(24, 21, 18, 0.14);
+      --hw-rule-strong: rgba(24, 21, 18, 0.28);
+
       --hw-ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
       --hw-ease-silk: cubic-bezier(0.22, 1, 0.36, 1);
     }
@@ -23,69 +52,19 @@
     html, body {
       margin: 0;
       padding: 0;
-      background-color: #F2EFE9;
-      color: #181512;
-      font-family: var(--hw-vogue-body);
+      background-color: var(--hw-bg);
+      color: var(--hw-ink);
+      font-family: var(--hw-font-story);
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       scroll-behavior: smooth;
     }
 
     /* ==========================================================================
-       STUDIO VERSION SWITCHER BAR RECHTSONDER (VERSIE 1 | VERSIE 2 | GLOSSARY)
-       ========================================================================== */
-    .hw-studio-switcher {
-      position: fixed;
-      bottom: 22px;
-      right: 22px;
-      z-index: 999999;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(20, 18, 16, 0.95);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(250, 248, 244, 0.25);
-      padding: 7px 10px;
-      border-radius: 999px;
-      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.32);
-    }
-
-    .hw-studio-switcher__label {
-      font-family: var(--hw-vogue-display);
-      font-size: 9.5px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgba(250, 248, 244, 0.65);
-      padding: 0 8px 0 10px;
-    }
-
-    .hw-studio-switcher__btn {
-      background: transparent;
-      border: 1px solid transparent;
-      color: rgba(250, 248, 244, 0.82);
-      font-family: var(--hw-vogue-display);
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      padding: 8px 16px;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: all 0.25s ease;
-    }
-
-    .hw-studio-switcher__btn:hover {
-      color: #FAF8F4;
-    }
-
-    .hw-studio-switcher__btn.is-active {
-      background: #FAF8F4;
-      color: #141210;
-      font-weight: 500;
-    }
-
-    /* ==========================================================================
-       HARTWICK TRANSPARANTE LUXE HEADER (VOGUE SERIF)
+       CLEAN HEADER NAVIGATION WITH UPDATED HARTWICK CREST LOGO
+       Left: Apparel + | Fine Jewellery | Fine Silk Scarves
+       Center: Updated Hartwick Crest Logo (capture_shape_3_logo)
+       Right: Made By Masters | About + | Bag (0)
        ========================================================================== */
     #SiteHeader {
       position: fixed;
@@ -94,31 +73,23 @@
       right: 0;
       width: 100%;
       z-index: 1000;
-      transition: all 0.4s var(--hw-ease-luxury);
-    }
-
-    #SiteHeaderInner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      height: 76px;
-      background: rgba(242, 239, 233, 0.9);
+      background: rgba(243, 239, 234, 0.94);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(24, 21, 18, 0.1);
-      transition: all 0.4s var(--hw-ease-luxury);
+      border-bottom: 1px solid var(--hw-rule);
+      transition: all 0.35s var(--hw-ease-luxury);
     }
 
     .hw-site-header__inner {
       width: 100%;
       max-width: 1480px;
+      height: 82px;
       margin: 0 auto;
-      padding: 0 clamp(1.2rem, 3vw, 3.2rem);
+      padding: 0 clamp(1.5rem, 3.5vw, 3.8rem);
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      gap: 20px;
+      gap: 24px;
     }
 
     .hw-left-col {
@@ -127,28 +98,28 @@
       justify-content: flex-start;
     }
 
-    .hw-primary-nav {
+    .hw-primary-nav,
+    .hw-header-actions {
       display: flex;
       align-items: center;
-      gap: clamp(16px, 1.8vw, 28px);
+      gap: clamp(18px, 2.2vw, 34px);
       margin: 0;
       padding: 0;
       list-style: none;
     }
 
-    .hw-nav-item {
-      position: relative;
-      padding: 8px 0;
+    .hw-header-actions {
+      justify-content: flex-end;
     }
 
     .hw-nav-link,
     .hw-action-btn {
-      font-family: var(--hw-vogue-display);
-      font-size: 10.5px;
-      font-weight: 400;
-      letter-spacing: 0.18em;
+      font-family: var(--hw-font-heading);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: #181512;
+      color: var(--hw-ink);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -156,13 +127,30 @@
       cursor: pointer;
       background: none;
       border: none;
-      padding: 0;
-      transition: opacity 0.3s ease;
+      padding: 4px 0;
+      position: relative;
+      transition: opacity 0.25s ease;
     }
 
-    .hw-nav-link:hover,
-    .hw-action-btn:hover {
-      opacity: 0.6;
+    .hw-nav-link::after,
+    .hw-action-btn::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background-color: var(--hw-ink);
+      transform: scaleX(0);
+      transform-origin: right center;
+      transition: transform 0.35s var(--hw-ease-luxury);
+    }
+
+    .hw-nav-link:hover::after,
+    .hw-action-btn:hover::after,
+    .hw-action-btn.is-active::after {
+      transform: scaleX(1);
+      transform-origin: left center;
     }
 
     .hw-center-col {
@@ -171,32 +159,30 @@
       justify-content: center;
     }
 
-    .hw-site-logo {
-      font-family: var(--hw-vogue-display);
-      font-size: 18px;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: #181512;
-      text-decoration: none;
-      border: 1px solid rgba(24, 21, 18, 0.55);
-      width: 35px;
-      height: 35px;
+    .hw-site-logo-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding-left: 3px;
+      text-decoration: none;
       cursor: pointer;
+      padding: 4px;
     }
 
-    .hw-header-actions {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: clamp(16px, 1.8vw, 28px);
+    .hw-site-logo-img {
+      height: 48px;
+      width: auto;
+      max-width: 170px;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.35s var(--hw-ease-luxury);
+    }
+
+    .hw-site-logo-link:hover .hw-site-logo-img {
+      transform: scale(1.03);
     }
 
     /* ==========================================================================
-       VIEW MANAGEMENT (VERSIE 1 VS VERSIE 2 VS GLOSSARY)
+       VIEW MANAGEMENT (OPTION 1 vs OPTION 2 vs MADE BY MASTERS)
        ========================================================================== */
     .hw-page-view {
       display: none;
@@ -220,208 +206,222 @@
       display: block;
     }
 
-    @keyframes hwFadeUp {
-      0% { opacity: 0; transform: translateY(16px); }
-      100% { opacity: 1; transform: translateY(0); }
+    /* ==========================================================================
+       BRAND GUIDELINES UTILITY CLASSES
+       1. HEADING (Porter Medium)
+       2. STORY   (Junicode Medium)
+       3. DETAIL  (Noto Sans Mono Semi-Bold)
+       ========================================================================== */
+    .hw-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--hw-font-detail);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--hw-ink-muted);
+      margin-bottom: 16px;
+    }
+
+    .hw-breadcrumb a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .hw-breadcrumb a:hover {
+      color: var(--hw-ink);
+    }
+
+    .hw-breadcrumb__current {
+      color: var(--hw-ink);
+    }
+
+    /* 1. HEADING — PORTER MEDIUM: Short heading to introduce a collection, story or idea */
+    .hw-porter-heading {
+      font-family: var(--hw-font-heading);
+      font-size: clamp(1.35rem, 1.85vw, 1.7rem);
+      font-weight: 500;
+      line-height: 1.18;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--hw-ink);
+      margin: 0 0 6px 0;
+    }
+
+    /* 3. DETAIL — NOTO SANS MONO SEMI-BOLD: Captions, credits & practical info */
+    .hw-mono-caption {
+      font-family: var(--hw-font-detail);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--hw-ink-soft);
+      margin: 0 0 22px 0;
+      line-height: 1.45;
+    }
+
+    /* 2. STORY — JUNICODE MEDIUM: Passage in Angela's voice sitting comfortably beside the image */
+    .hw-story-passage {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding: 20px 0 22px;
+      border-top: 1px solid var(--hw-rule);
+      border-bottom: 1px solid var(--hw-rule);
+      margin-bottom: 20px;
+    }
+
+    .hw-story-paragraph {
+      font-family: var(--hw-font-story);
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.58;
+      color: var(--hw-ink);
+      margin: 0;
+    }
+
+    /* Practical details block in Noto Sans Mono Semi-Bold */
+    .hw-detail-section {
+      padding: 0 0 20px 0;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--hw-rule);
+    }
+
+    .hw-section-kicker {
+      display: block;
+      font-family: var(--hw-font-heading);
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--hw-ink);
+      margin: 0 0 12px 0;
+    }
+
+    .hw-mono-details-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .hw-mono-details-list li {
+      font-family: var(--hw-font-detail);
+      font-size: 11.5px;
+      font-weight: 600;
+      line-height: 1.45;
+      color: var(--hw-ink-soft);
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .hw-mono-details-list li::before {
+      content: "—";
+      color: var(--hw-ink-muted);
+      flex-shrink: 0;
     }
 
     /* ==========================================================================
-       SHARED GROTERE FOTO'S VAN DE STIJL-UITVOERINGEN (OP BEIDE VERSIES GROTER!)
+       FIBRE TO GARMENT (CONCISE, HOVER-TO-REVEAL, LINKED TO MADE BY MASTERS)
        ========================================================================== */
-    .hw-variations-block {
-      padding-bottom: 22px;
-      margin-bottom: 22px;
-      border-bottom: 1px solid rgba(24, 21, 18, 0.14);
+    .hw-f2g-block {
+      padding: 0 0 18px 0;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--hw-rule);
     }
 
-    .hw-variations-header {
+    .hw-f2g-header {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
 
-    .hw-variations-label {
-      font-family: var(--hw-vogue-display);
-      font-size: 10.5px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: #181512;
-    }
-
-    .hw-variations-viewall {
-      font-family: var(--hw-vogue-display);
+    .hw-f2g-hint {
+      font-family: var(--hw-font-detail);
       font-size: 9.5px;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #8C6A48;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(140, 106, 72, 0.4);
-      padding-bottom: 1px;
-    }
-
-    /* GROTE LUXE THUMBNAILS (4 OP EEN RIJ, VEEL GROTER EN DUIDELIJKER) */
-    .hw-variations-rail {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .hw-var-card {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      width: 100%;
-      min-width: 0;
-      text-decoration: none;
-      color: #181512;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 0;
-      text-align: left;
-      transition: transform 0.32s var(--hw-ease-luxury);
-    }
-
-    .hw-var-card:hover {
-      transform: translateY(-3px);
-    }
-
-    .hw-var-thumb {
-      width: 100%;
-      aspect-ratio: 3 / 4;
-      background: #EAE5DC;
-      overflow: hidden;
-      border: 1px solid rgba(24, 21, 18, 0.16);
-      padding: 3px;
-      box-sizing: border-box;
-      margin-bottom: 8px;
-      transition: border-color 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
-      opacity: 0.78;
-    }
-
-    .hw-var-card:hover .hw-var-thumb {
-      opacity: 1;
-      border-color: rgba(24, 21, 18, 0.5);
-    }
-
-    .hw-var-card.is-active .hw-var-thumb {
-      opacity: 1;
-      border-color: #181512;
-      border-width: 1.5px;
-      box-shadow: 0 8px 20px rgba(24, 21, 18, 0.12);
-    }
-
-    .hw-var-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.6s var(--hw-ease-luxury);
-    }
-
-    .hw-var-card:hover .hw-var-thumb img {
-      transform: scale(1.04);
-    }
-
-    .hw-var-name {
-      font-family: var(--hw-vogue-display);
-      font-size: 8.5px;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #5A534A;
-      line-height: 1.35;
-      width: 100%;
-      overflow-wrap: break-word;
-      word-break: break-word;
-    }
-
-    .hw-var-card.is-active .hw-var-name {
-      color: #181512;
       font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--hw-ink-muted);
     }
 
-    /* ==========================================================================
-       SHARED FIBRE-TO-GARMENT INTERACTIVE HOVER LIST (AUTOMATISCH OPENEN BIJ HOVER!)
-       ========================================================================== */
     .hw-f2g-list {
-      border-top: 1px solid rgba(24, 21, 18, 0.15);
+      border-top: 1px solid var(--hw-rule);
     }
 
     .hw-f2g-row {
-      border-bottom: 1px solid rgba(24, 21, 18, 0.12);
-      transition: background-color 0.35s ease, padding-left 0.35s var(--hw-ease-silk);
+      border-bottom: 1px solid rgba(24, 21, 18, 0.09);
+      transition: background-color 0.3s ease, padding-left 0.3s var(--hw-ease-silk);
     }
 
     .hw-f2g-row.is-open {
-      background: rgba(250, 248, 244, 0.65);
+      background: rgba(250, 248, 244, 0.72);
       padding-left: 8px;
-      border-left: 2px solid #8C6A48;
+      border-left: 2px solid var(--hw-ink);
     }
 
     .hw-f2g-trigger {
       width: 100%;
       background: none;
       border: none;
-      padding: 13px 4px;
+      padding: 11px 4px;
       display: grid;
-      grid-template-columns: 98px 1fr;
+      grid-template-columns: 88px 1fr;
       align-items: baseline;
       gap: 12px;
       cursor: pointer;
       text-align: left;
-      color: #181512;
+      color: var(--hw-ink);
     }
 
     .hw-f2g-step {
-      font-family: var(--hw-vogue-display);
-      font-size: 9.5px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
+      font-family: var(--hw-font-detail);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #6E655B;
-      transition: color 0.25s ease;
+      color: var(--hw-ink-muted);
     }
 
     .hw-f2g-row.is-open .hw-f2g-step {
-      color: #8C6A48;
+      color: var(--hw-ink);
     }
 
     .hw-f2g-val {
-      font-family: var(--hw-vogue-body);
-      font-size: 17px;
-      font-weight: 500;
-      line-height: 1.3;
-      color: #181512;
+      font-family: var(--hw-font-detail);
+      font-size: 11.5px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--hw-ink);
       text-align: right;
       display: flex;
       align-items: baseline;
       justify-content: flex-end;
-      gap: 7px;
+      gap: 6px;
     }
 
     .hw-f2g-arrow {
-      font-family: var(--hw-vogue-display);
-      font-size: 11px;
-      color: #8C6A48;
-      display: inline-block;
-      transition: transform 0.35s var(--hw-ease-silk);
+      font-family: var(--hw-font-detail);
+      font-size: 10px;
+      color: var(--hw-ink-muted);
+      transition: transform 0.3s var(--hw-ease-silk);
     }
 
     .hw-f2g-row.is-open .hw-f2g-arrow {
       transform: translate(2px, -2px);
+      color: var(--hw-ink);
     }
 
-    /* Automatisch openende lade zodra de muis op de rij staat */
     .hw-f2g-drawer {
       display: grid;
       grid-template-rows: 0fr;
       opacity: 0;
-      transition: grid-template-rows 0.38s var(--hw-ease-silk), opacity 0.32s ease;
+      transition: grid-template-rows 0.34s var(--hw-ease-silk), opacity 0.28s ease;
     }
 
     .hw-f2g-row.is-open .hw-f2g-drawer {
@@ -434,386 +434,235 @@
     }
 
     .hw-f2g-drawer__box {
-      padding: 2px 10px 14px 4px;
+      padding: 0 8px 12px 4px;
     }
 
     .hw-f2g-drawer__text {
-      font-family: var(--hw-vogue-body);
+      font-family: var(--hw-font-story);
       font-size: 15.5px;
-      font-weight: 400;
-      line-height: 1.58;
-      color: #2E2A25;
-      margin: 0 0 10px 0;
+      font-weight: 500;
+      line-height: 1.5;
+      color: var(--hw-ink-soft);
+      margin: 0 0 8px 0;
     }
 
-    .hw-f2g-glossary-btn {
-      background: #181512;
-      color: #FAF8F4;
-      border: 1px solid #181512;
-      padding: 6px 12px;
-      font-family: var(--hw-vogue-display);
-      font-size: 8.5px;
-      font-weight: 400;
-      letter-spacing: 0.2em;
+    .hw-f2g-masters-link {
+      background: none;
+      border: none;
+      border-bottom: 1px solid var(--hw-ink);
+      padding: 0 0 2px 0;
+      font-family: var(--hw-font-detail);
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
+      color: var(--hw-ink);
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      transition: all 0.25s ease;
+      gap: 5px;
+      transition: opacity 0.2s ease;
     }
 
-    .hw-f2g-glossary-btn:hover {
-      background: #8C6A48;
-      border-color: #8C6A48;
+    .hw-f2g-masters-link:hover {
+      opacity: 0.65;
     }
 
-    /* ==========================================================================
-       VERSIE 1: DE 3-KOLOMS VOGUE ATELIER LAYOUT (MET UITGEKLAPTE SECTIES & VOGUE FONT)
-       ========================================================================== */
-    .hw-v1-section {
-      padding: 104px clamp(1.5rem, 4.2vw, 4.8rem) 88px;
-      max-width: 1360px;
-      margin: 0 auto;
+    /* Care & Aging concise block */
+    .hw-care-block {
+      padding-top: 2px;
     }
 
-    .hw-v1-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(0, 1.02fr) minmax(0, 0.95fr);
-      gap: clamp(2rem, 3.5vw, 4rem);
-      align-items: start;
-    }
-
-    .hw-vogue-breadcrumb {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--hw-vogue-display);
-      font-size: 9.5px;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: #6E655C;
-      margin-bottom: 14px;
-    }
-
-    .hw-vogue-breadcrumb a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .hw-vogue-breadcrumb__style {
-      color: #8C6A48 !important;
-      border-bottom: 1px solid rgba(140, 106, 72, 0.4);
-      padding-bottom: 1px;
-    }
-
-    .hw-vogue-title {
-      font-family: var(--hw-vogue-display);
-      font-optical-sizing: auto;
-      font-variation-settings: "opsz" 72;
-      font-size: clamp(1.65rem, 2.2vw, 2.15rem);
-      font-weight: 400;
-      line-height: 1.14;
-      letter-spacing: 0.03em;
-      color: #181512;
-      margin: 0 0 6px 0;
-    }
-
-    .hw-vogue-subtitle {
-      font-family: var(--hw-vogue-body);
-      font-style: italic;
-      font-size: 18.5px;
-      font-weight: 400;
-      color: #6E5A49;
-      margin: 0 0 22px 0;
-      line-height: 1.35;
-    }
-
-    /* UITGEKLAPTE VOGUE ACCORDION-BLOKKEN (STANDAARD OPEN!) */
-    .hw-vogue-open-box {
-      border-top: 1px solid rgba(24, 21, 18, 0.16);
-      padding: 16px 0 18px;
-    }
-
-    .hw-vogue-open-box__head {
-      width: 100%;
-      background: none;
-      border: none;
-      padding: 0 0 10px 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-      text-align: left;
-    }
-
-    .hw-vogue-open-box__title {
-      font-family: var(--hw-vogue-display);
-      font-size: 10.5px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: #181512;
-    }
-
-    .hw-vogue-open-box__icon {
-      font-family: var(--hw-vogue-display);
-      font-size: 14px;
-      color: #8C6A48;
-      transition: transform 0.35s ease;
-    }
-
-    .hw-vogue-open-box.is-collapsed .hw-vogue-open-box__body {
-      display: none;
-    }
-
-    .hw-vogue-open-box.is-collapsed .hw-vogue-open-box__head {
-      padding-bottom: 0;
-    }
-
-    .hw-vogue-prose {
-      font-family: var(--hw-vogue-body);
-      font-size: 16.5px;
-      font-weight: 400;
-      line-height: 1.62;
-      color: #26221E;
+    .hw-care-text {
+      font-family: var(--hw-font-detail);
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.55;
+      color: var(--hw-ink-soft);
       margin: 0;
     }
 
-    /* Uitgeklapte Bullet Points in Vogue stijl */
-    .hw-vogue-bullets {
-      list-style: none;
-      padding: 0;
-      margin: 12px 0 0 0;
-      border-top: 1px dashed rgba(24, 21, 18, 0.14);
-      padding-top: 12px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 6px;
+    /* ==========================================================================
+       TRIBECA VARIATIONS SWITCHER (ONLY ACTUAL TRIBECA SKIRT PRODUCTS)
+       ========================================================================== */
+    .hw-variations-block {
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--hw-rule);
     }
 
-    .hw-vogue-bullets li {
+    .hw-variations-header {
       display: flex;
       align-items: baseline;
-      gap: 10px;
-      font-family: var(--hw-vogue-body);
-      font-size: 15.5px;
-      font-weight: 400;
-      line-height: 1.45;
-      color: #2E2A25;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
     }
 
-    .hw-vogue-bullets li::before {
-      content: "◆";
-      font-size: 7px;
-      color: #8C6A48;
-      transform: translateY(-2px);
+    .hw-variations-label {
+      font-family: var(--hw-font-heading);
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--hw-ink);
     }
 
-    /* ==========================================================================
-       VERSIE 2: MODERNE HIGH-END ASYMMETRISCHE MAISON LAYOUT
-       (2-KOLOMS LOOKBOOK GALLERY LINKS + SUPER DUIDELIJKE RECHTERKOLOM VOOR NIEUWE KLANTEN)
-       ========================================================================== */
-    .hw-v2-section {
-      padding: 100px clamp(1.5rem, 4vw, 4.5rem) 96px;
-      max-width: 1420px;
-      margin: 0 auto;
+    .hw-variations-active-name {
+      font-family: var(--hw-font-detail);
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--hw-ink-muted);
     }
 
-    .hw-v2-layout {
+    .hw-variations-rail {
       display: grid;
-      grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
-      gap: clamp(2.5rem, 4.5vw, 5rem);
-      align-items: start;
-    }
-
-    /* Links in Versie 2: Editorial Dual-Photo Lookbook Grid */
-    .hw-v2-gallery {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, minmax(0, 132px));
       gap: 14px;
     }
 
-    .hw-v2-gallery__hero {
-      grid-column: 1 / -1;
-      aspect-ratio: 4 / 4.8;
-      background: #EAE5DC;
-      overflow: hidden;
-      position: relative;
+    .hw-var-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      text-decoration: none;
+      color: var(--hw-ink);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      text-align: left;
+      transition: transform 0.3s var(--hw-ease-luxury);
     }
 
-    .hw-v2-gallery__hero img,
-    .hw-v2-gallery__sub img {
+    .hw-var-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .hw-var-thumb {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: #E8E2D9;
+      overflow: hidden;
+      border: 1px solid rgba(24, 21, 18, 0.16);
+      padding: 3px;
+      margin-bottom: 7px;
+      opacity: 0.72;
+      transition: all 0.3s ease;
+    }
+
+    .hw-var-card:hover .hw-var-thumb {
+      opacity: 0.95;
+      border-color: rgba(24, 21, 18, 0.45);
+    }
+
+    .hw-var-card.is-active .hw-var-thumb {
+      opacity: 1;
+      border-color: var(--hw-ink);
+      border-width: 1.5px;
+      background: var(--hw-surface);
+    }
+
+    .hw-var-thumb img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 1.1s var(--hw-ease-luxury);
+      transition: transform 0.6s var(--hw-ease-luxury);
     }
 
-    .hw-v2-gallery__hero:hover img,
-    .hw-v2-gallery__sub:hover img {
+    .hw-var-card:hover .hw-var-thumb img {
       transform: scale(1.03);
     }
 
-    .hw-v2-gallery__sub {
-      aspect-ratio: 3 / 4;
-      background: #EAE5DC;
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    .hw-v2-gallery__badge {
-      position: absolute;
-      bottom: 16px;
-      left: 16px;
-      background: rgba(24, 21, 18, 0.82);
-      backdrop-filter: blur(8px);
-      color: #FAF8F4;
-      padding: 7px 14px;
-      font-family: var(--hw-vogue-display);
-      font-size: 9px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-    }
-
-    /* Rechts in Versie 2: Super overzichtelijke, moderne high-end kolom */
-    .hw-v2-panel {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .hw-v2-top-row {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 16px;
-      border-bottom: 1px solid rgba(24, 21, 18, 0.15);
-      padding-bottom: 16px;
-      margin-bottom: 20px;
-    }
-
-    /* Duidelijke uitleg-kaarten voor mensen die nog niks van ambacht weten */
-    .hw-v2-explainer-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-
-    .hw-v2-card {
-      background: rgba(250, 248, 244, 0.78);
-      border: 1px solid rgba(24, 21, 18, 0.12);
-      padding: 16px 18px;
-    }
-
-    .hw-v2-card--full {
-      grid-column: 1 / -1;
-    }
-
-    .hw-v2-card__kicker {
-      display: block;
-      font-family: var(--hw-vogue-display);
-      font-size: 9px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: #8C6A48;
-      margin-bottom: 6px;
-    }
-
-    .hw-v2-card__heading {
-      font-family: var(--hw-vogue-display);
-      font-size: 15px;
-      font-weight: 400;
-      color: #181512;
-      margin: 0 0 8px 0;
-    }
-
-    .hw-v2-card__text {
-      font-family: var(--hw-vogue-body);
-      font-size: 15.5px;
-      line-height: 1.58;
-      color: #2E2A25;
-      margin: 0;
-    }
-
-    /* 2-koloms overzichtelijke bullet points in Versie 2 */
-    .hw-v2-specs-pills {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px 14px;
-      list-style: none;
-      padding: 12px 0 0 0;
-      margin: 12px 0 0 0;
-      border-top: 1px solid rgba(24, 21, 18, 0.1);
-    }
-
-    .hw-v2-specs-pills li {
-      font-family: var(--hw-vogue-body);
-      font-size: 15px;
-      color: #26221E;
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-    }
-
-    .hw-v2-specs-pills li::before {
-      content: "—";
-      color: #8C6A48;
+    .hw-var-name {
+      font-family: var(--hw-font-detail);
+      font-size: 10px;
       font-weight: 600;
+      letter-spacing: 0.03em;
+      color: var(--hw-ink-soft);
+      line-height: 1.3;
+    }
+
+    .hw-var-card.is-active .hw-var-name {
+      color: var(--hw-ink);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .hw-var-sub {
+      font-family: var(--hw-font-detail);
+      font-size: 9.5px;
+      font-weight: 500;
+      color: var(--hw-ink-muted);
+      margin-top: 2px;
     }
 
     /* ==========================================================================
-       SHARED KOOP-ELEMENTEN (PRIJS, MAATKEUZE XS-XL, ADD TO BAG)
+       SHARED PURCHASE CONTROLS (PRICE, SIZE XS-XL, ADD TO BAG)
        ========================================================================== */
     .hw-pdp__price-block {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
       padding-bottom: 16px;
-      border-bottom: 1px solid rgba(24, 21, 18, 0.14);
+      border-bottom: 1px solid var(--hw-rule);
       margin-bottom: 20px;
     }
 
     .hw-pdp__price {
-      font-family: var(--hw-vogue-display);
-      font-size: clamp(1.45rem, 1.9vw, 1.85rem);
-      font-weight: 400;
-      letter-spacing: 0.03em;
-      color: #181512;
+      font-family: var(--hw-font-detail);
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--hw-ink);
+    }
+
+    .hw-pdp__edition-tag {
+      font-family: var(--hw-font-detail);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--hw-ink-muted);
     }
 
     .hw-pdp__size-block {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .hw-pdp__size-top {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: baseline;
       margin-bottom: 10px;
     }
 
     .hw-pdp__field-label {
-      font-family: var(--hw-vogue-display);
-      font-size: 10px;
-      letter-spacing: 0.22em;
+      font-family: var(--hw-font-detail);
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #6E655C;
+      color: var(--hw-ink-soft);
     }
 
     .hw-pdp__field-label strong {
-      color: #181512;
+      color: var(--hw-ink);
     }
 
     .hw-pdp__size-guide-btn {
       background: none;
       border: none;
       border-bottom: 1px solid rgba(24, 21, 18, 0.45);
-      padding: 0 0 2px 0;
-      font-family: var(--hw-vogue-display);
-      font-size: 9px;
-      letter-spacing: 0.18em;
+      padding: 0 0 1px 0;
+      font-family: var(--hw-font-detail);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #5A564F;
+      color: var(--hw-ink-soft);
       cursor: pointer;
     }
 
@@ -824,41 +673,47 @@
     }
 
     .hw-size-btn {
-      height: 44px;
+      height: 42px;
       background: transparent;
       border: 1px solid rgba(24, 21, 18, 0.24);
-      font-family: var(--hw-vogue-display);
-      font-size: 10.5px;
-      letter-spacing: 0.16em;
+      font-family: var(--hw-font-detail);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #181512;
+      color: var(--hw-ink);
       cursor: pointer;
-      transition: all 0.3s var(--hw-ease-luxury);
+      transition: all 0.25s var(--hw-ease-luxury);
+    }
+
+    .hw-size-btn:hover {
+      border-color: var(--hw-ink);
     }
 
     .hw-size-btn.active {
-      background: #181512;
-      color: #FAF8F4;
-      border-color: #181512;
+      background: var(--hw-ink);
+      color: var(--hw-surface);
+      border-color: var(--hw-ink);
     }
 
     .hw-pdp__atc-btn {
       width: 100%;
-      background: #23181A;
-      color: #FAF8F4;
-      border: 1px solid #23181A;
-      padding: 17px 20px;
-      font-family: var(--hw-vogue-display);
-      font-size: 10.5px;
-      letter-spacing: 0.22em;
+      background: var(--hw-ink);
+      color: var(--hw-surface);
+      border: 1px solid var(--hw-ink);
+      padding: 16px 20px;
+      font-family: var(--hw-font-heading);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       cursor: pointer;
-      transition: all 0.35s var(--hw-ease-luxury);
-      margin-bottom: 16px;
+      transition: all 0.3s var(--hw-ease-luxury);
+      margin-bottom: 12px;
     }
 
     .hw-pdp__atc-btn:hover {
-      background: #141210;
+      background: #2C2621;
     }
 
     .hw-pdp__appointment-link {
@@ -866,31 +721,85 @@
       align-items: center;
       justify-content: space-between;
       padding: 11px 14px;
-      margin: 0 0 20px 0;
-      border: 1px solid rgba(24, 21, 18, 0.16);
-      background: rgba(250, 248, 244, 0.6);
+      margin: 0 0 22px 0;
+      border: 1px solid var(--hw-rule);
+      background: rgba(250, 248, 244, 0.55);
       text-decoration: none;
-      font-family: var(--hw-vogue-display);
-      font-size: 9px;
-      letter-spacing: 0.2em;
+      font-family: var(--hw-font-detail);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #181512;
+      color: var(--hw-ink);
+      transition: border-color 0.25s ease;
     }
 
-    /* Middenkolom Foto in Versie 1 */
-    .hw-pdp__center {
-      position: sticky;
-      top: 96px;
+    .hw-pdp__appointment-link:hover {
+      border-color: var(--hw-ink);
+    }
+
+    .hw-right-notes {
+      border-top: 1px solid var(--hw-rule);
+      padding-top: 16px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
+    }
+
+    .hw-right-note-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .hw-right-note-title {
+      font-family: var(--hw-font-heading);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--hw-ink);
+    }
+
+    .hw-right-note-desc {
+      font-family: var(--hw-font-detail);
+      font-size: 10.5px;
+      font-weight: 500;
+      line-height: 1.5;
+      color: var(--hw-ink-soft);
+      margin: 0;
+    }
+
+    /* ==========================================================================
+       OPTION 1: REFINED 3-COLUMN EDITORIAL LAYOUT (CLEAN, BREATHABLE, NOT WORD-HEAVY)
+       ========================================================================== */
+    .hw-v1-section {
+      padding: 112px clamp(1.5rem, 4vw, 4.5rem) 88px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .hw-v1-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(0, 1.08fr) minmax(0, 0.9fr);
+      gap: clamp(2.2rem, 3.8vw, 4.2rem);
+      align-items: start;
+    }
+
+    .hw-pdp__center {
+      position: sticky;
+      top: 104px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
     .hw-pdp__main-media {
       width: 100%;
       aspect-ratio: 3 / 4;
-      background: #EAE5DC;
+      background: #E8E2D9;
       overflow: hidden;
+      position: relative;
     }
 
     .hw-pdp__main-media img {
@@ -898,35 +807,51 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.9s var(--hw-ease-luxury), opacity 0.3s ease;
+      transition: transform 0.85s var(--hw-ease-luxury), opacity 0.25s ease;
     }
 
     .hw-pdp__main-media img.is-switching {
       opacity: 0.25;
     }
 
-    .hw-pdp__thumbs {
+    .hw-pdp__media-caption-bar {
       display: flex;
-      justify-content: center;
+      align-items: baseline;
+      justify-content: space-between;
+      font-family: var(--hw-font-detail);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--hw-ink-muted);
+      padding: 2px 1px;
+    }
+
+    .hw-pdp__thumbs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 10px;
     }
 
     .hw-pdp__thumb {
-      width: 58px;
+      width: 100%;
       aspect-ratio: 3 / 4;
       padding: 0;
       border: 1px solid transparent;
-      background: #EAE5DC;
+      background: #E8E2D9;
       overflow: hidden;
       cursor: pointer;
-      opacity: 0.55;
-      transition: all 0.3s ease;
+      opacity: 0.65;
+      transition: all 0.25s ease;
     }
 
-    .hw-pdp__thumb.active,
     .hw-pdp__thumb:hover {
+      opacity: 0.9;
+    }
+
+    .hw-pdp__thumb.active {
       opacity: 1;
-      border-color: #181512;
+      border-color: var(--hw-ink);
     }
 
     .hw-pdp__thumb img {
@@ -937,14 +862,94 @@
     }
 
     /* ==========================================================================
-       INGEBOUWDE GLOSSARY PAGINA IN DE PREVIEW
+       OPTION 2: MODERN 2-COLUMN ASYMMETRIC EDITORIAL LAYOUT
+       Left: 2x2 Architectural Lookbook Grid of the active Tribeca Skirt
+       Right: Clean Sticky Editorial Column with Porter + Junicode + Noto Sans Mono
+       ========================================================================== */
+    .hw-v2-section {
+      padding: 112px clamp(1.5rem, 4vw, 4.5rem) 96px;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    .hw-v2-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.22fr) minmax(0, 0.78fr);
+      gap: clamp(2.5rem, 4.5vw, 5rem);
+      align-items: start;
+    }
+
+    .hw-v2-lookbook {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .hw-v2-frame {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .hw-v2-frame--hero {
+      grid-column: 1 / -1;
+    }
+
+    .hw-v2-frame__media {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: #E8E2D9;
+      overflow: hidden;
+    }
+
+    .hw-v2-frame--hero .hw-v2-frame__media {
+      aspect-ratio: 4 / 4.7;
+    }
+
+    .hw-v2-frame__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.9s var(--hw-ease-luxury), opacity 0.25s ease;
+    }
+
+    .hw-v2-frame__media:hover img {
+      transform: scale(1.02);
+    }
+
+    .hw-v2-frame__caption {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--hw-font-detail);
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--hw-ink-muted);
+    }
+
+    .hw-v2-panel {
+      position: sticky;
+      top: 104px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hw-v2-header-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 4px;
+    }
+
+    /* ==========================================================================
+       MADE BY MASTERS VIEW (WITH INTEGRATED HERITAGE TEXTILE ARCHIVE)
        ========================================================================== */
     .hw-masters-page {
-      background-color: #F6F3EC;
-      color: #181614;
-      width: 100%;
-      min-height: 100vh;
-      padding: 112px clamp(1.5rem, 5vw, 5.5rem) 96px;
+      padding: 120px clamp(1.5rem, 4vw, 4.5rem) 96px;
     }
 
     .hw-masters-shell {
@@ -953,7 +958,7 @@
     }
 
     .hw-masters-intro {
-      max-width: 760px;
+      max-width: 720px;
       margin: 0 auto 38px;
       text-align: center;
     }
@@ -962,40 +967,46 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: #181614;
-      color: #FAF8F4;
-      border: 1px solid #181614;
-      padding: 10px 20px;
-      font-family: var(--hw-vogue-display);
-      font-size: 9.5px;
-      letter-spacing: 0.22em;
+      background: var(--hw-ink);
+      color: var(--hw-surface);
+      border: 1px solid var(--hw-ink);
+      padding: 9px 18px;
+      font-family: var(--hw-font-detail);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
       cursor: pointer;
     }
 
     .hw-masters-eyebrow {
       display: block;
-      font-family: var(--hw-vogue-display);
-      font-size: 9.5px;
-      letter-spacing: 0.32em;
+      font-family: var(--hw-font-detail);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #8C6A48;
-      margin-bottom: 12px;
+      color: var(--hw-ink-muted);
+      margin-bottom: 10px;
     }
 
     .hw-masters-title {
-      font-family: var(--hw-vogue-display);
-      font-size: clamp(1.85rem, 3.1vw, 2.75rem);
-      font-weight: 400;
-      margin: 0 0 18px 0;
+      font-family: var(--hw-font-heading);
+      font-size: clamp(1.75rem, 2.6vw, 2.35rem);
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin: 0 0 16px 0;
     }
 
     .hw-masters-lead {
-      font-family: var(--hw-vogue-body);
-      font-size: 18px;
-      line-height: 1.65;
-      color: #2E2A25;
+      font-family: var(--hw-font-story);
+      font-size: 19px;
+      font-weight: 500;
+      line-height: 1.6;
+      color: var(--hw-ink);
+      margin: 0;
     }
 
     .hw-masters-index-bar {
@@ -1003,40 +1014,42 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 8px;
-      padding: 20px 0 32px;
+      padding: 18px 0;
       margin-bottom: 40px;
-      border-top: 1px solid rgba(24, 22, 20, 0.1);
-      border-bottom: 1px solid rgba(24, 22, 20, 0.1);
+      border-top: 1px solid var(--hw-rule);
+      border-bottom: 1px solid var(--hw-rule);
     }
 
     .hw-masters-pill {
       background: transparent;
-      border: 1px solid rgba(24, 22, 20, 0.18);
+      border: 1px solid var(--hw-rule-strong);
       padding: 8px 14px;
-      font-family: var(--hw-vogue-display);
-      font-size: 9px;
-      letter-spacing: 0.2em;
+      font-family: var(--hw-font-detail);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #4A453E;
+      color: var(--hw-ink-soft);
       cursor: pointer;
+      transition: all 0.25s ease;
     }
 
     .hw-masters-pill.is-active {
-      background: #181614;
-      color: #FAF8F4;
-      border-color: #181614;
+      background: var(--hw-ink);
+      color: var(--hw-surface);
+      border-color: var(--hw-ink);
     }
 
     .hw-masters-grid {
       display: grid;
-      grid-template-columns: minmax(260px, 0.36fr) minmax(0, 0.64fr);
+      grid-template-columns: minmax(260px, 0.38fr) minmax(0, 0.62fr);
       gap: clamp(2.2rem, 4.5vw, 4.5rem);
       align-items: start;
     }
 
     .hw-masters-visual {
       position: sticky;
-      top: 100px;
+      top: 104px;
     }
 
     .hw-masters-visual__frame {
@@ -1056,27 +1069,28 @@
     .hw-masters-visual__caption {
       display: flex;
       justify-content: space-between;
-      font-family: var(--hw-vogue-display);
-      font-size: 8.5px;
-      letter-spacing: 0.22em;
+      font-family: var(--hw-font-detail);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #787167;
+      color: var(--hw-ink-muted);
       padding-top: 8px;
     }
 
     .hw-masters-list {
-      border-top: 1px solid rgba(24, 22, 20, 0.14);
+      border-top: 1px solid var(--hw-rule);
     }
 
     .hw-m-item {
-      border-bottom: 1px solid rgba(24, 22, 20, 0.12);
+      border-bottom: 1px solid var(--hw-rule);
       scroll-margin-top: 110px;
     }
 
     .hw-m-item.is-open {
       padding-left: 14px;
-      border-left: 2px solid #8C6A48;
-      background: rgba(140, 106, 72, 0.04);
+      border-left: 2px solid var(--hw-ink);
+      background: rgba(250, 248, 244, 0.6);
     }
 
     .hw-m-item__trigger {
@@ -1085,41 +1099,44 @@
       border: none;
       padding: 20px 0;
       display: grid;
-      grid-template-columns: 34px 1fr auto;
+      grid-template-columns: 38px 1fr auto;
       align-items: baseline;
       gap: 12px;
       text-align: left;
       cursor: pointer;
-      color: #181614;
+      color: var(--hw-ink);
     }
 
     .hw-m-item__num {
-      font-family: var(--hw-vogue-display);
-      font-size: 9.5px;
-      letter-spacing: 0.22em;
-      color: #8C6A48;
+      font-family: var(--hw-font-detail);
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--hw-ink-muted);
     }
 
     .hw-m-item__name {
-      font-family: var(--hw-vogue-display);
-      font-size: 21px;
-      font-weight: 400;
+      font-family: var(--hw-font-heading);
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       margin: 0 0 4px 0;
     }
 
     .hw-m-item__sub {
-      font-family: var(--hw-vogue-display);
-      font-size: 9px;
-      letter-spacing: 0.18em;
+      font-family: var(--hw-font-detail);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: #787167;
+      color: var(--hw-ink-muted);
     }
 
     .hw-m-item__panel {
       display: grid;
       grid-template-rows: 0fr;
       opacity: 0;
-      transition: all 0.4s var(--hw-ease-silk);
+      transition: all 0.38s var(--hw-ease-silk);
     }
 
     .hw-m-item.is-open .hw-m-item__panel {
@@ -1132,11 +1149,66 @@
     }
 
     .hw-m-item__body {
-      padding: 0 0 22px 46px;
-      font-family: var(--hw-vogue-body);
-      font-size: 17px;
-      line-height: 1.68;
-      color: #2E2A25;
+      padding: 0 0 22px 50px;
+      font-family: var(--hw-font-story);
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.62;
+      color: var(--hw-ink);
+    }
+
+    /* ==========================================================================
+       FLOATING OPTION SWITCHER BAR (BOTTOM RIGHT — CLEAN MONOSPACE DETAIL)
+       ========================================================================== */
+    .hw-studio-switcher {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      z-index: 999999;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(24, 21, 18, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(250, 248, 244, 0.22);
+      padding: 6px 8px;
+      border-radius: 999px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.26);
+    }
+
+    .hw-studio-switcher__label {
+      font-family: var(--hw-font-detail);
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(250, 248, 244, 0.6);
+      padding: 0 8px 0 10px;
+    }
+
+    .hw-studio-switcher__btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: rgba(250, 248, 244, 0.82);
+      font-family: var(--hw-font-detail);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 7px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .hw-studio-switcher__btn:hover {
+      color: #FAF8F4;
+    }
+
+    .hw-studio-switcher__btn.is-active {
+      background: #FAF8F4;
+      color: #181512;
     }
 
     /* Size Guide Modal */
@@ -1161,9 +1233,9 @@
     }
 
     .hw-size-modal {
-      background: #FAF8F4;
-      color: #181512;
-      border: 1px solid rgba(30, 27, 24, 0.16);
+      background: var(--hw-surface);
+      color: var(--hw-ink);
+      border: 1px solid var(--hw-rule-strong);
       max-width: 620px;
       width: 100%;
       padding: 36px;
@@ -1181,53 +1253,59 @@
     }
 
     .hw-size-modal__eyebrow {
-      font-family: var(--hw-vogue-display);
-      font-size: 9.5px;
-      letter-spacing: 0.22em;
+      font-family: var(--hw-font-detail);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #76726A;
+      color: var(--hw-ink-muted);
       display: block;
       margin-bottom: 6px;
     }
 
     .hw-size-modal__title {
-      font-family: var(--hw-vogue-display);
-      font-size: 26px;
-      font-weight: 400;
+      font-family: var(--hw-font-heading);
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       margin: 0 0 18px 0;
     }
 
     .hw-size-table {
       width: 100%;
       border-collapse: collapse;
-      font-family: var(--hw-vogue-body);
-      font-size: 15px;
+      font-family: var(--hw-font-detail);
+      font-size: 11.5px;
+      font-weight: 600;
       margin-top: 10px;
     }
 
     .hw-size-table th,
     .hw-size-table td {
       padding: 11px 10px;
-      border-bottom: 1px solid rgba(30, 27, 24, 0.12);
+      border-bottom: 1px solid var(--hw-rule);
       text-align: left;
     }
 
     .hw-size-table th {
-      font-family: var(--hw-vogue-display);
-      font-size: 9.5px;
-      letter-spacing: 0.18em;
+      font-size: 10px;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #76726A;
+      color: var(--hw-ink-muted);
     }
 
-    @media only screen and (max-width: 960px) {
+    @media only screen and (max-width: 980px) {
       .hw-v1-grid,
       .hw-v2-layout,
       .hw-masters-grid {
         grid-template-columns: 1fr;
       }
-      .hw-pdp__center {
+      .hw-pdp__center,
+      .hw-v2-panel {
         position: static;
+      }
+      .hw-pdp__center {
         order: -1;
       }
     }
@@ -1236,226 +1314,189 @@
 <body data-version="v1">
 
   <!-- ==========================================================================
-       TRANSPARANTE HARTWICK HEADER BOVENAAN (VOGUE SERIF)
+       HEADER NAVIGATION WITH UPDATED HARTWICK CREST LOGO & MADE BY MASTERS RIGHT
        ========================================================================== -->
   <header id="SiteHeader">
-    <div id="SiteHeaderInner">
-      <div class="hw-site-header__inner">
-        <div class="hw-left-col">
-          <ul class="hw-primary-nav">
-            <li class="hw-nav-item">
-              <button type="button" class="hw-nav-link" onclick="hwShowProductView()">Apparel <span>+</span></button>
-            </li>
-            <li class="hw-nav-item">
-              <button type="button" class="hw-nav-link" onclick="hwShowProductView()">Fine Jewellery</button>
-            </li>
-            <li class="hw-nav-item">
-              <button type="button" class="hw-nav-link" onclick="hwShowProductView()">Fine Silk Scarves</button>
-            </li>
-            <li class="hw-nav-item">
-              <button type="button" class="hw-nav-link" onclick="hwNavigateToGlossary('khadi')">Made By Masters</button>
-            </li>
-          </ul>
-        </div>
+    <div class="hw-site-header__inner">
+      <div class="hw-left-col">
+        <ul class="hw-primary-nav">
+          <li>
+            <button type="button" class="hw-nav-link" onclick="hwShowProductView()">Apparel <span>+</span></button>
+          </li>
+          <li>
+            <button type="button" class="hw-nav-link" onclick="hwShowProductView()">Fine Jewellery</button>
+          </li>
+          <li>
+            <button type="button" class="hw-nav-link" onclick="hwShowProductView()">Fine Silk Scarves</button>
+          </li>
+        </ul>
+      </div>
 
-        <div class="hw-center-col">
-          <a class="hw-site-logo" onclick="hwShowProductView()" title="Hartwick Atelier">H</a>
-        </div>
+      <div class="hw-center-col">
+        <a class="hw-site-logo-link" onclick="hwShowProductView()" title="Hartwick">
+          <img
+            class="hw-site-logo-img"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQQAAABBBAMAAADFxMdSAAAAMFBMVEUKFR8AVQAAAH8AAAAUEhATEQ8TEQ8TEQ8TEQ8TEQ8UFBETERATDg8sAAATDw8kJCRxoIoLAAAAEHRSTlMGAwIA/I3PcLJNFDQnBUQHdfhkeQAABnpJREFUeNrtmV2MG1cVgL8Zj+3dNCWzhIelqK2ZLq1URZWFqbLRVtTZuC1CCJmSpS9UMlVRGgkaCwEJogpuRfgtxTQBIZBgQyuaIgQrQUkFizKlSN0CLYaHKhGLM9ASloo0E2DXY689w8PMeP7uoJWweEC+Lztz5tzjb84995w7Z6UnfpA9B+Tn/rxKMOS3/Sq4yc8ZgPz+hi94aNHTumURQLlGXgU49k0D4Dp15kkAJvdcOBtYueeyce1NQxMnHsmeg/zcTnuQebOx0QGk1zqzRqBfWOsEN5mLlmVZnRc+rnsCc82yLMuyOu11gE/pnSM6cOnvG4BiX3p5HYAPP93dGBrZd+b8JeOF97W8245hbUDjh+3zqmyQ8aQhgrxp14iP/tcSIhuAf8AicIXh1AEJ9rhPVe85wPEXAfpPNcJzJx6BjC4jGptgxn8INhtCZb4MKtDDNoEPReZ6I3c08RoybALbESM4sCIQt+ICd7YCa8Fvm1BNzPzk0JUh4bZ3g2SkIJRhEBEoU28gwHrP1FQZpKmpGwHouZZbroKJUo/byzeBfaUyvCUQbrd0eDtihG0m9CN2pPYf7oWed3e03b4Tbmq3dZ9YgrzpKug4wpi54/vLp8vynkD4r1tBWUpB6BvAUszjjxaGgQvUoDy8UemDY4BTJwdKwuADkDkF1lNXNgPhRAveRAqCA9CJCbtmjCnYQUWouZNa9GFaFES7AHqhXScfBLmchvAAxILBgYFK2vgo6DwMYHJItCF0FF3k6mzTRejPaJp2dQy6EF3RQf1z9xmCRR4CqjQB1jAhkVImQUpO0uE+b0NxMT5DJ1Nt2rXFEMJJgGwKggJ/y6tmftLsoSMnvDAQIQDZBikL0YXsQyJ/5lMQrAIDx2C6hlNXcZoClTeK5vVIQ3BgtyRITko1LRhMHAfUT8NvDcGGSBtyKkIZipkgCwzHbc00WzX6t4AuwXqKz/8qjKGajzCjaVohkpjkxkEVJ57kridZN/ALVQsJqcAfh0Uq+rZCLp72Ikmea4K8I7xb7J2P2ZGSIJV+Eyml8UK1A8jRVd1ElYiVyaRL/XIIMsjN6II4gG0Ticfsz1Q4nYqgAMxCEdzCnVhaJ1llF8CuimPhYf/iQugIwytx5ydCW4UTIIxGFb4OwDtC2N+owy/ECM3Qdo68aL+cylB23z7nZ/fY+A50a8De54O0NcgfA6csQpgc+j9ycupU4WwqguoG3HpBnL+ywI9u/8y+Fj8JYrTbK8JLIoQucPPCwoIaS06Pw2ZkjxSiCDnv725R7iqC/esvvugFoD+egc0GSvxwwqFFrv8pIO+IJicZ7NQ9cWI7s0tAsSVIqsAz/obLRM6OBYMlgRdaMAmQi8F1q/BLcbH2ChXwlfAxohhKI/71u8ImN6rwF+TEWpigA1hl+k3/57rAYzCoiVMTGQ8hh9wQHjVXXLId0R17DPp3yfdWKgDKfMVVysvabe7zGa3gnpzkSqUI9Pdr2tDLmflKOAV1i5kmgPXW0Mnq8szeIJpPvx6U4FNl/0wF6D2ozZ+XSonKGhg53I1WhcPNg2llIv95N1TzqRocUddEzwZJhP/5kBkjjBHGCGOEMcIYYYwwRhgjjBH+3xAOeJ/XmqZpdwDc41/Mewfz3A0AOU3TZupATluYqW/NduaqrWjlVt1e7K2GZVkXOjC5alnWq+uQv9gyvc+rDcDGsjqFFty/0u78/sDK6Lzwc6+RN18Itx7k8Ae2bAPUAa0APAo4r47QC5x13/XM5cord58BMrkbPnjdrhVQstPuR5o80QGe3/bdXd/WAXnyY7PPnd/Yiu2tNQlN/5O9U3zWW/u1w0JNx2/lOJ/gAz8eXThO6AHqf54gyyk9kP8WocdHEk3I6cPCgHcOeN6RPntkyWFkC3Ho8QevjDdPzp0TNsXt71HWAewvgDM6L7SkTPJfY6k9wKD7Uh0ZQt6UuuULcfeVdgmVd5aqfiRkFke2EI6hLCzHFaeXxfZWV90Hyks3/ml04Tigv0y/ERX+M03Xv+iW3Ub7SBCOIsuFeGt5d6jlGIx6yPlfdRvtI0FoZb5091n/P3Z+EC6XSncB8GypFHrb/vHSzZ6/eupmfUSxMKFfW4PZ34WZs9htXnaZ2lw9RGu+ru224u8/CXd+yxgRQl+ptuDke18DuLz3SYD+VUVQnoDuNUW4ApBuPwVIFWCuDsf3n+LEO5/bCsK/AeGZFHy8hxbTAAAAAElFTkSuQmCC"
+            alt="Hartwick"
+          >
+        </a>
+      </div>
 
-        <div class="hw-header-actions">
-          <button type="button" class="hw-action-btn" onclick="hwNavigateToGlossary('khadi')">Glossary</button>
-          <a href="#contact" class="hw-action-btn">Private Appointments</a>
-          <a href="#bag" class="hw-action-btn" id="HwHeaderBagCount">Bag (0)</a>
-        </div>
+      <div class="hw-header-actions">
+        <button type="button" class="hw-action-btn" id="HwNavMastersBtn" onclick="hwNavigateToMasters('khadi')">Made By Masters</button>
+        <button type="button" class="hw-action-btn" onclick="hwShowProductView()">About <span>+</span></button>
+        <a href="#bag" class="hw-action-btn" id="HwHeaderBagCount">Bag (0)</a>
       </div>
     </div>
   </header>
 
   <!-- ==========================================================================
-       PRODUCT VIEW (BEVAT ZOWEL VERSIE 1 ALS VERSIE 2)
+       PRODUCT VIEW (CONTAINS BOTH OPTION 1 & OPTION 2 FINALS)
        ========================================================================== -->
   <div id="HwProductView" class="hw-page-view is-active-view">
 
     <!-- ========================================================================
-         VERSIE 1: 3-KOLOMS VOGUE ATELIER LAYOUT
-         - VOLLEDIG IN HET VOGUE LETTERTYPE (BODONI MODA & CORMORANT GARAMOND)
-         - ALLE BLOKKEN LINKS ZIJN UITGEKLAPT (STYLE + STOF + BULLET POINTS)
-         - FIBRE TO GARMENT OPENT AUTOMATISCH ZODRA JE ERMET JE MUIS OP STAAT
-         - GROTE THUMBNAILS RECHTS VOOR DE STIJL-UITVOERINGEN
+         OPTION 1: REFINED 3-COLUMN EDITORIAL LAYOUT
+         - Strictly follows Brand Guidelines:
+           1. HEADING: Porter Medium (Short uppercase entry point)
+           2. STORY:   Junicode Medium (Angela's two paragraphs beside the image)
+           3. DETAIL:  Noto Sans Mono Semi-Bold (Captions, specs, Fibre to Garment)
+         - Only actual Tribeca Skirt variations in the switcher (Emerald & Checkerboard Navy)
          ======================================================================== -->
     <section class="hw-v1-section hw-v1-only">
       <div class="hw-v1-grid">
 
-        <!-- LINKERKOLOM VERSIE 1 -->
+        <!-- LEFT COLUMN: STORY & DETAILS -->
         <div class="hw-v1-left">
-          <nav class="hw-vogue-breadcrumb">
+          <nav class="hw-breadcrumb">
             <a href="#collection">&larr; Skirts + Dresses</a>
             <span>/</span>
-            <a href="#style" class="hw-vogue-breadcrumb__style js-pdp-style-bc">Tribeca</a>
+            <span class="hw-breadcrumb__current">Tribeca</span>
           </nav>
 
-          <h1 class="hw-vogue-title js-pdp-title">Tribeca Emerald Changeant</h1>
-          <p class="hw-vogue-subtitle js-pdp-subtitle">Handspun Matka Silk &middot; Jewel-Tone Emerald &amp; Black Weft</p>
+          <!-- 1. HEADING (PORTER MEDIUM) -->
+          <h1 class="hw-porter-heading js-pdp-title">Tribeca Emerald</h1>
+          <!-- 3. DETAIL CAPTION (NOTO SANS MONO SEMI-BOLD) -->
+          <p class="hw-mono-caption js-pdp-subtitle">Handwoven Emerald Matka Silk &middot; Changeant Weave</p>
 
-          <!-- UITGEKLAPT BLOK 1: SILHOUETTE / STYLE + BULLET POINTS UIT FOTO 4 -->
-          <div class="hw-vogue-open-box">
-            <button type="button" class="hw-vogue-open-box__head" onclick="this.parentElement.classList.toggle('is-collapsed')">
-              <span class="hw-vogue-open-box__title js-pdp-style-tag">THE SILHOUETTE &middot; TRIBECA</span>
-              <span class="hw-vogue-open-box__icon">&times;</span>
-            </button>
-            <div class="hw-vogue-open-box__body">
-              <p class="hw-vogue-prose js-pdp-style-copy">
-                The Tribeca Skirt is an elegant, voluminous high waisted full length skirt tailored with dropped, deep box pleats and hidden pockets.
-              </p>
-              <!-- DE BULLET POINTS UIT FOTO 4 MOOI EN SLIM UITGEKLAPT VERWERKT -->
-              <ul class="hw-vogue-bullets js-pdp-specs-list">
-                <li>Full skirt &middot; Full length silhouette</li>
-                <li>Handwoven and handspun cotton khadi &amp; matka silk</li>
-                <li>Tiny checkerboard &amp; changeant two-tone heritage weave</li>
-                <li>High waist and dropped, deep box pleats</li>
-                <li>Hidden pockets integrated into side seams</li>
-                <li>Hidden left side zipper and top button loop closure</li>
-              </ul>
-            </div>
+          <!-- 2. STORY (JUNICODE MEDIUM): Paragraph 1 = Style (Tribeca), Paragraph 2 = Specific Fabric -->
+          <div class="hw-story-passage">
+            <p class="hw-story-paragraph js-pdp-style-copy">
+              The Tribeca Skirt is a high waisted full length skirt tailored with dropped, deep box pleats and hidden pockets, making an elegant and very comfortable skirt.
+            </p>
+            <p class="hw-story-paragraph js-pdp-textile-copy">
+              The fabric for this skirt is exquisite. Tailored with handspun matka silk, handwoven in jewel-tone emerald green with a black silk weft to create complex tonal layers using a technique made popular in 18th century ball gowns (changeant silk). This full skirt has a striking, dark iridescence. It&rsquo;s a real showstopper.
+            </p>
           </div>
 
-          <!-- UITGEKLAPT BLOK 2: SPECIFIEKE STOF / UITVOERING (ZONDER HET WOORD EXPRESSION) -->
-          <div class="hw-vogue-open-box">
-            <button type="button" class="hw-vogue-open-box__head" onclick="this.parentElement.classList.toggle('is-collapsed')">
-              <span class="hw-vogue-open-box__title js-pdp-textile-tag">THE TEXTILE &middot; EMERALD CHANGEANT</span>
-              <span class="hw-vogue-open-box__icon">&times;</span>
-            </button>
-            <div class="hw-vogue-open-box__body">
-              <p class="hw-vogue-prose js-pdp-textile-copy">
-                The fabric for this skirt is exquisite. Tailored with handspun matka silk, handwoven in jewel-tone emerald green with a black silk weft to create complex tonal layers using a technique made popular in 18th century ball gowns (changeant silk). This full skirt has a striking, dark iridescence. It&rsquo;s a real showstopper.
-              </p>
-            </div>
+          <!-- 3. DETAILS (NOTO SANS MONO SEMI-BOLD) -->
+          <div class="hw-detail-section">
+            <h2 class="hw-section-kicker">Details</h2>
+            <ul class="hw-mono-details-list js-pdp-specs-list">
+              <li>Full skirt</li>
+              <li>Handwoven and handspun matka silk</li>
+              <li>Jewel-tone emerald green with black silk weft (changeant weave)</li>
+              <li>High waist and dropped, deep box pleats</li>
+              <li>Hidden pockets</li>
+              <li>Full length</li>
+              <li>Hidden left side zipper and top button loop closure</li>
+            </ul>
           </div>
 
-          <!-- UITGEKLAPT BLOK 3: FIBRE TO GARMENT (OPENT AUTOMATISCH ZODRA JE OP EEN RIJ STAAT!) -->
-          <div class="hw-vogue-open-box">
-            <button type="button" class="hw-vogue-open-box__head" onclick="this.parentElement.classList.toggle('is-collapsed')">
-              <span class="hw-vogue-open-box__title">FIBRE TO GARMENT</span>
-              <span class="hw-vogue-open-box__icon">&times;</span>
-            </button>
-            <div class="hw-vogue-open-box__body">
-              <div class="hw-f2g-list">
-                <!-- FIBRE -->
-                <div class="hw-f2g-row is-open" onmouseenter="hwAutoOpenF2G(this)" onclick="hwToggleF2GRow(this)">
-                  <button type="button" class="hw-f2g-trigger">
-                    <span class="hw-f2g-step">FIBRE</span>
-                    <span class="hw-f2g-val">
-                      <span class="js-f2g-fibre">55% Mulberry &amp; Matka Silk, 45% Handspun Cotton</span>
-                      <span class="hw-f2g-arrow">&nearr;</span>
-                    </span>
-                  </button>
-                  <div class="hw-f2g-drawer">
-                    <div class="hw-f2g-drawer__inner">
-                      <div class="hw-f2g-drawer__box">
-                        <p class="hw-f2g-drawer__text">
-                          Wearing handspun and handwoven natural fibre cloth (Khadi) has a different feeling than industrially produced fabric; natural fibres drape and breathe with a supple softness in a rhythm that can only be created by skilled human hands.
-                        </p>
-                        <button type="button" class="hw-f2g-glossary-btn" onclick="event.stopPropagation(); hwNavigateToGlossary('khadi')">
-                          <span>Open Khadi in Made By Masters Glossary</span>
-                          <span>&nearr;</span>
-                        </button>
-                      </div>
+          <!-- FIBRE TO GARMENT (HOVER TO REVEAL + LINK TO MADE BY MASTERS) -->
+          <div class="hw-f2g-block">
+            <div class="hw-f2g-header">
+              <h2 class="hw-section-kicker" style="margin:0;">Fibre to Garment</h2>
+              <span class="hw-f2g-hint">Hover step for craft note</span>
+            </div>
+            <div class="hw-f2g-list">
+              <div class="hw-f2g-row is-open" onmouseenter="hwAutoOpenF2G(this)" onclick="hwToggleF2GRow(this)">
+                <button type="button" class="hw-f2g-trigger">
+                  <span class="hw-f2g-step">Fibre</span>
+                  <span class="hw-f2g-val">
+                    <span class="js-f2g-fibre">100% Handspun Matka Silk</span>
+                    <span class="hw-f2g-arrow">&nearr;</span>
+                  </span>
+                </button>
+                <div class="hw-f2g-drawer">
+                  <div class="hw-f2g-drawer__inner">
+                    <div class="hw-f2g-drawer__box">
+                      <p class="hw-f2g-drawer__text">
+                        From harvest to yarn to weave, made by hand without machines or electricity—draping and breathing with a supple softness.
+                      </p>
+                      <button type="button" class="hw-f2g-masters-link" onclick="event.stopPropagation(); hwNavigateToMasters('khadi')">
+                        <span>Explore in Made By Masters</span>
+                        <span>&nearr;</span>
+                      </button>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <!-- SPINNING -->
-                <div class="hw-f2g-row" onmouseenter="hwAutoOpenF2G(this)" onclick="hwToggleF2GRow(this)">
-                  <button type="button" class="hw-f2g-trigger">
-                    <span class="hw-f2g-step">SPINNING</span>
-                    <span class="hw-f2g-val">
-                      <span class="js-f2g-spinning">Charkha Handspun (0 kWh)</span>
-                      <span class="hw-f2g-arrow">&nearr;</span>
-                    </span>
-                  </button>
-                  <div class="hw-f2g-drawer">
-                    <div class="hw-f2g-drawer__inner">
-                      <div class="hw-f2g-drawer__box">
-                        <p class="hw-f2g-drawer__text">
-                          Natural fibers are drawn out and twisted together by hand using a traditional wooden charkha (spinning wheel) without electricity, requiring extraordinary touch to spin a continuous, living thread.
-                        </p>
-                        <button type="button" class="hw-f2g-glossary-btn" onclick="event.stopPropagation(); hwNavigateToGlossary('hand-spun')">
-                          <span>Open Hand Spun in Made By Masters Glossary</span>
-                          <span>&nearr;</span>
-                        </button>
-                      </div>
+              <div class="hw-f2g-row" onmouseenter="hwAutoOpenF2G(this)" onclick="hwToggleF2GRow(this)">
+                <button type="button" class="hw-f2g-trigger">
+                  <span class="hw-f2g-step">Spinning</span>
+                  <span class="hw-f2g-val">
+                    <span class="js-f2g-spinning">Handspun by Artisans (0 kWh)</span>
+                    <span class="hw-f2g-arrow">&nearr;</span>
+                  </span>
+                </button>
+                <div class="hw-f2g-drawer">
+                  <div class="hw-f2g-drawer__inner">
+                    <div class="hw-f2g-drawer__box">
+                      <p class="hw-f2g-drawer__text">
+                        Natural fibres drawn out and twisted together by hand to form a living yarn with subtle human texture.
+                      </p>
+                      <button type="button" class="hw-f2g-masters-link" onclick="event.stopPropagation(); hwNavigateToMasters('hand-spun')">
+                        <span>Explore Hand Spun in Made By Masters</span>
+                        <span>&nearr;</span>
+                      </button>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <!-- WEAVING -->
-                <div class="hw-f2g-row" onmouseenter="hwAutoOpenF2G(this)" onclick="hwToggleF2GRow(this)">
-                  <button type="button" class="hw-f2g-trigger">
-                    <span class="hw-f2g-step">WEAVING</span>
-                    <span class="hw-f2g-val">
-                      <span class="js-f2g-weaving">Handloom Changeant Weave &middot; Wooden Pit Loom</span>
-                      <span class="hw-f2g-arrow">&nearr;</span>
-                    </span>
-                  </button>
-                  <div class="hw-f2g-drawer">
-                    <div class="hw-f2g-drawer__inner">
-                      <div class="hw-f2g-drawer__box">
-                        <p class="hw-f2g-drawer__text">
-                          Interlaced by hand and foot pedals on wooden handlooms without electricity. Pairing jewel-tone emerald warp threads with a deep black silk weft creates a luminous 18th-century changeant iridescence.
-                        </p>
-                        <button type="button" class="hw-f2g-glossary-btn" onclick="event.stopPropagation(); hwNavigateToGlossary('handwoven')">
-                          <span>Open Handwoven in Made By Masters Glossary</span>
-                          <span>&nearr;</span>
-                        </button>
-                      </div>
+              <div class="hw-f2g-row" onmouseenter="hwAutoOpenF2G(this)" onclick="hwToggleF2GRow(this)">
+                <button type="button" class="hw-f2g-trigger">
+                  <span class="hw-f2g-step">Weaving</span>
+                  <span class="hw-f2g-val">
+                    <span class="js-f2g-weaving">Handloom Changeant Weave</span>
+                    <span class="hw-f2g-arrow">&nearr;</span>
+                  </span>
+                </button>
+                <div class="hw-f2g-drawer">
+                  <div class="hw-f2g-drawer__inner">
+                    <div class="hw-f2g-drawer__box">
+                      <p class="hw-f2g-drawer__text">
+                        Handspun yarns woven together on a wooden handloom without electricity by master weavers in India.
+                      </p>
+                      <button type="button" class="hw-f2g-masters-link" onclick="event.stopPropagation(); hwNavigateToMasters('handwoven')">
+                        <span>Explore Handwoven in Made By Masters</span>
+                        <span>&nearr;</span>
+                      </button>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <!-- DYEING -->
-                <div class="hw-f2g-row" onmouseenter="hwAutoOpenF2G(this)" onclick="hwToggleF2GRow(this)">
-                  <button type="button" class="hw-f2g-trigger">
-                    <span class="hw-f2g-step">DYEING</span>
-                    <span class="hw-f2g-val">
-                      <span class="js-f2g-dyeing">Ayurvedic Botanical &amp; Mineral Dye</span>
-                      <span class="hw-f2g-arrow">&nearr;</span>
-                    </span>
-                  </button>
-                  <div class="hw-f2g-drawer">
-                    <div class="hw-f2g-drawer__inner">
-                      <div class="hw-f2g-drawer__box">
-                        <p class="hw-f2g-drawer__text">
-                          Master Colorists use ancient Ayurvedic botanicals and minerals—wild indigo, pomegranate rind, myrobalan, turmeric, and fermented iron—working in harmony with the sun, wind, and mineral-rich water.
-                        </p>
-                        <button type="button" class="hw-f2g-glossary-btn" onclick="event.stopPropagation(); hwNavigateToGlossary('natural-dye')">
-                          <span>Open Natural Dye in Made By Masters Glossary</span>
-                          <span>&nearr;</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- FINISHING -->
-                <div class="hw-f2g-row" onmouseenter="hwAutoOpenF2G(this)" onclick="hwToggleF2GRow(this)">
-                  <button type="button" class="hw-f2g-trigger">
-                    <span class="hw-f2g-step">FINISHING</span>
-                    <span class="hw-f2g-val">
-                      <span class="js-f2g-finishing">Single-Tailor Heirloom Fit &middot; Mother of Pearl</span>
-                      <span class="hw-f2g-arrow">&darr;</span>
-                    </span>
-                  </button>
-                  <div class="hw-f2g-drawer">
-                    <div class="hw-f2g-drawer__inner">
-                      <div class="hw-f2g-drawer__box">
-                        <p class="hw-f2g-drawer__text">
-                          Cut and assembled from start to finish by a single master tailor using 100% pure cotton thread (zero polyester) and natural mother-of-pearl buttons. Off-cuts become handmade cotton rag hangtags.
-                        </p>
-                        <button type="button" class="hw-f2g-glossary-btn" onclick="event.stopPropagation(); hwNavigateToGlossary('block-printed')">
-                          <span>Open Heritage Craft in Made By Masters Glossary</span>
-                          <span>&nearr;</span>
-                        </button>
-                      </div>
+              <div class="hw-f2g-row" onmouseenter="hwAutoOpenF2G(this)" onclick="hwToggleF2GRow(this)">
+                <button type="button" class="hw-f2g-trigger">
+                  <span class="hw-f2g-step">Finishing</span>
+                  <span class="hw-f2g-val">
+                    <span class="js-f2g-finishing">Pure Cotton Thread &middot; Mother of Pearl</span>
+                    <span class="hw-f2g-arrow">&nearr;</span>
+                  </span>
+                </button>
+                <div class="hw-f2g-drawer">
+                  <div class="hw-f2g-drawer__inner">
+                    <div class="hw-f2g-drawer__box">
+                      <p class="hw-f2g-drawer__text">
+                        Tailored with deep box pleats, hidden side-seam pockets, pure cotton thread, and top button loop closure.
+                      </p>
+                      <button type="button" class="hw-f2g-masters-link" onclick="event.stopPropagation(); hwNavigateToMasters('natural-dye')">
+                        <span>Explore Craft in Made By Masters</span>
+                        <span>&nearr;</span>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -1463,148 +1504,104 @@
             </div>
           </div>
 
-          <!-- UITGEKLAPT BLOK 4: CARE & AGING VOOR DIT SPECIFIEKE PRODUCT -->
-          <div class="hw-vogue-open-box" style="border-bottom: 1px solid rgba(24, 21, 18, 0.16);">
-            <button type="button" class="hw-vogue-open-box__head" onclick="this.parentElement.classList.toggle('is-collapsed')">
-              <span class="hw-vogue-open-box__title js-pdp-care-heading">CARE &amp; AGING &middot; TRIBECA MATKA SILK</span>
-              <span class="hw-vogue-open-box__icon">&times;</span>
-            </button>
-            <div class="hw-vogue-open-box__body">
-              <div class="hw-vogue-prose js-pdp-care-copy">
-                <p style="margin: 0 0 10px 0;"><strong>How This Garment Ages:</strong> Handspun matka silk and handwoven khadi are living textiles. With every wear, the natural fibres relax to the contours of your body, becoming noticeably softer, more supple, and developing a rich heirloom patina unique to botanical dyes.</p>
-                <p style="margin: 0;"><strong>Specific Care for This Piece:</strong> Gently hand wash cold using pH-neutral botanical soap or eco dry clean. Line dry in natural shade away from direct midday sun to preserve the jewel-tone emerald and black changeant silk lustre.</p>
-              </div>
-            </div>
+          <!-- CARE & AGING -->
+          <div class="hw-care-block">
+            <h2 class="hw-section-kicker js-pdp-care-heading">Care &amp; Aging &middot; Handwoven Matka Silk</h2>
+            <p class="hw-care-text js-pdp-care-copy">
+              Handspun silk softens and moulds to your movement with each wear. Gently hand wash cold with pH-neutral silk soap or eco dry clean; line dry in shade.
+            </p>
           </div>
         </div>
 
-        <!-- MIDDENKOLOM VERSIE 1 -->
+        <!-- CENTER COLUMN: STICKY GALLERY OF ACTUAL TRIBECA PHOTOS -->
         <div class="hw-pdp__center">
           <div class="hw-pdp__main-media">
             <img
               class="js-pdp-main-img"
               src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/42944944-2834-4141-9e1e-d2abcd74e90d/001034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg"
-              alt="Tribeca Handwoven Silk"
+              alt="Tribeca Skirt"
             >
           </div>
 
-          <div class="hw-pdp__thumbs">
+          <div class="hw-pdp__media-caption-bar">
+            <span class="js-pdp-caption-left">STYLE: TRIBECA &middot; EMERALD SILK</span>
+            <span>HANDWOVEN IN INDIA</span>
+          </div>
+
+          <div class="hw-pdp__thumbs js-pdp-thumbs-rail">
             <button
               type="button"
               class="hw-pdp__thumb active"
               data-image-src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/42944944-2834-4141-9e1e-d2abcd74e90d/001034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg"
               onclick="hwSelectProductImage(this)"
             >
-              <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/42944944-2834-4141-9e1e-d2abcd74e90d/001034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg" alt="View 1">
+              <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/42944944-2834-4141-9e1e-d2abcd74e90d/001034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg" alt="Tribeca View 1">
             </button>
             <button
               type="button"
               class="hw-pdp__thumb"
-              data-image-src="061_HARTWICK_FINESILK_MEDIUMSQUARE02_SCARF_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg"
+              data-image-src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1739196356336-KNT5ZK14XF9A3FFNLL2S/034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w"
               onclick="hwSelectProductImage(this)"
             >
-              <img src="061_HARTWICK_FINESILK_MEDIUMSQUARE02_SCARF_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg" alt="View 2">
+              <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1739196356336-KNT5ZK14XF9A3FFNLL2S/034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w" alt="Tribeca View 2">
             </button>
             <button
               type="button"
               class="hw-pdp__thumb"
-              data-image-src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/53af90f4-8eea-4dfa-8f13-9c70613bb848/175_HARTWICK_HANDWOVEN_LUCCA_TROUSERS_KHADI_REDBRICK_SANTAFE_SHIRT_IKAT.jpg"
+              data-image-src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/178ae04a-638b-4b68-b167-aa7da9160b0d/035__HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w"
               onclick="hwSelectProductImage(this)"
             >
-              <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/53af90f4-8eea-4dfa-8f13-9c70613bb848/175_HARTWICK_HANDWOVEN_LUCCA_TROUSERS_KHADI_REDBRICK_SANTAFE_SHIRT_IKAT.jpg" alt="View 3">
+              <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/178ae04a-638b-4b68-b167-aa7da9160b0d/035__HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w" alt="Tribeca View 3">
             </button>
             <button
               type="button"
               class="hw-pdp__thumb"
-              data-image-src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/3a6786b9-45ce-459e-83cb-4bee1d2e3554/184_HARTWICK_STYLE_FABRIC4R1A8940.jpg"
+              data-image-src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/d37cc784-75b8-4b37-976f-cd8a1befd013/005_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_TOKYO_SHIRT_SILK_ZARI.jpg?format=1500w"
               onclick="hwSelectProductImage(this)"
             >
-              <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/3a6786b9-45ce-459e-83cb-4bee1d2e3554/184_HARTWICK_STYLE_FABRIC4R1A8940.jpg" alt="View 4">
+              <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/d37cc784-75b8-4b37-976f-cd8a1befd013/005_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_TOKYO_SHIRT_SILK_ZARI.jpg?format=1500w" alt="Tribeca View 4">
             </button>
           </div>
         </div>
 
-        <!-- RECHTERKOLOM VERSIE 1 (MET GROTERE THUMBNAIL FOTO'S) -->
+        <!-- RIGHT COLUMN: TRIBECA VARIATIONS, SIZE & PURCHASE -->
         <div class="hw-v1-right">
           <div class="hw-pdp__price-block">
-            <span class="hw-pdp__price js-pdp-price">$1,250 USD</span>
+            <span class="hw-pdp__price js-pdp-price">&euro;696 EUR</span>
+            <span class="hw-pdp__edition-tag">Limited By Nature</span>
           </div>
 
+          <!-- ONLY ACTUAL TRIBECA SKIRT VARIATIONS -->
           <div class="hw-variations-block">
             <div class="hw-variations-header">
-              <span class="hw-variations-label js-pdp-switcher-label">TRIBECA</span>
+              <span class="hw-variations-label">Tribeca Skirt</span>
+              <span class="hw-variations-active-name js-pdp-active-varname">Emerald Matka Silk</span>
             </div>
             <div class="hw-variations-rail">
               <button
                 type="button"
                 class="hw-var-card is-active"
-                onclick="hwSelectDemoProduct(this)"
-                data-key="tribeca"
-                data-title="Tribeca Emerald Changeant"
-                data-style="Tribeca"
-                data-subtitle="Handspun Matka Silk &middot; Jewel-Tone Emerald &amp; Black Weft"
-                data-price="$1,250 USD"
-                data-price-short="$1,250"
-                data-img="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/42944944-2834-4141-9e1e-d2abcd74e90d/001034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg"
+                onclick="hwSelectTribecaProduct('emerald')"
+                data-key="emerald"
               >
                 <div class="hw-var-thumb">
-                  <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/42944944-2834-4141-9e1e-d2abcd74e90d/001034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg" alt="Emerald Silk">
+                  <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/42944944-2834-4141-9e1e-d2abcd74e90d/001034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg" alt="Tribeca Emerald">
                 </div>
-                <span class="hw-var-name">Emerald Silk</span>
+                <span class="hw-var-name">Tribeca Emerald</span>
+                <span class="hw-var-sub">Changeant Matka Silk</span>
               </button>
 
               <button
                 type="button"
                 class="hw-var-card"
-                onclick="hwSelectDemoProduct(this)"
-                data-key="palma"
-                data-title="Palma Seed Pod"
-                data-style="Palma"
-                data-subtitle="Natural Dye &amp; Handcarved Wooden Block Print"
-                data-price="$1,180 USD"
-                data-price-short="$1,180"
-                data-img="061_HARTWICK_FINESILK_MEDIUMSQUARE02_SCARF_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg"
+                onclick="hwSelectTribecaProduct('checkerboard')"
+                data-key="checkerboard"
               >
                 <div class="hw-var-thumb">
-                  <img src="061_HARTWICK_FINESILK_MEDIUMSQUARE02_SCARF_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg" alt="Seed Pod">
+                  <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1761396465263-0INBDHKVY8T2913ALOTW/001_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_AMMAN_SHIRT_LIMINAL_BYZANTINE_CHAIN.jpg?format=1500w" alt="Tribeca Checkerboard Navy">
                 </div>
-                <span class="hw-var-name">Seed Pod</span>
-              </button>
-
-              <button
-                type="button"
-                class="hw-var-card"
-                onclick="hwSelectDemoProduct(this)"
-                data-key="amman"
-                data-title="Amman Checkerboard Natural"
-                data-style="Amman"
-                data-subtitle="Handwoven &amp; Handspun Cotton Khadi &middot; Tiny Checkerboard"
-                data-price="$980 USD"
-                data-price-short="$980"
-                data-img="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/53af90f4-8eea-4dfa-8f13-9c70613bb848/175_HARTWICK_HANDWOVEN_LUCCA_TROUSERS_KHADI_REDBRICK_SANTAFE_SHIRT_IKAT.jpg"
-              >
-                <div class="hw-var-thumb">
-                  <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/53af90f4-8eea-4dfa-8f13-9c70613bb848/175_HARTWICK_HANDWOVEN_LUCCA_TROUSERS_KHADI_REDBRICK_SANTAFE_SHIRT_IKAT.jpg" alt="Checkerboard">
-                </div>
-                <span class="hw-var-name">Checkerboard</span>
-              </button>
-
-              <button
-                type="button"
-                class="hw-var-card"
-                onclick="hwSelectDemoProduct(this)"
-                data-key="marrakesh"
-                data-title="Marrakesh Emerald Blockprint"
-                data-style="Marrakesh"
-                data-subtitle="Hand Block Printed Silk &amp; Botanical Dye"
-                data-price="$1,420 USD"
-                data-price-short="$1,420"
-                data-img="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a44abff5-797b-4d55-9b5a-455238e8c760/038_HARTWICK_MARRAKESH_KAFTAN_EMERALD_BLOCKPRINTIMG_6451+%281%29.jpg"
-              >
-                <div class="hw-var-thumb">
-                  <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a44abff5-797b-4d55-9b5a-455238e8c760/038_HARTWICK_MARRAKESH_KAFTAN_EMERALD_BLOCKPRINTIMG_6451+%281%29.jpg" alt="Emerald">
-                </div>
-                <span class="hw-var-name">Emerald</span>
+                <span class="hw-var-name">Tribeca Checkerboard</span>
+                <span class="hw-var-sub">Handspun Fine Cotton</span>
               </button>
             </div>
           </div>
@@ -1613,10 +1610,10 @@
             <div class="hw-pdp__size-block">
               <div class="hw-pdp__size-top">
                 <span class="hw-pdp__field-label">
-                  SIZE &nbsp;&middot;&nbsp; <strong class="js-pdp-size-label">M</strong>
+                  Size &nbsp;&middot;&nbsp; <strong class="js-pdp-size-label">M</strong>
                 </span>
                 <button type="button" class="hw-pdp__size-guide-btn" onclick="hwOpenSizeGuide('demo')">
-                  SIZE GUIDE (XS&ndash;XL)
+                  Size Guide (XS&ndash;XL)
                 </button>
               </div>
               <div class="hw-pdp__size-grid">
@@ -1628,8 +1625,8 @@
               </div>
             </div>
 
-            <button type="submit" class="hw-pdp__atc-btn js-pdp-atc" data-current-price="$1,250">
-              ADD SIZE M TO BAG &mdash; $1,250
+            <button type="submit" class="hw-pdp__atc-btn js-pdp-atc" data-current-price="€696">
+              Add Size M to Bag &mdash; &euro;696
             </button>
           </form>
 
@@ -1638,26 +1635,17 @@
             <span>&rarr;</span>
           </a>
 
-          <div class="hw-vogue-open-box">
-            <button type="button" class="hw-vogue-open-box__head" onclick="this.parentElement.classList.toggle('is-collapsed')">
-              <span class="hw-vogue-open-box__title">TRUE SUSTAINABILITY &amp; ZERO WASTE</span>
-              <span class="hw-vogue-open-box__icon">&times;</span>
-            </button>
-            <div class="hw-vogue-open-box__body">
-              <p class="hw-vogue-prose">
-                Our collections are limited by nature, made by hand in truly sustainable quantities, with zero waste practices. Stitched with pure cotton thread and finished with mother of pearl buttons.
+          <div class="hw-right-notes">
+            <div class="hw-right-note-item">
+              <span class="hw-right-note-title">True Sustainability</span>
+              <p class="hw-right-note-desc">
+                Handspun and handwoven without electricity in limited quantities. Zero-waste studio practice; off-cuts become handmade rag hangtags.
               </p>
             </div>
-          </div>
-
-          <div class="hw-vogue-open-box" style="border-bottom: 1px solid rgba(24, 21, 18, 0.16);">
-            <button type="button" class="hw-vogue-open-box__head" onclick="this.parentElement.classList.toggle('is-collapsed')">
-              <span class="hw-vogue-open-box__title">RETURN POLICY &amp; ARTISANAL NUANCES</span>
-              <span class="hw-vogue-open-box__icon">&times;</span>
-            </button>
-            <div class="hw-vogue-open-box__body">
-              <p class="hw-vogue-prose">
-                Exchanges for size within 7 days of purchase. Artisanal handspun fabrics naturally result in subtle variations in colour and weave—cherished for their human touch.
+            <div class="hw-right-note-item">
+              <span class="hw-right-note-title">Artisanal Nuances &amp; Exchanges</span>
+              <p class="hw-right-note-desc">
+                Handwork naturally results in subtle variations cherished for their human touch. Exchanges for size within 7 days.
               </p>
             </div>
           </div>
@@ -1667,142 +1655,118 @@
     </section>
 
     <!-- ========================================================================
-         VERSIE 2: MODERNE HIGH-END ASYMMETRISCHE MAISON EDITORIAL LAYOUT
-         - ANDERS GEPOSITIONEERD: LINKS GROTE EDITORIAL LOOKBOOK GALLERY (3 FOTO'S)
-         - RECHTS DIRECT DUIDELIJK VOOR MENSEN DIE NIKS VAN HET AMBACHT WETEN:
-           1. TITEL + PRIJS NAAST ELKAAR BOVENAAN
-           2. GROTE FOTO-KAARTEN VAN DE STIJL-UITVOERINGEN DIRECT IN BEELD
-           3. MAAT & ADD TO BAG DIRECT BOVEN DE VOUW
-           4. TWEE HELDERE UITGEVOUDEN VOGUE KAARTEN (SILHOUET & STOF + BULLETS)
-           5. GENUMMERDE "01–05 FIBRE TO GARMENT" REIS DIE AUTOMATISCH OPENT BIJ HOVER
-           6. SPECIFIEKE CARE & AGING UITGEKLAPT
+         OPTION 2: MODERN 2-COLUMN ASYMMETRIC EDITORIAL LAYOUT
+         - Left: Multi-frame architectural lookbook of the active Tribeca Skirt
+         - Right: Single clear point of entry (Porter Medium Heading + Price),
+           Tribeca variations, Size/Bag, Angela's Story (Junicode Medium),
+           and Practical Details & Fibre to Garment (Noto Sans Mono Semi-Bold).
          ======================================================================== -->
     <section class="hw-v2-section hw-v2-only">
       <div class="hw-v2-layout">
 
-        <!-- LINKS IN VERSIE 2: MODERNE EDITORIAL LOOKBOOK GALLERY -->
-        <div class="hw-v2-gallery">
-          <div class="hw-v2-gallery__hero">
-            <img
-              class="js-pdp-main-img"
-              src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/42944944-2834-4141-9e1e-d2abcd74e90d/001034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg"
-              alt="Tribeca Editorial Lookbook"
-            >
-            <span class="hw-v2-gallery__badge">100% HANDSPUN &amp; HANDWOVEN WITHOUT ELECTRICITY</span>
-          </div>
-          <div class="hw-v2-gallery__sub" onclick="hwSelectProductImage(this)" data-image-src="061_HARTWICK_FINESILK_MEDIUMSQUARE02_SCARF_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg">
-            <img src="061_HARTWICK_FINESILK_MEDIUMSQUARE02_SCARF_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg" alt="Detail 1">
-          </div>
-          <div class="hw-v2-gallery__sub" onclick="hwSelectProductImage(this)" data-image-src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/3a6786b9-45ce-459e-83cb-4bee1d2e3554/184_HARTWICK_STYLE_FABRIC4R1A8940.jpg">
-            <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/3a6786b9-45ce-459e-83cb-4bee1d2e3554/184_HARTWICK_STYLE_FABRIC4R1A8940.jpg" alt="Detail 2">
-          </div>
+        <!-- LEFT: ARCHITECTURAL LOOKBOOK GALLERY OF ACTUAL TRIBECA SKIRT -->
+        <div class="hw-v2-lookbook js-v2-lookbook">
+          <figure class="hw-v2-frame hw-v2-frame--hero">
+            <div class="hw-v2-frame__media">
+              <img
+                class="js-v2-img-0"
+                src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/42944944-2834-4141-9e1e-d2abcd74e90d/001034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg"
+                alt="Tribeca Skirt Look 01"
+              >
+            </div>
+            <figcaption class="hw-v2-frame__caption">
+              <span class="js-pdp-caption-left">STYLE: TRIBECA &middot; EMERALD SILK</span>
+              <span>01 / 03 &middot; FULL LENGTH SILHOUETTE</span>
+            </figcaption>
+          </figure>
+
+          <figure class="hw-v2-frame">
+            <div class="hw-v2-frame__media">
+              <img
+                class="js-v2-img-1"
+                src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1739196356336-KNT5ZK14XF9A3FFNLL2S/034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w"
+                alt="Tribeca Skirt Look 02"
+              >
+            </div>
+            <figcaption class="hw-v2-frame__caption">
+              <span>02 / 03 &middot; DROPPED BOX PLEATS</span>
+              <span>HIDDEN POCKETS</span>
+            </figcaption>
+          </figure>
+
+          <figure class="hw-v2-frame">
+            <div class="hw-v2-frame__media">
+              <img
+                class="js-v2-img-2"
+                src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/178ae04a-638b-4b68-b167-aa7da9160b0d/035__HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w"
+                alt="Tribeca Skirt Look 03"
+              >
+            </div>
+            <figcaption class="hw-v2-frame__caption">
+              <span>03 / 03 &middot; HANDLOOM TEXTILE DRAPE</span>
+              <span>0 KWH WEAVE</span>
+            </figcaption>
+          </figure>
         </div>
 
-        <!-- RECHTS IN VERSIE 2: GESTRUCTUREERDE HIGH-END KOOP- & VERHAALKOLOM -->
+        <!-- RIGHT: CLEAN STICKY EDITORIAL PANEL -->
         <div class="hw-v2-panel">
-          <nav class="hw-vogue-breadcrumb">
+          <nav class="hw-breadcrumb">
             <a href="#collection">&larr; Skirts + Dresses</a>
             <span>/</span>
-            <a href="#style" class="hw-vogue-breadcrumb__style js-pdp-style-bc">Tribeca</a>
+            <span class="hw-breadcrumb__current">Tribeca</span>
           </nav>
 
-          <div class="hw-v2-top-row">
-            <div>
-              <h1 class="hw-vogue-title js-pdp-title" style="margin-bottom: 4px;">Tribeca Emerald Changeant</h1>
-              <p class="hw-vogue-subtitle js-pdp-subtitle" style="margin-bottom: 0;">Handspun Matka Silk &middot; Jewel-Tone Emerald &amp; Black Weft</p>
-            </div>
-            <span class="hw-pdp__price js-pdp-price" style="white-space: nowrap;">$1,250 USD</span>
+          <div class="hw-v2-header-row">
+            <h1 class="hw-porter-heading js-pdp-title" style="margin:0;">Tribeca Emerald</h1>
+            <span class="hw-pdp__price js-pdp-price">&euro;696 EUR</span>
           </div>
+          <p class="hw-mono-caption js-pdp-subtitle">Handwoven Emerald Matka Silk &middot; Changeant Weave</p>
 
-          <!-- GROTE FOTO'S VAN DE UITVOERINGEN DIRECT ONDER DE TITEL -->
+          <!-- TRIBECA VARIATIONS (ONLY ACTUAL TRIBECA SKIRT PRODUCTS) -->
           <div class="hw-variations-block">
             <div class="hw-variations-header">
-              <span class="hw-variations-label js-pdp-switcher-label">TRIBECA</span>
+              <span class="hw-variations-label">Tribeca Skirt</span>
+              <span class="hw-variations-active-name js-pdp-active-varname">Emerald Matka Silk</span>
             </div>
             <div class="hw-variations-rail">
               <button
                 type="button"
                 class="hw-var-card is-active"
-                onclick="hwSelectDemoProduct(this)"
-                data-key="tribeca"
-                data-title="Tribeca Emerald Changeant"
-                data-style="Tribeca"
-                data-subtitle="Handspun Matka Silk &middot; Jewel-Tone Emerald &amp; Black Weft"
-                data-price="$1,250 USD"
-                data-price-short="$1,250"
-                data-img="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/42944944-2834-4141-9e1e-d2abcd74e90d/001034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg"
+                onclick="hwSelectTribecaProduct('emerald')"
+                data-key="emerald"
               >
                 <div class="hw-var-thumb">
-                  <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/42944944-2834-4141-9e1e-d2abcd74e90d/001034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg" alt="Emerald Silk">
+                  <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/42944944-2834-4141-9e1e-d2abcd74e90d/001034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg" alt="Tribeca Emerald">
                 </div>
-                <span class="hw-var-name">Emerald Silk</span>
+                <span class="hw-var-name">Tribeca Emerald</span>
+                <span class="hw-var-sub">Changeant Matka Silk</span>
               </button>
 
               <button
                 type="button"
                 class="hw-var-card"
-                onclick="hwSelectDemoProduct(this)"
-                data-key="palma"
-                data-title="Palma Seed Pod"
-                data-style="Palma"
-                data-subtitle="Natural Dye &amp; Handcarved Wooden Block Print"
-                data-price="$1,180 USD"
-                data-price-short="$1,180"
-                data-img="061_HARTWICK_FINESILK_MEDIUMSQUARE02_SCARF_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg"
+                onclick="hwSelectTribecaProduct('checkerboard')"
+                data-key="checkerboard"
               >
                 <div class="hw-var-thumb">
-                  <img src="061_HARTWICK_FINESILK_MEDIUMSQUARE02_SCARF_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg" alt="Seed Pod">
+                  <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1761396465263-0INBDHKVY8T2913ALOTW/001_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_AMMAN_SHIRT_LIMINAL_BYZANTINE_CHAIN.jpg?format=1500w" alt="Tribeca Checkerboard Navy">
                 </div>
-                <span class="hw-var-name">Seed Pod</span>
-              </button>
-
-              <button
-                type="button"
-                class="hw-var-card"
-                onclick="hwSelectDemoProduct(this)"
-                data-key="amman"
-                data-title="Amman Checkerboard Natural"
-                data-style="Amman"
-                data-subtitle="Handwoven &amp; Handspun Cotton Khadi &middot; Tiny Checkerboard"
-                data-price="$980 USD"
-                data-price-short="$980"
-                data-img="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/53af90f4-8eea-4dfa-8f13-9c70613bb848/175_HARTWICK_HANDWOVEN_LUCCA_TROUSERS_KHADI_REDBRICK_SANTAFE_SHIRT_IKAT.jpg"
-              >
-                <div class="hw-var-thumb">
-                  <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/53af90f4-8eea-4dfa-8f13-9c70613bb848/175_HARTWICK_HANDWOVEN_LUCCA_TROUSERS_KHADI_REDBRICK_SANTAFE_SHIRT_IKAT.jpg" alt="Checkerboard">
-                </div>
-                <span class="hw-var-name">Checkerboard</span>
-              </button>
-
-              <button
-                type="button"
-                class="hw-var-card"
-                onclick="hwSelectDemoProduct(this)"
-                data-key="marrakesh"
-                data-title="Marrakesh Emerald Blockprint"
-                data-style="Marrakesh"
-                data-subtitle="Hand Block Printed Silk &amp; Botanical Dye"
-                data-price="$1,420 USD"
-                data-price-short="$1,420"
-                data-img="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a44abff5-797b-4d55-9b5a-455238e8c760/038_HARTWICK_MARRAKESH_KAFTAN_EMERALD_BLOCKPRINTIMG_6451+%281%29.jpg"
-              >
-                <div class="hw-var-thumb">
-                  <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a44abff5-797b-4d55-9b5a-455238e8c760/038_HARTWICK_MARRAKESH_KAFTAN_EMERALD_BLOCKPRINTIMG_6451+%281%29.jpg" alt="Emerald">
-                </div>
-                <span class="hw-var-name">Emerald</span>
+                <span class="hw-var-name">Tribeca Checkerboard</span>
+                <span class="hw-var-sub">Handspun Fine Cotton</span>
               </button>
             </div>
           </div>
 
-          <!-- MAATKEUZE & ADD TO BAG DIRECT BOVEN DE VOUW IN VERSIE 2 -->
+          <!-- SIZE & ADD TO BAG -->
           <form onsubmit="event.preventDefault(); hwDemoAddToBag();">
             <div class="hw-pdp__size-block">
               <div class="hw-pdp__size-top">
                 <span class="hw-pdp__field-label">
-                  SIZE &nbsp;&middot;&nbsp; <strong class="js-pdp-size-label">M</strong>
+                  Size &nbsp;&middot;&nbsp; <strong class="js-pdp-size-label">M</strong>
                 </span>
                 <button type="button" class="hw-pdp__size-guide-btn" onclick="hwOpenSizeGuide('demo')">
-                  SIZE GUIDE (XS&ndash;XL)
+                  Size Guide (XS&ndash;XL)
                 </button>
               </div>
               <div class="hw-pdp__size-grid">
@@ -1814,161 +1778,129 @@
               </div>
             </div>
 
-            <button type="submit" class="hw-pdp__atc-btn js-pdp-atc" data-current-price="$1,250">
-              ADD SIZE M TO BAG &mdash; $1,250
+            <button type="submit" class="hw-pdp__atc-btn js-pdp-atc" data-current-price="€696">
+              Add Size M to Bag &mdash; &euro;696
             </button>
           </form>
 
-          <!-- TWEE UITGEVOUDEN, SUPER DUIDELIJKE KAARTEN VOOR NIEUWE BEZOEKERS (SILHOUET & STOF + BULLET POINTS) -->
-          <div class="hw-v2-explainer-grid">
-            <div class="hw-v2-card">
-              <span class="hw-v2-card__kicker js-pdp-style-tag">I &middot; THE SILHOUETTE &middot; TRIBECA</span>
-              <h3 class="hw-v2-card__heading">How It Fits &amp; Moves</h3>
-              <p class="hw-v2-card__text js-pdp-style-copy">
-                The Tribeca Skirt is an elegant, voluminous high waisted full length skirt tailored with dropped, deep box pleats and hidden pockets.
-              </p>
-            </div>
-
-            <div class="hw-v2-card">
-              <span class="hw-v2-card__kicker js-pdp-textile-tag">II &middot; THE TEXTILE &middot; EMERALD CHANGEANT</span>
-              <h3 class="hw-v2-card__heading">Why This Fabric Is Rare</h3>
-              <p class="hw-v2-card__text js-pdp-textile-copy">
-                The fabric for this skirt is exquisite. Tailored with handspun matka silk, handwoven in jewel-tone emerald green with a black silk weft to create complex tonal layers using a technique made popular in 18th century ball gowns (changeant silk). This full skirt has a striking, dark iridescence. It&rsquo;s a real showstopper.
-              </p>
-            </div>
-
-            <div class="hw-v2-card hw-v2-card--full">
-              <span class="hw-v2-card__kicker">III &middot; ATELIER &amp; TAILORING SPECIFICATIONS (AT A GLANCE)</span>
-              <ul class="hw-v2-specs-pills js-pdp-specs-list">
-                <li>Full skirt &middot; Full length silhouette</li>
-                <li>Handwoven and handspun cotton khadi &amp; matka silk</li>
-                <li>Tiny checkerboard &amp; changeant two-tone heritage weave</li>
-                <li>High waist and dropped, deep box pleats</li>
-                <li>Hidden pockets integrated into side seams</li>
-                <li>Hidden left side zipper and top button loop closure</li>
-              </ul>
-            </div>
+          <!-- STORY IN ANGELA'S VOICE (JUNICODE MEDIUM) -->
+          <div class="hw-story-passage">
+            <p class="hw-story-paragraph js-pdp-style-copy">
+              The Tribeca Skirt is a high waisted full length skirt tailored with dropped, deep box pleats and hidden pockets, making an elegant and very comfortable skirt.
+            </p>
+            <p class="hw-story-paragraph js-pdp-textile-copy">
+              The fabric for this skirt is exquisite. Tailored with handspun matka silk, handwoven in jewel-tone emerald green with a black silk weft to create complex tonal layers using a technique made popular in 18th century ball gowns (changeant silk). This full skirt has a striking, dark iridescence. It&rsquo;s a real showstopper.
+            </p>
           </div>
 
-          <!-- UITGEKLAPTE STAP-VOOR-STAP "FIBRE TO GARMENT" REIS (OPENT AUTOMATISCH BIJ HOVER!) -->
-          <div class="hw-vogue-open-box">
-            <div class="hw-vogue-open-box__head" style="cursor: default;">
-              <span class="hw-vogue-open-box__title">IV &middot; FROM FIBRE TO GARMENT (HOVER ANY STEP TO EXPLORE)</span>
-              <span style="font-family: var(--hw-vogue-body); font-style: italic; font-size: 15px; color: #8C6A48;">100% Handcrafted Journey</span>
+          <!-- PRACTICAL DETAILS (NOTO SANS MONO SEMI-BOLD) -->
+          <div class="hw-detail-section">
+            <h2 class="hw-section-kicker">Details</h2>
+            <ul class="hw-mono-details-list js-pdp-specs-list">
+              <li>Full skirt</li>
+              <li>Handwoven and handspun matka silk</li>
+              <li>Jewel-tone emerald green with black silk weft (changeant weave)</li>
+              <li>High waist and dropped, deep box pleats</li>
+              <li>Hidden pockets</li>
+              <li>Full length</li>
+              <li>Hidden left side zipper and top button loop closure</li>
+            </ul>
+          </div>
+
+          <!-- FIBRE TO GARMENT -->
+          <div class="hw-f2g-block">
+            <div class="hw-f2g-header">
+              <h2 class="hw-section-kicker" style="margin:0;">Fibre to Garment</h2>
+              <span class="hw-f2g-hint">Hover step for craft note</span>
             </div>
-            <div class="hw-vogue-open-box__body">
-              <div class="hw-f2g-list">
-                <div class="hw-f2g-row is-open" onmouseenter="hwAutoOpenF2G(this)" onclick="hwToggleF2GRow(this)">
-                  <button type="button" class="hw-f2g-trigger">
-                    <span class="hw-f2g-step">01 &middot; FIBRE</span>
-                    <span class="hw-f2g-val">
-                      <span class="js-f2g-fibre">55% Mulberry &amp; Matka Silk, 45% Handspun Cotton</span>
-                      <span class="hw-f2g-arrow">&nearr;</span>
-                    </span>
-                  </button>
-                  <div class="hw-f2g-drawer">
-                    <div class="hw-f2g-drawer__inner">
-                      <div class="hw-f2g-drawer__box">
-                        <p class="hw-f2g-drawer__text">
-                          <strong>What this means:</strong> Instead of industrial synthetic yarn, this garment begins with raw, unbleached natural silk and cotton fibres (Khadi) that breathe with your body.
-                        </p>
-                        <button type="button" class="hw-f2g-glossary-btn" onclick="event.stopPropagation(); hwNavigateToGlossary('khadi')">
-                          <span>Learn About Khadi in the Glossary</span>
-                          <span>&nearr;</span>
-                        </button>
-                      </div>
+            <div class="hw-f2g-list">
+              <div class="hw-f2g-row is-open" onmouseenter="hwAutoOpenF2G(this)" onclick="hwToggleF2GRow(this)">
+                <button type="button" class="hw-f2g-trigger">
+                  <span class="hw-f2g-step">Fibre</span>
+                  <span class="hw-f2g-val">
+                    <span class="js-f2g-fibre">100% Handspun Matka Silk</span>
+                    <span class="hw-f2g-arrow">&nearr;</span>
+                  </span>
+                </button>
+                <div class="hw-f2g-drawer">
+                  <div class="hw-f2g-drawer__inner">
+                    <div class="hw-f2g-drawer__box">
+                      <p class="hw-f2g-drawer__text">
+                        From harvest to yarn to weave, made by hand without machines or electricity—draping and breathing with a supple softness.
+                      </p>
+                      <button type="button" class="hw-f2g-masters-link" onclick="event.stopPropagation(); hwNavigateToMasters('khadi')">
+                        <span>Explore in Made By Masters</span>
+                        <span>&nearr;</span>
+                      </button>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <div class="hw-f2g-row" onmouseenter="hwAutoOpenF2G(this)" onclick="hwToggleF2GRow(this)">
-                  <button type="button" class="hw-f2g-trigger">
-                    <span class="hw-f2g-step">02 &middot; SPINNING</span>
-                    <span class="hw-f2g-val">
-                      <span class="js-f2g-spinning">Charkha Handspun (0 kWh)</span>
-                      <span class="hw-f2g-arrow">&nearr;</span>
-                    </span>
-                  </button>
-                  <div class="hw-f2g-drawer">
-                    <div class="hw-f2g-drawer__inner">
-                      <div class="hw-f2g-drawer__box">
-                        <p class="hw-f2g-drawer__text">
-                          <strong>What this means:</strong> Twisted into thread by hand on a wooden spinning wheel (charkha) using zero electricity, preserving the natural loft and softness of the fibre.
-                        </p>
-                        <button type="button" class="hw-f2g-glossary-btn" onclick="event.stopPropagation(); hwNavigateToGlossary('hand-spun')">
-                          <span>Learn About Hand Spun in the Glossary</span>
-                          <span>&nearr;</span>
-                        </button>
-                      </div>
+              <div class="hw-f2g-row" onmouseenter="hwAutoOpenF2G(this)" onclick="hwToggleF2GRow(this)">
+                <button type="button" class="hw-f2g-trigger">
+                  <span class="hw-f2g-step">Spinning</span>
+                  <span class="hw-f2g-val">
+                    <span class="js-f2g-spinning">Handspun by Artisans (0 kWh)</span>
+                    <span class="hw-f2g-arrow">&nearr;</span>
+                  </span>
+                </button>
+                <div class="hw-f2g-drawer">
+                  <div class="hw-f2g-drawer__inner">
+                    <div class="hw-f2g-drawer__box">
+                      <p class="hw-f2g-drawer__text">
+                        Natural fibres drawn out and twisted together by hand to form a living yarn with subtle human texture.
+                      </p>
+                      <button type="button" class="hw-f2g-masters-link" onclick="event.stopPropagation(); hwNavigateToMasters('hand-spun')">
+                        <span>Explore Hand Spun in Made By Masters</span>
+                        <span>&nearr;</span>
+                      </button>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <div class="hw-f2g-row" onmouseenter="hwAutoOpenF2G(this)" onclick="hwToggleF2GRow(this)">
-                  <button type="button" class="hw-f2g-trigger">
-                    <span class="hw-f2g-step">03 &middot; WEAVING</span>
-                    <span class="hw-f2g-val">
-                      <span class="js-f2g-weaving">Handloom Changeant Weave &middot; Wooden Pit Loom</span>
-                      <span class="hw-f2g-arrow">&nearr;</span>
-                    </span>
-                  </button>
-                  <div class="hw-f2g-drawer">
-                    <div class="hw-f2g-drawer__inner">
-                      <div class="hw-f2g-drawer__box">
-                        <p class="hw-f2g-drawer__text">
-                          <strong>What this means:</strong> Woven thread-by-thread on a foot-powered wooden loom. Combining emerald warp threads with a black silk weft creates a two-tone shimmer as you walk.
-                        </p>
-                        <button type="button" class="hw-f2g-glossary-btn" onclick="event.stopPropagation(); hwNavigateToGlossary('handwoven')">
-                          <span>Learn About Handwoven in the Glossary</span>
-                          <span>&nearr;</span>
-                        </button>
-                      </div>
+              <div class="hw-f2g-row" onmouseenter="hwAutoOpenF2G(this)" onclick="hwToggleF2GRow(this)">
+                <button type="button" class="hw-f2g-trigger">
+                  <span class="hw-f2g-step">Weaving</span>
+                  <span class="hw-f2g-val">
+                    <span class="js-f2g-weaving">Handloom Changeant Weave</span>
+                    <span class="hw-f2g-arrow">&nearr;</span>
+                  </span>
+                </button>
+                <div class="hw-f2g-drawer">
+                  <div class="hw-f2g-drawer__inner">
+                    <div class="hw-f2g-drawer__box">
+                      <p class="hw-f2g-drawer__text">
+                        Handspun yarns woven together on a wooden handloom without electricity by master weavers in India.
+                      </p>
+                      <button type="button" class="hw-f2g-masters-link" onclick="event.stopPropagation(); hwNavigateToMasters('handwoven')">
+                        <span>Explore Handwoven in Made By Masters</span>
+                        <span>&nearr;</span>
+                      </button>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <div class="hw-f2g-row" onmouseenter="hwAutoOpenF2G(this)" onclick="hwToggleF2GRow(this)">
-                  <button type="button" class="hw-f2g-trigger">
-                    <span class="hw-f2g-step">04 &middot; DYEING</span>
-                    <span class="hw-f2g-val">
-                      <span class="js-f2g-dyeing">Ayurvedic Botanical &amp; Mineral Dye</span>
-                      <span class="hw-f2g-arrow">&nearr;</span>
-                    </span>
-                  </button>
-                  <div class="hw-f2g-drawer">
-                    <div class="hw-f2g-drawer__inner">
-                      <div class="hw-f2g-drawer__box">
-                        <p class="hw-f2g-drawer__text">
-                          <strong>What this means:</strong> Dyed with pure plants and minerals (indigo, pomegranate, turmeric, iron) instead of toxic chemicals—gentle on sensitive skin.
-                        </p>
-                        <button type="button" class="hw-f2g-glossary-btn" onclick="event.stopPropagation(); hwNavigateToGlossary('natural-dye')">
-                          <span>Learn About Natural Dyes in the Glossary</span>
-                          <span>&nearr;</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="hw-f2g-row" onmouseenter="hwAutoOpenF2G(this)" onclick="hwToggleF2GRow(this)">
-                  <button type="button" class="hw-f2g-trigger">
-                    <span class="hw-f2g-step">05 &middot; FINISHING</span>
-                    <span class="hw-f2g-val">
-                      <span class="js-f2g-finishing">Single-Tailor Heirloom Fit &middot; Mother of Pearl</span>
-                      <span class="hw-f2g-arrow">&darr;</span>
-                    </span>
-                  </button>
-                  <div class="hw-f2g-drawer">
-                    <div class="hw-f2g-drawer__inner">
-                      <div class="hw-f2g-drawer__box">
-                        <p class="hw-f2g-drawer__text">
-                          <strong>What this means:</strong> Tailored by a single master artisan with 100% cotton thread and real mother-of-pearl buttons. Zero plastic, zero waste.
-                        </p>
-                        <button type="button" class="hw-f2g-glossary-btn" onclick="event.stopPropagation(); hwNavigateToGlossary('block-printed')">
-                          <span>Explore Full Made By Masters Glossary</span>
-                          <span>&nearr;</span>
-                        </button>
-                      </div>
+              <div class="hw-f2g-row" onmouseenter="hwAutoOpenF2G(this)" onclick="hwToggleF2GRow(this)">
+                <button type="button" class="hw-f2g-trigger">
+                  <span class="hw-f2g-step">Finishing</span>
+                  <span class="hw-f2g-val">
+                    <span class="js-f2g-finishing">Pure Cotton Thread &middot; Mother of Pearl</span>
+                    <span class="hw-f2g-arrow">&nearr;</span>
+                  </span>
+                </button>
+                <div class="hw-f2g-drawer">
+                  <div class="hw-f2g-drawer__inner">
+                    <div class="hw-f2g-drawer__box">
+                      <p class="hw-f2g-drawer__text">
+                        Tailored with deep box pleats, hidden side-seam pockets, pure cotton thread, and top button loop closure.
+                      </p>
+                      <button type="button" class="hw-f2g-masters-link" onclick="event.stopPropagation(); hwNavigateToMasters('natural-dye')">
+                        <span>Explore Craft in Made By Masters</span>
+                        <span>&nearr;</span>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -1976,18 +1908,12 @@
             </div>
           </div>
 
-          <!-- UITGEKLAPT BLOK 5: CARE & AGING VOOR DIT SPECIFIEKE PRODUCT -->
-          <div class="hw-vogue-open-box" style="border-bottom: 1px solid rgba(24, 21, 18, 0.16);">
-            <button type="button" class="hw-vogue-open-box__head" onclick="this.parentElement.classList.toggle('is-collapsed')">
-              <span class="hw-vogue-open-box__title js-pdp-care-heading">V &middot; CARE &amp; AGING &middot; TRIBECA MATKA SILK</span>
-              <span class="hw-vogue-open-box__icon">&times;</span>
-            </button>
-            <div class="hw-vogue-open-box__body">
-              <div class="hw-vogue-prose js-pdp-care-copy">
-                <p style="margin: 0 0 10px 0;"><strong>How This Garment Ages:</strong> Handspun matka silk and handwoven khadi are living textiles. With every wear, the natural fibres relax to the contours of your body, becoming noticeably softer, more supple, and developing a rich heirloom patina unique to botanical dyes.</p>
-                <p style="margin: 0;"><strong>Specific Care for This Piece:</strong> Gently hand wash cold using pH-neutral botanical soap or eco dry clean. Line dry in natural shade away from direct midday sun to preserve the jewel-tone emerald and black changeant silk lustre.</p>
-              </div>
-            </div>
+          <!-- CARE & AGING -->
+          <div class="hw-care-block">
+            <h2 class="hw-section-kicker js-pdp-care-heading">Care &amp; Aging &middot; Handwoven Matka Silk</h2>
+            <p class="hw-care-text js-pdp-care-copy">
+              Handspun silk softens and moulds to your movement with each wear. Gently hand wash cold with pH-neutral silk soap or eco dry clean; line dry in shade.
+            </p>
           </div>
 
         </div>
@@ -1998,25 +1924,25 @@
   </div>
 
   <!-- ==========================================================================
-       GLOSSARY VIEW (ZODAT DE KLANT RECHTSTREEKS VANUIT FIBRE TO GARMENT KAN NAVIGEREN)
+       MADE BY MASTERS VIEW (INTEGRATED HERITAGE ARCHIVE)
        ========================================================================== -->
-  <div id="HwGlossaryView" class="hw-page-view">
+  <div id="HwMastersView" class="hw-page-view">
     <section class="hw-masters-page">
       <div class="hw-masters-shell">
 
         <header class="hw-masters-intro">
           <button type="button" class="hw-masters-back" onclick="hwShowProductView()">
             <span>&larr;</span>
-            <span>Back to Product Page</span>
+            <span>Back to Tribeca Skirt</span>
           </button>
-          <span class="hw-masters-eyebrow">HARTWICK ATELIER &middot; HERITAGE GLOSSARY</span>
+          <span class="hw-masters-eyebrow">HARTWICK &middot; HERITAGE CRAFT ARCHIVE</span>
           <h1 class="hw-masters-title">Made By Masters</h1>
           <p class="hw-masters-lead">
-            Textile History dates back to the beginning of human civilization. Hartwick Atelier specializes in hand spun and handwoven fabrics, natural and ayurvedic dyes, and exquisite heritage handwork. These artisanal techniques rely on rare knowledge and the natural cycles of the sun, wind and rain.
+            Textile History dates back to the beginning of human civilization. Hartwick specializes in hand spun and handwoven fabrics, natural and ayurvedic dyes, and exquisite heritage handwork relying on rare knowledge and the natural cycles of the sun, wind and rain.
           </p>
         </header>
 
-        <nav class="hw-masters-index-bar" aria-label="Glossary Index">
+        <nav class="hw-masters-index-bar" aria-label="Made By Masters Techniques">
           <button type="button" class="hw-masters-pill is-active" data-pill-slug="khadi" onclick="hwOpenMasterEntry('khadi')">01 &middot; Khadi</button>
           <button type="button" class="hw-masters-pill" data-pill-slug="hand-spun" onclick="hwOpenMasterEntry('hand-spun')">02 &middot; Hand Spun</button>
           <button type="button" class="hw-masters-pill" data-pill-slug="handwoven" onclick="hwOpenMasterEntry('handwoven')">03 &middot; Handwoven</button>
@@ -2051,7 +1977,7 @@
               <div class="hw-m-item__panel">
                 <div class="hw-m-item__inner">
                   <div class="hw-m-item__body">
-                    <p>Wearing handspun and handwoven fabric has a different feeling than wearing industrially produced fabrics; handwoven natural fibres drape and breathe with a supple softness in a rhythm that can only be created by skilled human hands. From the harvest to the yarn to the weave, the material is made by hand without the use of machines, and without electricity.</p>
+                    <p style="margin:0;">Wearing handspun and handwoven fabric has a different feeling than wearing industrially produced fabrics; handwoven natural fibres drape and breathe with a supple softness in a rhythm that can only be created by skilled human hands. From the harvest to the yarn to the weave, the material is made by hand without the use of machines, and without electricity.</p>
                   </div>
                 </div>
               </div>
@@ -2069,7 +1995,7 @@
               <div class="hw-m-item__panel">
                 <div class="hw-m-item__inner">
                   <div class="hw-m-item__body">
-                    <p>Hand spinning is an art form where natural fibers, such as cotton, wool or silk, are drawn out and twisted together by hand to form a yarn. Typically spun using a charkha, spinning wheel, it requires great skill to pull the cotton in a continuous rhythm into a strong, fine thread without breaking.</p>
+                    <p style="margin:0;">Hand spinning is an art form where natural fibers, such as cotton, wool or silk, are drawn out and twisted together by hand to form a yarn. Typically spun using a charkha (spinning wheel), it requires great skill to pull the fiber in a continuous rhythm into a strong, fine thread without breaking.</p>
                   </div>
                 </div>
               </div>
@@ -2087,7 +2013,7 @@
               <div class="hw-m-item__panel">
                 <div class="hw-m-item__inner">
                   <div class="hw-m-item__body">
-                    <p>Handloom weaving is a labour of love, patience, and rhythm. Threads are stretched across a wooden loom and interlaced by hand and foot pedals without electricity, creating a breathable, living textile with a subtle, human irregularity.</p>
+                    <p style="margin:0;">Handloom weaving is a labour of love, patience, and rhythm. Threads are stretched across a wooden loom and interlaced by hand and foot pedals without electricity, creating a breathable, living textile with a subtle, human irregularity.</p>
                   </div>
                 </div>
               </div>
@@ -2105,7 +2031,7 @@
               <div class="hw-m-item__panel">
                 <div class="hw-m-item__inner">
                   <div class="hw-m-item__body">
-                    <p>Derived from locally sourced plants and minerals, natural dyes draw from thousands of years of Ayurvedic knowledge. Master Colorists use wild indigo, pomegranate bark and seeds, tamarind, turmeric, marigold, jaggery, ash, and iron—harmonizing with the sun, wind, and mineral-rich water.</p>
+                    <p style="margin:0;">Derived from locally sourced plants and minerals, natural dyes draw from thousands of years of Ayurvedic knowledge. Master Colorists use wild indigo, pomegranate bark and seeds, tamarind, turmeric, marigold, jaggery, ash, and iron—harmonizing with the sun, wind, and mineral-rich water.</p>
                   </div>
                 </div>
               </div>
@@ -2123,7 +2049,7 @@
               <div class="hw-m-item__panel">
                 <div class="hw-m-item__inner">
                   <div class="hw-m-item__body">
-                    <p>The art of block printing by hand has been passed down from generation to generation. Master artisans carve intricate motifs into seasoned teakwood blocks and stamp each colour layer by hand with remarkable precision.</p>
+                    <p style="margin:0;">The art of block printing by hand has been passed down from generation to generation. Master artisans carve intricate motifs into seasoned teakwood blocks and stamp each colour layer by hand with remarkable precision.</p>
                   </div>
                 </div>
               </div>
@@ -2139,7 +2065,7 @@
   <div class="hw-size-modal-backdrop" id="HwSizeGuideModal-demo" onclick="if(event.target === this) hwCloseSizeGuide('demo')">
     <div class="hw-size-modal" role="dialog" aria-modal="true" aria-label="Size Guide">
       <button type="button" class="hw-size-modal__close" onclick="hwCloseSizeGuide('demo')" aria-label="Close">&times;</button>
-      <span class="hw-size-modal__eyebrow">HARTWICK ATELIER &middot; STANDARDIZED SIZING</span>
+      <span class="hw-size-modal__eyebrow">HARTWICK &middot; STANDARDIZED SIZING</span>
       <h2 class="hw-size-modal__title">Size Guide (XS&ndash;XL)</h2>
       <table class="hw-size-table">
         <thead>
@@ -2165,77 +2091,68 @@
   </div>
 
   <!-- ==========================================================================
-       ZWEVENDE SWITCHER RECHTSONDER (VERSIE 1 | VERSIE 2 | GLOSSARY)
+       FLOATING OPTION SWITCHER BAR (OPTION 1 | OPTION 2)
        ========================================================================== -->
   <div class="hw-studio-switcher" id="HwStudioSwitcher">
-    <span class="hw-studio-switcher__label">Kies Layout</span>
+    <span class="hw-studio-switcher__label">Review Layout</span>
     <button type="button" class="hw-studio-switcher__btn is-active" id="HwBtnV1" onclick="hwSwitchVersion('v1')">
-      Versie 1 (3-Koloms Vogue)
+      Option 1 (3-Column)
     </button>
     <button type="button" class="hw-studio-switcher__btn" id="HwBtnV2" onclick="hwSwitchVersion('v2')">
-      Versie 2 (Modern Editorial)
-    </button>
-    <button type="button" class="hw-studio-switcher__btn" id="HwBtnGlossary" onclick="hwNavigateToGlossary('khadi')">
-      Glossary
+      Option 2 (2-Column Editorial)
     </button>
   </div>
 
   <script>
-    var PRODUCT_DATA = {
-      tribeca: {
-        styleTag: 'THE SILHOUETTE · TRIBECA',
-        styleCopy: 'The Tribeca Skirt is an elegant, voluminous high waisted full length skirt tailored with dropped, deep box pleats and hidden pockets.',
-        textileTag: 'THE TEXTILE · EMERALD CHANGEANT',
+    /* ==========================================================================
+       AUTHENTIC TRIBECA SKIRT PRODUCT DATA & PHOTOS FROM HARTWICK DATABASE
+       ========================================================================== */
+    var TRIBECA_PRODUCTS = {
+      emerald: {
+        title: 'Tribeca Emerald',
+        subtitle: 'Handwoven Emerald Matka Silk · Changeant Weave',
+        activeVarName: 'Emerald Matka Silk',
+        price: '€696 EUR',
+        priceShort: '€696',
+        captionLeft: 'STYLE: TRIBECA · EMERALD SILK',
+        styleCopy: 'The Tribeca Skirt is a high waisted full length skirt tailored with dropped, deep box pleats and hidden pockets, making an elegant and very comfortable skirt.',
         textileCopy: 'The fabric for this skirt is exquisite. Tailored with handspun matka silk, handwoven in jewel-tone emerald green with a black silk weft to create complex tonal layers using a technique made popular in 18th century ball gowns (changeant silk). This full skirt has a striking, dark iridescence. It’s a real showstopper.',
         specs: [
-          'Full skirt · Full length silhouette',
-          'Handwoven and handspun cotton khadi & matka silk',
-          'Tiny checkerboard & changeant two-tone heritage weave',
+          'Full skirt',
+          'Handwoven and handspun matka silk',
+          'Jewel-tone emerald green with black silk weft (changeant weave)',
           'High waist and dropped, deep box pleats',
-          'Hidden pockets integrated into side seams',
+          'Hidden pockets',
+          'Full length',
           'Hidden left side zipper and top button loop closure'
         ],
         f2g: {
-          fibre: '55% Mulberry & Matka Silk, 45% Handspun Cotton',
-          spinning: 'Charkha Handspun (0 kWh)',
-          weaving: 'Handloom Changeant Weave · Wooden Pit Loom',
-          dyeing: 'Ayurvedic Botanical & Mineral Dye',
-          finishing: 'Single-Tailor Heirloom Fit · Mother of Pearl'
+          fibre: '100% Handspun Matka Silk',
+          spinning: 'Handspun by Artisans (0 kWh)',
+          weaving: 'Handloom Changeant Weave',
+          finishing: 'Pure Cotton Thread · Mother of Pearl'
         },
-        careHeading: 'CARE & AGING · TRIBECA MATKA SILK',
-        careCopy: '<p style="margin:0 0 10px 0;"><strong>How This Garment Ages:</strong> Handspun matka silk and handwoven khadi are living textiles. With every wear, the natural fibres relax to the contours of your body, becoming noticeably softer, more supple, and developing a rich heirloom patina while preserving its 18th-century changeant iridescence.</p><p style="margin:0;"><strong>Specific Care for This Piece:</strong> Gently hand wash cold with pH-neutral silk wash or eco dry clean. Line dry in shade away from direct sunlight.</p>'
+        careHeading: 'Care & Aging · Handwoven Matka Silk',
+        careCopy: 'Handspun silk softens and moulds to your movement with each wear. Gently hand wash cold with pH-neutral silk soap or eco dry clean; line dry in shade.',
+        images: [
+          'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/42944944-2834-4141-9e1e-d2abcd74e90d/001034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg',
+          'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1739196356336-KNT5ZK14XF9A3FFNLL2S/034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w',
+          'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/178ae04a-638b-4b68-b167-aa7da9160b0d/035__HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w',
+          'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/d37cc784-75b8-4b37-976f-cd8a1befd013/005_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_TOKYO_SHIRT_SILK_ZARI.jpg?format=1500w'
+        ]
       },
-      palma: {
-        styleTag: 'THE SILHOUETTE · PALMA',
-        styleCopy: 'The Palma Skirt is a fluid, architectural full-length silhouette with a sculpted high waist, generous movement, and concealed side-seam pockets.',
-        textileTag: 'THE TEXTILE · SEED POD BLOCK PRINT',
-        textileCopy: 'Stamped entirely by hand using seasoned teakwood blocks carved by master artisans, layered over luminous handwoven silk-cotton dyed in botanical indigo, pomegranate rind, and fermented iron.',
-        specs: [
-          'Full skirt · Fluid ankle-grazing length',
-          'Handwoven silk-cotton khadi blend',
-          'Hand-carved wooden block print · Seed Pod motif',
-          'High waist with structured pleat release',
-          'Hidden pockets',
-          'Hidden left side zipper and mother-of-pearl button closure'
-        ],
-        f2g: {
-          fibre: '55% Mulberry Silk, 45% Handspun Cotton',
-          spinning: 'Charkha Handspun (0 kWh)',
-          weaving: 'Hand Carved Wooden Block Print · Ayurvedic Dye',
-          dyeing: 'Natural Indigo & Fermented Iron',
-          finishing: 'Single-Tailor Heirloom Fit · Mother of Pearl'
-        },
-        careHeading: 'CARE & AGING · PALMA BLOCK PRINT',
-        careCopy: '<p style="margin:0 0 10px 0;"><strong>How This Garment Ages:</strong> Botanical block prints mellow gracefully over decades like fine vintage textiles. The natural indigo and iron pigments settle deeper into the handspun yarn, softening the contrast into an unmistakable artisanal patina.</p><p style="margin:0;"><strong>Specific Care for This Piece:</strong> Cold gentle hand wash separately using mild botanical soap. Always dry in natural shade.</p>'
-      },
-      amman: {
-        styleTag: 'THE SILHOUETTE · AMMAN',
-        styleCopy: 'The Amman silhouette combines effortless architectural drape with refined heirloom tailoring, featuring dropped pleats and deep hidden pockets.',
-        textileTag: 'THE TEXTILE · CHECKERBOARD NATURAL KHADI',
-        textileCopy: 'Woven on traditional wooden pit looms without electricity from ultra-fine handspun cotton khadi, creating a subtle, breathable micro-checkerboard texture that cools in summer and warms in winter.',
+      checkerboard: {
+        title: 'Tribeca Checkerboard Navy',
+        subtitle: 'Handspun & Handwoven Fine Cotton · Tiny Checkerboard Motif',
+        activeVarName: 'Checkerboard Fine Cotton',
+        price: '€440 EUR',
+        priceShort: '€440',
+        captionLeft: 'STYLE: TRIBECA · CHECKERBOARD KHADI',
+        styleCopy: 'The Tribeca Skirt is a high waisted full length skirt tailored with dropped, deep box pleats and hidden pockets, making an elegant and very comfortable skirt.',
+        textileCopy: 'Tailored with handspun cotton, handwoven by master weavers in a tiny checkerboard motif. The combination of fabric is luxuriously soft, making beautiful swish and volume.',
         specs: [
           'Full skirt',
-          'Handwoven and handspun cotton khadi',
+          'Handwoven and handspun cotton',
           'Tiny checkerboard weave',
           'High waist and dropped, deep box pleats',
           'Hidden pockets',
@@ -2243,40 +2160,22 @@
           'Hidden left side zipper and top button loop closure'
         ],
         f2g: {
-          fibre: '100% Handspun Organic Cotton Khadi',
+          fibre: '100% Handspun Fine Cotton (Khadi)',
           spinning: 'Charkha Handspun (0 kWh)',
-          weaving: 'Tiny Checkerboard Handloom Weave',
-          dyeing: 'Raw Unbleached Kora & Natural Earth Tone',
-          finishing: 'Single-Tailor Heirloom Fit · Mother of Pearl'
+          weaving: 'Handwoven Tiny Checkerboard Motif',
+          finishing: 'Pure Cotton Thread · Mother of Pearl'
         },
-        careHeading: 'CARE & AGING · AMMAN COTTON KHADI',
-        careCopy: '<p style="margin:0 0 10px 0;"><strong>How This Garment Ages:</strong> True handspun cotton khadi only gets better with every wash. Over time, the hand-twisted yarns bloom and soften into a cloud-like, weightless drape that cannot be replicated by machine-spun cotton.</p><p style="margin:0;"><strong>Specific Care for This Piece:</strong> Hand wash cold or delicate cycle in a mesh bag with mild soap. Line dry in shade.</p>'
-      },
-      marrakesh: {
-        styleTag: 'THE SILHOUETTE · MARRAKESH',
-        styleCopy: 'Inspired by North African architectural proportions, the Marrakesh silhouette drapes with regal ease and fluid movement.',
-        textileTag: 'THE TEXTILE · EMERALD BOTANICAL SILK',
-        textileCopy: 'Crafted from handwoven pure silk, block printed by hand and immersed in layered botanical dye vats to achieve a deep, luminous emerald tone.',
-        specs: [
-          'Relaxed couture silhouette · Full length',
-          '100% handwoven pure mulberry & tussar silk',
-          'Hand-stamped botanical block print',
-          'Side-seam hidden pockets',
-          'Pure cotton thread stitching & mother-of-pearl closures'
-        ],
-        f2g: {
-          fibre: '100% Pure Handwoven Silk',
-          spinning: 'Hand-Reeled & Spun Heritage Silk',
-          weaving: 'Pit-Loom Handwoven Silk',
-          dyeing: 'Layered Emerald Botanical Dye Vat',
-          finishing: 'Single-Tailor Heirloom Fit · Mother of Pearl'
-        },
-        careHeading: 'CARE & AGING · MARRAKESH EMERALD SILK',
-        careCopy: '<p style="margin:0 0 10px 0;"><strong>How This Garment Ages:</strong> Pure hand-reeled silk develops a liquid drape and deeper surface lustre as it is worn, adapting naturally to your body temperature.</p><p style="margin:0;"><strong>Specific Care for This Piece:</strong> Specialist eco dry clean or cold gentle hand rinse in pure water.</p>'
+        careHeading: 'Care & Aging · Handspun Cotton Khadi',
+        careCopy: 'Handspun cotton khadi becomes noticeably softer and more supple with every wash. Gently hand wash cold or delicate wash with mild soap; line dry in shade.',
+        images: [
+          'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1761396465263-0INBDHKVY8T2913ALOTW/001_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_AMMAN_SHIRT_LIMINAL_BYZANTINE_CHAIN.jpg?format=1500w',
+          'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/22f420f3-d593-49c6-84c5-3274f1092a17/052_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_AMMAN_SHIRT_LIMINAL_BYZANTINE_CHAIN.jpg?format=1500w',
+          'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/85c5fbaa-c250-4600-a35d-0d4758ce944d/024_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_AMMAN_SHIRT_LIMINAL_BYZANTINE_CHAIN.jpg?format=1500w',
+          'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/7cc1a6d4-ab61-4929-a96b-e7c9e388ed54/002_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_TOKYO_SHIRT_IKAT_03.jpg?format=1500w'
+        ]
       }
     };
 
-    /* AUTOMATISCH OPENEN VAN DE FIBRE TO GARMENT INFO ZODRA DE MUIS OP EEN RIJ STAAT */
     function hwAutoOpenF2G(rowEl) {
       if (!rowEl) return;
       var list = rowEl.closest('.hw-f2g-list');
@@ -2300,7 +2199,7 @@
         setTimeout(function() {
           img.src = newSrc;
           img.classList.remove('is-switching');
-        }, 150);
+        }, 140);
       });
       var container = btn.closest('.hw-pdp__thumbs');
       if (container) {
@@ -2311,62 +2210,64 @@
       }
     }
 
-    function hwSelectDemoProduct(cardBtn) {
-      var key = cardBtn.getAttribute('data-key') || 'tribeca';
+    function hwSelectTribecaProduct(key) {
+      var pData = TRIBECA_PRODUCTS[key];
+      if (!pData) return;
+
       document.querySelectorAll('.hw-var-card').forEach(function(c) {
         c.classList.toggle('is-active', c.getAttribute('data-key') === key);
       });
 
-      var title = cardBtn.getAttribute('data-title');
-      var style = cardBtn.getAttribute('data-style');
-      var subtitle = cardBtn.getAttribute('data-subtitle');
-      var price = cardBtn.getAttribute('data-price');
-      var priceShort = cardBtn.getAttribute('data-price-short');
-      var img = cardBtn.getAttribute('data-img');
+      document.querySelectorAll('.js-pdp-title').forEach(function(el) { el.textContent = pData.title; });
+      document.querySelectorAll('.js-pdp-subtitle').forEach(function(el) { el.textContent = pData.subtitle; });
+      document.querySelectorAll('.js-pdp-active-varname').forEach(function(el) { el.textContent = pData.activeVarName; });
+      document.querySelectorAll('.js-pdp-price').forEach(function(el) { el.textContent = pData.price; });
+      document.querySelectorAll('.js-pdp-caption-left').forEach(function(el) { el.textContent = pData.captionLeft; });
+      document.querySelectorAll('.js-pdp-style-copy').forEach(function(el) { el.textContent = pData.styleCopy; });
+      document.querySelectorAll('.js-pdp-textile-copy').forEach(function(el) { el.textContent = pData.textileCopy; });
 
-      document.querySelectorAll('.js-pdp-title').forEach(function(el) { el.textContent = title; });
-      document.querySelectorAll('.js-pdp-subtitle').forEach(function(el) { el.innerHTML = subtitle; });
-      document.querySelectorAll('.js-pdp-price').forEach(function(el) { el.textContent = price; });
-      document.querySelectorAll('.js-pdp-style-bc').forEach(function(el) { el.textContent = style; });
-      document.querySelectorAll('.js-pdp-switcher-label').forEach(function(el) { el.textContent = style.toUpperCase(); });
-      document.querySelectorAll('.js-pdp-switcher-viewall').forEach(function(el) { el.innerHTML = 'All ' + style + ' &rarr;'; });
-
-      var pData = PRODUCT_DATA[key];
-      if (pData) {
-        document.querySelectorAll('.js-pdp-style-tag').forEach(function(el) { el.textContent = pData.styleTag; });
-        document.querySelectorAll('.js-pdp-style-copy').forEach(function(el) { el.textContent = pData.styleCopy; });
-        document.querySelectorAll('.js-pdp-textile-tag').forEach(function(el) { el.textContent = pData.textileTag; });
-        document.querySelectorAll('.js-pdp-textile-copy').forEach(function(el) { el.textContent = pData.textileCopy; });
-
-        document.querySelectorAll('.js-pdp-specs-list').forEach(function(listEl) {
-          listEl.innerHTML = pData.specs.map(function(sp) {
-            return '<li>' + sp + '</li>';
-          }).join('');
-        });
-
-        document.querySelectorAll('.js-f2g-fibre').forEach(function(el) { el.textContent = pData.f2g.fibre; });
-        document.querySelectorAll('.js-f2g-spinning').forEach(function(el) { el.textContent = pData.f2g.spinning; });
-        document.querySelectorAll('.js-f2g-weaving').forEach(function(el) { el.textContent = pData.f2g.weaving; });
-        document.querySelectorAll('.js-f2g-dyeing').forEach(function(el) { el.textContent = pData.f2g.dyeing; });
-        document.querySelectorAll('.js-f2g-finishing').forEach(function(el) { el.textContent = pData.f2g.finishing; });
-
-        document.querySelectorAll('.js-pdp-care-heading').forEach(function(el) { el.textContent = pData.careHeading; });
-        document.querySelectorAll('.js-pdp-care-copy').forEach(function(el) { el.innerHTML = pData.careCopy; });
-      }
-
-      document.querySelectorAll('.js-pdp-atc').forEach(function(atcBtn) {
-        atcBtn.setAttribute('data-current-price', priceShort);
-        var activeSz = document.querySelector('.js-pdp-size-label').textContent.trim() || 'M';
-        atcBtn.textContent = 'ADD SIZE ' + activeSz + ' TO BAG — ' + priceShort;
+      document.querySelectorAll('.js-pdp-specs-list').forEach(function(listEl) {
+        listEl.innerHTML = pData.specs.map(function(sp) {
+          return '<li>' + sp + '</li>';
+        }).join('');
       });
 
+      document.querySelectorAll('.js-f2g-fibre').forEach(function(el) { el.textContent = pData.f2g.fibre; });
+      document.querySelectorAll('.js-f2g-spinning').forEach(function(el) { el.textContent = pData.f2g.spinning; });
+      document.querySelectorAll('.js-f2g-weaving').forEach(function(el) { el.textContent = pData.f2g.weaving; });
+      document.querySelectorAll('.js-f2g-finishing').forEach(function(el) { el.textContent = pData.f2g.finishing; });
+
+      document.querySelectorAll('.js-pdp-care-heading').forEach(function(el) { el.textContent = pData.careHeading; });
+      document.querySelectorAll('.js-pdp-care-copy').forEach(function(el) { el.textContent = pData.careCopy; });
+
+      document.querySelectorAll('.js-pdp-atc').forEach(function(atcBtn) {
+        atcBtn.setAttribute('data-current-price', pData.priceShort);
+        var activeSz = document.querySelector('.js-pdp-size-label').textContent.trim() || 'M';
+        atcBtn.textContent = 'Add Size ' + activeSz + ' to Bag — ' + pData.priceShort;
+      });
+
+      /* Update Option 1 Main Image + 4 Authentic Tribeca Thumbnails */
       document.querySelectorAll('.js-pdp-main-img').forEach(function(mainImg) {
         mainImg.classList.add('is-switching');
         setTimeout(function() {
-          mainImg.src = img;
+          mainImg.src = pData.images[0];
           mainImg.classList.remove('is-switching');
-        }, 150);
+        }, 140);
       });
+
+      document.querySelectorAll('.js-pdp-thumbs-rail').forEach(function(rail) {
+        rail.innerHTML = pData.images.map(function(src, idx) {
+          return '<button type="button" class="hw-pdp__thumb ' + (idx === 0 ? 'active' : '') + '" data-image-src="' + src + '" onclick="hwSelectProductImage(this)"><img src="' + src + '" alt="Tribeca View ' + (idx + 1) + '"></button>';
+        }).join('');
+      });
+
+      /* Update Option 2 Lookbook Images */
+      var img0 = document.querySelector('.js-v2-img-0');
+      var img1 = document.querySelector('.js-v2-img-1');
+      var img2 = document.querySelector('.js-v2-img-2');
+      if (img0 && pData.images[0]) img0.src = pData.images[0];
+      if (img1 && pData.images[1]) img1.src = pData.images[1];
+      if (img2 && pData.images[2]) img2.src = pData.images[2];
     }
 
     function hwSelectSizeVariant(btn) {
@@ -2378,8 +2279,8 @@
         el.textContent = sizeTitle;
       });
       document.querySelectorAll('.js-pdp-atc').forEach(function(atcBtn) {
-        var currentPrice = atcBtn.getAttribute('data-current-price') || '$1,250';
-        atcBtn.textContent = 'ADD SIZE ' + sizeTitle + ' TO BAG — ' + currentPrice;
+        var currentPrice = atcBtn.getAttribute('data-current-price') || '€696';
+        atcBtn.textContent = 'Add Size ' + sizeTitle + ' to Bag — ' + currentPrice;
       });
     }
 
@@ -2390,7 +2291,7 @@
       if (bagEl) bagEl.textContent = 'Bag (' + demoBagCount + ')';
       document.querySelectorAll('.js-pdp-atc').forEach(function(atcBtn) {
         var origText = atcBtn.textContent;
-        atcBtn.textContent = 'ADDED TO YOUR BAG ✓';
+        atcBtn.textContent = 'Added to Your Bag ✓';
         setTimeout(function() {
           atcBtn.textContent = origText;
         }, 1400);
@@ -2407,13 +2308,11 @@
       if (modal) modal.classList.remove('is-open');
     }
 
-    function hwNavigateToGlossary(slug) {
+    function hwNavigateToMasters(slug) {
       document.getElementById('HwProductView').classList.remove('is-active-view');
-      document.getElementById('HwGlossaryView').classList.add('is-active-view');
-      document.querySelectorAll('.hw-studio-switcher__btn').forEach(function(b) {
-        b.classList.remove('is-active');
-      });
-      document.getElementById('HwBtnGlossary').classList.add('is-active');
+      document.getElementById('HwMastersView').classList.add('is-active-view');
+      var navBtn = document.getElementById('HwNavMastersBtn');
+      if (navBtn) navBtn.classList.add('is-active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       if (slug) {
         setTimeout(function() {
@@ -2439,8 +2338,10 @@
     }
 
     function hwShowProductView() {
-      document.getElementById('HwGlossaryView').classList.remove('is-active-view');
+      document.getElementById('HwMastersView').classList.remove('is-active-view');
       document.getElementById('HwProductView').classList.add('is-active-view');
+      var navBtn = document.getElementById('HwNavMastersBtn');
+      if (navBtn) navBtn.classList.remove('is-active');
       document.querySelectorAll('.hw-studio-switcher__btn').forEach(function(b) {
         b.classList.remove('is-active');
       });
