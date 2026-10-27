@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hartwick — Complete Interactive Website Preview</title>
+  <title>Hartwick — Version 1 (Light Palette: Warm Stone, Blush Clay & Ice Blue)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=Montserrat:wght@400;500;600;700&family=Noto+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -24,21 +24,29 @@
       font-weight: 400; font-style: italic; font-display: swap;
     }
 
+    
     :root {
-      --hw-bg: #FAF7F2;
-      --hw-bg-alt: #F3EFE6;
-      --hw-card: #FFFFFF;
-      --hw-ink: #1C1A17;
-      --hw-muted: #666057;
-      --hw-light: #928B80;
-      --hw-accent: #7A5C3E;
-      --hw-border: rgba(28, 26, 23, 0.12);
-      --hw-border-strong: rgba(28, 26, 23, 0.28);
-      /* 3-Tier Brand Guidelines Typography */
+      --hw-bg: #ECECE6;
+      --hw-bg-alt: #E3D8D5;
+      --hw-surface-soft: #E9F3FF;
+      --hw-card: #F4F7FA;
+      --hw-ink: #3B2E25;
+      --hw-muted: #5F4E44;
+      --hw-light: #7D6B60;
+      --hw-accent: #9E6B74;
+      --hw-accent-secondary: #DEB6BE;
+      --hw-border: rgba(59, 46, 37, 0.13);
+      --hw-border-strong: rgba(59, 46, 37, 0.26);
+      --hw-header-bg: rgba(227, 216, 213, 0.94);
+      --hw-masters-bg: #E3D8D5;
+      --hw-footer-bg: #E3D8D5;
+      --hw-footer-ink: #3B2E25;
+      --hw-footer-border: rgba(59, 46, 37, 0.14);
       --font-heading: 'Porter', 'Porter Medium', 'Cormorant Garamond', Georgia, serif;
       --font-body: 'Junicode', 'EB Garamond', Georgia, serif;
       --font-mono: 'Noto Sans Mono', monospace;
     }
+  
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -61,7 +69,7 @@
       position: sticky;
       top: 0;
       z-index: 950;
-      background: rgba(250, 247, 242, 0.97);
+      background: var(--hw-header-bg);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--hw-border);
     }
@@ -109,9 +117,9 @@
       top: 100%;
       left: 0;
       min-width: 215px;
-      background: #FAF7F2;
+      background: var(--hw-card);
       border: 1px solid var(--hw-border-strong);
-      box-shadow: 0 14px 34px rgba(28, 26, 23, 0.08);
+      box-shadow: 0 14px 34px rgba(59, 46, 37, 0.08);
       padding: 10px 0;
       opacity: 0;
       visibility: hidden;
@@ -173,59 +181,6 @@
     }
 
     /* ==========================================================================
-       THE NAVIGATION CIRCLE BAR (Interactive Loop: Collection <-> Product <-> Fibre to Garment <-> Made By Masters)
-       ========================================================================== */
-    .hw-circle-bar {
-      background: #F4EFE6;
-      border-bottom: 1px solid var(--hw-border);
-      padding: 8px 36px;
-    }
-    .hw-circle-bar-inner {
-      max-width: 1520px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-    .hw-circle-step {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: none;
-      border: none;
-      font-family: var(--font-mono);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--hw-muted);
-      padding: 4px 10px;
-      border-radius: 999px;
-      transition: all 0.2s;
-    }
-    .hw-circle-step:hover, .hw-circle-step.active {
-      background: var(--hw-ink);
-      color: #FAF7F2;
-    }
-    .hw-circle-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      border: 1.5px solid currentColor;
-      display: inline-block;
-    }
-    .hw-circle-step.active .hw-circle-dot {
-      background: #FAF7F2;
-    }
-    .hw-circle-arrow {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--hw-light);
-    }
-
-    /* ==========================================================================
        VIEW CONTAINERS
        ========================================================================== */
     .hw-view { display: none; }
@@ -248,8 +203,10 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 8px;
+      gap: 18px;
       margin-bottom: 32px;
+      border-bottom: 1px solid var(--hw-border);
+      padding-bottom: 12px;
     }
     .hw-subfilter-pill {
       font-family: var(--font-mono);
@@ -257,16 +214,17 @@
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      padding: 6px 14px;
-      border: 1px solid var(--hw-border);
-      background: #FFFFFF;
+      padding: 4px 2px;
+      border: none;
+      border-bottom: 1.5px solid transparent;
+      background: transparent;
       color: var(--hw-muted);
       transition: all 0.18s;
     }
     .hw-subfilter-pill:hover, .hw-subfilter-pill.active {
-      background: var(--hw-ink);
-      color: #FAF7F2;
-      border-color: var(--hw-ink);
+      background: transparent;
+      color: var(--hw-ink);
+      border-bottom-color: var(--hw-accent);
     }
 
     /* 3-Column Large Side-by-Side Grid matching Screenshot 1 */
@@ -478,7 +436,7 @@
       transition: all 0.2s;
     }
     .hw-v2-var-card.active .hw-v2-var-thumb {
-      border: 2px solid var(--hw-ink);
+      border: 1.5px solid var(--hw-accent);
       padding: 2px;
     }
     .hw-v2-var-thumb img {
@@ -539,32 +497,33 @@
       min-width: 31px;
       height: 27px;
       padding: 0 7px;
-      border: 1px solid var(--hw-border-strong);
-      background: #FFFFFF;
+      border: 1px solid var(--hw-border);
+      background: transparent;
       font-family: var(--font-mono);
       font-size: 9px;
       font-weight: 600;
       letter-spacing: 0.06em;
-      color: var(--hw-ink);
+      color: var(--hw-muted);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       transition: all 0.15s;
     }
     .hw-v2-size-btn:hover {
-      border-color: var(--hw-ink);
+      border-color: var(--hw-accent);
+      color: var(--hw-ink);
     }
     .hw-v2-size-btn.active {
-      background: var(--hw-ink);
-      color: #FAF7F2;
-      border-color: var(--hw-ink);
+      background: var(--hw-surface-soft);
+      color: var(--hw-ink);
+      border-color: var(--hw-accent);
     }
     .hw-v2-atc {
       height: 31px;
       padding: 0 20px;
-      background: var(--hw-ink);
-      color: #FAF7F2;
-      border: 1px solid var(--hw-ink);
+      background: var(--hw-surface-soft);
+      color: var(--hw-ink);
+      border: 1px solid var(--hw-border-strong);
       font-family: var(--font-mono);
       font-size: 9px;
       font-weight: 600;
@@ -573,10 +532,10 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: background 0.2s, transform 0.15s;
+      transition: background 0.2s, border-color 0.2s;
     }
     .hw-v2-atc:hover {
-      background: var(--hw-accent);
+      background: var(--hw-bg-alt);
       border-color: var(--hw-accent);
     }
 
@@ -782,8 +741,8 @@
       --hw-m-silk: cubic-bezier(0.22, 1, 0.36, 1);
     }
     .hw-masters-page {
-      background-color: #F6F3EC;
-      color: #181614;
+      background-color: var(--hw-masters-bg);
+      color: var(--hw-ink);
       width: 100%;
       box-sizing: border-box;
       padding: 56px clamp(1.5rem, 5vw, 5.5rem) 96px;
@@ -813,18 +772,18 @@
       font-weight: 400;
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: #787167;
+      color: var(--hw-muted);
       background: none;
       border: none;
-      border-bottom: 1px solid rgba(24, 22, 20, 0.22);
+      border-bottom: 1px solid var(--hw-border-strong);
       padding: 0 0 2px 0;
       margin-bottom: 22px;
       cursor: pointer;
       transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s var(--hw-m-ease);
     }
     .hw-masters-back:hover {
-      color: #181614;
-      border-color: #181614;
+      color: var(--hw-ink);
+      border-color: var(--hw-ink);
       transform: translateX(-3px);
     }
     .hw-masters-eyebrow {
@@ -834,7 +793,7 @@
       font-weight: 400;
       letter-spacing: 0.32em;
       text-transform: uppercase;
-      color: #8C6A48;
+      color: var(--hw-accent);
       margin-bottom: 12px;
     }
     .hw-masters-title {
@@ -843,7 +802,7 @@
       font-weight: 400;
       line-height: 1.12;
       letter-spacing: 0.03em;
-      color: #181614;
+      color: var(--hw-ink);
       margin: 0 0 20px 0;
     }
     .hw-masters-lead-p {
@@ -852,7 +811,7 @@
       font-weight: 300;
       line-height: 1.82;
       letter-spacing: 0.02em;
-      color: #3E3A35;
+      color: var(--hw-ink);
       margin: 0 0 12px 0;
     }
     .hw-masters-nuance {
@@ -860,42 +819,40 @@
       font-style: italic;
       font-size: clamp(15.5px, 1.25vw, 18px);
       font-weight: 400;
-      color: #6E5A49;
+      color: var(--hw-muted);
       margin: 16px 0 0 0;
     }
     .hw-masters-index-bar {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 8px;
+      gap: 14px 18px;
       margin: 0 auto 48px;
       max-width: 980px;
+      border-bottom: 1px solid var(--hw-border);
+      padding-bottom: 16px;
     }
     .hw-masters-pill {
       background: transparent;
-      border: 1px solid rgba(24, 22, 20, 0.16);
-      padding: 8px 14px;
+      border: none;
+      border-bottom: 1.5px solid transparent;
+      padding: 4px 2px;
       font-family: var(--hw-m-sans);
       font-size: 9.5px;
       font-weight: 500;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: #4A453E;
+      color: var(--hw-muted);
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      transition: all 0.3s var(--hw-m-ease);
+      gap: 6px;
+      transition: all 0.25s var(--hw-m-ease);
     }
-    .hw-masters-pill:hover {
-      border-color: #181614;
-      color: #181614;
-      transform: translateY(-2px);
-    }
-    .hw-masters-pill.is-active {
-      background: #181614;
-      color: #FAF8F4;
-      border-color: #181614;
+    .hw-masters-pill:hover, .hw-masters-pill.is-active {
+      background: transparent;
+      color: var(--hw-ink);
+      border-bottom-color: var(--hw-accent);
     }
     /* 2-COLUMN LAYOUT ANDERSOM: LEFT = ACCORDION CHAPTERS + TEXT + GARMENTS, RIGHT = STICKY FRAMED PHOTO */
     .hw-masters-grid {
@@ -945,16 +902,16 @@
       font-size: 8.5px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: #787167;
+      color: var(--hw-muted);
       padding-top: 6px;
-      border-top: 1px solid rgba(24, 22, 20, 0.12);
+      border-top: 1px solid var(--hw-border);
     }
     .hw-masters-list {
-      border-top: 1px solid rgba(24, 22, 20, 0.14);
+      border-top: 1px solid var(--hw-border);
     }
     .hw-m-item {
       position: relative;
-      border-bottom: 1px solid rgba(24, 22, 20, 0.12);
+      border-bottom: 1px solid var(--hw-border);
       scroll-margin-top: 110px;
       transition: background-color 0.4s ease, padding-left 0.4s var(--hw-m-ease);
     }
@@ -965,7 +922,7 @@
       top: 18px;
       bottom: 18px;
       width: 1.5px;
-      background: #8C6A48;
+      background: var(--hw-accent);
       transform: scaleY(0);
       transform-origin: top;
       transition: transform 0.5s var(--hw-m-silk);
@@ -973,7 +930,7 @@
     .hw-m-item.is-open::before { transform: scaleY(1); }
     .hw-m-item.is-open {
       padding-left: 14px;
-      background: linear-gradient(90deg, rgba(140, 106, 72, 0.035) 0%, rgba(246, 243, 236, 0) 65%);
+      background: var(--hw-surface-soft);
     }
     .hw-m-item__trigger {
       width: 100%;
@@ -986,7 +943,7 @@
       gap: 12px;
       text-align: left;
       cursor: pointer;
-      color: #181614;
+      color: var(--hw-ink);
       transition: opacity 0.25s ease;
     }
     .hw-m-item__trigger:hover { opacity: 0.78; }
@@ -996,16 +953,16 @@
       font-size: 9.5px;
       font-weight: 400;
       letter-spacing: 0.22em;
-      color: #8C6A48;
+      color: var(--hw-accent);
     }
-    .hw-m-item.is-open .hw-m-item__num { color: #181614; font-weight: 500; }
+    .hw-m-item.is-open .hw-m-item__num { color: var(--hw-ink); font-weight: 500; }
     .hw-m-item__headings { display: flex; flex-direction: column; gap: 4px; }
     .hw-m-item__name {
       font-family: var(--hw-m-serif);
       font-size: clamp(1.15rem, 1.5vw, 1.4rem);
       font-weight: 400;
       letter-spacing: 0.03em;
-      color: #181614;
+      color: var(--hw-ink);
       margin: 0;
       transition: transform 0.4s var(--hw-m-ease);
     }
@@ -1015,26 +972,26 @@
       font-weight: 400;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: #787167;
+      color: var(--hw-muted);
     }
-    .hw-m-item.is-open .hw-m-item__sub { color: #8C6A48; }
+    .hw-m-item.is-open .hw-m-item__sub { color: var(--hw-accent); }
     .hw-m-item__icon {
       font-family: var(--hw-m-sans);
       font-size: 16px;
       font-weight: 300;
-      color: #181614;
+      color: var(--hw-ink);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       width: 24px;
       height: 24px;
       border-radius: 50%;
-      transition: transform 0.5s var(--hw-m-silk), background-color 0.35s ease, color 0.35s ease;
+      transition: transform 0.5s var(--hw-m-silk), color 0.35s ease;
     }
     .hw-m-item.is-open .hw-m-item__icon {
       transform: rotate(135deg);
-      background-color: #181614;
-      color: #FAF8F4;
+      background-color: transparent;
+      color: var(--hw-accent);
     }
     .hw-m-item__panel {
       display: grid;
@@ -1056,7 +1013,7 @@
       font-weight: 300;
       line-height: 1.82;
       letter-spacing: 0.02em;
-      color: #36322D;
+      color: var(--hw-ink);
       margin: 0 0 12px 0;
       max-width: 620px;
     }
@@ -1065,12 +1022,12 @@
       font-family: var(--hw-m-italic);
       font-style: italic;
       font-size: 15px;
-      color: #6E5A49;
+      color: var(--hw-muted);
     }
     .hw-m-garments {
       margin-top: 20px;
       padding-top: 16px;
-      border-top: 1px solid rgba(24, 22, 20, 0.08);
+      border-top: 1px solid var(--hw-border);
     }
     .hw-m-garments__label {
       display: block;
@@ -1079,7 +1036,7 @@
       font-weight: 400;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: #8C6A48;
+      color: var(--hw-accent);
       margin-bottom: 12px;
     }
     .hw-m-garments__grid {
@@ -1089,7 +1046,7 @@
     }
     .hw-m-garment-card {
       text-decoration: none;
-      color: #181614;
+      color: var(--hw-ink);
       display: flex;
       flex-direction: column;
       gap: 5px;
@@ -1100,7 +1057,7 @@
     .hw-m-garment-card__img {
       width: 100%;
       aspect-ratio: 3 / 4;
-      background: #EAE4D9;
+      background: var(--hw-bg);
       overflow: hidden;
     }
     .hw-m-garment-card__img img {
@@ -1117,13 +1074,13 @@
       font-weight: 400;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #2B2723;
+      color: var(--hw-ink);
       line-height: 1.3;
     }
     .hw-masters-dyes {
       margin-top: 64px;
       padding-top: 48px;
-      border-top: 1px solid rgba(24, 22, 20, 0.12);
+      border-top: 1px solid var(--hw-border);
       text-align: center;
     }
     .hw-masters-dyes__grid {
@@ -1138,9 +1095,9 @@
       font-family: var(--hw-m-serif);
       font-style: italic;
       font-size: 15px;
-      color: #3E3A35;
+      color: var(--hw-ink);
       padding: 4px 10px;
-      border-bottom: 1px solid rgba(140, 106, 72, 0.3);
+      border-bottom: 1px solid var(--hw-border-strong);
     }
 
     /* ==========================================================================
@@ -1192,7 +1149,7 @@
       width: 390px;
       max-width: 92vw;
       height: 100vh;
-      background: #FAF7F2;
+      background: var(--hw-bg);
       border-left: 1px solid var(--hw-border-strong);
       z-index: 1250;
       transform: translateX(100%);
@@ -1210,15 +1167,15 @@
        ========================================================================== */
     .hw-sqs-footer {
       border-top: 1px solid var(--hw-border);
-      background: #FAF7F2;
-      color: var(--hw-ink);
+      background: var(--hw-footer-bg);
+      color: var(--hw-footer-ink);
       margin-top: 60px;
     }
     .hw-sqs-ig-section {
       max-width: 1480px;
       margin: 0 auto;
       padding: 48px 40px 36px;
-      border-bottom: 1px solid var(--hw-border);
+      border-bottom: 1px solid var(--hw-footer-border);
     }
     .hw-sqs-ig-title {
       font-family: var(--font-heading);
@@ -1226,11 +1183,11 @@
       font-weight: 500;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--hw-ink);
+      color: var(--hw-footer-ink);
       margin-bottom: 20px;
     }
     .hw-sqs-ig-title a:hover {
-      color: var(--hw-accent);
+      opacity: 0.8;
       text-decoration: underline;
     }
     .hw-sqs-ig-grid {
@@ -1241,7 +1198,7 @@
     .hw-sqs-ig-item {
       aspect-ratio: 1 / 1;
       overflow: hidden;
-      background: #EFECE5;
+      background: var(--hw-bg);
       display: block;
     }
     .hw-sqs-ig-item img {
@@ -1269,7 +1226,7 @@
       font-weight: 500;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--hw-ink);
+      color: var(--hw-footer-ink);
       margin-bottom: 18px;
     }
     .hw-sqs-col-list {
@@ -1287,22 +1244,21 @@
       font-weight: 400;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--hw-ink);
+      color: var(--hw-footer-ink);
       text-decoration: underline;
       text-underline-offset: 4px;
-      text-decoration-color: rgba(28, 26, 23, 0.35);
+      text-decoration-color: var(--hw-footer-border);
       text-align: left;
       cursor: pointer;
-      transition: color 0.2s, text-decoration-color 0.2s;
+      transition: opacity 0.2s;
     }
     .hw-sqs-col-list button:hover, .hw-sqs-col-list a:hover {
-      color: var(--hw-accent);
-      text-decoration-color: var(--hw-accent);
+      opacity: 0.75;
     }
     .hw-sqs-newsletter-copy {
       font-family: var(--font-body);
       font-size: 15px;
-      color: var(--hw-ink);
+      color: var(--hw-footer-ink);
       margin-bottom: 14px;
       line-height: 1.5;
     }
@@ -1315,8 +1271,8 @@
       flex: 1;
       height: 38px;
       padding: 0 12px;
-      border: 1px solid var(--hw-border-strong);
-      background: #FFFFFF;
+      border: 1px solid var(--hw-footer-border);
+      background: var(--hw-card);
       font-family: var(--font-body);
       font-size: 14px;
       color: var(--hw-ink);
@@ -1324,20 +1280,24 @@
     .hw-sqs-newsletter-btn {
       height: 38px;
       padding: 0 20px;
-      background: var(--hw-ink);
-      color: #FAF7F2;
-      border: 1px solid var(--hw-ink);
+      background: transparent;
+      color: var(--hw-footer-ink);
+      border: 1px solid var(--hw-footer-ink);
       font-family: var(--font-mono);
       font-size: 9.5px;
       font-weight: 600;
       letter-spacing: 0.16em;
       text-transform: uppercase;
+      transition: opacity 0.2s;
+    }
+    .hw-sqs-newsletter-btn:hover {
+      opacity: 0.8;
     }
     .hw-sqs-email-link {
       font-family: 'Montserrat', var(--font-mono), sans-serif;
       font-size: 11px;
       letter-spacing: 0.12em;
-      color: var(--hw-ink);
+      color: var(--hw-footer-ink);
       text-decoration: underline;
       text-underline-offset: 4px;
     }
@@ -1420,32 +1380,6 @@
         </div>
         <button class="hw-nav-link" id="nav-bag" onclick="toggleBag(true)">Bag (<span id="bag-count">0</span>)</button>
       </nav>
-    </div>
-
-    <!-- INTERACTIVE CIRCLE NAVIGATION BAR (Collection -> Product -> Fibre to Garment -> Made By Masters -> Back to Collection/Product) -->
-    <div class="hw-circle-bar">
-      <div class="hw-circle-bar-inner">
-        <button class="hw-circle-step" id="circle-col" onclick="openCollection(currentCollection || 'Skirts & Dresses')">
-          <span class="hw-circle-dot"></span>
-          <span>1. Collection (<span id="circle-col-name">Skirts & Dresses</span>)</span>
-        </button>
-        <span class="hw-circle-arrow">⟶</span>
-        <button class="hw-circle-step active" id="circle-pdp" onclick="openProduct(currentProduct ? currentProduct.id : 1)">
-          <span class="hw-circle-dot"></span>
-          <span>2. Product (<span id="circle-pdp-name">Tribeca Emerald</span>)</span>
-        </button>
-        <span class="hw-circle-arrow">⟶</span>
-        <button class="hw-circle-step" id="circle-ftg" onclick="jumpToFibreToGarment()">
-          <span class="hw-circle-dot"></span>
-          <span>3. Fibre to Garment</span>
-        </button>
-        <span class="hw-circle-arrow">⟶</span>
-        <button class="hw-circle-step" id="circle-masters" onclick="openMasters(currentProduct ? currentProduct.masterId : 'matka')">
-          <span class="hw-circle-dot"></span>
-          <span>4. Made By Masters (<span id="circle-master-name">Matka Silk</span>)</span>
-        </button>
-        <span class="hw-circle-arrow">↺</span>
-      </div>
     </div>
   </header>
 
@@ -1827,8 +1761,6 @@
 
     function openCollection(colName) {
       currentCollection = colName;
-      document.getElementById('circle-col-name').textContent = colName;
-      setActiveCircle('circle-col');
 
       if (colName === 'Fine Jewellery' || ['Rings','Earrings','Bangles + Bracelets','Necklaces + Pendants'].includes(colName)) {
         setActiveNav('nav-jewellery');
@@ -1889,12 +1821,6 @@
       if (!p) return;
       currentProduct = p;
       currentCollection = p.category;
-
-      // Update Circle Bar
-      document.getElementById('circle-col-name').textContent = p.category;
-      document.getElementById('circle-pdp-name').textContent = p.title;
-      document.getElementById('circle-master-name').textContent = p.masterLabel.replace(/^[0-9]+\s*·\s*/, '');
-      setActiveCircle('circle-pdp');
 
       if (p.navGroup === 'Fine Jewellery') setActiveNav('nav-jewellery');
       else if (p.navGroup === 'Fine Silk Scarves') setActiveNav('nav-silk');
@@ -2124,7 +2050,6 @@
       const isOpen = article.classList.toggle('is-open');
       if (isOpen) {
         syncMasterPhoto(m);
-        document.getElementById('circle-master-name').textContent = m.name;
         document.querySelectorAll('.hw-masters-pill').forEach(p => {
           p.classList.toggle('is-active', p.getAttribute('data-master-id') === m.id);
         });
@@ -2134,9 +2059,7 @@
     function openMasters(masterId, scrollToItem) {
       buildMasterAccordionOnce();
       setActiveNav('nav-masters');
-      setActiveCircle('circle-masters');
       const m = MASTERS.find(x => x.id === masterId) || MASTERS[0];
-      document.getElementById('circle-master-name').textContent = m.name;
 
       const retBtn = document.getElementById('masters-return-btn');
       if (retBtn && currentProduct) {
