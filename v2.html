@@ -1533,11 +1533,11 @@
       </a>
 
       <nav class="hw-nav-right">
-        <button class="hw-nav-link" id="nav-masters" onclick="openMasters()">Made By Masters</button>
+        <button class="hw-nav-link" id="nav-masters" onclick="openMasters(currentProduct ? currentProduct.masterId : 'khadi', true)">Made By Masters</button>
         <div class="hw-nav-item">
           <button class="hw-nav-link" id="nav-about" onclick="openView('story')">About +</button>
           <div class="hw-dropdown" style="right:0; left:auto;">
-            <button class="hw-dropdown-btn" onclick="openMasters()">Made By Masters</button>
+            <button class="hw-dropdown-btn" onclick="openMasters(currentProduct ? currentProduct.masterId : 'khadi', true)">Made By Masters</button>
             <button class="hw-dropdown-btn" onclick="openView('story')">Our Story</button>
             <button class="hw-dropdown-btn" onclick="openView('contact')">Contact</button>
           </div>
@@ -1902,7 +1902,7 @@
       if (target) target.classList.add('active');
     }
 
-    function openView(viewName) {
+    function openView(viewName, skipScrollTop) {
       document.querySelectorAll('.hw-view').forEach(v => v.classList.remove('active'));
       const el = document.getElementById('view-' + viewName);
       if (el) {
@@ -1910,7 +1910,9 @@
         el.classList.add('active');
       }
       if (viewName === 'story' || viewName === 'contact') setActiveNav('nav-about');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (!skipScrollTop) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
       setTimeout(initLuxuryScrollChoreography, 40);
     }
 
@@ -2077,8 +2079,8 @@
         },
         {
           step: '03 · Technique',
-          val: p.technique,
-          desc: `Executed by Master Artisans specializing in ${p.technique} (${p.commercial}). Every motif and texture bears the subtle signature of the maker's hand.`,
+          val: p.masterLabel.replace(/^[0-9]+s*·s*/, ''),
+          desc: `Executed by Master Artisans specializing in ${p.masterLabel.replace(/^[0-9]+\s*·\s*/, '')} (${p.commercial}). Every motif and texture bears the subtle signature of the maker's hand.`,
           mId: p.masterId,
           mLabel: p.masterLabel
         },
@@ -2101,13 +2103,13 @@
       ];
 
       document.getElementById('pdp-ftg-list').innerHTML = ftgRows.map(row => `
-        <div class="hw-ftg-open-row">
+        <div class="hw-ftg-open-row" style="cursor:pointer;" onclick="openMasters('${row.mId}', true)">
           <div class="hw-ftg-row-top">
             <span class="hw-ftg-step">${row.step}</span>
             <span class="hw-ftg-val">${row.val}</span>
           </div>
           <p class="hw-ftg-drawer-p">${row.desc}</p>
-          <button class="hw-ftg-link" onclick="openMasters('${row.mId}')">Explore ${row.mLabel} in Made By Masters →</button>
+          <button type="button" class="hw-ftg-link" onclick="event.stopPropagation(); openMasters('${row.mId}', true)">Explore ${row.mLabel} in Made By Masters →</button>
         </div>
       `).join('');
 
@@ -2227,10 +2229,11 @@
       }
     }
 
-    function openMasters(masterId, scrollToItem) {
+    function openMasters(masterId, scrollToItem = true) {
       buildMasterAccordionOnce();
       setActiveNav('nav-masters');
-      const m = MASTERS.find(x => x.id === masterId) || MASTERS[0];
+      const targetId = masterId || (currentProduct ? currentProduct.masterId : 'khadi');
+      const m = MASTERS.find(x => x.id === targetId) || MASTERS[0];
 
       const retBtn = document.getElementById('masters-return-btn');
       if (retBtn && currentProduct) {
@@ -2241,19 +2244,21 @@
         p.classList.toggle('is-active', p.getAttribute('data-master-id') === m.id);
       });
 
+      // Close all other accordion items and open ONLY the target technique for this product
+      document.querySelectorAll('.hw-m-item').forEach(item => {
+        item.classList.toggle('is-open', item.id === 'master-acc-' + m.id);
+      });
+
       const targetArticle = document.getElementById('master-acc-' + m.id);
-      if (targetArticle && !targetArticle.classList.contains('is-open')) {
-        targetArticle.classList.add('is-open');
-      }
       syncMasterPhoto(m);
 
-      openView('masters');
+      openView('masters', Boolean(scrollToItem && targetArticle));
       history.replaceState(null, '', '#masters/' + m.id);
 
       if (scrollToItem && targetArticle) {
         setTimeout(() => {
-          targetArticle.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 80);
+          targetArticle.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 120);
       }
     }
 
