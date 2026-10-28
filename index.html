@@ -26,9 +26,9 @@
 
     
     :root {
-      --hw-bg: #FAF7F2;
+      --hw-bg: #F6F3EC;
       --hw-bg-alt: #F3EFE6;
-      --hw-surface-soft: #F6F3EC;
+      --hw-surface-soft: #EFECE4;
       --hw-card: #FFFFFF;
       --hw-ink: #1C1A17;
       --hw-muted: #5A4B40;
@@ -37,9 +37,9 @@
       --hw-accent-secondary: #4E301D;
       --hw-border: rgba(59, 35, 20, 0.14);
       --hw-border-strong: rgba(59, 35, 20, 0.36);
-      --hw-header-bg: rgba(250, 247, 242, 0.97);
-      --hw-masters-bg: #FAF7F2;
-      --hw-footer-bg: #FAF7F2;
+      --hw-header-bg: rgba(246, 243, 236, 0.97);
+      --hw-masters-bg: #F6F3EC;
+      --hw-footer-bg: #F6F3EC;
       --hw-footer-ink: #1C1A17;
       --hw-footer-border: rgba(59, 35, 20, 0.14);
       --font-heading: 'Porter', 'Porter Medium', 'Cormorant Garamond', Georgia, serif;
@@ -970,7 +970,7 @@
       color: var(--hw-ink);
       width: 100%;
       box-sizing: border-box;
-      padding: 14px clamp(1.5rem, 5vw, 5.5rem) 36px;
+      padding: 6px clamp(1.5rem, 5vw, 5.5rem) 14px;
       font-family: var(--font-body);
       -webkit-font-smoothing: antialiased;
     }
@@ -1064,8 +1064,8 @@
       grid-template-columns: minmax(340px, 0.96fr) minmax(380px, 1.04fr);
       gap: 32px;
       align-items: start;
-      border-top: 1px solid var(--hw-border-strong);
-      padding-top: 20px;
+      border-top: none;
+      padding-top: 8px;
     }
     /* LEFT COLUMN: SIDE-BY-SIDE TECHNIQUE BUTTONS (NO PHOTOS, NO PIECES BADGES) */
     .hw-masters-list {
@@ -1990,15 +1990,15 @@
     .hw-sqs-ig-section {
       max-width: 1380px;
       margin: 0 auto;
-      padding: 12px 40px 44px;
-      border-bottom: 1px solid var(--hw-border);
+      padding: 6px 40px 24px;
+      border-bottom: none;
     }
-    /* LAYER 1: SUBTLE COMPACT EDITORIAL QUOTE WITH ESPRESSO HAIRLINES */
+    /* LAYER 1: SUBTLE COMPACT EDITORIAL QUOTE WITHOUT SEPARATING LINES */
     .hw-footer-quote-band {
-      border-top: 1px solid var(--hw-border);
-      border-bottom: 1px solid var(--hw-border);
-      padding: 18px 20px;
-      margin-bottom: 34px;
+      border-top: none;
+      border-bottom: none;
+      padding: 8px 20px;
+      margin-bottom: 18px;
       text-align: center;
     }
     .hw-footer-quote-text {
@@ -2062,9 +2062,9 @@
       transform: scale(1.045);
     }
     .hw-dispatch-box {
-      background: var(--hw-surface-soft);
-      border: 1px solid var(--hw-border-strong);
-      padding: 30px 32px;
+      background: transparent;
+      border: none;
+      padding: 12px 8px;
       box-sizing: border-box;
     }
     .hw-dispatch-kicker {
@@ -2113,9 +2113,9 @@
       }
     }
     .hw-sqs-footer-main {
-      max-width: 1480px;
+      max-width: 1380px;
       margin: 0 auto;
-      padding: 56px 40px 64px;
+      padding: 24px 40px 56px;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1.35fr;
       gap: 40px;
