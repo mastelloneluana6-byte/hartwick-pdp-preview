@@ -2059,8 +2059,7 @@
       .hw-chapter,
       .hw-chapter--reverse,
       .hw-finale__diptych,
-      .hw-concierge__shell,
-      .hw-concierge__grid-2 { grid-template-columns: 1fr; gap: 28px; }
+      .hw-concierge__shell { grid-template-columns: 1fr; gap: 18px; }
       .hw-story__timeline::before,
       .hw-chapter::after { display: none; }
       .hw-chapter--reverse .hw-chapter__media { order: 1; }
@@ -2784,9 +2783,112 @@
         gap: 12px;
       }
 
-      /* Our Story & Private Appointment on Mobile */
-      .hw-story, .hw-concierge {
+      /* Our Story & Ultra-Compact Contact / Private Appointment on Mobile */
+      .hw-story {
         padding: 24px 16px 52px;
+      }
+      .hw-concierge {
+        padding: 14px 16px 32px;
+      }
+      .hw-concierge__shell {
+        gap: 14px;
+      }
+      .hw-concierge__eyebrow {
+        font-size: 8px;
+        letter-spacing: 0.22em;
+        margin-bottom: 4px;
+      }
+      .hw-concierge__title {
+        font-size: 19px;
+        margin-bottom: 6px;
+      }
+      .hw-concierge__lead {
+        font-size: 14px;
+        line-height: 1.42;
+        margin-bottom: 10px;
+      }
+      .hw-concierge__directory {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px 12px;
+        padding: 8px 0;
+        border-top: 1px solid var(--hw-border);
+        border-bottom: 1px solid var(--hw-border);
+      }
+      .hw-concierge__dir-item {
+        padding: 2px 0;
+        border-bottom: none;
+        gap: 2px;
+      }
+      .hw-concierge__dir-label {
+        font-size: 7.5px;
+        letter-spacing: 0.16em;
+      }
+      .hw-concierge__dir-val,
+      .hw-concierge__dir-link {
+        font-size: 10.5px;
+        word-break: break-word;
+      }
+      .hw-concierge__visual {
+        display: none;
+      }
+      .hw-concierge__form-wrap {
+        border-top: none;
+        padding: 4px 0 0 0;
+      }
+      .hw-concierge__topics {
+        margin-bottom: 12px;
+      }
+      .hw-concierge__topics-label {
+        font-size: 8px;
+        letter-spacing: 0.18em;
+        margin-bottom: 6px;
+      }
+      .hw-concierge__pills {
+        gap: 5px;
+      }
+      .hw-concierge__pill {
+        padding: 5px 8px;
+        font-size: 8px;
+        letter-spacing: 0.12em;
+      }
+      .hw-concierge__grid-2 {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px 12px;
+        margin-bottom: 10px;
+      }
+      .hw-c-field {
+        margin-bottom: 10px;
+      }
+      .hw-c-label {
+        font-size: 7.5px;
+        letter-spacing: 0.16em;
+        margin-bottom: 2px;
+      }
+      .hw-c-input,
+      .hw-c-textarea {
+        padding: 4px 0 5px 0 !important;
+        font-size: 11.5px;
+      }
+      .hw-c-textarea {
+        min-height: 54px;
+        line-height: 1.45;
+      }
+      .hw-concierge__submit-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        margin-top: 6px;
+      }
+      .hw-concierge__submit {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 16px;
+        font-size: 9.5px;
+      }
+      .hw-concierge__note {
+        font-size: 12.5px;
+        text-align: center;
       }
       .hw-story__hero {
         padding-bottom: 28px;
