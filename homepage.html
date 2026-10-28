@@ -987,51 +987,72 @@
       transform: translateX(3px);
     }
 
-    /* Compact 3-Column Salon Showcase for Apparel, Fine Silk, Fine Jewellery (with Preview Product Images & Hover Crossfade) */
+    /* Ultra-Compact Asymmetric Salon Layout: Left Model Feature + Right Tightly Stacked Cards (Zero Empty Gap) */
     .d3-collections-salon {
-      margin-bottom: 30px;
+      margin-bottom: 26px;
     }
     .d3-collections-salon__head {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--hw-border-strong);
     }
     .d3-collections-salon__grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 24px;
       align-items: start;
     }
-    .d3-salon-card {
+    .d3-feature-model {
       display: flex;
       flex-direction: column;
-      padding: 14px;
-      border: 1px solid var(--hw-border);
-      background: rgba(36, 25, 20, 0.012);
-      transition: border-color 0.45s var(--ease-luxury), transform 0.55s var(--ease-luxury), background 0.45s ease;
+      transition: transform 0.55s var(--ease-luxury);
     }
-    .d3-salon-card:hover {
-      border-color: var(--hw-border-strong);
-      background: rgba(36, 25, 20, 0.028);
-      transform: translateY(-4px);
+    .d3-feature-model:hover {
+      transform: translateY(-3px);
     }
-    .d3-salon-card__media {
-      aspect-ratio: 4 / 4.35;
-      margin-bottom: 12px;
+    .d3-feature-model__media {
+      height: 292px;
+      margin-bottom: 10px;
     }
-    .d3-salon-card__meta {
+    .d3-feature-model__media img {
+      object-position: center 16% !important;
+    }
+    .d3-feature-model__bar {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       padding-bottom: 6px;
-      margin-bottom: 8px;
       border-bottom: 1px solid var(--hw-border);
+      margin-bottom: 6px;
     }
-    .d3-salon-card__sub {
+    .d3-side-stack {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 14px;
+    }
+    .d3-side-item {
+      display: grid;
+      grid-template-columns: 128px 1fr;
+      gap: 18px;
       align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--hw-border);
+      transition: transform 0.45s var(--ease-luxury), background 0.35s ease;
+    }
+    .d3-side-item:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .d3-side-item:hover {
+      transform: translateX(4px);
+    }
+    .d3-side-item__img {
+      width: 128px;
+      height: 152px;
     }
 
     .d3-feel-poetic {
@@ -1847,58 +1868,53 @@
         </div>
       </section>
 
-      <!-- Section 5: Compact 3-Column Salon Showcase with Actual Preview Product Images & Hover Crossfade -->
+      <!-- Section 5: Ultra-Compact Asymmetric Salon Layout (Model Photo Left + Tightly Stacked Cards Right) -->
       <section class="d3-collections-salon hw-reveal">
         <div class="d3-collections-salon__head">
           <h2 class="t-heading-lg">Collections</h2>
-          <span class="t-detail-meta">HOVER TO PREVIEW &middot; CLICK TO ENTER</span>
+          <span class="t-detail-meta">APPAREL &middot; FINE SILK &middot; FINE JEWELLERY</span>
         </div>
 
         <div class="d3-collections-salon__grid">
-          <a class="d3-salon-card hw-delay-1" href="v2.html#collection/Skirts & Dresses">
-            <div class="d3-salon-card__media hw-dual-media">
-              <img class="img-primary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/0e0c3b00-61cb-4eed-8741-db304f1fd896/004034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w" alt="Apparel — Tribeca Emerald" />
-              <img class="img-secondary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/19c9c1dd-0fcf-4c77-a43d-59d41df9860f/009073_HARTWICK_HANDWOVEN_PALMA_SKIRT_SILK_NATURALDYE_BLOCKPRINT_AMMAN_SHIRT_LINEN.jpg?format=1500w" alt="Apparel — Palma Spire" />
+          <a class="d3-feature-model hw-delay-1" href="v2.html#collection/Skirts & Dresses">
+            <div class="d3-feature-model__media hw-dual-media">
+              <img class="img-primary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/19c9c1dd-0fcf-4c77-a43d-59d41df9860f/009073_HARTWICK_HANDWOVEN_PALMA_SKIRT_SILK_NATURALDYE_BLOCKPRINT_AMMAN_SHIRT_LINEN.jpg?format=1500w" alt="Apparel Model — Palma Spire Skirt & Amman Shirt" />
+              <img class="img-secondary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/09762203-2a2f-42d2-8e8b-242a417b268e/004_HARTWICK_HANDWOVEN_PALMA_SKIRT_KHADI_HANOI_SHIRT_NATURALDYE_BLOCKPRINT.jpg?format=1500w" alt="Apparel Model — Palma Skirt & Hanoi Shirt" />
             </div>
-            <div class="d3-salon-card__meta">
-              <h3 class="t-heading-lg">Apparel</h3>
-              <span class="t-detail-meta">62 Pieces</span>
-            </div>
-            <div class="d3-salon-card__sub">
+            <div class="d3-feature-model__bar">
+              <h3 class="t-heading-xl">Apparel</h3>
               <span class="t-detail-meta">Skirts &middot; Shirts &middot; Trousers &middot; Lounge</span>
-              <span class="t-detail-link">Explore <span class="t-detail-arrow">&rarr;</span></span>
+            </div>
+            <div>
+              <span class="t-detail-link">Explore Apparel <span class="t-detail-arrow">&rarr;</span></span>
             </div>
           </a>
 
-          <a class="d3-salon-card hw-delay-2" href="v2.html#collection/Fine Silk Scarves">
-            <div class="d3-salon-card__media hw-dual-media">
-              <img class="img-primary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a12d1e92-239b-42af-b6ad-cca9ce9cea6a/230_HARTWICK_FINESILK_DUPATTA_SCARF_NATURALDYE_BLOCKPRINT.jpg?format=1500w" alt="Fine Silk — Dupatta Celestial" />
-              <img class="img-secondary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/d6018d59-74b8-423e-ae96-b9eb0c9e4286/227_HARTWICK_FINESILK_STOLE_SCARF_NATURALDYE_BLOCKPRINT.jpg?format=1500w" alt="Fine Silk — Classic Stole" />
-            </div>
-            <div class="d3-salon-card__meta">
-              <h3 class="t-heading-lg">Fine Silk</h3>
-              <span class="t-detail-meta">22 Pieces</span>
-            </div>
-            <div class="d3-salon-card__sub">
-              <span class="t-detail-meta">Natural Dye &amp; Block Print</span>
-              <span class="t-detail-link">Explore <span class="t-detail-arrow">&rarr;</span></span>
-            </div>
-          </a>
+          <div class="d3-side-stack">
+            <a class="d3-side-item hw-delay-2" href="v2.html#collection/Fine Silk Scarves">
+              <div class="d3-side-item__img hw-dual-media">
+                <img class="img-primary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fb284e6b-9e43-4ece-87e6-0c8cc01c3a76/071_HARTWICK_FINESILK_MEDIUMSQUARE01_SCARF_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg" alt="Fine Silk Model" />
+                <img class="img-secondary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a12d1e92-239b-42af-b6ad-cca9ce9cea6a/230_HARTWICK_FINESILK_DUPATTA_SCARF_NATURALDYE_BLOCKPRINT.jpg?format=1500w" alt="Fine Silk Dupatta" />
+              </div>
+              <div>
+                <span class="t-detail-meta" style="margin-bottom:4px;">Natural Dye &amp; Block Print</span>
+                <h3 class="t-heading-lg" style="margin-bottom:8px;">Fine Silk</h3>
+                <span class="t-detail-link">Explore Fine Silk <span class="t-detail-arrow">&rarr;</span></span>
+              </div>
+            </a>
 
-          <a class="d3-salon-card hw-delay-3" href="v2.html#collection/Fine Jewellery">
-            <div class="d3-salon-card__media hw-dual-media">
-              <img class="img-primary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fad0ba3a-a1b3-41a6-bec9-9c82b64c30f5/CROP_HARTWICK_LIMINAL_SILVER_GOLD_EMERALD_RINGS_TOURMELINE_RHODOLITE_1781.jpg" alt="Fine Jewellery — Emerald & Tourmaline Rings" />
-              <img class="img-secondary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/6fd18b4b-ee13-461a-a2e0-fecc461883bf/017_HARTWICK_HANDWOVEN_AMMAN_SHIRT_LINEN_SILK_LIMINAL_RING_PENDANT_EMERALD.jpg" alt="Fine Jewellery — Liminal Ring & Pendant" />
-            </div>
-            <div class="d3-salon-card__meta">
-              <h3 class="t-heading-lg">Fine Jewellery</h3>
-              <span class="t-detail-meta">18 Pieces</span>
-            </div>
-            <div class="d3-salon-card__sub">
-              <span class="t-detail-meta">Heirloom Handcraft &middot; 22K &amp; 23K Gold</span>
-              <span class="t-detail-link">Explore <span class="t-detail-arrow">&rarr;</span></span>
-            </div>
-          </a>
+            <a class="d3-side-item hw-delay-3" href="v2.html#collection/Fine Jewellery">
+              <div class="d3-side-item__img hw-dual-media">
+                <img class="img-primary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fad0ba3a-a1b3-41a6-bec9-9c82b64c30f5/CROP_HARTWICK_LIMINAL_SILVER_GOLD_EMERALD_RINGS_TOURMELINE_RHODOLITE_1781.jpg" alt="Fine Jewellery Rings" />
+                <img class="img-secondary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/6fd18b4b-ee13-461a-a2e0-fecc461883bf/017_HARTWICK_HANDWOVEN_AMMAN_SHIRT_LINEN_SILK_LIMINAL_RING_PENDANT_EMERALD.jpg" alt="Fine Jewellery Model" />
+              </div>
+              <div>
+                <span class="t-detail-meta" style="margin-bottom:4px;">Heirloom Handcraft</span>
+                <h3 class="t-heading-lg" style="margin-bottom:8px;">Fine Jewellery</h3>
+                <span class="t-detail-link">Explore Fine Jewellery <span class="t-detail-arrow">&rarr;</span></span>
+              </div>
+            </a>
+          </div>
         </div>
       </section>
 
