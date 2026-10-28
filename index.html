@@ -2000,40 +2000,155 @@
       margin-top: 60px;
     }
     .hw-sqs-ig-section {
-      max-width: 1480px;
+      max-width: 1380px;
       margin: 0 auto;
-      padding: 48px 40px 36px;
+      padding: 44px 40px 48px;
       border-bottom: 1px solid var(--hw-footer-border);
+    }
+    /* LAYER 1: SUBTLE EDITORIAL / COLLECTOR QUOTE WITH ESPRESSO HAIRLINES */
+    .hw-footer-quote-band {
+      border-top: 1px solid var(--hw-border-strong);
+      border-bottom: 1px solid var(--hw-border-strong);
+      padding: 28px 24px;
+      margin-bottom: 42px;
+      text-align: center;
+    }
+    .hw-footer-quote-kicker {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--hw-accent);
+      margin-bottom: 10px;
+    }
+    .hw-footer-quote-text {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: clamp(1.25rem, 2vw, 1.62rem);
+      font-weight: 400;
+      line-height: 1.52;
+      color: var(--hw-ink);
+      max-width: 820px;
+      margin: 0 auto 10px;
+    }
+    .hw-footer-quote-cite {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--hw-muted);
+    }
+
+    /* LAYER 2: ASYMMETRIC DUAL CTA (IG LIFESTYLE GRID + THE DISPATCH NEWSLETTER) */
+    .hw-footer-dual-cta {
+      display: grid;
+      grid-template-columns: 1.18fr 0.82fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .hw-sqs-ig-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 14px;
     }
     .hw-sqs-ig-title {
       font-family: var(--font-heading);
       font-size: 13px;
       font-weight: 500;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--hw-footer-ink);
-      margin-bottom: 20px;
+      margin: 0;
     }
     .hw-sqs-ig-title a:hover {
       opacity: 0.8;
       text-decoration: underline;
     }
+    .hw-sqs-ig-sub {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--hw-muted);
+    }
     .hw-sqs-ig-grid {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 16px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
     }
     .hw-sqs-ig-item {
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 4 / 4.6;
       overflow: hidden;
       background: var(--hw-bg);
       display: block;
+      cursor: pointer;
     }
     .hw-sqs-ig-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .hw-sqs-ig-item:hover img {
+      transform: scale(1.045);
+    }
+    .hw-dispatch-box {
+      background: var(--hw-surface-soft);
+      border: 1px solid var(--hw-border-strong);
+      padding: 32px 34px;
+      box-sizing: border-box;
+    }
+    .hw-dispatch-kicker {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--hw-accent);
+      margin-bottom: 8px;
+    }
+    .hw-dispatch-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.25rem, 1.8vw, 1.55rem);
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--hw-ink);
+      margin: 0 0 12px 0;
+      line-height: 1.2;
+    }
+    .hw-dispatch-copy {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.58;
+      color: var(--hw-muted);
+      margin: 0 0 20px 0;
+    }
+    .hw-dispatch-form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .hw-dispatch-note {
+      font-family: var(--font-mono);
+      font-size: 8.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--hw-light);
+    }
+    @media (max-width: 1024px) {
+      .hw-footer-dual-cta {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
     }
     .hw-sqs-footer-main {
       max-width: 1480px;
@@ -2752,18 +2867,48 @@
        EXACT SQUARESPACE FOOTER (VERBATIM FROM SQUARESPACE SITE)
        ========================================================================== -->
   <footer class="hw-sqs-footer">
-    <!-- Top Section: FOLLOW US @WORLDOFHARTWICKATELIER + 6-Image Gallery Strip -->
+    <!-- Top Section: Layer 1 (Press / Collector Quote) + Layer 2 (Asymmetric Dual CTA: IG Lifestyle + The Dispatch) -->
     <div class="hw-sqs-ig-section">
-      <div class="hw-sqs-ig-title">
-        FOLLOW US <a href="https://instagram.com/worldofhartwickatelier" target="_blank" rel="noopener">@WORLDOFHARTWICKATELIER</a>
+      <!-- Bovenste laag: Press / Collector Quote met fijne espresso-haarlijn erboven en eronder -->
+      <div class="hw-footer-quote-band">
+        <span class="hw-footer-quote-kicker">ATELIER APPRECIATION &middot; TACTILE HERITAGE</span>
+        <blockquote class="hw-footer-quote-text">
+          &ldquo;You feel the human hand in every thread &mdash; a living, breathable cloth that carries the quiet vibration of the loom and softens into an heirloom over time.&rdquo;
+        </blockquote>
+        <span class="hw-footer-quote-cite">&mdash; COLLECTOR &amp; EDITORIAL ARCHIVE &middot; MADE BY MASTERS</span>
       </div>
-      <div class="hw-sqs-ig-grid">
-        <a class="hw-sqs-ig-item" onclick="openProduct(1)"><img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1761394286610-IZ46RMUKJAHY9K3G8K4Z/034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg" alt="Hartwick Instagram 1" loading="lazy" /></a>
-        <a class="hw-sqs-ig-item" onclick="openProduct(43)"><img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1761392514754-DYC1QWQ3N3J75IQF4AHO/019_HARTWICK_HANDWOVEN_SAMARKAND_DRESS_SILKCOTTON_VICTORIANROUGE_NATURALDYE_BLOCKPRINT.jpg.jpg" alt="Hartwick Instagram 2" loading="lazy" /></a>
-        <a class="hw-sqs-ig-item" onclick="openProduct(3)"><img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/eaf5c63f-ec73-47a3-b917-5d78d5a93577/001073_HARTWICK_HANDWOVEN_PALMA_SKIRT_SILK_NATURALDYE_BLOCKPRINT_AMMAN_SHIRT_LINEN.jpg" alt="Hartwick Instagram 3" loading="lazy" /></a>
-        <a class="hw-sqs-ig-item" onclick="openProduct(40)"><img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/8d28d4d4-4b30-44c7-999b-636e1a552025/002+_HARTWICK_HANDWOVEN_MARYLEBONE_COAT_IKAT_BOMBAY_TROUSERS_SITGES_TOTEBAG.jpg" alt="Hartwick Instagram 4" loading="lazy" /></a>
-        <a class="hw-sqs-ig-item" onclick="openProduct(57)"><img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1739485853760-7GB5PB4HDZ3AIJE2XE1K/214_HARTWICK_FINESILK_DUPATTA_SCARF_NATURALDYE_BLOCKPRINT.jpg" alt="Hartwick Instagram 5" loading="lazy" /></a>
-        <a class="hw-sqs-ig-item" onclick="openProduct(81)"><img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fad0ba3a-a1b3-41a6-bec9-9c82b64c30f5/CROP_HARTWICK_LIMINAL_SILVER_GOLD_EMERALD_RINGS_TOURMELINE_RHODOLITE_1781.jpg" alt="Hartwick Instagram 6" loading="lazy" /></a>
+
+      <!-- Onderste laag: The Dual CTA (IG Lifestyle Grid + The Dispatch) -->
+      <div class="hw-footer-dual-cta">
+        <div class="hw-footer-ig-col">
+          <div class="hw-sqs-ig-head">
+            <div class="hw-sqs-ig-title">
+              FOLLOW US <a href="https://instagram.com/worldofhartwickatelier" target="_blank" rel="noopener">@WORLDOFHARTWICKATELIER</a>
+            </div>
+            <span class="hw-sqs-ig-sub">ANALOGUE LOVE STORY</span>
+          </div>
+          <div class="hw-sqs-ig-grid">
+            <a class="hw-sqs-ig-item" onclick="openProduct(1)"><img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1761394286610-IZ46RMUKJAHY9K3G8K4Z/034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg" alt="Hartwick Instagram 1" loading="lazy" /></a>
+            <a class="hw-sqs-ig-item" onclick="openProduct(43)"><img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1761392514754-DYC1QWQ3N3J75IQF4AHO/019_HARTWICK_HANDWOVEN_SAMARKAND_DRESS_SILKCOTTON_VICTORIANROUGE_NATURALDYE_BLOCKPRINT.jpg.jpg" alt="Hartwick Instagram 2" loading="lazy" /></a>
+            <a class="hw-sqs-ig-item" onclick="openProduct(3)"><img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/eaf5c63f-ec73-47a3-b917-5d78d5a93577/001073_HARTWICK_HANDWOVEN_PALMA_SKIRT_SILK_NATURALDYE_BLOCKPRINT_AMMAN_SHIRT_LINEN.jpg" alt="Hartwick Instagram 3" loading="lazy" /></a>
+            <a class="hw-sqs-ig-item" onclick="openProduct(40)"><img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/8d28d4d4-4b30-44c7-999b-636e1a552025/002+_HARTWICK_HANDWOVEN_MARYLEBONE_COAT_IKAT_BOMBAY_TROUSERS_SITGES_TOTEBAG.jpg" alt="Hartwick Instagram 4" loading="lazy" /></a>
+            <a class="hw-sqs-ig-item" onclick="openProduct(57)"><img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1739485853760-7GB5PB4HDZ3AIJE2XE1K/214_HARTWICK_FINESILK_DUPATTA_SCARF_NATURALDYE_BLOCKPRINT.jpg" alt="Hartwick Instagram 5" loading="lazy" /></a>
+            <a class="hw-sqs-ig-item" onclick="openProduct(81)"><img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fad0ba3a-a1b3-41a6-bec9-9c82b64c30f5/CROP_HARTWICK_LIMINAL_SILVER_GOLD_EMERALD_RINGS_TOURMELINE_RHODOLITE_1781.jpg" alt="Hartwick Instagram 6" loading="lazy" /></a>
+          </div>
+        </div>
+
+        <aside class="hw-dispatch-box">
+          <span class="hw-dispatch-kicker">THE DISPATCH &middot; ATELIER LETTERS</span>
+          <h3 class="hw-dispatch-title">Enter the World of Hartwick</h3>
+          <p class="hw-dispatch-copy">
+            Receive intimate dispatches on heritage handloom techniques, limited small-batch releases, and private trunk show invitations in New York, Paris, London, and Dubai.
+          </p>
+          <form class="hw-dispatch-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed ✓';">
+            <input type="email" class="hw-sqs-newsletter-input" placeholder="Your Email Address" required />
+            <button type="submit" class="hw-sqs-newsletter-btn">Join The Dispatch</button>
+          </form>
+          <span class="hw-dispatch-note">PRIVATE INVITATIONS &middot; ZERO NOISE</span>
+        </aside>
       </div>
     </div>
 
