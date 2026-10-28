@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HARTWICK ATELIER — Homepage Preview (3 Editorial Designs)</title>
+  <title>HARTWICK ATELIER — Homepage Preview (3 High-Fashion Designs)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&family=Montserrat:wght@400;500;600&family=Noto+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@400;500;600&family=Montserrat:wght@400;500;600&family=Noto+Sans+Mono:wght@500;600&display=swap" rel="stylesheet">
   <style>
     @font-face {
       font-family: 'Junicode';
@@ -23,6 +23,11 @@
       src: url('https://cdn.jsdelivr.net/gh/psb1558/Junicode-font@master/webfonts/Junicode-Italic.woff2') format('woff2');
       font-weight: 400; font-style: italic; font-display: swap;
     }
+    @font-face {
+      font-family: 'Junicode';
+      src: url('https://cdn.jsdelivr.net/gh/psb1558/Junicode-font@master/webfonts/Junicode-Italic.woff2') format('woff2');
+      font-weight: 500; font-style: italic; font-display: swap;
+    }
 
     :root {
       --hw-bg: #EDE5D8;
@@ -30,14 +35,17 @@
       --hw-muted: #5A4B40;
       --hw-light: #7A6B60;
       --hw-accent: #241914;
-      --hw-border: rgba(36, 25, 20, 0.15);
-      --hw-border-strong: rgba(36, 25, 20, 0.30);
+      --hw-border: rgba(36, 25, 20, 0.12);
+      --hw-border-strong: rgba(36, 25, 20, 0.24);
       --hw-header-bg: #EDE5D8;
       --hw-footer-ink: #241914;
-      /* 3-Tier Brand Guidelines Typography:
-         1. HEADING: Porter Medium (500, geometric uppercase sans)
-         2. STORY:   Junicode Medium (500, editorial serif)
-         3. DETAIL:  Noto Sans Mono Semi-Bold (600, captions, credits & practical info) */
+
+      /* ==========================================================================
+         STRICT 3-TIER BRAND GUIDELINES TYPOGRAPHY HIERARCHY
+         Tier 1 — HEADING: Porter Medium (500, geometric uppercase sans)
+         Tier 2 — STORY:   Junicode Medium (500, classic high-fashion serif)
+         Tier 3 — DETAIL:  Noto Sans Mono Semi-Bold (600, captions, credits, UI)
+         ========================================================================== */
       --font-heading: 'Porter', 'Porter Medium', 'Jost', 'Montserrat', sans-serif;
       --font-body: 'Junicode', 'EB Garamond', Georgia, serif;
       --font-mono: 'Noto Sans Mono', monospace;
@@ -51,14 +59,125 @@
       font-family: var(--font-body);
       font-weight: 500;
       -webkit-font-smoothing: antialiased;
-      line-height: 1.65;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.72;
       overflow-x: hidden;
     }
     a { color: inherit; text-decoration: none; }
     button { font-family: inherit; cursor: pointer; }
 
     /* ==========================================================================
-       FLOATING 3-DESIGN SWITCHER BAR (TOP / BOTTOM STUDIO SELECTOR)
+       TYPOGRAPHIC HIERARCHY UTILITY CLASSES (STRICT ENFORCEMENT)
+       ========================================================================== */
+    /* Tier 1: HEADING — Porter Medium 500 */
+    .t-heading-hero {
+      font-family: var(--font-heading);
+      font-weight: 500;
+      font-size: clamp(19px, 2.5vw, 34px);
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      line-height: 1.3;
+    }
+    .t-heading-xl {
+      font-family: var(--font-heading);
+      font-weight: 500;
+      font-size: clamp(17px, 1.9vw, 25px);
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      line-height: 1.38;
+      color: var(--hw-ink);
+    }
+    .t-heading-lg {
+      font-family: var(--font-heading);
+      font-weight: 500;
+      font-size: clamp(14px, 1.35vw, 18px);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      line-height: 1.4;
+      color: var(--hw-ink);
+    }
+    .t-heading-md {
+      font-family: var(--font-heading);
+      font-weight: 500;
+      font-size: 12.5px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      line-height: 1.48;
+      color: var(--hw-ink);
+    }
+
+    /* Tier 2: STORY — Junicode Medium 500 */
+    .t-story-lead {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: clamp(20px, 1.7vw, 25px);
+      line-height: 1.66;
+      color: var(--hw-ink);
+    }
+    .t-story-body {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: clamp(17.5px, 1.3vw, 20px);
+      line-height: 1.76;
+      color: var(--hw-ink);
+    }
+    .t-story-quote {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-style: italic;
+      font-size: clamp(21px, 1.85vw, 27px);
+      line-height: 1.64;
+      color: var(--hw-ink);
+    }
+
+    /* Tier 3: DETAIL — Noto Sans Mono Semi-Bold 600 */
+    .t-detail-meta {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 9.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--hw-muted);
+      line-height: 1.5;
+      display: inline-block;
+    }
+    .t-detail-link {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--hw-ink);
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--hw-border-strong);
+      transition: border-color 0.25s ease, opacity 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .t-detail-link:hover {
+      border-bottom-color: var(--hw-ink);
+      opacity: 0.72;
+    }
+    .t-detail-status {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--hw-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .t-detail-status::before {
+      content: '◆';
+      font-size: 7px;
+      color: var(--hw-ink);
+    }
+
+    /* ==========================================================================
+       MINIMALIST FLOATING 3-DESIGN SWITCHER BAR
        ========================================================================== */
     .hw-design-switcher {
       position: sticky;
@@ -66,62 +185,60 @@
       z-index: 1200;
       background: #241914;
       color: #EDE5D8;
-      padding: 8px 20px;
+      padding: 7px 24px;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 10px;
+      gap: 18px;
       flex-wrap: wrap;
-      border-bottom: 1px solid rgba(237, 229, 216, 0.16);
     }
     .hw-design-switcher__label {
       font-family: var(--font-mono);
-      font-size: 9.5px;
+      font-size: 9px;
       font-weight: 600;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      opacity: 0.72;
-      margin-right: 4px;
+      opacity: 0.6;
     }
     .hw-design-tab {
       background: transparent;
-      color: #EDE5D8;
-      border: 1px solid rgba(237, 229, 216, 0.28);
-      padding: 5px 14px;
+      color: rgba(237, 229, 216, 0.62);
+      border: none;
+      border-bottom: 1px solid transparent;
+      padding: 4px 2px;
       font-family: var(--font-mono);
       font-size: 9.5px;
       font-weight: 600;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
     }
     .hw-design-tab:hover {
-      border-color: #EDE5D8;
+      color: #EDE5D8;
     }
     .hw-design-tab.active {
-      background: #EDE5D8;
-      color: #241914;
-      border-color: #EDE5D8;
+      color: #EDE5D8;
+      border-bottom-color: #EDE5D8;
     }
 
     /* ==========================================================================
-       SITE HEADER (IDENTICAL TO V2.HTML + SLIDE-OUT MOBILE MENU LEFT-TO-RIGHT)
+       SITE HEADER (UNIFORM KHADI-LINEN & LEFT-TO-RIGHT MOBILE DRAWER)
        ========================================================================== */
     .hw-site-header {
       position: sticky;
-      top: 37px;
+      top: 33px;
       z-index: 950;
       background: var(--hw-header-bg);
       border-bottom: none;
     }
     .hw-header-inner {
-      max-width: 1440px;
+      max-width: 1480px;
       margin: 0 auto;
-      padding: 10px 36px 2px;
+      padding: 12px 44px 2px;
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      gap: 28px;
+      gap: 32px;
     }
     .hw-nav-left, .hw-nav-right {
       display: flex;
@@ -132,9 +249,9 @@
       width: 100%;
     }
     .hw-header-subbar-v2-inner {
-      max-width: 1540px;
+      max-width: 1480px;
       margin: 0 auto;
-      padding: 0 36px 6px;
+      padding: 0 44px 8px;
       display: flex;
       justify-content: flex-end;
       align-items: center;
@@ -144,7 +261,7 @@
       flex-direction: column;
       align-items: center;
       cursor: pointer;
-      padding: 2px 10px;
+      padding: 2px 12px;
     }
     .hw-logo-mark-img {
       width: 64px;
@@ -160,16 +277,16 @@
     }
     .hw-nav-link {
       font-family: var(--font-mono);
-      font-size: 12.2px;
+      font-size: 12px;
       font-weight: 600;
-      letter-spacing: 0.13em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--hw-ink);
       background: none;
       border: none;
       padding: 5px 0;
-      border-bottom: 1.5px solid transparent;
-      transition: color 0.2s, border-color 0.2s;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.25s ease, opacity 0.25s ease;
       display: inline-flex;
       align-items: center;
       gap: 5px;
@@ -177,7 +294,7 @@
       line-height: 1;
     }
     .hw-nav-link:hover {
-      border-bottom-color: var(--hw-accent);
+      border-bottom-color: var(--hw-ink);
     }
     .hw-dropdown {
       position: absolute;
@@ -186,12 +303,11 @@
       min-width: 245px;
       background: var(--hw-bg);
       border: 1px solid var(--hw-border-strong);
-      box-shadow: 0 14px 34px rgba(36, 25, 20, 0.10);
-      padding: 12px 0;
+      padding: 14px 0;
       opacity: 0;
       visibility: hidden;
       transform: translateY(6px);
-      transition: all 0.2s ease;
+      transition: all 0.22s ease;
       z-index: 1000;
     }
     .hw-nav-item:hover .hw-dropdown,
@@ -204,18 +320,18 @@
       display: block;
       width: 100%;
       text-align: left;
-      padding: 9px 20px;
+      padding: 9px 22px;
       background: none;
       border: none;
       font-family: var(--font-mono);
-      font-size: 11.2px;
+      font-size: 10.5px;
       font-weight: 600;
-      letter-spacing: 0.13em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--hw-ink);
     }
     .hw-dropdown-btn:hover {
-      background: rgba(36, 25, 20, 0.05);
+      background: rgba(36, 25, 20, 0.04);
     }
     .hw-search-box {
       display: inline-flex;
@@ -237,10 +353,10 @@
       font-family: var(--font-mono);
       font-size: 10.5px;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
       color: var(--hw-ink);
-      width: 96px;
+      width: 92px;
     }
     .hw-search-input::placeholder { color: var(--hw-light); }
 
@@ -250,7 +366,7 @@
     .hw-mobile-menu-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(36, 25, 20, 0.36);
+      background: rgba(36, 25, 20, 0.34);
       z-index: 1300;
       opacity: 0;
       visibility: hidden;
@@ -272,7 +388,7 @@
       transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
       display: flex;
       flex-direction: column;
-      padding: 22px 22px 28px;
+      padding: 24px 24px 32px;
       overflow-y: auto;
     }
     .hw-mobile-menu-backdrop.open .hw-mobile-menu-drawer { transform: translateX(0); }
@@ -286,18 +402,18 @@
     }
     .hw-m-drawer-title {
       font-family: var(--font-heading);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 500;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
     }
     .hw-m-drawer-close {
       background: none;
       border: none;
       font-family: var(--font-mono);
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 600;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--hw-ink);
     }
@@ -306,14 +422,14 @@
       width: 100%;
       background: none;
       border: none;
-      padding: 13px 0;
+      padding: 14px 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-family: var(--font-heading);
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 500;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--hw-ink);
       text-align: left;
@@ -325,681 +441,512 @@
       transition: max-height 0.28s ease, opacity 0.22s ease, padding-bottom 0.22s ease;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 6px;
     }
     .hw-m-nav-group.open .hw-m-nav-sub {
       max-height: 380px;
       opacity: 1;
-      padding-bottom: 12px;
+      padding-bottom: 14px;
     }
     .hw-m-nav-sub a {
-      padding: 5px 0 5px 10px;
+      padding: 4px 0 4px 10px;
       font-family: var(--font-mono);
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 600;
-      letter-spacing: 0.13em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--hw-muted);
     }
 
     /* ==========================================================================
-       SHARED HOMEPAGE TYPOGRAPHY & DESIGN VIEW CONTAINERS
+       HOMEPAGE VIEW CONTAINERS & IMAGE LUXURY TREATMENTS
        ========================================================================== */
     .hw-hp-design { display: none; }
-    .hw-hp-design.active { display: block; animation: hwFadeIn 0.35s ease; }
-    @keyframes hwFadeIn {
-      from { opacity: 0; transform: translateY(6px); }
+    .hw-hp-design.active { display: block; animation: hwLuxuryFade 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+    @keyframes hwLuxuryFade {
+      from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .hw-kicker-mono {
-      font-family: var(--font-mono);
-      font-size: 9.5px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--hw-muted);
+    .hw-img-zoom {
+      overflow: hidden;
+      position: relative;
+      background: rgba(36, 25, 20, 0.04);
+    }
+    .hw-img-zoom img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       display: block;
+      transition: transform 1.1s cubic-bezier(0.19, 1, 0.22, 1);
     }
-    .hw-heading-porter {
-      font-family: var(--font-heading);
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--hw-ink);
-      line-height: 1.2;
-    }
-    .hw-story-junicode {
-      font-family: var(--font-body);
-      font-weight: 500;
-      color: var(--hw-ink);
-      line-height: 1.68;
-    }
-    .hw-lot-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--font-mono);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      padding: 3px 9px;
-      border: 1px solid var(--hw-border-strong);
-      color: var(--hw-ink);
+    .hw-img-zoom:hover img {
+      transform: scale(1.028);
     }
 
     /* ==========================================================================
-       DESIGN 1: THE EDITORIAL LOOKBOOK (CLASSIC SYMMETRY & CHECKERBOARD RHYTHM)
+       DESIGN 1: HAUTE MONUMENTAL (PURE SILENCE, VAST NEGATIVE SPACE, SYMMETRY)
        ========================================================================== */
     .d1-hero {
       position: relative;
       width: 100%;
-      height: clamp(460px, 76vh, 760px);
+      height: clamp(540px, 84vh, 860px);
       overflow: hidden;
     }
     .d1-hero img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 22%;
+      object-position: center 20%;
       display: block;
     }
-    .d1-hero__overlay {
+    .d1-hero__veil {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(36, 25, 20, 0.12) 0%, rgba(36, 25, 20, 0.36) 100%);
+      background: linear-gradient(180deg, rgba(36, 25, 20, 0.08) 0%, rgba(36, 25, 20, 0.32) 100%);
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
-      padding: 24px;
+      padding: 64px 28px;
       text-align: center;
     }
     .d1-hero__title {
-      font-family: var(--font-heading);
-      font-size: clamp(22px, 3.2vw, 42px);
-      font-weight: 500;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
       color: #EDE5D8;
-      text-shadow: 0 2px 18px rgba(36, 25, 20, 0.35);
+      text-shadow: 0 2px 24px rgba(36, 25, 20, 0.32);
     }
 
-    .d1-manifesto {
-      max-width: 840px;
+    .d1-statement {
+      max-width: 780px;
       margin: 0 auto;
-      padding: 72px 28px 52px;
+      padding: 124px 32px 104px;
       text-align: center;
     }
-    .d1-manifesto__lead {
-      font-family: var(--font-heading);
-      font-size: clamp(16px, 1.8vw, 22px);
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-      color: var(--hw-ink);
+    .d1-statement__rule {
+      width: 1px;
+      height: 44px;
+      background: var(--hw-border-strong);
+      margin: 0 auto 36px;
     }
-    .d1-manifesto__p {
-      font-family: var(--font-body);
-      font-size: clamp(18px, 1.45vw, 21px);
-      font-weight: 500;
-      line-height: 1.68;
-      color: var(--hw-ink);
-      margin-bottom: 18px;
+    .d1-statement h2 {
+      margin-bottom: 34px;
+    }
+    .d1-statement p {
+      margin-bottom: 24px;
+    }
+    .d1-statement p:last-child {
+      margin-bottom: 0;
     }
 
     .d1-pillars {
-      max-width: 1320px;
-      margin: 0 auto 68px;
-      padding: 26px 40px;
+      max-width: 1380px;
+      margin: 0 auto 128px;
+      padding: 40px 44px;
       border-top: 1px solid var(--hw-border);
       border-bottom: 1px solid var(--hw-border);
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+      gap: 36px;
     }
     .d1-pillar {
       text-align: center;
-      padding: 6px 12px;
-      border-right: 1px solid var(--hw-border);
+      padding: 8px 14px;
     }
-    .d1-pillar:last-child { border-right: none; }
-    .d1-pillar__num {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      color: var(--hw-muted);
-      display: block;
-      margin-bottom: 6px;
-    }
-    .d1-pillar__title {
-      font-family: var(--font-heading);
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--hw-ink);
-      line-height: 1.4;
+    .d1-pillar .t-detail-meta {
+      margin-bottom: 14px;
     }
 
     .d1-feel {
       max-width: 1320px;
-      margin: 0 auto 76px;
-      padding: 0 40px;
+      margin: 0 auto 136px;
+      padding: 0 44px;
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 56px;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 88px;
       align-items: center;
     }
-    .d1-feel__media {
-      aspect-ratio: 4 / 4.8;
-      overflow: hidden;
+    .d1-feel__img {
+      aspect-ratio: 3 / 3.9;
     }
-    .d1-feel__media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .d1-feel__quote {
-      font-family: var(--font-body);
-      font-style: italic;
-      font-size: clamp(21px, 1.85vw, 27px);
-      line-height: 1.56;
-      color: var(--hw-ink);
-      margin-top: 12px;
+    .d1-feel__copy {
+      max-width: 520px;
     }
 
     .d1-lots {
       max-width: 1380px;
-      margin: 0 auto 84px;
-      padding: 0 40px;
+      margin: 0 auto 140px;
+      padding: 0 44px;
     }
-    .d1-lots__head {
+    .d1-lots__header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 24px;
-      padding-bottom: 12px;
+      padding-bottom: 20px;
+      margin-bottom: 44px;
       border-bottom: 1px solid var(--hw-border);
     }
     .d1-lots__grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
+      gap: 44px;
     }
-    .d1-lot-card {
+    .d1-lot-item {
       display: flex;
       flex-direction: column;
-      cursor: pointer;
     }
-    .d1-lot-card__img {
-      aspect-ratio: 3 / 3.9;
-      overflow: hidden;
-      margin-bottom: 14px;
-      position: relative;
+    .d1-lot-item__media {
+      aspect-ratio: 3 / 4.15;
+      margin-bottom: 22px;
     }
-    .d1-lot-card__img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .d1-lot-card:hover .d1-lot-card__img img {
-      transform: scale(1.03);
-    }
-    .d1-lot-card__meta {
+    .d1-lot-item__row {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 6px;
-    }
-    .d1-lot-card__lot {
-      font-family: var(--font-heading);
-      font-size: 16px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-    .d1-lot-card__sub {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--hw-muted);
+      align-items: baseline;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--hw-border);
     }
 
     .d1-craft {
-      max-width: 1380px;
-      margin: 0 auto 80px;
-      padding: 0 40px;
+      max-width: 1340px;
+      margin: 0 auto 140px;
+      padding: 0 44px;
       display: flex;
       flex-direction: column;
-      gap: 64px;
+      gap: 116px;
     }
-    .d1-craft-row {
+    .d1-craft__row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 56px;
+      gap: 92px;
       align-items: center;
     }
-    .d1-craft-row.reverse .d1-craft-media { order: 2; }
-    .d1-craft-row.reverse .d1-craft-copy { order: 1; }
-    .d1-craft-media {
-      aspect-ratio: 4 / 4.4;
-      overflow: hidden;
+    .d1-craft__row.reverse .d1-craft__media { order: 2; }
+    .d1-craft__row.reverse .d1-craft__text { order: 1; }
+    .d1-craft__media {
+      aspect-ratio: 4 / 4.6;
     }
-    .d1-craft-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+    .d1-craft__text {
+      max-width: 480px;
     }
-    .d1-craft-copy h3 {
-      font-family: var(--font-heading);
-      font-size: clamp(20px, 2vw, 26px);
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin: 8px 0 16px;
+    .d1-craft__text h3 {
+      margin: 14px 0 22px;
     }
-    .d1-craft-copy p {
-      font-family: var(--font-body);
-      font-size: 18px;
-      font-weight: 500;
-      line-height: 1.68;
-      color: var(--hw-ink);
-      margin-bottom: 18px;
+    .d1-craft__text p {
+      margin-bottom: 28px;
     }
 
     .d1-founder {
-      max-width: 920px;
-      margin: 0 auto 64px;
-      padding: 48px 32px;
+      max-width: 840px;
+      margin: 0 auto 120px;
+      padding: 88px 32px;
       border-top: 1px solid var(--hw-border);
       border-bottom: 1px solid var(--hw-border);
       text-align: center;
     }
     .d1-founder blockquote {
-      font-family: var(--font-body);
-      font-style: italic;
-      font-size: clamp(19px, 1.65vw, 24px);
-      line-height: 1.62;
-      color: var(--hw-ink);
-      margin-bottom: 16px;
-    }
-    .d1-founder cite {
-      font-family: var(--font-mono);
-      font-style: normal;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--hw-muted);
+      margin: 20px 0 28px;
     }
 
     /* ==========================================================================
-       DESIGN 2: THE ATELIER DOSSIER (ASYMMETRIC DIPTYCH HERO & LOT LEDGER)
+       DESIGN 2: ATELIER ARCHIVE & LOOKBOOK (STICKY CHAPTERS, ARCHITECTURAL LEDGER)
        ========================================================================== */
     .d2-hero {
-      max-width: 1440px;
-      margin: 0 auto 64px;
-      padding: 18px 40px 0;
+      max-width: 1480px;
+      margin: 0 auto 112px;
+      padding: 24px 44px 0;
       display: grid;
-      grid-template-columns: 1.35fr 0.65fr;
-      gap: 28px;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 64px;
       align-items: stretch;
     }
-    .d2-hero__diptych {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    .d2-hero__diptych img {
-      width: 100%;
-      height: 100%;
-      aspect-ratio: 3 / 4.1;
-      object-fit: cover;
-      display: block;
-    }
-    .d2-hero__panel {
-      border: 1px solid var(--hw-border-strong);
-      padding: 36px 32px;
+    .d2-hero__left {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      padding: 36px 0 12px;
+      border-top: 1px solid var(--hw-border-strong);
+      border-bottom: 1px solid var(--hw-border);
     }
-    .d2-hero__title {
-      font-family: var(--font-heading);
-      font-size: clamp(22px, 2.4vw, 32px);
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      line-height: 1.25;
-      margin: 14px 0 20px;
+    .d2-hero__right {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 20px;
+      align-items: end;
     }
-    .d2-hero__statement {
-      font-family: var(--font-body);
-      font-size: 17.5px;
-      font-weight: 500;
-      line-height: 1.62;
-      color: var(--hw-ink);
+    .d2-hero__img-tall {
+      aspect-ratio: 3 / 4.1;
+    }
+    .d2-hero__img-short {
+      aspect-ratio: 3 / 3.4;
     }
 
-    .d2-split-manifesto {
-      max-width: 1440px;
-      margin: 0 auto 72px;
-      padding: 0 40px;
+    .d2-ethos-grid {
+      max-width: 1480px;
+      margin: 0 auto 124px;
+      padding: 0 44px;
       display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 56px;
+      grid-template-columns: 320px 1fr;
+      gap: 72px;
       align-items: start;
     }
-    .d2-split-manifesto__left {
-      padding-top: 20px;
+    .d2-ethos-index {
+      padding-top: 18px;
       border-top: 1px solid var(--hw-border-strong);
     }
-    .d2-split-manifesto__left p {
-      font-family: var(--font-body);
-      font-size: 18.5px;
-      font-weight: 500;
-      line-height: 1.66;
-      margin-bottom: 16px;
+    .d2-ethos-content {
+      padding-top: 18px;
+      border-top: 1px solid var(--hw-border);
     }
-    .d2-pillars-grid {
+    .d2-pillars-table {
+      margin-top: 56px;
+      border-top: 1px solid var(--hw-border-strong);
+    }
+    .d2-pillar-line {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      grid-template-columns: 110px 1fr auto;
+      align-items: center;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--hw-border);
     }
-    .d2-pillar-card {
-      border: 1px solid var(--hw-border);
-      padding: 22px 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 135px;
+
+    .d2-feel-editorial {
+      max-width: 1480px;
+      margin: 0 auto 128px;
+      padding: 0 44px;
     }
-    .d2-pillar-card__num {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      color: var(--hw-muted);
-    }
-    .d2-pillar-card__name {
-      font-family: var(--font-heading);
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      line-height: 1.35;
-      margin-top: 12px;
+    .d2-feel-editorial__inner {
+      padding: 72px 84px;
+      border-top: 1px solid var(--hw-border-strong);
+      border-bottom: 1px solid var(--hw-border-strong);
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 64px;
+      align-items: center;
     }
 
     .d2-ledger {
-      max-width: 1440px;
-      margin: 0 auto 72px;
-      padding: 0 40px;
+      max-width: 1480px;
+      margin: 0 auto 132px;
+      padding: 0 44px;
+    }
+    .d2-ledger__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 24px;
     }
     .d2-ledger__row {
       display: grid;
-      grid-template-columns: 160px 1fr 240px 180px;
+      grid-template-columns: 200px 1fr 280px 190px;
       align-items: center;
-      gap: 24px;
-      padding: 20px 0;
+      gap: 36px;
+      padding: 28px 0;
       border-bottom: 1px solid var(--hw-border);
-      cursor: pointer;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.25s ease;
     }
     .d2-ledger__row:first-of-type {
       border-top: 1px solid var(--hw-border-strong);
     }
-    .d2-ledger__row:hover { opacity: 0.82; }
-    .d2-ledger__lot {
-      font-family: var(--font-heading);
-      font-size: 18px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+    .d2-ledger__row:hover {
+      opacity: 0.75;
     }
     .d2-ledger__thumbs {
       display: flex;
-      gap: 10px;
+      gap: 14px;
       align-items: center;
     }
     .d2-ledger__thumbs img {
-      width: 68px;
-      height: 88px;
+      width: 78px;
+      height: 104px;
       object-fit: cover;
       display: block;
     }
-    .d2-ledger__desc {
-      font-family: var(--font-body);
-      font-size: 16.5px;
-      font-style: italic;
-      color: var(--hw-muted);
+
+    .d2-craft-dossier {
+      max-width: 1480px;
+      margin: 0 auto 132px;
+      padding: 0 44px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+    }
+    .d2-craft-panel {
+      padding-top: 22px;
+      border-top: 1px solid var(--hw-border-strong);
+    }
+    .d2-craft-panel__media {
+      aspect-ratio: 16 / 10.5;
+      margin: 22px 0 28px;
     }
 
-    .d2-feel-banner {
-      max-width: 1440px;
-      margin: 0 auto 64px;
-      padding: 44px 40px;
+    .d2-founder-spread {
+      max-width: 1480px;
+      margin: 0 auto 120px;
+      padding: 72px 44px;
       border-top: 1px solid var(--hw-border);
       border-bottom: 1px solid var(--hw-border);
       display: grid;
-      grid-template-columns: 240px 1fr;
-      gap: 36px;
+      grid-template-columns: 0.38fr 0.62fr;
+      gap: 84px;
       align-items: center;
     }
-    .d2-craft-twin {
-      max-width: 1440px;
-      margin: 0 auto 76px;
-      padding: 0 40px;
+    .d2-founder-spread__img {
+      aspect-ratio: 4 / 4.7;
+    }
+
+    /* ==========================================================================
+       DESIGN 3: CURATORIAL SALON & DIPTYCH GALLERY (ASYMMETRIC POETIC SCALE)
+       ========================================================================== */
+    .d3-wrap {
+      max-width: 1480px;
+      margin: 0 auto;
+      padding: 20px 44px 100px;
+    }
+    .d3-hero {
+      margin-bottom: 120px;
+    }
+    .d3-hero__header {
+      text-align: center;
+      padding: 36px 0 44px;
+    }
+    .d3-hero__header .t-detail-meta {
+      margin-bottom: 14px;
+    }
+    .d3-hero__triptych {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr 0.72fr;
+      gap: 24px;
+      align-items: center;
+    }
+    .d3-hero__side {
+      aspect-ratio: 3 / 4.1;
+    }
+    .d3-hero__center {
+      aspect-ratio: 4 / 4.7;
+    }
+
+    .d3-salon-statement {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
-    .d2-craft-col {
-      border: 1px solid var(--hw-border);
-      padding: 24px;
-    }
-    .d2-craft-col__img {
-      aspect-ratio: 16 / 10;
-      overflow: hidden;
-      margin-bottom: 18px;
-    }
-    .d2-craft-col__img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .d2-craft-col h3 {
-      font-family: var(--font-heading);
-      font-size: 18px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin: 6px 0 12px;
-    }
-    .d2-craft-col p {
-      font-family: var(--font-body);
-      font-size: 17px;
-      font-weight: 500;
-      line-height: 1.64;
+      gap: 88px;
+      padding: 72px 0;
+      margin-bottom: 96px;
+      border-top: 1px solid var(--hw-border-strong);
+      border-bottom: 1px solid var(--hw-border);
+      align-items: start;
     }
 
-    .d2-founder-split {
-      max-width: 1440px;
-      margin: 0 auto 64px;
-      padding: 0 40px;
-      display: grid;
-      grid-template-columns: 0.42fr 0.58fr;
-      gap: 48px;
-      align-items: center;
-    }
-    .d2-founder-split__img {
-      aspect-ratio: 4 / 4.6;
-      overflow: hidden;
-    }
-    .d2-founder-split__img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ==========================================================================
-       DESIGN 3: THE CURATORIAL GALLERY (FRAMED HERO & ARCHITECTURAL BENTO MOSAIC)
-       ========================================================================== */
-    .d3-shell {
-      max-width: 1440px;
-      margin: 0 auto;
-      padding: 16px 40px 60px;
-    }
-    .d3-hero-frame {
-      border: 1px solid var(--hw-border-strong);
-      padding: 20px;
-      margin-bottom: 64px;
-    }
-    .d3-hero-frame__top {
+    .d3-pillars-ribbon {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding: 0 0 112px;
+    }
+    .d3-pillars-ribbon__item {
+      display: flex;
       align-items: baseline;
-      padding-bottom: 14px;
-      margin-bottom: 14px;
-      border-bottom: 1px solid var(--hw-border);
-    }
-    .d3-hero-frame__title {
-      font-family: var(--font-heading);
-      font-size: clamp(20px, 2.5vw, 34px);
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-    }
-    .d3-hero-frame__triptych {
-      display: grid;
-      grid-template-columns: 1.25fr 0.85fr 0.9fr;
-      gap: 14px;
-    }
-    .d3-hero-frame__triptych img {
-      width: 100%;
-      height: 480px;
-      object-fit: cover;
-      display: block;
+      gap: 12px;
     }
 
-    .d3-bento {
+    .d3-lots-gallery {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 36px;
-      margin-bottom: 72px;
-      align-items: stretch;
+      grid-template-columns: 1.18fr 0.82fr;
+      gap: 64px;
+      margin-bottom: 132px;
+      align-items: start;
     }
-    .d3-bento__left {
-      border: 1px solid var(--hw-border);
-      padding: 36px 32px;
+    .d3-lots-gallery__side {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      gap: 52px;
+      padding-top: 32px;
+      border-top: 1px solid var(--hw-border-strong);
     }
-    .d3-bento__right {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .d3-feel-card {
-      border: 1px solid var(--hw-border-strong);
-      padding: 28px;
-    }
-    .d3-pillar-list {
-      border: 1px solid var(--hw-border);
-      padding: 20px 26px;
-    }
-    .d3-pillar-row {
-      display: flex;
-      justify-content: space-between;
+    .d3-side-lot {
+      display: grid;
+      grid-template-columns: 165px 1fr;
+      gap: 28px;
       align-items: center;
-      padding: 11px 0;
-      border-bottom: 1px solid var(--hw-border);
     }
-    .d3-pillar-row:last-child { border-bottom: none; }
+    .d3-side-lot__img {
+      aspect-ratio: 3 / 3.9;
+    }
 
-    .d3-lots-mosaic {
+    .d3-feel-poetic {
+      max-width: 1120px;
+      margin: 0 auto 136px;
       display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 28px;
-      margin-bottom: 72px;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 72px;
+      align-items: center;
     }
-    .d3-lots-mosaic__side {
+    .d3-feel-poetic__img {
+      aspect-ratio: 3 / 3.8;
+    }
+
+    .d3-craft-salon {
+      display: grid;
+      grid-template-columns: 1fr 1fr 0.88fr;
+      gap: 48px;
+      padding-top: 56px;
+      border-top: 1px solid var(--hw-border-strong);
+      align-items: start;
+    }
+    .d3-craft-salon__img {
+      aspect-ratio: 4 / 4.4;
+      margin-bottom: 24px;
+    }
+    .d3-founder-column {
+      padding: 36px 0 36px 40px;
+      border-left: 1px solid var(--hw-border);
       display: flex;
       flex-direction: column;
-      gap: 28px;
-    }
-    .d3-lot-box {
-      border: 1px solid var(--hw-border);
-      padding: 18px;
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 20px;
-      align-items: center;
-      cursor: pointer;
-    }
-    .d3-lot-box img {
-      width: 140px;
-      height: 175px;
-      object-fit: cover;
-      display: block;
+      justify-content: space-between;
+      height: 100%;
     }
 
     /* ==========================================================================
-       SHARED BOTTOM SECTIONS (SECTIONS 8, 9 & 10: IG FEED, THE DISPATCH, FOOTER)
+       SHARED SECTIONS 8, 9 & 10: INSTAGRAM FEED, THE DISPATCH, FOOTER
        ========================================================================== */
     .hw-sqs-footer {
-      border-top: none;
       background: var(--hw-bg);
       color: var(--hw-footer-ink);
-      margin-top: 0;
     }
     .hw-sqs-ig-section {
-      max-width: 1380px;
+      max-width: 1480px;
       margin: 0 auto;
-      padding: 6px 40px 28px;
+      padding: 20px 44px 72px;
+      border-top: 1px solid var(--hw-border);
     }
     .hw-footer-dual-cta {
       display: grid;
       grid-template-columns: 1.18fr 0.82fr;
-      gap: 44px;
+      gap: 76px;
       align-items: center;
     }
     .hw-sqs-ig-head {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      gap: 12px;
-      margin-bottom: 14px;
+      margin-bottom: 20px;
     }
     .hw-sqs-ig-title {
       font-family: var(--font-heading);
       font-size: 13px;
       font-weight: 500;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--hw-footer-ink);
     }
     .hw-sqs-ig-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      gap: 16px;
     }
     .hw-sqs-ig-item {
-      aspect-ratio: 4 / 4.6;
+      aspect-ratio: 4 / 4.7;
       overflow: hidden;
       display: block;
     }
@@ -1008,127 +955,130 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.9s cubic-bezier(0.19, 1, 0.22, 1);
     }
+    .hw-sqs-ig-item:hover img {
+      transform: scale(1.03);
+    }
+
     .hw-dispatch-box {
-      border: 1px solid var(--hw-border);
-      padding: 28px 30px;
-    }
-    .hw-dispatch-kicker {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--hw-muted);
-      margin-bottom: 6px;
-      display: block;
+      padding: 36px 0 36px 56px;
+      border-left: 1px solid var(--hw-border);
     }
     .hw-dispatch-title {
       font-family: var(--font-heading);
-      font-size: 18px;
+      font-size: 19px;
       font-weight: 500;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--hw-ink);
-      margin: 0 0 10px 0;
+      margin: 10px 0 14px 0;
     }
     .hw-dispatch-copy {
       font-family: var(--font-body);
-      font-size: 15.5px;
+      font-size: 18px;
       font-weight: 500;
-      line-height: 1.56;
-      color: var(--hw-muted);
-      margin: 0 0 18px 0;
+      line-height: 1.65;
+      color: var(--hw-ink);
+      margin: 0 0 24px 0;
     }
     .hw-dispatch-form {
       display: flex;
-      gap: 10px;
-      margin-bottom: 10px;
+      gap: 14px;
+      margin-bottom: 14px;
     }
-    .hw-dispatch-note {
-      font-family: var(--font-mono);
-      font-size: 8.5px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--hw-light);
-    }
+
     .hw-sqs-footer-main {
-      max-width: 1380px;
+      max-width: 1480px;
       margin: 0 auto;
-      padding: 28px 40px 56px;
-      border-top: 1px solid rgba(36, 25, 20, 0.22);
+      padding: 44px 44px 72px;
+      border-top: 1px solid var(--hw-border-strong);
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1.35fr;
-      gap: 40px;
+      gap: 44px;
       align-items: start;
     }
     .hw-sqs-col-heading {
       font-family: var(--font-heading);
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 500;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
     .hw-sqs-col-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
     }
     .hw-sqs-col-list a {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 600;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--hw-footer-ink);
+      transition: opacity 0.2s ease;
     }
+    .hw-sqs-col-list a:hover { opacity: 0.65; }
     .hw-sqs-newsletter-copy {
       font-family: var(--font-body);
-      font-size: 15px;
+      font-size: 16.5px;
       font-weight: 500;
-      margin-bottom: 14px;
-      line-height: 1.5;
+      margin-bottom: 16px;
+      line-height: 1.58;
     }
     .hw-sqs-newsletter-form {
       display: flex;
-      gap: 8px;
-      margin-bottom: 18px;
+      gap: 10px;
+      margin-bottom: 20px;
     }
     .hw-sqs-newsletter-input {
       flex: 1;
-      height: 38px;
+      height: 40px;
       padding: 0 4px;
       border: none;
       border-bottom: 1px solid var(--hw-border-strong);
       background: transparent;
       outline: none;
       font-family: var(--font-body);
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 500;
       color: var(--hw-ink);
     }
+    .hw-sqs-newsletter-input::placeholder {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--hw-light);
+    }
     .hw-sqs-newsletter-btn {
-      height: 38px;
-      padding: 0 20px;
+      height: 40px;
+      padding: 0 24px;
       background: transparent;
       color: var(--hw-footer-ink);
       border: 1px solid var(--hw-footer-ink);
       font-family: var(--font-mono);
       font-size: 9.5px;
       font-weight: 600;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+    .hw-sqs-newsletter-btn:hover {
+      background: var(--hw-ink);
+      color: var(--hw-bg);
     }
     .hw-sqs-email-link {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.16em;
       text-decoration: underline;
-      text-underline-offset: 4px;
+      text-underline-offset: 5px;
     }
 
     /* ==========================================================================
@@ -1154,7 +1104,7 @@
         font-family: var(--font-mono);
         font-size: 11px;
         font-weight: 600;
-        letter-spacing: 0.14em;
+        letter-spacing: 0.16em;
         text-transform: uppercase;
         color: var(--hw-ink);
       }
@@ -1177,35 +1127,42 @@
       }
       .hw-logo-mark-img { width: 52px; height: 52px; }
 
-      .d1-pillars { grid-template-columns: 1fr 1fr; gap: 16px; padding: 20px; }
-      .d1-pillar { border-right: none; border-bottom: 1px solid var(--hw-border); padding-bottom: 12px; }
+      .d1-pillars { grid-template-columns: 1fr 1fr; gap: 24px; padding: 32px 20px; margin-bottom: 72px; }
       .d1-feel,
-      .d1-craft-row,
+      .d1-craft__row,
       .d2-hero,
-      .d2-split-manifesto,
-      .d2-feel-banner,
-      .d2-craft-twin,
-      .d2-founder-split,
-      .d3-bento,
-      .d3-lots-mosaic,
-      .hw-footer-dual-cta { grid-template-columns: 1fr; gap: 28px; }
-      .d1-lots__grid { grid-template-columns: 1fr; gap: 28px; }
-      .d2-ledger__row { grid-template-columns: 1fr; gap: 10px; }
-      .d3-hero-frame__triptych { grid-template-columns: 1fr; }
-      .d3-hero-frame__triptych img { height: 340px; }
-      .hw-sqs-footer-main { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .d2-ethos-grid,
+      .d2-feel-editorial__inner,
+      .d2-craft-dossier,
+      .d2-founder-spread,
+      .d3-salon-statement,
+      .d3-lots-gallery,
+      .d3-feel-poetic,
+      .d3-craft-salon,
+      .hw-footer-dual-cta { grid-template-columns: 1fr; gap: 36px; }
+      .d1-craft__row.reverse .d1-craft__media { order: 1; }
+      .d1-craft__row.reverse .d1-craft__text { order: 2; }
+      .d1-lots__grid { grid-template-columns: 1fr; gap: 44px; }
+      .d2-ledger__row { grid-template-columns: 1fr; gap: 14px; padding: 22px 0; }
+      .d2-feel-editorial__inner { padding: 44px 24px; }
+      .d3-hero__triptych { grid-template-columns: 1fr; }
+      .d3-hero__side { display: none; }
+      .d3-founder-column { border-left: none; border-top: 1px solid var(--hw-border); padding: 28px 0 0 0; }
+      .hw-dispatch-box { border-left: none; border-top: 1px solid var(--hw-border); padding: 28px 0 0 0; }
+      .hw-sqs-footer-main { grid-template-columns: 1fr 1fr; gap: 28px; }
     }
 
     @media (max-width: 640px) {
-      .d1-manifesto { padding: 40px 18px 28px; }
-      .d1-feel, .d1-lots, .d1-craft, .d2-hero, .d2-split-manifesto, .d2-ledger, .d2-feel-banner, .d2-craft-twin, .d2-founder-split, .d3-shell, .hw-sqs-ig-section {
-        padding-left: 16px;
-        padding-right: 16px;
+      .d1-statement { padding: 64px 20px 56px; }
+      .d1-feel, .d1-lots, .d1-craft, .d2-hero, .d2-ethos-grid, .d2-feel-editorial, .d2-ledger, .d2-craft-dossier, .d2-founder-spread, .d3-wrap, .hw-sqs-ig-section {
+        padding-left: 18px;
+        padding-right: 18px;
+        margin-bottom: 68px;
       }
-      .d2-pillars-grid { grid-template-columns: 1fr; }
-      .d3-lot-box { grid-template-columns: 96px 1fr; gap: 14px; padding: 12px; }
-      .d3-lot-box img { width: 96px; height: 124px; }
-      .hw-sqs-footer-main { grid-template-columns: 1fr; padding: 24px 16px 40px; }
+      .d1-pillars { grid-template-columns: 1fr; }
+      .d2-pillar-line { grid-template-columns: 1fr; gap: 6px; }
+      .d3-side-lot { grid-template-columns: 110px 1fr; gap: 16px; }
+      .hw-sqs-footer-main { grid-template-columns: 1fr; padding: 32px 18px 48px; }
       .hw-dispatch-form, .hw-sqs-newsletter-form { flex-direction: column; }
       .hw-sqs-newsletter-btn { width: 100%; }
     }
@@ -1213,12 +1170,12 @@
 </head>
 <body>
 
-  <!-- FLOATING TOP SWITCHER FOR THE 3 HOMEPAGE DESIGNS -->
+  <!-- MINIMALIST TOP BAR TO SWITCH BETWEEN THE 3 HIGH-FASHION HOMEPAGE DESIGNS -->
   <div class="hw-design-switcher">
-    <span class="hw-design-switcher__label">Homepage Concept:</span>
-    <button type="button" class="hw-design-tab active" id="tab-d1" onclick="switchHomepageDesign(1)">Design 1 · Editorial Symmetry</button>
-    <button type="button" class="hw-design-tab" id="tab-d2" onclick="switchHomepageDesign(2)">Design 2 · Atelier Dossier &amp; Ledger</button>
-    <button type="button" class="hw-design-tab" id="tab-d3" onclick="switchHomepageDesign(3)">Design 3 · Curatorial Gallery Mosaic</button>
+    <span class="hw-design-switcher__label">Select Architecture:</span>
+    <button type="button" class="hw-design-tab active" id="tab-d1" onclick="switchHomepageDesign(1)">I &middot; Haute Monumental</button>
+    <button type="button" class="hw-design-tab" id="tab-d2" onclick="switchHomepageDesign(2)">II &middot; Atelier Archive</button>
+    <button type="button" class="hw-design-tab" id="tab-d3" onclick="switchHomepageDesign(3)">III &middot; Curatorial Salon</button>
   </div>
 
   <!-- SITE HEADER -->
@@ -1347,24 +1304,25 @@
   </div>
 
   <!-- ==========================================================================
-       DESIGN 1: THE EDITORIAL LOOKBOOK (CLASSIC SYMMETRY & CHECKERBOARD RHYTHM)
+       DESIGN 1: HAUTE MONUMENTAL (PURE SILENCE, VAST NEGATIVE SPACE, SYMMETRY)
        ========================================================================== -->
   <main id="hp-design-1" class="hw-hp-design active">
     <!-- Section 1: Hero (Full-bleed editorial image + "LIMITED EDITION COLLECTIONS", no CTA button) -->
     <section class="d1-hero">
       <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/7cc1a6d4-ab61-4929-a96b-e7c9e388ed54/002_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_TOKYO_SHIRT_IKAT_03.jpg" alt="Hartwick Limited Edition Collections" />
-      <div class="d1-hero__overlay">
-        <h1 class="d1-hero__title">LIMITED EDITION COLLECTIONS</h1>
+      <div class="d1-hero__veil">
+        <h1 class="t-heading-hero d1-hero__title">LIMITED EDITION COLLECTIONS</h1>
       </div>
     </section>
 
     <!-- Section 2: Brand Statement -->
-    <section class="d1-manifesto">
-      <h2 class="d1-manifesto__lead">Textile history dates back to the beginning of human civilization.</h2>
-      <p class="d1-manifesto__p">
+    <section class="d1-statement">
+      <div class="d1-statement__rule"></div>
+      <h2 class="t-heading-xl">Textile history dates back to the beginning of human civilization.</h2>
+      <p class="t-story-lead">
         Hartwick Atelier specializes in hand spun and handwoven fabrics, natural and ayurvedic dyes, and exquisite heritage handwork. These artisanal techniques rely on rare knowledge and the natural cycles of the earth.
       </p>
-      <p class="d1-manifesto__p">
+      <p class="t-story-body">
         Each handcrafted piece in the collection is a glimpse into the rich history, intricate process and generations of skill that have gone into its creation.
       </p>
     </section>
@@ -1372,31 +1330,31 @@
     <!-- Section 3: Four Pillars -->
     <section class="d1-pillars">
       <div class="d1-pillar">
-        <span class="d1-pillar__num">01</span>
-        <div class="d1-pillar__title">Handspun and Handwoven Fabrics.</div>
+        <span class="t-detail-meta">I</span>
+        <h3 class="t-heading-md">Handspun and Handwoven Fabrics.</h3>
       </div>
       <div class="d1-pillar">
-        <span class="d1-pillar__num">02</span>
-        <div class="d1-pillar__title">Natural and Ayurvedic Dyes.</div>
+        <span class="t-detail-meta">II</span>
+        <h3 class="t-heading-md">Natural and Ayurvedic Dyes.</h3>
       </div>
       <div class="d1-pillar">
-        <span class="d1-pillar__num">03</span>
-        <div class="d1-pillar__title">Exquisite Heritage Handwork.</div>
+        <span class="t-detail-meta">III</span>
+        <h3 class="t-heading-md">Exquisite Heritage Handwork.</h3>
       </div>
       <div class="d1-pillar">
-        <span class="d1-pillar__num">04</span>
-        <div class="d1-pillar__title">Finely Tailored, Heirloom Quality.</div>
+        <span class="t-detail-meta">IV</span>
+        <h3 class="t-heading-md">Finely Tailored, Heirloom Quality.</h3>
       </div>
     </section>
 
     <!-- Section 4: The Feel -->
     <section class="d1-feel">
-      <div class="d1-feel__media">
+      <div class="d1-feel__img hw-img-zoom">
         <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/b9443331-bc80-48fb-814c-1c473d3d8bdc/001_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_AMMAN_SHIRT.jpg" alt="Handspun and handwoven cloth" />
       </div>
-      <div>
-        <span class="hw-kicker-mono">THE FEEL OF LIVING CLOTH</span>
-        <blockquote class="d1-feel__quote">
+      <div class="d1-feel__copy">
+        <span class="t-detail-meta" style="margin-bottom:22px;">THE FEEL</span>
+        <blockquote class="t-story-quote">
           &ldquo;Wearing handspun and handwoven fabric has a different feeling than wearing industrially produced fabrics; handwoven natural fibres drape and breathe with a supple softness in a rhythm that can only be created by a human hand. The feeling is truly luxurious.&rdquo;
         </blockquote>
       </div>
@@ -1404,362 +1362,395 @@
 
     <!-- Section 5: Collections / Lot Status -->
     <section class="d1-lots">
-      <div class="d1-lots__head">
-        <h2 class="hw-heading-porter" style="font-size:18px;">Collections &middot; Archival Lot Status</h2>
-        <span class="hw-kicker-mono">LOT 0325 &middot; LOT 0924 &middot; LOT 0324</span>
+      <div class="d1-lots__header">
+        <h2 class="t-heading-lg">Collections</h2>
+        <span class="t-detail-meta">LOT 0325 &middot; LOT 0924 &middot; LOT 0324</span>
       </div>
       <div class="d1-lots__grid">
-        <a class="d1-lot-card" href="v2.html#collection/Skirts & Dresses">
-          <div class="d1-lot-card__img">
+        <a class="d1-lot-item" href="v2.html#collection/Skirts & Dresses">
+          <div class="d1-lot-item__media hw-img-zoom">
             <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/139c333d-6ad1-46fe-848c-0ebae087c9d4/022_HARTWICK_HANDWOVEN_SAMARKAND_DRESS_SILKCOTTON_INLAY_NATURALDYE_BLOCKPRINT.jpg" alt="Lot 0325" />
           </div>
-          <div class="d1-lot-card__meta">
-            <span class="d1-lot-card__lot">Lot 0325</span>
-            <span class="hw-lot-badge">Pre Order</span>
+          <div class="d1-lot-item__row">
+            <h3 class="t-heading-lg">Lot 0325</h3>
+            <span class="t-detail-status">Pre Order</span>
           </div>
-          <span class="d1-lot-card__sub">Explore Apparel Collection &rarr;</span>
+          <span class="t-detail-meta">Explore Collection &rarr;</span>
         </a>
 
-        <a class="d1-lot-card" href="v2.html#collection/Fine Silk Scarves">
-          <div class="d1-lot-card__img">
+        <a class="d1-lot-item" href="v2.html#collection/Fine Silk Scarves">
+          <div class="d1-lot-item__media hw-img-zoom">
             <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/c0d57b78-4893-47d2-86ec-d0887798272d/003001_HARTWICK_HANDWOVEN_BOMBAY_TROUSERS_IKAT_AMMAN_SHIRT_LINEN_SILK_HARTWICK_ATELIER_4R1A0390.jpg" alt="Lot 0924" />
           </div>
-          <div class="d1-lot-card__meta">
-            <span class="d1-lot-card__lot">Lot 0924</span>
-            <span class="hw-lot-badge">Available in Small Quantities</span>
+          <div class="d1-lot-item__row">
+            <h3 class="t-heading-lg">Lot 0924</h3>
+            <span class="t-detail-status">Available in Small Quantities</span>
           </div>
-          <span class="d1-lot-card__sub">Explore Silk &amp; Heritage Pieces &rarr;</span>
+          <span class="t-detail-meta">Explore Collection &rarr;</span>
         </a>
 
-        <a class="d1-lot-card" href="v2.html#collection/Fine Jewellery">
-          <div class="d1-lot-card__img">
+        <a class="d1-lot-item" href="v2.html#collection/Fine Jewellery">
+          <div class="d1-lot-item__media hw-img-zoom">
             <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/cee2a89a-47b0-49ef-bec1-07c7473bdf43/010+_HARTWICK_HANDWOVEN_MARYLEBONE_COAT_IKAT_BOMBAY_TROUSERS_SITGES_TOTEBAG.jpg" alt="Lot 0324" />
           </div>
-          <div class="d1-lot-card__meta">
-            <span class="d1-lot-card__lot">Lot 0324</span>
-            <span class="hw-lot-badge" style="opacity:0.58;">Sold Out</span>
+          <div class="d1-lot-item__row">
+            <h3 class="t-heading-lg">Lot 0324</h3>
+            <span class="t-detail-status" style="opacity:0.55;">Sold Out</span>
           </div>
-          <span class="d1-lot-card__sub">View Archival Edition &rarr;</span>
+          <span class="t-detail-meta">View Archive &rarr;</span>
         </a>
       </div>
     </section>
 
     <!-- Section 6: Craft Detail (Natural Dye & Block Printing) -->
     <section class="d1-craft">
-      <div class="d1-craft-row">
-        <div class="d1-craft-media">
+      <div class="d1-craft__row">
+        <div class="d1-craft__media hw-img-zoom">
           <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/e9d0ed0b-29bf-4f71-9cec-0d7335adbd37/008_HARTWICK_EDITORIAL_JAIPUR.jpg" alt="Natural Dye" />
         </div>
-        <div class="d1-craft-copy">
-          <span class="hw-kicker-mono">CRAFT DETAIL &middot; 01</span>
-          <h3>Natural Dye</h3>
-          <p>
+        <div class="d1-craft__text">
+          <span class="t-detail-meta">CRAFT ORIGINS &middot; I</span>
+          <h3 class="t-heading-xl">Natural Dye</h3>
+          <p class="t-story-body">
             Master Colorists use ancient methods to create natural dyes using indigenous plants and minerals including wild indigo, pomegranate bark and seeds, tamarind, turmeric, jaggery, ash, and iron.
           </p>
-          <a class="hw-nav-link" href="v2.html#masters">Explore in Made By Masters &rarr;</a>
+          <a class="t-detail-link" href="v2.html#masters">Made By Masters &rarr;</a>
         </div>
       </div>
 
-      <div class="d1-craft-row reverse">
-        <div class="d1-craft-media">
+      <div class="d1-craft__row reverse">
+        <div class="d1-craft__media hw-img-zoom">
           <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/31a9d117-730e-45ba-9a75-4e2144af03e0/267_HARTWICK_FINESILK_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg" alt="Block Printing" />
         </div>
-        <div class="d1-craft-copy">
-          <span class="hw-kicker-mono">CRAFT DETAIL &middot; 02</span>
-          <h3>Block Printing</h3>
-          <p>
+        <div class="d1-craft__text">
+          <span class="t-detail-meta">CRAFT ORIGINS &middot; II</span>
+          <h3 class="t-heading-xl">Block Printing</h3>
+          <p class="t-story-body">
             Using hand carved wooden blocks, Master Printers print each colour, layer by layer using resist dyeing techniques&hellip; Each piece requires a minimum of 16 processes, with the silk resting for at least a day between each step.
           </p>
-          <a class="hw-nav-link" href="v2.html#masters">Explore in Made By Masters &rarr;</a>
+          <a class="t-detail-link" href="v2.html#masters">Made By Masters &rarr;</a>
         </div>
       </div>
     </section>
 
     <!-- Section 7: Founder Quote -->
     <section class="d1-founder">
-      <blockquote>
+      <span class="t-detail-meta">FOUNDER&rsquo;S NOTE</span>
+      <blockquote class="t-story-quote">
         &ldquo;Hartwick Atelier is the culmination of decades of world travel as creatives in fashion and film. At first glance, it&rsquo;s an elegant lifestyle brand with a distinct character and gorgeous texture. But at its roots, each collection is a portrait of nature and sustainability through refined handcraft. It&rsquo;s an analogue love story.&rdquo;
       </blockquote>
-      <cite>&mdash; Angela Hartwick, Founder and Creative Director</cite>
+      <cite class="t-detail-meta" style="font-style:normal; color:var(--hw-ink);">Angela Hartwick, Founder and Creative Director</cite>
     </section>
   </main>
 
   <!-- ==========================================================================
-       DESIGN 2: THE ATELIER DOSSIER (ASYMMETRIC DIPTYCH HERO & LOT LEDGER)
+       DESIGN 2: ATELIER ARCHIVE & LOOKBOOK (ASYMMETRIC DIPTYCH, ARCHITECTURAL LEDGER)
        ========================================================================== -->
   <main id="hp-design-2" class="hw-hp-design">
-    <!-- Section 1 & 2: Asymmetric Editorial Diptych Hero + Lead Brand Statement -->
+    <!-- Section 1 & Lead Statement: Asymmetric Atelier Hero -->
     <section class="d2-hero">
-      <div class="d2-hero__diptych">
-        <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/7cc1a6d4-ab61-4929-a96b-e7c9e388ed54/002_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_TOKYO_SHIRT_IKAT_03.jpg" alt="Hartwick Editorial 1" />
-        <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/8e9c3808-0adc-4bb2-97e1-25acbb7ab728/019_HARTWICK_HANDWOVEN_SAMARKAND_DRESS_SILKCOTTON_VICTORIANROUGE_NATURALDYE_BLOCKPRINT.jpg.jpg" alt="Hartwick Editorial 2" />
-      </div>
-      <div class="d2-hero__panel">
+      <div class="d2-hero__left">
         <div>
-          <span class="hw-kicker-mono">HARTWICK ATELIER &middot; ARCHIVE</span>
-          <h1 class="d2-hero__title">LIMITED EDITION COLLECTIONS</h1>
-          <p class="d2-hero__statement">
+          <span class="t-detail-meta" style="margin-bottom:24px;">HARTWICK ATELIER &middot; EDITION ARCHIVE</span>
+          <h1 class="t-heading-hero" style="margin-bottom:36px;">LIMITED EDITION COLLECTIONS</h1>
+          <p class="t-story-lead">
             Textile history dates back to the beginning of human civilization.
           </p>
         </div>
-        <div style="padding-top:20px; border-top:1px solid var(--hw-border);">
-          <span class="hw-kicker-mono">LOT 0325 &middot; LOT 0924 &middot; LOT 0324</span>
+        <div>
+          <span class="t-detail-meta">HANDSPUN &middot; HANDWOVEN &middot; NATURAL DYE</span>
+        </div>
+      </div>
+      <div class="d2-hero__right">
+        <div class="d2-hero__img-tall hw-img-zoom">
+          <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/7cc1a6d4-ab61-4929-a96b-e7c9e388ed54/002_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_TOKYO_SHIRT_IKAT_03.jpg" alt="Hartwick Look 1" />
+        </div>
+        <div class="d2-hero__img-short hw-img-zoom">
+          <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/8e9c3808-0adc-4bb2-97e1-25acbb7ab728/019_HARTWICK_HANDWOVEN_SAMARKAND_DRESS_SILKCOTTON_VICTORIANROUGE_NATURALDYE_BLOCKPRINT.jpg.jpg" alt="Hartwick Look 2" />
         </div>
       </div>
     </section>
 
-    <!-- Section 2 & 3: Split Brand Statement (Left) + 2x2 Architectural Four Pillars Grid (Right) -->
-    <section class="d2-split-manifesto">
-      <div class="d2-split-manifesto__left">
-        <span class="hw-kicker-mono" style="margin-bottom:12px;">THE ATELIER ETHOS</span>
-        <p>
+    <!-- Section 2 & 3: Brand Statement + Minimalist Architectural Four-Pillar Table -->
+    <section class="d2-ethos-grid">
+      <div class="d2-ethos-index">
+        <span class="t-detail-meta">01 &middot; THE ETHOS</span>
+        <h2 class="t-heading-lg" style="margin-top:10px;">Philosophy &amp; Four Pillars</h2>
+      </div>
+      <div class="d2-ethos-content">
+        <p class="t-story-lead" style="margin-bottom:24px;">
           Hartwick Atelier specializes in hand spun and handwoven fabrics, natural and ayurvedic dyes, and exquisite heritage handwork. These artisanal techniques rely on rare knowledge and the natural cycles of the earth.
         </p>
-        <p>
+        <p class="t-story-body">
           Each handcrafted piece in the collection is a glimpse into the rich history, intricate process and generations of skill that have gone into its creation.
         </p>
-      </div>
-      <div class="d2-pillars-grid">
-        <div class="d2-pillar-card">
-          <span class="d2-pillar-card__num">PILLAR I</span>
-          <div class="d2-pillar-card__name">Handspun and Handwoven Fabrics.</div>
-        </div>
-        <div class="d2-pillar-card">
-          <span class="d2-pillar-card__num">PILLAR II</span>
-          <div class="d2-pillar-card__name">Natural and Ayurvedic Dyes.</div>
-        </div>
-        <div class="d2-pillar-card">
-          <span class="d2-pillar-card__num">PILLAR III</span>
-          <div class="d2-pillar-card__name">Exquisite Heritage Handwork.</div>
-        </div>
-        <div class="d2-pillar-card">
-          <span class="d2-pillar-card__num">PILLAR IV</span>
-          <div class="d2-pillar-card__name">Finely Tailored, Heirloom Quality.</div>
+
+        <div class="d2-pillars-table">
+          <div class="d2-pillar-line">
+            <span class="t-detail-meta">PILLAR I</span>
+            <h3 class="t-heading-md">Handspun and Handwoven Fabrics.</h3>
+            <span class="t-detail-meta">LOOM</span>
+          </div>
+          <div class="d2-pillar-line">
+            <span class="t-detail-meta">PILLAR II</span>
+            <h3 class="t-heading-md">Natural and Ayurvedic Dyes.</h3>
+            <span class="t-detail-meta">ALCHEMY</span>
+          </div>
+          <div class="d2-pillar-line">
+            <span class="t-detail-meta">PILLAR III</span>
+            <h3 class="t-heading-md">Exquisite Heritage Handwork.</h3>
+            <span class="t-detail-meta">ARTISAN</span>
+          </div>
+          <div class="d2-pillar-line">
+            <span class="t-detail-meta">PILLAR IV</span>
+            <h3 class="t-heading-md">Finely Tailored, Heirloom Quality.</h3>
+            <span class="t-detail-meta">SILHOUETTE</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Section 5: Collections / Lot Status as Horizontal Atelier Ledger Rows -->
+    <!-- Section 5: Collections / Lot Status as Horizontal Atelier Ledger -->
     <section class="d2-ledger">
-      <div style="margin-bottom:16px;">
-        <span class="hw-kicker-mono">EDITION AVAILABILITY</span>
-        <h2 class="hw-heading-porter" style="font-size:20px; margin-top:4px;">Collections &amp; Lot Status</h2>
+      <div class="d2-ledger__head">
+        <div>
+          <span class="t-detail-meta">02 &middot; ARCHIVE LEDGER</span>
+          <h2 class="t-heading-lg" style="margin-top:8px;">Collections</h2>
+        </div>
+        <span class="t-detail-meta">SELECT AN EDITION</span>
       </div>
 
       <a class="d2-ledger__row" href="v2.html#collection/Skirts & Dresses">
-        <div class="d2-ledger__lot">Lot 0325</div>
+        <h3 class="t-heading-xl">Lot 0325</h3>
         <div class="d2-ledger__thumbs">
           <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/139c333d-6ad1-46fe-848c-0ebae087c9d4/022_HARTWICK_HANDWOVEN_SAMARKAND_DRESS_SILKCOTTON_INLAY_NATURALDYE_BLOCKPRINT.jpg" alt="Lot 0325" />
           <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/4caa62ed-6f80-4942-a86c-b19481f9d368/001_HARTWICK_HANDWOVEN_CALCUTTA_SKIRT_KHADI_WHITE_BLUEBORDER.jpg" alt="Lot 0325" />
           <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/b97099c8-99b3-4f97-9901-f83d9ddda9ed/265_HARTWICK_HANDWOVEN_PALMA_SKIRT_KHADI_COTTON_SANTAFFE_SHIRT_COTTONSILK_NATURALDYE_INLAY_BLOCKPRINT.jpg" alt="Lot 0325" />
         </div>
-        <div><span class="hw-lot-badge">Pre Order</span></div>
-        <div style="text-align:right;"><span class="hw-nav-link">View Collection &rarr;</span></div>
+        <div><span class="t-detail-status">Pre Order</span></div>
+        <div style="text-align:right;"><span class="t-detail-link">Explore &rarr;</span></div>
       </a>
 
       <a class="d2-ledger__row" href="v2.html#collection/Fine Silk Scarves">
-        <div class="d2-ledger__lot">Lot 0924</div>
+        <h3 class="t-heading-xl">Lot 0924</h3>
         <div class="d2-ledger__thumbs">
           <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/c0d57b78-4893-47d2-86ec-d0887798272d/003001_HARTWICK_HANDWOVEN_BOMBAY_TROUSERS_IKAT_AMMAN_SHIRT_LINEN_SILK_HARTWICK_ATELIER_4R1A0390.jpg" alt="Lot 0924" />
           <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/7332acbe-c612-47f6-a264-5b65b0e64d37/002_HARTWICK_HANDWOVEN_MAGNOLIA_SHIRT_CEDAR_TROUSERS_LINEN_KHAD.jpg" alt="Lot 0924" />
           <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fb284e6b-9e43-4ece-87e6-0c8cc01c3a76/071_HARTWICK_FINESILK_MEDIUMSQUARE01_SCARF_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg" alt="Lot 0924" />
         </div>
-        <div><span class="hw-lot-badge">Available in Small Quantities</span></div>
-        <div style="text-align:right;"><span class="hw-nav-link">View Collection &rarr;</span></div>
+        <div><span class="t-detail-status">Available in Small Quantities</span></div>
+        <div style="text-align:right;"><span class="t-detail-link">Explore &rarr;</span></div>
       </a>
 
       <a class="d2-ledger__row" href="v2.html#collection/Fine Jewellery">
-        <div class="d2-ledger__lot">Lot 0324</div>
+        <h3 class="t-heading-xl">Lot 0324</h3>
         <div class="d2-ledger__thumbs">
           <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/cee2a89a-47b0-49ef-bec1-07c7473bdf43/010+_HARTWICK_HANDWOVEN_MARYLEBONE_COAT_IKAT_BOMBAY_TROUSERS_SITGES_TOTEBAG.jpg" alt="Lot 0324" />
           <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/d6b468a0-2965-4372-a116-2eceb9a8b37c/009_HARTWICK_HANDWOVEN_TOKYO_SHIRT_SILK_ZARI.jpg" alt="Lot 0324" />
         </div>
-        <div><span class="hw-lot-badge" style="opacity:0.58;">Sold Out</span></div>
-        <div style="text-align:right;"><span class="hw-nav-link">View Archive &rarr;</span></div>
+        <div><span class="t-detail-status" style="opacity:0.55;">Sold Out</span></div>
+        <div style="text-align:right;"><span class="t-detail-link">Archive &rarr;</span></div>
       </a>
     </section>
 
-    <!-- Section 4: The Feel (Horizontal Typographic Banner) -->
-    <section class="d2-feel-banner">
-      <div>
-        <span class="hw-kicker-mono">SENSORY RHYTHM</span>
-        <h3 class="hw-heading-porter" style="font-size:16px; margin-top:6px;">The Feel</h3>
+    <!-- Section 4: The Feel -->
+    <section class="d2-feel-editorial">
+      <div class="d2-feel-editorial__inner">
+        <div>
+          <span class="t-detail-meta">03 &middot; SENSORY RHYTHM</span>
+          <h3 class="t-heading-lg" style="margin-top:10px;">The Feel</h3>
+        </div>
+        <blockquote class="t-story-quote">
+          &ldquo;Wearing handspun and handwoven fabric has a different feeling than wearing industrially produced fabrics; handwoven natural fibres drape and breathe with a supple softness in a rhythm that can only be created by a human hand. The feeling is truly luxurious.&rdquo;
+        </blockquote>
       </div>
-      <p style="font-family:var(--font-body); font-style:italic; font-size:clamp(19px, 1.7vw, 24px); line-height:1.56;">
-        &ldquo;Wearing handspun and handwoven fabric has a different feeling than wearing industrially produced fabrics; handwoven natural fibres drape and breathe with a supple softness in a rhythm that can only be created by a human hand. The feeling is truly luxurious.&rdquo;
-      </p>
     </section>
 
-    <!-- Section 6: Craft Detail (Side-by-Side Twin Dossier Cards) -->
-    <section class="d2-craft-twin">
-      <div class="d2-craft-col">
-        <div class="d2-craft-col__img">
+    <!-- Section 6: Craft Detail (Side-by-Side Twin Dossier Columns) -->
+    <section class="d2-craft-dossier">
+      <div class="d2-craft-panel">
+        <span class="t-detail-meta">04 &middot; CRAFT DETAIL I</span>
+        <h3 class="t-heading-xl" style="margin-top:10px;">Natural Dye</h3>
+        <div class="d2-craft-panel__media hw-img-zoom">
           <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/e9d0ed0b-29bf-4f71-9cec-0d7335adbd37/008_HARTWICK_EDITORIAL_JAIPUR.jpg" alt="Natural Dye" />
         </div>
-        <span class="hw-kicker-mono">AYURVEDIC ALCHEMY</span>
-        <h3>Natural Dye</h3>
-        <p>
+        <p class="t-story-body">
           Master Colorists use ancient methods to create natural dyes using indigenous plants and minerals including wild indigo, pomegranate bark and seeds, tamarind, turmeric, jaggery, ash, and iron.
         </p>
       </div>
 
-      <div class="d2-craft-col">
-        <div class="d2-craft-col__img">
+      <div class="d2-craft-panel">
+        <span class="t-detail-meta">05 &middot; CRAFT DETAIL II</span>
+        <h3 class="t-heading-xl" style="margin-top:10px;">Block Printing</h3>
+        <div class="d2-craft-panel__media hw-img-zoom">
           <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/e7d061be-dde3-4eb2-a6b8-be2e7b237995/010_HARTWICK_EDITORIAL_JAIPUR.jpg" alt="Block Printing" />
         </div>
-        <span class="hw-kicker-mono">CARVED WOODBLOCKS &middot; 16 STEPS</span>
-        <h3>Block Printing</h3>
-        <p>
+        <p class="t-story-body">
           Using hand carved wooden blocks, Master Printers print each colour, layer by layer using resist dyeing techniques&hellip; Each piece requires a minimum of 16 processes, with the silk resting for at least a day between each step.
         </p>
       </div>
     </section>
 
-    <!-- Section 7: Founder Quote with Archival Paris Portrait -->
-    <section class="d2-founder-split">
-      <div class="d2-founder-split__img">
+    <!-- Section 7: Founder Quote -->
+    <section class="d2-founder-spread">
+      <div class="d2-founder-spread__img hw-img-zoom">
         <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/3ef6a62c-bcd3-4bf8-b812-b199be9f9664/280_HARTWICK_ANALOGUE_ARCHIVE_PARIS.jpg" alt="Angela Hartwick Archive" />
       </div>
       <div>
-        <span class="hw-kicker-mono" style="margin-bottom:14px;">FOUNDER&rsquo;S NOTE</span>
-        <blockquote style="font-family:var(--font-body); font-style:italic; font-size:clamp(20px, 1.75vw, 25px); line-height:1.6; margin-bottom:18px;">
+        <span class="t-detail-meta" style="margin-bottom:22px;">06 &middot; FOUNDER&rsquo;S NOTE</span>
+        <blockquote class="t-story-quote" style="margin-bottom:28px;">
           &ldquo;Hartwick Atelier is the culmination of decades of world travel as creatives in fashion and film. At first glance, it&rsquo;s an elegant lifestyle brand with a distinct character and gorgeous texture. But at its roots, each collection is a portrait of nature and sustainability through refined handcraft. It&rsquo;s an analogue love story.&rdquo;
         </blockquote>
-        <div class="hw-kicker-mono" style="color:var(--hw-ink);">&mdash; Angela Hartwick, Founder and Creative Director</div>
+        <span class="t-detail-meta" style="color:var(--hw-ink);">&mdash; Angela Hartwick, Founder and Creative Director</span>
       </div>
     </section>
   </main>
 
   <!-- ==========================================================================
-       DESIGN 3: THE CURATORIAL GALLERY (FRAMED HERO & ARCHITECTURAL BENTO MOSAIC)
+       DESIGN 3: CURATORIAL SALON & DIPTYCH GALLERY (POETIC ASYMMETRY)
        ========================================================================== -->
   <main id="hp-design-3" class="hw-hp-design">
-    <div class="d3-shell">
-      <!-- Section 1: Framed Triptych Hero -->
-      <section class="d3-hero-frame">
-        <div class="d3-hero-frame__top">
-          <h1 class="d3-hero-frame__title">LIMITED EDITION COLLECTIONS</h1>
-          <span class="hw-kicker-mono">ARCHIVE EDITION &middot; HANDSPUN &amp; HANDWOVEN</span>
+    <div class="d3-wrap">
+      <!-- Section 1: Hero as Curated Salon Triptych -->
+      <section class="d3-hero">
+        <div class="d3-hero__header">
+          <span class="t-detail-meta">HARTWICK ATELIER</span>
+          <h1 class="t-heading-hero">LIMITED EDITION COLLECTIONS</h1>
         </div>
-        <div class="d3-hero-frame__triptych">
-          <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/b9443331-bc80-48fb-814c-1c473d3d8bdc/001_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_AMMAN_SHIRT.jpg" alt="Hero 1" />
-          <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/139c333d-6ad1-46fe-848c-0ebae087c9d4/022_HARTWICK_HANDWOVEN_SAMARKAND_DRESS_SILKCOTTON_INLAY_NATURALDYE_BLOCKPRINT.jpg" alt="Hero 2" />
-          <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/7cc1a6d4-ab61-4929-a96b-e7c9e388ed54/002_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_TOKYO_SHIRT_IKAT_03.jpg" alt="Hero 3" />
-        </div>
-      </section>
-
-      <!-- Section 2, 3 & 4: Bento Mosaic (Brand Statement Left + The Feel & Four Pillars Right) -->
-      <section class="d3-bento">
-        <div class="d3-bento__left">
-          <div>
-            <span class="hw-kicker-mono" style="margin-bottom:12px;">01 &middot; BRAND STATEMENT</span>
-            <h2 class="hw-heading-porter" style="font-size:21px; margin-bottom:20px;">
-              Textile history dates back to the beginning of human civilization.
-            </h2>
-            <p class="hw-story-junicode" style="font-size:18px; margin-bottom:16px;">
-              Hartwick Atelier specializes in hand spun and handwoven fabrics, natural and ayurvedic dyes, and exquisite heritage handwork. These artisanal techniques rely on rare knowledge and the natural cycles of the earth.
-            </p>
-            <p class="hw-story-junicode" style="font-size:18px;">
-              Each handcrafted piece in the collection is a glimpse into the rich history, intricate process and generations of skill that have gone into its creation.
-            </p>
+        <div class="d3-hero__triptych">
+          <div class="d3-hero__side hw-img-zoom">
+            <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/b9443331-bc80-48fb-814c-1c473d3d8bdc/001_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_AMMAN_SHIRT.jpg" alt="Salon Plate I" />
           </div>
-          <div style="margin-top:28px; padding-top:16px; border-top:1px solid var(--hw-border);">
-            <a class="hw-nav-link" href="v2.html#masters">Explore the Glossary of Masters &rarr;</a>
+          <div class="d3-hero__center hw-img-zoom">
+            <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/7cc1a6d4-ab61-4929-a96b-e7c9e388ed54/002_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_TOKYO_SHIRT_IKAT_03.jpg" alt="Salon Plate II" />
           </div>
-        </div>
-
-        <div class="d3-bento__right">
-          <div class="d3-feel-card">
-            <span class="hw-kicker-mono" style="margin-bottom:8px;">02 &middot; THE FEEL</span>
-            <p style="font-family:var(--font-body); font-style:italic; font-size:19px; line-height:1.58;">
-              &ldquo;Wearing handspun and handwoven fabric has a different feeling than wearing industrially produced fabrics; handwoven natural fibres drape and breathe with a supple softness in a rhythm that can only be created by a human hand. The feeling is truly luxurious.&rdquo;
-            </p>
-          </div>
-
-          <div class="d3-pillar-list">
-            <span class="hw-kicker-mono" style="margin-bottom:8px;">03 &middot; THE FOUR PILLARS</span>
-            <div class="d3-pillar-row">
-              <span class="hw-heading-porter" style="font-size:12.5px;">Handspun and Handwoven Fabrics.</span>
-              <span class="hw-kicker-mono">I</span>
-            </div>
-            <div class="d3-pillar-row">
-              <span class="hw-heading-porter" style="font-size:12.5px;">Natural and Ayurvedic Dyes.</span>
-              <span class="hw-kicker-mono">II</span>
-            </div>
-            <div class="d3-pillar-row">
-              <span class="hw-heading-porter" style="font-size:12.5px;">Exquisite Heritage Handwork.</span>
-              <span class="hw-kicker-mono">III</span>
-            </div>
-            <div class="d3-pillar-row">
-              <span class="hw-heading-porter" style="font-size:12.5px;">Finely Tailored, Heirloom Quality.</span>
-              <span class="hw-kicker-mono">IV</span>
-            </div>
+          <div class="d3-hero__side hw-img-zoom">
+            <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/139c333d-6ad1-46fe-848c-0ebae087c9d4/022_HARTWICK_HANDWOVEN_SAMARKAND_DRESS_SILKCOTTON_INLAY_NATURALDYE_BLOCKPRINT.jpg" alt="Salon Plate III" />
           </div>
         </div>
       </section>
 
-      <!-- Section 5: Asymmetric Lot Mosaic (Featured Lot 0325 Left + Lot 0924 & Lot 0324 Stacked Right) -->
-      <section class="d3-lots-mosaic">
-        <a class="d1-lot-card" href="v2.html#collection/Skirts & Dresses" style="border:1px solid var(--hw-border); padding:22px;">
-          <div class="d1-lot-card__img" style="aspect-ratio:16/10; margin-bottom:16px;">
+      <!-- Section 2: Brand Statement in Two-Column Editorial Spread -->
+      <section class="d3-salon-statement">
+        <div>
+          <span class="t-detail-meta" style="margin-bottom:18px;">MANIFESTO</span>
+          <h2 class="t-heading-xl">
+            Textile history dates back to the beginning of human civilization.
+          </h2>
+        </div>
+        <div>
+          <p class="t-story-lead" style="margin-bottom:24px;">
+            Hartwick Atelier specializes in hand spun and handwoven fabrics, natural and ayurvedic dyes, and exquisite heritage handwork. These artisanal techniques rely on rare knowledge and the natural cycles of the earth.
+          </p>
+          <p class="t-story-body">
+            Each handcrafted piece in the collection is a glimpse into the rich history, intricate process and generations of skill that have gone into its creation.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 3: Four Pillars as Minimalist Architectural Ribbon -->
+      <section class="d3-pillars-ribbon">
+        <div class="d3-pillars-ribbon__item">
+          <span class="t-detail-meta">I</span>
+          <h3 class="t-heading-md">Handspun and Handwoven Fabrics.</h3>
+        </div>
+        <div class="d3-pillars-ribbon__item">
+          <span class="t-detail-meta">II</span>
+          <h3 class="t-heading-md">Natural and Ayurvedic Dyes.</h3>
+        </div>
+        <div class="d3-pillars-ribbon__item">
+          <span class="t-detail-meta">III</span>
+          <h3 class="t-heading-md">Exquisite Heritage Handwork.</h3>
+        </div>
+        <div class="d3-pillars-ribbon__item">
+          <span class="t-detail-meta">IV</span>
+          <h3 class="t-heading-md">Finely Tailored, Heirloom Quality.</h3>
+        </div>
+      </section>
+
+      <!-- Section 5: Asymmetric Gallery Mosaic for Collections / Lot Status -->
+      <section class="d3-lots-gallery">
+        <a href="v2.html#collection/Skirts & Dresses" style="display:block;">
+          <div class="hw-img-zoom" style="aspect-ratio:16/11; margin-bottom:24px;">
             <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/34b57d46-a8c2-4e53-8518-579c99fc4cf8/261_HARTWICK_BRANDED_EDITORIAL_TATLAYOKO.jpg" alt="Lot 0325" />
           </div>
-          <div class="d1-lot-card__meta">
-            <span class="d1-lot-card__lot">Lot 0325 &middot; Current Release</span>
-            <span class="hw-lot-badge">Pre Order</span>
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;">
+            <h3 class="t-heading-xl">Lot 0325</h3>
+            <span class="t-detail-status">Pre Order</span>
           </div>
-          <span class="d1-lot-card__sub">Enter Apparel Collection &rarr;</span>
+          <span class="t-detail-meta">Enter Current Collection &rarr;</span>
         </a>
 
-        <div class="d3-lots-mosaic__side">
-          <a class="d3-lot-box" href="v2.html#collection/Fine Silk Scarves">
-            <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/c0d57b78-4893-47d2-86ec-d0887798272d/003001_HARTWICK_HANDWOVEN_BOMBAY_TROUSERS_IKAT_AMMAN_SHIRT_LINEN_SILK_HARTWICK_ATELIER_4R1A0390.jpg" alt="Lot 0924" />
+        <div class="d3-lots-gallery__side">
+          <a class="d3-side-lot" href="v2.html#collection/Fine Silk Scarves">
+            <div class="d3-side-lot__img hw-img-zoom">
+              <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/c0d57b78-4893-47d2-86ec-d0887798272d/003001_HARTWICK_HANDWOVEN_BOMBAY_TROUSERS_IKAT_AMMAN_SHIRT_LINEN_SILK_HARTWICK_ATELIER_4R1A0390.jpg" alt="Lot 0924" />
+            </div>
             <div>
-              <span class="hw-lot-badge" style="margin-bottom:8px;">Available in Small Quantities</span>
-              <div class="hw-heading-porter" style="font-size:16px; margin-bottom:6px;">Lot 0924</div>
-              <span class="hw-kicker-mono">Explore Silk &amp; Apparel &rarr;</span>
+              <span class="t-detail-status" style="margin-bottom:10px;">Available in Small Quantities</span>
+              <h3 class="t-heading-lg" style="margin-bottom:12px;">Lot 0924</h3>
+              <span class="t-detail-link">Explore Edition &rarr;</span>
             </div>
           </a>
 
-          <a class="d3-lot-box" href="v2.html#collection/Fine Jewellery">
-            <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/cee2a89a-47b0-49ef-bec1-07c7473bdf43/010+_HARTWICK_HANDWOVEN_MARYLEBONE_COAT_IKAT_BOMBAY_TROUSERS_SITGES_TOTEBAG.jpg" alt="Lot 0324" />
+          <a class="d3-side-lot" href="v2.html#collection/Fine Jewellery">
+            <div class="d3-side-lot__img hw-img-zoom">
+              <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/cee2a89a-47b0-49ef-bec1-07c7473bdf43/010+_HARTWICK_HANDWOVEN_MARYLEBONE_COAT_IKAT_BOMBAY_TROUSERS_SITGES_TOTEBAG.jpg" alt="Lot 0324" />
+            </div>
             <div>
-              <span class="hw-lot-badge" style="margin-bottom:8px; opacity:0.6;">Sold Out</span>
-              <div class="hw-heading-porter" style="font-size:16px; margin-bottom:6px;">Lot 0324</div>
-              <span class="hw-kicker-mono">View Archival Pieces &rarr;</span>
+              <span class="t-detail-status" style="margin-bottom:10px; opacity:0.55;">Sold Out</span>
+              <h3 class="t-heading-lg" style="margin-bottom:12px;">Lot 0324</h3>
+              <span class="t-detail-link">View Archive &rarr;</span>
             </div>
           </a>
         </div>
       </section>
 
-      <!-- Section 6 & 7: Craft Detail + Founder Quote Integrated in a 3-Column Curatorial Strip -->
-      <section style="display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; margin-bottom:32px;" class="d1-lots__grid">
-        <div style="border:1px solid var(--hw-border); padding:24px;">
-          <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/d5689b07-64f1-478d-9b6c-51e460e39ada/006_HARTWICK_EDITORIAL_JAIPUR.jpg" alt="Natural Dye" style="width:100%; aspect-ratio:4/3; object-fit:cover; margin-bottom:16px;" />
-          <span class="hw-kicker-mono">CRAFT DETAIL &middot; I</span>
-          <h3 class="hw-heading-porter" style="font-size:16px; margin:6px 0 10px;">Natural Dye</h3>
-          <p class="hw-story-junicode" style="font-size:16px;">
+      <!-- Section 4: The Feel -->
+      <section class="d3-feel-poetic">
+        <div>
+          <span class="t-detail-meta" style="margin-bottom:20px;">THE FEEL</span>
+          <blockquote class="t-story-quote">
+            &ldquo;Wearing handspun and handwoven fabric has a different feeling than wearing industrially produced fabrics; handwoven natural fibres drape and breathe with a supple softness in a rhythm that can only be created by a human hand. The feeling is truly luxurious.&rdquo;
+          </blockquote>
+        </div>
+        <div class="d3-feel-poetic__img hw-img-zoom">
+          <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/7332acbe-c612-47f6-a264-5b65b0e64d37/002_HARTWICK_HANDWOVEN_MAGNOLIA_SHIRT_CEDAR_TROUSERS_LINEN_KHAD.jpg" alt="Handwoven Drape" />
+        </div>
+      </section>
+
+      <!-- Section 6 & 7: Craft Detail (Natural Dye + Block Printing) & Founder Quote -->
+      <section class="d3-craft-salon">
+        <div>
+          <div class="d3-craft-salon__img hw-img-zoom">
+            <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/d5689b07-64f1-478d-9b6c-51e460e39ada/006_HARTWICK_EDITORIAL_JAIPUR.jpg" alt="Natural Dye" />
+          </div>
+          <span class="t-detail-meta">CRAFT I</span>
+          <h3 class="t-heading-lg" style="margin:10px 0 14px;">Natural Dye</h3>
+          <p class="t-story-body">
             Master Colorists use ancient methods to create natural dyes using indigenous plants and minerals including wild indigo, pomegranate bark and seeds, tamarind, turmeric, jaggery, ash, and iron.
           </p>
         </div>
 
-        <div style="border:1px solid var(--hw-border); padding:24px;">
-          <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/31a9d117-730e-45ba-9a75-4e2144af03e0/267_HARTWICK_FINESILK_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg" alt="Block Printing" style="width:100%; aspect-ratio:4/3; object-fit:cover; margin-bottom:16px;" />
-          <span class="hw-kicker-mono">CRAFT DETAIL &middot; II</span>
-          <h3 class="hw-heading-porter" style="font-size:16px; margin:6px 0 10px;">Block Printing</h3>
-          <p class="hw-story-junicode" style="font-size:16px;">
+        <div>
+          <div class="d3-craft-salon__img hw-img-zoom">
+            <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/31a9d117-730e-45ba-9a75-4e2144af03e0/267_HARTWICK_FINESILK_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg" alt="Block Printing" />
+          </div>
+          <span class="t-detail-meta">CRAFT II</span>
+          <h3 class="t-heading-lg" style="margin:10px 0 14px;">Block Printing</h3>
+          <p class="t-story-body">
             Using hand carved wooden blocks, Master Printers print each colour, layer by layer using resist dyeing techniques&hellip; Each piece requires a minimum of 16 processes, with the silk resting for at least a day between each step.
           </p>
         </div>
 
-        <div style="border:1px solid var(--hw-border-strong); padding:28px; display:flex; flex-direction:column; justify-content:space-between;">
+        <div class="d3-founder-column">
           <div>
-            <span class="hw-kicker-mono" style="margin-bottom:10px;">FOUNDER QUOTE</span>
-            <blockquote style="font-family:var(--font-body); font-style:italic; font-size:17.5px; line-height:1.58;">
+            <span class="t-detail-meta" style="margin-bottom:20px;">FOUNDER QUOTE</span>
+            <blockquote class="t-story-quote" style="font-size:21px;">
               &ldquo;Hartwick Atelier is the culmination of decades of world travel as creatives in fashion and film. At first glance, it&rsquo;s an elegant lifestyle brand with a distinct character and gorgeous texture. But at its roots, each collection is a portrait of nature and sustainability through refined handcraft. It&rsquo;s an analogue love story.&rdquo;
             </blockquote>
           </div>
-          <div class="hw-kicker-mono" style="margin-top:16px; color:var(--hw-ink);">
+          <div class="t-detail-meta" style="margin-top:28px; color:var(--hw-ink);">
             &mdash; Angela Hartwick, Founder and Creative Director
           </div>
         </div>
@@ -1789,7 +1780,7 @@
 
         <!-- Section 9: The Dispatch Newsletter Signup -->
         <div class="hw-dispatch-box">
-          <span class="hw-dispatch-kicker">THE DISPATCH &middot; KLAVIYO EDITION</span>
+          <span class="t-detail-meta">NEWSLETTER</span>
           <h4 class="hw-dispatch-title">The Dispatch</h4>
           <p class="hw-dispatch-copy">
             Sign up to receive news and updates from Hartwick Atelier.
@@ -1798,7 +1789,7 @@
             <input type="email" class="hw-sqs-newsletter-input" placeholder="Email Address" required />
             <button type="submit" class="hw-sqs-newsletter-btn">Subscribe</button>
           </form>
-          <div class="hw-dispatch-note">Private trunk show invitations &amp; new lot releases.</div>
+          <span class="t-detail-meta">Private trunk show invitations &amp; new lot releases.</span>
         </div>
       </div>
     </div>
