@@ -773,160 +773,314 @@
     }
 
     /* ==========================================================================
-       DESIGN 2: ATELIER ARCHIVE & LOOKBOOK (COMPACT EDITORIAL MATRIX)
+       DESIGN 2: SOBRANA COUTURE INSPIRED — FULL-BLEED SPLIT-CAPTION HERO,
+       4-COLUMN NEW ARRIVALS SLIDER, 50/50 IVORY DROP SHOWCASE WITH MINI-SLIDER,
+       AND ASYMMETRIC BRAND MANIFESTO WITH CORNER INSET PHOTO
        ========================================================================== */
-    .d2-hero {
-      max-width: 1440px;
-      margin: 0 auto 32px;
-      padding: 8px 36px 0;
-      display: grid;
-      grid-template-columns: 0.92fr 1.08fr;
-      gap: 34px;
-      align-items: stretch;
+    :root {
+      --hw-ivory: #F8F5EE;
+      --hw-alabaster: #FAF8F3;
     }
-    .d2-hero__left {
+
+    .d2-sobrana {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    /* 1. Full-Bleed Portrait Hero with Left & Right Split Horizontal Overlay Text */
+    .d2-sob-hero {
+      position: relative;
+      width: 100%;
+      height: clamp(430px, 64vh, 640px);
+      overflow: hidden;
+    }
+    .d2-sob-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
+    .d2-sob-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(36,25,20,0.10) 0%, rgba(36,25,20,0.34) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(24px, 4.5vw, 68px);
+      pointer-events: none;
+    }
+    .d2-sob-hero__brand {
+      font-family: var(--font-heading);
+      font-weight: 500;
+      font-size: clamp(18px, 2.2vw, 30px);
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: #F8F5EE;
+      text-shadow: 0 2px 20px rgba(36, 25, 20, 0.45);
+    }
+    .d2-sob-hero__right {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: clamp(9.5px, 0.95vw, 11.5px);
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #F8F5EE;
+      text-shadow: 0 2px 18px rgba(36, 25, 20, 0.45);
+      text-align: right;
+    }
+
+    /* 2. 4-Column Collection / New Arrivals Runway Row (Header Left + ← → Arrows Right) */
+    .d2-sob-arrivals {
+      background: var(--hw-ivory);
+      padding: 32px 36px 34px;
+      border-bottom: 1px solid var(--hw-border);
+    }
+    .d2-sob-arrivals__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .d2-sob-arrows {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .d2-sob-arrow-btn {
+      background: none;
+      border: none;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--hw-ink);
+      padding: 2px 6px;
+      transition: transform 0.35s var(--ease-luxury), opacity 0.25s ease;
+    }
+    .d2-sob-arrow-btn:hover {
+      opacity: 0.6;
+      transform: scale(1.12);
+    }
+    .d2-sob-track {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: calc((100% - 42px) / 4);
+      gap: 14px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      scroll-behavior: smooth;
+    }
+    .d2-sob-track::-webkit-scrollbar { display: none; }
+    .d2-sob-card {
+      scroll-snap-align: start;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      padding: 18px 0 14px;
-      border-top: 1px solid var(--hw-border-strong);
-      border-bottom: 1px solid var(--hw-border);
-    }
-    .d2-hero__right {
-      display: grid;
-      grid-template-columns: 1.12fr 0.88fr;
-      gap: 14px;
-      align-items: stretch;
-    }
-    .d2-hero__img-tall, .d2-hero__img-short {
-      aspect-ratio: 3 / 3.55;
-    }
-
-    .d2-ethos-grid {
-      max-width: 1440px;
-      margin: 0 auto 34px;
-      padding: 0 36px;
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 38px;
-      align-items: start;
-    }
-    .d2-ethos-left {
-      padding-top: 14px;
-      border-top: 1px solid var(--hw-border-strong);
-    }
-    .d2-pillars-table {
-      border-top: 1px solid var(--hw-border-strong);
-    }
-    .d2-pillar-line {
-      display: grid;
-      grid-template-columns: 56px 1fr auto;
-      align-items: center;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--hw-border);
-      transition: padding-left 0.35s var(--ease-luxury);
-    }
-    .d2-pillar-line:hover {
-      padding-left: 6px;
-    }
-
-    .d2-collections-index {
-      max-width: 1440px;
-      margin: 0 auto 34px;
-      padding: 0 36px;
-    }
-    .d2-collections-index__head {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 10px;
-    }
-    .d2-collections-index__row {
-      display: grid;
-      grid-template-columns: 220px 1fr 240px 160px;
-      align-items: center;
-      gap: 24px;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--hw-border);
-      transition: padding-left 0.4s var(--ease-luxury), background 0.3s ease;
-    }
-    .d2-collections-index__row:first-of-type {
-      border-top: 1px solid var(--hw-border-strong);
-    }
-    .d2-collections-index__row:hover {
-      padding-left: 8px;
-      background: rgba(36, 25, 20, 0.025);
-    }
-    .d2-collections-index__thumbs {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-    .d2-collections-index__thumbs img {
-      width: 60px;
-      height: 78px;
-      object-fit: cover;
-      display: block;
       transition: transform 0.5s var(--ease-luxury);
     }
-    .d2-collections-index__row:hover .d2-collections-index__thumbs img {
+    .d2-sob-card:hover {
+      transform: translateY(-3px);
+    }
+    .d2-sob-card__img {
+      aspect-ratio: 3 / 3.95;
+      margin-bottom: 10px;
+      background: var(--hw-bg);
+    }
+    .d2-sob-card__name {
+      font-family: var(--font-heading);
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--hw-ink);
+      margin-bottom: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .d2-sob-card__price {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 9.5px;
+      letter-spacing: 0.14em;
+      color: var(--hw-muted);
+    }
+
+    /* 3. 50/50 Split Showcase: Warm Ivory Left Panel with Interactive Mini Product Switcher + Right Model Portrait */
+    .d2-sob-drop {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--hw-border);
+      background: var(--hw-alabaster);
+    }
+    .d2-sob-drop__left {
+      background: var(--hw-alabaster);
+      padding: clamp(28px, 4vw, 52px) clamp(24px, 3.5vw, 48px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-right: 1px solid var(--hw-border);
+    }
+    .d2-sob-drop__desc {
+      max-width: 360px;
+      margin: 10px auto 16px;
+      font-family: var(--font-body);
+      font-size: 16.5px;
+      line-height: 1.54;
+      color: var(--hw-muted);
+    }
+    .d2-sob-mini-stage {
+      margin-top: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      width: 100%;
+    }
+    .d2-sob-mini-card {
+      width: 158px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .d2-sob-mini-card__img {
+      width: 148px;
+      height: 188px;
+      overflow: hidden;
+      margin-bottom: 10px;
+      background: var(--hw-bg);
+      box-shadow: 0 10px 26px rgba(36, 25, 20, 0.07);
+    }
+    .d2-sob-mini-card__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.35s ease, transform 0.65s var(--ease-luxury);
+    }
+    .d2-sob-mini-card:hover .d2-sob-mini-card__img img {
+      transform: scale(1.05);
+    }
+    .d2-sob-drop__right {
+      aspect-ratio: 1 / 1.08;
+      max-height: 620px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .d2-sob-drop__right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 16%;
+      display: block;
+      transition: transform 1.35s var(--ease-luxury);
+    }
+    .d2-sob-drop__right:hover img {
+      transform: scale(1.035);
+    }
+
+    /* 4. 50/50 Asymmetric Brand Story & Manifesto Section: Left Full-Height Model + Right Warm Ivory Box with Bottom-Right Inset Photo */
+    .d2-sob-about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--hw-border);
+      background: var(--hw-ivory);
+    }
+    .d2-sob-about__left {
+      aspect-ratio: 1 / 1.12;
+      max-height: 650px;
+      width: 100%;
+      overflow: hidden;
+      border-right: 1px solid var(--hw-border);
+    }
+    .d2-sob-about__left img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+      transition: transform 1.35s var(--ease-luxury);
+    }
+    .d2-sob-about__left:hover img {
+      transform: scale(1.035);
+    }
+    .d2-sob-about__right {
+      position: relative;
+      background: var(--hw-ivory);
+      padding: clamp(28px, 4vw, 52px) clamp(24px, 4vw, 54px) 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .d2-sob-about__copy {
+      max-width: 470px;
+    }
+    .d2-sob-about__pillars {
+      margin: 18px 0 20px;
+      padding: 12px 0;
+      border-top: 1px solid var(--hw-border);
+      border-bottom: 1px solid var(--hw-border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 16px;
+    }
+    .d2-sob-about__inset {
+      position: absolute;
+      right: 28px;
+      bottom: 24px;
+      width: 142px;
+      height: 176px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(36, 25, 20, 0.10);
+      border: 1px solid var(--hw-border);
+    }
+    .d2-sob-about__inset img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s var(--ease-luxury);
+    }
+    .d2-sob-about__inset:hover img {
       transform: scale(1.06);
     }
 
-    .d2-feel-editorial {
-      max-width: 1440px;
-      margin: 0 auto 34px;
-      padding: 0 36px;
-    }
-    .d2-feel-editorial__inner {
-      padding: 20px 0;
-      border-top: 1px solid var(--hw-border-strong);
+    /* 5. Compact Craft Detail (Natural Dye & Block Printing) + The Feel & Founder Quote Strip */
+    .d2-sob-craft-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--hw-bg);
       border-bottom: 1px solid var(--hw-border);
+    }
+    .d2-sob-craft-cell {
+      padding: 26px 36px;
       display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 32px;
+      grid-template-columns: 128px 1fr;
+      gap: 20px;
       align-items: center;
     }
-
-    .d2-craft-founder-row {
-      max-width: 1440px;
-      margin: 0 auto 32px;
-      padding: 0 36px;
+    .d2-sob-craft-cell:first-child {
+      border-right: 1px solid var(--hw-border);
+    }
+    .d2-sob-craft-cell__img {
+      width: 128px;
+      height: 154px;
+    }
+    .d2-sob-quotes-bar {
       display: grid;
-      grid-template-columns: 1fr 1fr 1.05fr;
-      gap: 28px;
-      align-items: stretch;
+      grid-template-columns: 1fr 1fr;
+      background: var(--hw-ivory);
+      border-bottom: 1px solid var(--hw-border-strong);
     }
-    .d2-craft-panel {
-      padding-top: 14px;
-      border-top: 1px solid var(--hw-border-strong);
-      display: flex;
-      flex-direction: column;
+    .d2-sob-quotes-cell {
+      padding: 24px 36px;
     }
-    .d2-craft-panel__media {
-      aspect-ratio: 16 / 10;
-      margin: 12px 0 14px;
-    }
-    .d2-founder-card {
-      padding: 14px 0 0 24px;
-      border-top: 1px solid var(--hw-border-strong);
-      border-left: 1px solid var(--hw-border);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .d2-founder-card__top {
-      display: grid;
-      grid-template-columns: 84px 1fr;
-      gap: 16px;
-      align-items: center;
-      margin-bottom: 12px;
-    }
-    .d2-founder-card__top img {
-      width: 84px;
-      height: 104px;
-      object-fit: cover;
-      display: block;
+    .d2-sob-quotes-cell:first-child {
+      border-right: 1px solid var(--hw-border);
     }
 
     /* ==========================================================================
@@ -1538,10 +1692,10 @@
       .d1-craft,
       .d1-craft__card,
       .d1-founder,
-      .d2-hero,
-      .d2-ethos-grid,
-      .d2-feel-editorial__inner,
-      .d2-craft-founder-row,
+      .d2-sob-drop,
+      .d2-sob-about,
+      .d2-sob-craft-bar,
+      .d2-sob-quotes-bar,
       .d3-split-hero, .d3-split-editorial, .d3-craft-split, .d3-feel-founder-bar,
       .d3-feel-poetic,
       .d3-craft-salon,
@@ -1550,7 +1704,9 @@
       .d3-collections-salon__grid { grid-template-columns: 1fr; gap: 20px; }
       .d2-collections-index__row { grid-template-columns: 1fr; gap: 10px; padding: 14px 0; }
       .d2-founder-card { border-left: none; padding-left: 0; }
-      .d3-carousel-track { grid-auto-columns: calc((100% - 14px) / 2); }
+      .d2-sob-track, .d3-carousel-track { grid-auto-columns: calc((100% - 14px) / 2); }
+      .d2-sob-about__right { padding-bottom: 32px; }
+      .d2-sob-about__inset { position: static; margin-top: 20px; width: 130px; height: 160px; }
       .d3-ig-float { position: static; width: 100% !important; height: 150px !important; }
       .d3-ig-collage { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; min-height: 0; padding: 24px 16px; }
       .d3-ig-collage__center { grid-column: 1 / -1; order: -1; }
@@ -1863,166 +2019,199 @@
   </main>
 
   <!-- ==========================================================================
-       DESIGN 2: ATELIER ARCHIVE & LOOKBOOK (COMPACT EDITORIAL MATRIX)
+       DESIGN 2: SOBRANA COUTURE INSPIRED — FULL-BLEED SPLIT HERO,
+       4-COLUMN NEW ARRIVALS SLIDER, 50/50 IVORY SHOWCASE WITH MINI-SLIDER,
+       AND ASYMMETRIC BRAND MANIFESTO WITH CORNER INSET PHOTO
        ========================================================================== -->
   <main id="hp-design-2" class="hw-hp-design">
-    <!-- Section 1 & Lead Statement: Asymmetric Atelier Hero -->
-    <section class="d2-hero hw-reveal">
-      <div class="d2-hero__left">
-        <div>
-          <span class="t-detail-meta" style="margin-bottom:14px;">HARTWICK ATELIER</span>
-          <h1 class="t-heading-hero" style="margin-bottom:18px;">LIMITED EDITION COLLECTIONS</h1>
-          <h2 class="t-heading-lg" style="margin-bottom:14px;">
-            Textile history dates back to the beginning of human civilization.
-          </h2>
-          <p class="t-story-body">
-            Hartwick Atelier specializes in hand spun and handwoven fabrics, natural and ayurvedic dyes, and exquisite heritage handwork. These artisanal techniques rely on rare knowledge and the natural cycles of the earth.
-          </p>
-        </div>
-        <div style="padding-top:12px;">
-          <span class="t-detail-meta">HANDSPUN &middot; HANDWOVEN &middot; NATURAL DYE</span>
-        </div>
-      </div>
-      <div class="d2-hero__right">
-        <div class="d2-hero__img-tall hw-img-zoom">
-          <img class="hw-hero-anim" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/7cc1a6d4-ab61-4929-a96b-e7c9e388ed54/002_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_TOKYO_SHIRT_IKAT_03.jpg" alt="Hartwick Look 1" />
-        </div>
-        <div class="d2-hero__img-short hw-img-zoom">
-          <img class="hw-hero-anim" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/8e9c3808-0adc-4bb2-97e1-25acbb7ab728/019_HARTWICK_HANDWOVEN_SAMARKAND_DRESS_SILKCOTTON_VICTORIANROUGE_NATURALDYE_BLOCKPRINT.jpg.jpg" alt="Hartwick Look 2" />
-        </div>
-      </div>
-    </section>
+    <div class="d2-sobrana">
 
-    <!-- Section 2 (cont.) & Section 3: Brand Statement + Compact Four-Pillar Table -->
-    <section class="d2-ethos-grid hw-reveal">
-      <div class="d2-ethos-left">
-        <span class="t-detail-meta" style="margin-bottom:10px;">OUR STORY</span>
-        <p class="t-story-lead" style="margin-bottom:14px;">
-          Each handcrafted piece in the collection is a glimpse into the rich history, intricate process and generations of skill that have gone into its creation.
-        </p>
-        <a class="t-detail-link" href="v2.html#story">Read Our Story <span class="t-detail-arrow">&rarr;</span></a>
-      </div>
-      <div class="d2-pillars-table">
-        <div class="d2-pillar-line">
-          <span class="t-detail-meta">I</span>
-          <h3 class="t-heading-md">Handspun and Handwoven Fabrics.</h3>
-          <span class="t-detail-meta">LOOM</span>
+      <!-- 1. Section 1 — Hero: Full-Bleed Portrait with Left Brand Name & Right "LIMITED EDITION COLLECTIONS" -->
+      <section class="d2-sob-hero hw-reveal">
+        <img class="hw-hero-anim" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/7cc1a6d4-ab61-4929-a96b-e7c9e388ed54/002_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_TOKYO_SHIRT_IKAT_03.jpg" alt="Hartwick Atelier Limited Edition Collections" />
+        <div class="d2-sob-hero__overlay">
+          <span class="d2-sob-hero__brand">HARTWICK ATELIER</span>
+          <h1 class="d2-sob-hero__right">LIMITED EDITION COLLECTIONS</h1>
         </div>
-        <div class="d2-pillar-line">
-          <span class="t-detail-meta">II</span>
-          <h3 class="t-heading-md">Natural and Ayurvedic Dyes.</h3>
-          <span class="t-detail-meta">ALCHEMY</span>
-        </div>
-        <div class="d2-pillar-line">
-          <span class="t-detail-meta">III</span>
-          <h3 class="t-heading-md">Exquisite Heritage Handwork.</h3>
-          <span class="t-detail-meta">ARTISAN</span>
-        </div>
-        <div class="d2-pillar-line">
-          <span class="t-detail-meta">IV</span>
-          <h3 class="t-heading-md">Finely Tailored, Heirloom Quality.</h3>
-          <span class="t-detail-meta">SILHOUETTE</span>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Section 5: Curated Collections Index (With Actual Preview Product Images) -->
-    <section class="d2-collections-index hw-reveal">
-      <div class="d2-collections-index__head">
-        <h2 class="t-heading-lg">Collections</h2>
-        <span class="t-detail-meta">APPAREL &middot; FINE SILK &middot; FINE JEWELLERY</span>
-      </div>
-
-      <a class="d2-collections-index__row" href="v2.html#collection/Skirts & Dresses">
-        <h3 class="t-heading-xl">Apparel</h3>
-        <div class="d2-collections-index__thumbs">
-          <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/0e0c3b00-61cb-4eed-8741-db304f1fd896/004034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w" alt="Tribeca Emerald" />
-          <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/19c9c1dd-0fcf-4c77-a43d-59d41df9860f/009073_HARTWICK_HANDWOVEN_PALMA_SKIRT_SILK_NATURALDYE_BLOCKPRINT_AMMAN_SHIRT_LINEN.jpg?format=1500w" alt="Palma Spire" />
-          <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/2f8361ab-bd19-4a93-9451-ca63fdd42c5a/002_HARTWICK_HANDWOVEN_CALCUTTA_SKIRT_KHADI_WHITE_BLUEBORDER.jpg?format=1500w" alt="Calcutta Skirt" />
-        </div>
-        <div><span class="t-detail-meta">Skirts &middot; Shirts &middot; Trousers &middot; Lounge</span></div>
-        <div style="text-align:right;"><span class="t-detail-link">Explore <span class="t-detail-arrow">&rarr;</span></span></div>
-      </a>
-
-      <a class="d2-collections-index__row" href="v2.html#collection/Fine Silk Scarves">
-        <h3 class="t-heading-xl">Fine Silk</h3>
-        <div class="d2-collections-index__thumbs">
-          <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a12d1e92-239b-42af-b6ad-cca9ce9cea6a/230_HARTWICK_FINESILK_DUPATTA_SCARF_NATURALDYE_BLOCKPRINT.jpg?format=1500w" alt="Dupatta Celestial" />
-          <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/0dd2709f-5f5e-42c7-a5cd-d8998a683980/229_HARTWICK_FINESILK_DUPATTA_SCARF_NATURALDYE_BLOCKPRINT.jpg?format=1500w" alt="Dupatta Geo-Floral" />
-          <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/d6018d59-74b8-423e-ae96-b9eb0c9e4286/227_HARTWICK_FINESILK_STOLE_SCARF_NATURALDYE_BLOCKPRINT.jpg?format=1500w" alt="Classic Stole" />
-        </div>
-        <div><span class="t-detail-meta">Dupattas &middot; Stoles &middot; Squares</span></div>
-        <div style="text-align:right;"><span class="t-detail-link">Explore <span class="t-detail-arrow">&rarr;</span></span></div>
-      </a>
-
-      <a class="d2-collections-index__row" href="v2.html#collection/Fine Jewellery">
-        <h3 class="t-heading-xl">Fine Jewellery</h3>
-        <div class="d2-collections-index__thumbs">
-          <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fad0ba3a-a1b3-41a6-bec9-9c82b64c30f5/CROP_HARTWICK_LIMINAL_SILVER_GOLD_EMERALD_RINGS_TOURMELINE_RHODOLITE_1781.jpg" alt="Emerald & Tourmaline Rings" />
-          <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/6fd18b4b-ee13-461a-a2e0-fecc461883bf/017_HARTWICK_HANDWOVEN_AMMAN_SHIRT_LINEN_SILK_LIMINAL_RING_PENDANT_EMERALD.jpg" alt="Liminal Pendant & Ring" />
-          <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1727206002347-1V9FKJQW2TY1ZQE9178U/IMG_8962.jpg" alt="Rhodolite Step Ring" />
-        </div>
-        <div><span class="t-detail-meta">Rings &middot; Earrings &middot; Bangles</span></div>
-        <div style="text-align:right;"><span class="t-detail-link">Explore <span class="t-detail-arrow">&rarr;</span></span></div>
-      </a>
-    </section>
-
-    <!-- Section 4: The Feel -->
-    <section class="d2-feel-editorial hw-reveal">
-      <div class="d2-feel-editorial__inner">
-        <div>
-          <span class="t-detail-meta">LIVING CLOTH</span>
-          <h3 class="t-heading-lg" style="margin-top:6px;">The Feel</h3>
-        </div>
-        <blockquote class="t-story-quote">
-          &ldquo;Wearing handspun and handwoven fabric has a different feeling than wearing industrially produced fabrics; handwoven natural fibres drape and breathe with a supple softness in a rhythm that can only be created by a human hand. The feeling is truly luxurious.&rdquo;
-        </blockquote>
-      </div>
-    </section>
-
-    <!-- Section 6 & 7: Unified 3-Column Row (Natural Dye + Block Printing + Founder Quote) -->
-    <section class="d2-craft-founder-row hw-reveal">
-      <div class="d2-craft-panel">
-        <span class="t-detail-meta">THE MASTERS &middot; I</span>
-        <h3 class="t-heading-lg" style="margin-top:6px;">Natural Dye</h3>
-        <div class="d2-craft-panel__media hw-img-zoom">
-          <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/e9d0ed0b-29bf-4f71-9cec-0d7335adbd37/008_HARTWICK_EDITORIAL_JAIPUR.jpg" alt="Natural Dye" />
-        </div>
-        <p class="t-story-body" style="font-size:16px;">
-          Master Colorists use ancient methods to create natural dyes using indigenous plants and minerals including wild indigo, pomegranate bark and seeds, tamarind, turmeric, jaggery, ash, and iron.
-        </p>
-      </div>
-
-      <div class="d2-craft-panel">
-        <span class="t-detail-meta">THE MASTERS &middot; II</span>
-        <h3 class="t-heading-lg" style="margin-top:6px;">Block Printing</h3>
-        <div class="d2-craft-panel__media hw-img-zoom">
-          <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/e7d061be-dde3-4eb2-a6b8-be2e7b237995/010_HARTWICK_EDITORIAL_JAIPUR.jpg" alt="Block Printing" />
-        </div>
-        <p class="t-story-body" style="font-size:16px;">
-          Using hand carved wooden blocks, Master Printers print each colour, layer by layer using resist dyeing techniques&hellip; Each piece requires a minimum of 16 processes, with the silk resting for at least a day between each step.
-        </p>
-      </div>
-
-      <div class="d2-founder-card">
-        <div>
-          <div class="d2-founder-card__top">
-            <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/3ef6a62c-bcd3-4bf8-b812-b199be9f9664/280_HARTWICK_ANALOGUE_ARCHIVE_PARIS.jpg" alt="Angela Hartwick Archive" />
-            <div>
-              <span class="t-detail-meta">FOUNDER&rsquo;S NOTE</span>
-              <h3 class="t-heading-md" style="margin-top:6px;">Angela Hartwick</h3>
-              <span class="t-detail-meta">Founder and Creative Director</span>
-            </div>
+      <!-- 2. Section 5 — Collections: 4-Column Runway Slider on Warm Ivory (#F8F5EE) with ← → Arrows -->
+      <section class="d2-sob-arrivals hw-reveal">
+        <div class="d2-sob-arrivals__head">
+          <div style="display:flex; align-items:baseline; gap:20px; flex-wrap:wrap;">
+            <h2 class="t-heading-lg">COLLECTIONS</h2>
+            <a class="t-detail-meta" href="v2.html#collection/Skirts & Dresses">Apparel</a>
+            <a class="t-detail-meta" href="v2.html#collection/Fine Silk Scarves">Fine Silk</a>
+            <a class="t-detail-meta" href="v2.html#collection/Fine Jewellery">Fine Jewellery</a>
           </div>
-          <blockquote class="t-story-quote" style="font-size:18.5px;">
+          <div class="d2-sob-arrows">
+            <button type="button" class="d2-sob-arrow-btn" onclick="scrollD2Arrivals(-1)" aria-label="Previous">&larr;</button>
+            <button type="button" class="d2-sob-arrow-btn" onclick="scrollD2Arrivals(1)" aria-label="Next">&rarr;</button>
+          </div>
+        </div>
+
+        <div class="d2-sob-track" id="d2-sob-track">
+          <a class="d2-sob-card" href="v2.html#product/tribeca-emerald-1">
+            <div class="d2-sob-card__img hw-dual-media">
+              <img class="img-primary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/0e0c3b00-61cb-4eed-8741-db304f1fd896/004034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w" alt="Tribeca Emerald" />
+              <img class="img-secondary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1761394286610-IZ46RMUKJAHY9K3G8K4Z/034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg" alt="Tribeca Emerald Detail" />
+            </div>
+            <h3 class="d2-sob-card__name">Tribeca Emerald Skirt</h3>
+            <span class="d2-sob-card__price">&euro;696</span>
+          </a>
+
+          <a class="d2-sob-card" href="v2.html#product/palma-spire-3">
+            <div class="d2-sob-card__img hw-dual-media">
+              <img class="img-primary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/19c9c1dd-0fcf-4c77-a43d-59d41df9860f/009073_HARTWICK_HANDWOVEN_PALMA_SKIRT_SILK_NATURALDYE_BLOCKPRINT_AMMAN_SHIRT_LINEN.jpg?format=1500w" alt="Palma Spire" />
+              <img class="img-secondary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/eaf5c63f-ec73-47a3-b917-5d78d5a93577/001073_HARTWICK_HANDWOVEN_PALMA_SKIRT_SILK_NATURALDYE_BLOCKPRINT_AMMAN_SHIRT_LINEN.jpg" alt="Palma Spire Detail" />
+            </div>
+            <h3 class="d2-sob-card__name">Palma Spire Silk Skirt</h3>
+            <span class="d2-sob-card__price">&euro;640</span>
+          </a>
+
+          <a class="d2-sob-card" href="v2.html#product/marylebone-celeste-40">
+            <div class="d2-sob-card__img hw-dual-media">
+              <img class="img-primary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/8d28d4d4-4b30-44c7-999b-636e1a552025/002+_HARTWICK_HANDWOVEN_MARYLEBONE_COAT_IKAT_BOMBAY_TROUSERS_SITGES_TOTEBAG.jpg" alt="Marylebone Celeste" />
+              <img class="img-secondary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/cee2a89a-47b0-49ef-bec1-07c7473bdf43/010+_HARTWICK_HANDWOVEN_MARYLEBONE_COAT_IKAT_BOMBAY_TROUSERS_SITGES_TOTEBAG.jpg" alt="Marylebone Celeste Back" />
+            </div>
+            <h3 class="d2-sob-card__name">Marylebone Celeste Coat</h3>
+            <span class="d2-sob-card__price">&euro;824</span>
+          </a>
+
+          <a class="d2-sob-card" href="v2.html#product/bombay-celeste-29">
+            <div class="d2-sob-card__img hw-dual-media">
+              <img class="img-primary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/3f44b425-b273-4076-9a83-da6b1b437584/001_HARTWICK_HANDWOVEN_BOMBAY_TROUSERS_IKAT_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w" alt="Bombay Celeste Trousers" />
+              <img class="img-secondary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/43b52af1-89b8-4fad-93a0-1e957feee862/133_HARTWICK_HANDWOVEN_BOMBAY_TROUSERS_KHADI.jpg" alt="Bombay Bordeaux" />
+            </div>
+            <h3 class="d2-sob-card__name">Bombay Celeste Trousers</h3>
+            <span class="d2-sob-card__price">&euro;504</span>
+          </a>
+
+          <a class="d2-sob-card" href="v2.html#collection/Fine Silk Scarves">
+            <div class="d2-sob-card__img hw-dual-media">
+              <img class="img-primary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a12d1e92-239b-42af-b6ad-cca9ce9cea6a/230_HARTWICK_FINESILK_DUPATTA_SCARF_NATURALDYE_BLOCKPRINT.jpg?format=1500w" alt="Fine Silk Dupatta" />
+              <img class="img-secondary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/0dd2709f-5f5e-42c7-a5cd-d8998a683980/229_HARTWICK_FINESILK_DUPATTA_SCARF_NATURALDYE_BLOCKPRINT.jpg?format=1500w" alt="Fine Silk Dupatta 2" />
+            </div>
+            <h3 class="d2-sob-card__name">Dupatta Celestial Silk</h3>
+            <span class="d2-sob-card__price">Explore Fine Silk &rarr;</span>
+          </a>
+
+          <a class="d2-sob-card" href="v2.html#collection/Fine Jewellery">
+            <div class="d2-sob-card__img hw-dual-media">
+              <img class="img-primary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fad0ba3a-a1b3-41a6-bec9-9c82b64c30f5/CROP_HARTWICK_LIMINAL_SILVER_GOLD_EMERALD_RINGS_TOURMELINE_RHODOLITE_1781.jpg" alt="Fine Jewellery" />
+              <img class="img-secondary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a4c450cf-2375-4525-81db-9b5ea36b33ba/001CROP02_HARTWICK_LIMINAL_EARRINGS_GOLD_EMERALD_SILVER_CITRINE_POLKI_DIAMOND_RUBY_AQUAMARINE.jpg" alt="Fine Jewellery Earrings" />
+            </div>
+            <h3 class="d2-sob-card__name">Liminal Fine Jewellery</h3>
+            <span class="d2-sob-card__price">Explore Jewellery &rarr;</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 3. 50/50 Split Showcase: Warm Alabaster/Ivory Left Box with Centered Mini-Slider + Right Large Editorial Portrait -->
+      <section class="d2-sob-drop hw-reveal">
+        <div class="d2-sob-drop__left">
+          <h2 class="t-heading-xl">THE SILHOUETTE</h2>
+          <p class="d2-sob-drop__desc">
+            Wearing handspun and handwoven fabric has a different feeling than wearing industrially produced fabrics; handwoven natural fibres drape and breathe with a supple softness in a rhythm that can only be created by a human hand. The feeling is truly luxurious.
+          </p>
+          <a class="t-detail-link" href="v2.html#collection/Skirts & Dresses">Explore Catalogue <span class="t-detail-arrow">&rarr;</span></a>
+
+          <div class="d2-sob-mini-stage">
+            <button type="button" class="d2-sob-arrow-btn" onclick="cycleD2Mini(-1)" aria-label="Previous piece">&larr;</button>
+            <a class="d2-sob-mini-card" id="d2-mini-link" href="v2.html#product/marylebone-neige-41">
+              <div class="d2-sob-mini-card__img">
+                <img id="d2-mini-img" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/b394cf7a-a4d7-4612-be6c-49631370362f/233_HARTWICK_HANDWOVEN_MARYLEBONE_COAT_IKAT_BOMBAY_TROUSERS_SITGES_TOTEBAG.jpg" alt="Marylebone Neige Coat" />
+              </div>
+              <div class="d2-sob-card__name" id="d2-mini-title">Marylebone Neige Coat</div>
+              <div class="d2-sob-card__price" id="d2-mini-price">&euro;824</div>
+            </a>
+            <button type="button" class="d2-sob-arrow-btn" onclick="cycleD2Mini(1)" aria-label="Next piece">&rarr;</button>
+          </div>
+        </div>
+
+        <div class="d2-sob-drop__right">
+          <img id="d2-mini-RightHero" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/8e9c3808-0adc-4bb2-97e1-25acbb7ab728/019_HARTWICK_HANDWOVEN_SAMARKAND_DRESS_SILKCOTTON_VICTORIANROUGE_NATURALDYE_BLOCKPRINT.jpg.jpg" alt="Samarkand Dress Editorial" />
+        </div>
+      </section>
+
+      <!-- 4. Section 2 & 3 — 50/50 Asymmetric Brand Story: Left Full-Height Model Portrait + Right Warm Ivory Box with Bottom-Right Inset Photo -->
+      <section class="d2-sob-about hw-reveal">
+        <div class="d2-sob-about__left">
+          <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/b9443331-bc80-48fb-814c-1c473d3d8bdc/001_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_AMMAN_SHIRT.jpg" alt="Tribeca Skirt & Amman Shirt" />
+        </div>
+
+        <div class="d2-sob-about__right">
+          <div class="d2-sob-about__copy">
+            <span class="t-detail-meta" style="margin-bottom:8px;">ABOUT THE ATELIER</span>
+            <h2 class="t-heading-xl" style="margin-bottom:14px;">
+              Textile history dates back to the beginning of human civilization.
+            </h2>
+            <p class="t-story-body" style="margin-bottom:12px;">
+              Hartwick Atelier specializes in hand spun and handwoven fabrics, natural and ayurvedic dyes, and exquisite heritage handwork. These artisanal techniques rely on rare knowledge and the natural cycles of the earth.
+            </p>
+            <p class="t-story-body">
+              Each handcrafted piece in the collection is a glimpse into the rich history, intricate process and generations of skill that have gone into its creation.
+            </p>
+
+            <div class="d2-sob-about__pillars">
+              <div><span class="t-detail-meta">I &middot;</span> <span class="t-heading-md" style="font-size:11px;">Handspun and Handwoven Fabrics.</span></div>
+              <div><span class="t-detail-meta">II &middot;</span> <span class="t-heading-md" style="font-size:11px;">Natural and Ayurvedic Dyes.</span></div>
+              <div><span class="t-detail-meta">III &middot;</span> <span class="t-heading-md" style="font-size:11px;">Exquisite Heritage Handwork.</span></div>
+              <div><span class="t-detail-meta">IV &middot;</span> <span class="t-heading-md" style="font-size:11px;">Finely Tailored, Heirloom Quality.</span></div>
+            </div>
+
+            <a class="t-detail-link" href="v2.html#story">Read Our Story <span class="t-detail-arrow">&rarr;</span></a>
+          </div>
+
+          <a class="d2-sob-about__inset" href="v2.html#collection/Skirts & Dresses" title="Explore Collection">
+            <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/7332acbe-c612-47f6-a264-5b65b0e64d37/002_HARTWICK_HANDWOVEN_MAGNOLIA_SHIRT_CEDAR_TROUSERS_LINEN_KHAD.jpg" alt="Hartwick Atelier Inset" />
+          </a>
+        </div>
+      </section>
+
+      <!-- 5. Section 6 (Craft Detail: Natural Dye & Block Printing) + Section 7 (Founder Quote) -->
+      <section class="d2-sob-craft-bar hw-reveal">
+        <div class="d2-sob-craft-cell">
+          <div class="d2-sob-craft-cell__img hw-img-zoom">
+            <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/e9d0ed0b-29bf-4f71-9cec-0d7335adbd37/008_HARTWICK_EDITORIAL_JAIPUR.jpg" alt="Natural Dye" />
+          </div>
+          <div>
+            <span class="t-detail-meta">THE MASTERS &middot; I</span>
+            <h3 class="t-heading-lg" style="margin:4px 0 8px;">Natural Dye</h3>
+            <p class="t-story-body" style="font-size:15.5px;">
+              Master Colorists use ancient methods to create natural dyes using indigenous plants and minerals including wild indigo, pomegranate bark and seeds, tamarind, turmeric, jaggery, ash, and iron.
+            </p>
+          </div>
+        </div>
+
+        <div class="d2-sob-craft-cell">
+          <div class="d2-sob-craft-cell__img hw-img-zoom">
+            <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/31a9d117-730e-45ba-9a75-4e2144af03e0/267_HARTWICK_FINESILK_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg" alt="Block Printing" />
+          </div>
+          <div>
+            <span class="t-detail-meta">THE MASTERS &middot; II</span>
+            <h3 class="t-heading-lg" style="margin:4px 0 8px;">Block Printing</h3>
+            <p class="t-story-body" style="font-size:15.5px;">
+              Using hand carved wooden blocks, Master Printers print each colour, layer by layer using resist dyeing techniques&hellip; Each piece requires a minimum of 16 processes, with the silk resting for at least a day between each step.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="d2-sob-quotes-bar hw-reveal">
+        <div class="d2-sob-quotes-cell" style="grid-column: 1 / -1; display:flex; justify-content:space-between; align-items:center; gap:36px; flex-wrap:wrap;">
+          <div style="min-width:210px;">
+            <span class="t-detail-meta">FOUNDER QUOTE</span>
+            <h3 class="t-heading-md" style="margin-top:4px;">Angela Hartwick</h3>
+            <span class="t-detail-meta">Founder and Creative Director</span>
+          </div>
+          <blockquote class="t-story-quote" style="flex:1; font-size:18.5px; min-width:280px;">
             &ldquo;Hartwick Atelier is the culmination of decades of world travel as creatives in fashion and film. At first glance, it&rsquo;s an elegant lifestyle brand with a distinct character and gorgeous texture. But at its roots, each collection is a portrait of nature and sustainability through refined handcraft. It&rsquo;s an analogue love story.&rdquo;
           </blockquote>
         </div>
-        <div style="margin-top:12px;">
-          <a class="t-detail-link" href="v2.html#story">Our Story <span class="t-detail-arrow">&rarr;</span></a>
-        </div>
-      </div>
-    </section>
+      </section>
+
+    </div>
   </main>
 
   <!-- ==========================================================================
@@ -2373,6 +2562,52 @@
         el.classList.remove('is-visible');
         observer.observe(el);
       });
+    }
+
+    const D2_MINI_ITEMS = [
+      {
+        title: 'Marylebone Neige Coat',
+        price: '€824',
+        href: 'v2.html#product/marylebone-neige-41',
+        thumb: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/b394cf7a-a4d7-4612-be6c-49631370362f/233_HARTWICK_HANDWOVEN_MARYLEBONE_COAT_IKAT_BOMBAY_TROUSERS_SITGES_TOTEBAG.jpg',
+        hero: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/8e9c3808-0adc-4bb2-97e1-25acbb7ab728/019_HARTWICK_HANDWOVEN_SAMARKAND_DRESS_SILKCOTTON_VICTORIANROUGE_NATURALDYE_BLOCKPRINT.jpg.jpg'
+      },
+      {
+        title: 'Tribeca Emerald Skirt',
+        price: '€696',
+        href: 'v2.html#product/tribeca-emerald-1',
+        thumb: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/0e0c3b00-61cb-4eed-8741-db304f1fd896/004034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w',
+        hero: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1761394286610-IZ46RMUKJAHY9K3G8K4Z/034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg'
+      },
+      {
+        title: 'Dupatta Celestial Silk',
+        price: 'Fine Silk',
+        href: 'v2.html#collection/Fine Silk Scarves',
+        thumb: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a12d1e92-239b-42af-b6ad-cca9ce9cea6a/230_HARTWICK_FINESILK_DUPATTA_SCARF_NATURALDYE_BLOCKPRINT.jpg?format=1500w',
+        hero: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fb284e6b-9e43-4ece-87e6-0c8cc01c3a76/071_HARTWICK_FINESILK_MEDIUMSQUARE01_SCARF_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg'
+      }
+    ];
+    let d2MiniIdx = 0;
+
+    function cycleD2Mini(dir) {
+      d2MiniIdx = (d2MiniIdx + dir + D2_MINI_ITEMS.length) % D2_MINI_ITEMS.length;
+      const item = D2_MINI_ITEMS[d2MiniIdx];
+      const img = document.getElementById('d2-mini-img');
+      const title = document.getElementById('d2-mini-title');
+      const price = document.getElementById('d2-mini-price');
+      const link = document.getElementById('d2-mini-link');
+      const hero = document.getElementById('d2-mini-RightHero');
+      if (img) img.src = item.thumb;
+      if (title) title.textContent = item.title;
+      if (price) price.textContent = item.price;
+      if (link) link.href = item.href;
+      if (hero) hero.src = item.hero;
+    }
+
+    function scrollD2Arrivals(dir) {
+      const track = document.getElementById('d2-sob-track');
+      if (!track) return;
+      track.scrollBy({ left: dir * (track.clientWidth * 0.52), behavior: 'smooth' });
     }
 
     function scrollD3Carousel(dir) {
