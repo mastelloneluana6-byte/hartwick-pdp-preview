@@ -993,7 +993,7 @@
     }
     .hw-masters-intro {
       max-width: 820px;
-      margin: 0 auto 14px;
+      margin: 0 auto 20px;
       text-align: center;
     }
     .hw-masters-eyebrow {
@@ -2175,7 +2175,6 @@
     
     <div class="hw-header-subbar-v2">
       <div class="hw-header-subbar-v2-inner">
-        <a href="v2.html?v=15" class="hw-menu-version-switch" title="Bekijk Menu Indeling Versie 2">Menu V1 · Bekijk V2 →</a>
         <button class="hw-nav-link" id="nav-bag" onclick="toggleBag(true)">Bag (<span id="bag-count">0</span>)</button>
       </div>
     </div>
@@ -2326,10 +2325,7 @@
           </p>
         </header>
 
-        <!-- 2. HORIZONTAL INDEX PILLS -->
-        <nav class="hw-masters-index-bar" id="masters-pill-bar" aria-label="Made By Masters Techniques"></nav>
-
-        <!-- 3. 2-COLUMN LAYOUT ANDERSOM: LEFT = ACCORDION CHAPTERS + TEXT + GARMENTS, RIGHT = STICKY FRAMED PHOTO -->
+        <!-- 2. 2-COLUMN LAYOUT ANDERSOM: LEFT = ACCORDION CHAPTERS + TEXT + GARMENTS, RIGHT = STICKY FRAMED PHOTO -->
         <div class="hw-masters-grid">
 
           <!-- LEFT COLUMN: ALL 14 VERBATIM GLOSSARY CHAPTERS + PIECES CRAFTED IN... -->
@@ -3119,15 +3115,17 @@
     }
 
     function buildMasterAccordionOnce() {
-      const pillBar = document.getElementById('masters-pill-bar');
       const accList = document.getElementById('masters-accordion-list');
-      if (!pillBar || !accList || accList.children.length > 0) return;
+      if (!accList || accList.children.length > 0) return;
 
-      pillBar.innerHTML = MASTERS.map((item, idx) => `
-        <button type="button" class="hw-masters-pill ${idx === 0 ? 'is-active' : ''}" data-master-id="${item.id}" onclick="openMasters('${item.id}', true)">
-          <span>${item.num} &middot; ${item.name}</span>
-        </button>
-      `).join('');
+      const pillBar = document.getElementById('masters-pill-bar');
+      if (pillBar) {
+        pillBar.innerHTML = MASTERS.map((item, idx) => `
+          <button type="button" class="hw-masters-pill ${idx === 0 ? 'is-active' : ''}" data-master-id="${item.id}" onclick="openMasters('${item.id}', true)">
+            <span>${item.num} &middot; ${item.name}</span>
+          </button>
+        `).join('');
+      }
 
       accList.innerHTML = MASTERS.map((item, idx) => {
         let matching = PRODUCTS.filter(p => p.masterId === item.id);

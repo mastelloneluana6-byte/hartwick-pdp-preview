@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hartwick — Menu Indeling Versie 2 (Sub-Bar voor Search & Bag)</title>
+  <title>Hartwick — Menu Indeling Versie 1 (Inline Search & Bag Level Omlaag)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=Montserrat:wght@400;500;600;700&family=Noto+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -26,22 +26,22 @@
 
     
     :root {
-      --hw-bg: #EDE5D8;
-      --hw-bg-alt: #E5DCCD;
-      --hw-surface-soft: #F3EDE2;
-      --hw-card: #F3EDE2;
-      --hw-ink: #241914;
-      --hw-muted: #3B2E25;
-      --hw-light: #6E5D4F;
+      --hw-bg: #FAF7F2;
+      --hw-bg-alt: #F3EFE6;
+      --hw-surface-soft: #F6F3EC;
+      --hw-card: #FFFFFF;
+      --hw-ink: #1C1A17;
+      --hw-muted: #5A4B40;
+      --hw-light: #8A7B70;
       --hw-accent: #3B2314;
-      --hw-accent-secondary: #282924;
-      --hw-border: rgba(36, 25, 20, 0.16);
-      --hw-border-strong: rgba(36, 25, 20, 0.38);
-      --hw-header-bg: rgba(237, 229, 216, 0.96);
-      --hw-masters-bg: #EDE5D8;
-      --hw-footer-bg: #EDE5D8;
-      --hw-footer-ink: #241914;
-      --hw-footer-border: rgba(36, 25, 20, 0.18);
+      --hw-accent-secondary: #4E301D;
+      --hw-border: rgba(59, 35, 20, 0.14);
+      --hw-border-strong: rgba(59, 35, 20, 0.36);
+      --hw-header-bg: rgba(250, 247, 242, 0.97);
+      --hw-masters-bg: #F6F3EC;
+      --hw-footer-bg: #FAF7F2;
+      --hw-footer-ink: #1C1A17;
+      --hw-footer-border: rgba(59, 35, 20, 0.14);
       --font-heading: 'Porter', 'Porter Medium', 'Cormorant Garamond', Georgia, serif;
       --font-body: 'Junicode', 'EB Garamond', Georgia, serif;
       --font-mono: 'Noto Sans Mono', monospace;
@@ -91,7 +91,7 @@
     .hw-nav-right { justify-content: flex-end; }
     .hw-header-subbar-v2 {
       border-top: 1px solid var(--hw-border);
-      background: rgba(237, 229, 216, 0.85);
+      background: rgba(246, 243, 236, 0.65);
     }
     .hw-header-subbar-v2-inner {
       max-width: 1540px;
@@ -539,11 +539,11 @@
     .hw-v2-panel {
       position: sticky;
       top: 90px;
-      background: transparent;
-      border: none;
+      background: #FFFFFF;
+      border: 1px solid var(--hw-border);
       border-top: 1px solid var(--hw-border-strong);
-      padding: 24px 0 8px 0;
-      box-shadow: none;
+      padding: 32px 34px;
+      box-shadow: 0 20px 50px -28px rgba(28, 26, 23, 0.08);
       animation: hwDossierSlide 0.75s var(--hw-ease-silk) 0.08s both;
     }
     .hw-v2-breadcrumb {
@@ -993,7 +993,7 @@
     }
     .hw-masters-intro {
       max-width: 820px;
-      margin: 0 auto 14px;
+      margin: 0 auto 20px;
       text-align: center;
     }
     .hw-masters-eyebrow {
@@ -2151,7 +2151,7 @@
       </a>
 
       
-      <!-- MENU VERSIE 2: ALLE CATEGORIEËN OP EXACT 1 HORIZONTAAL LEVEL + SEARCHBALK & BAG SAMEN EEN LEVEL NAAR BENEDEN -->
+      <!-- MENU VERSIE 1: ALLE CATEGORIEËN + INLINE SEARCH OP EXACT 1 HORIZONTAAL LEVEL, BAG EEN LEVEL NAAR BENEDEN -->
       <nav class="hw-nav-right">
         <div class="hw-nav-item">
           <button class="hw-nav-link" id="nav-about" onclick="openView('story')">About +</button>
@@ -2162,20 +2162,19 @@
         </div>
         <button class="hw-nav-link" id="nav-masters" onclick="openMasters(currentProduct ? currentProduct.masterId : 'khadi', false)">Made By Masters</button>
         <button class="hw-nav-link" id="nav-appointment" onclick="openView('contact')">Private Appointment</button>
+        <div class="hw-search-wrap">
+          <div class="hw-search-box">
+            <svg class="hw-search-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="search" class="hw-search-input" id="hw-search-input" placeholder="Search..." oninput="hwFilterSearch(this.value)" onfocus="hwFilterSearch(this.value)" autocomplete="off" />
+          </div>
+          <div class="hw-search-results" id="hw-search-results"></div>
+        </div>
       </nav>
       
     </div>
     
     <div class="hw-header-subbar-v2">
       <div class="hw-header-subbar-v2-inner">
-        <a href="index.html?v=15" class="hw-menu-version-switch" title="Terug naar Menu Indeling Versie 1">← Terug naar Menu V1</a>
-        <div class="hw-search-wrap">
-          <div class="hw-search-box">
-            <svg class="hw-search-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <input type="search" class="hw-search-input v2-wide" id="hw-search-input" placeholder="Search collection, silk, ikat..." oninput="hwFilterSearch(this.value)" onfocus="hwFilterSearch(this.value)" autocomplete="off" />
-          </div>
-          <div class="hw-search-results" id="hw-search-results"></div>
-        </div>
         <button class="hw-nav-link" id="nav-bag" onclick="toggleBag(true)">Bag (<span id="bag-count">0</span>)</button>
       </div>
     </div>
@@ -2326,10 +2325,7 @@
           </p>
         </header>
 
-        <!-- 2. HORIZONTAL INDEX PILLS -->
-        <nav class="hw-masters-index-bar" id="masters-pill-bar" aria-label="Made By Masters Techniques"></nav>
-
-        <!-- 3. 2-COLUMN LAYOUT ANDERSOM: LEFT = ACCORDION CHAPTERS + TEXT + GARMENTS, RIGHT = STICKY FRAMED PHOTO -->
+        <!-- 2. 2-COLUMN LAYOUT ANDERSOM: LEFT = ACCORDION CHAPTERS + TEXT + GARMENTS, RIGHT = STICKY FRAMED PHOTO -->
         <div class="hw-masters-grid">
 
           <!-- LEFT COLUMN: ALL 14 VERBATIM GLOSSARY CHAPTERS + PIECES CRAFTED IN... -->
@@ -3119,15 +3115,17 @@
     }
 
     function buildMasterAccordionOnce() {
-      const pillBar = document.getElementById('masters-pill-bar');
       const accList = document.getElementById('masters-accordion-list');
-      if (!pillBar || !accList || accList.children.length > 0) return;
+      if (!accList || accList.children.length > 0) return;
 
-      pillBar.innerHTML = MASTERS.map((item, idx) => `
-        <button type="button" class="hw-masters-pill ${idx === 0 ? 'is-active' : ''}" data-master-id="${item.id}" onclick="openMasters('${item.id}', true)">
-          <span>${item.num} &middot; ${item.name}</span>
-        </button>
-      `).join('');
+      const pillBar = document.getElementById('masters-pill-bar');
+      if (pillBar) {
+        pillBar.innerHTML = MASTERS.map((item, idx) => `
+          <button type="button" class="hw-masters-pill ${idx === 0 ? 'is-active' : ''}" data-master-id="${item.id}" onclick="openMasters('${item.id}', true)">
+            <span>${item.num} &middot; ${item.name}</span>
+          </button>
+        `).join('');
+      }
 
       accList.innerHTML = MASTERS.map((item, idx) => {
         let matching = PRODUCTS.filter(p => p.masterId === item.id);
