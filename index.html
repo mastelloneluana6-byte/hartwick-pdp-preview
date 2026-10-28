@@ -38,7 +38,7 @@
       --hw-border: rgba(59, 35, 20, 0.14);
       --hw-border-strong: rgba(59, 35, 20, 0.36);
       --hw-header-bg: rgba(250, 247, 242, 0.97);
-      --hw-masters-bg: #F6F3EC;
+      --hw-masters-bg: #FAF7F2;
       --hw-footer-bg: #FAF7F2;
       --hw-footer-ink: #1C1A17;
       --hw-footer-border: rgba(59, 35, 20, 0.14);
@@ -71,12 +71,12 @@
       z-index: 950;
       background: var(--hw-header-bg);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--hw-border);
+      border-bottom: none;
     }
     .hw-header-inner {
       max-width: 1540px;
       margin: 0 auto;
-      padding: 12px 36px;
+      padding: 12px 36px 2px;
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
@@ -90,13 +90,13 @@
     }
     .hw-nav-right { justify-content: flex-end; }
     .hw-header-subbar-v2 {
-      border-top: 1px solid var(--hw-border);
-      background: rgba(246, 243, 236, 0.65);
+      border-top: none;
+      background: transparent;
     }
     .hw-header-subbar-v2-inner {
       max-width: 1540px;
       margin: 0 auto;
-      padding: 5px 36px;
+      padding: 0 36px 6px;
       display: flex;
       justify-content: flex-end;
       align-items: center;
@@ -305,8 +305,8 @@
       padding: 2px 10px;
     }
     .hw-logo-mark-img {
-      width: 58px;
-      height: 58px;
+      width: 66px;
+      height: 66px;
       object-fit: contain;
       display: block;
     }
