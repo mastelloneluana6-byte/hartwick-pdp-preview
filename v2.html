@@ -3208,90 +3208,79 @@
 
       if (isJewel) {
         ftgRows.push({
-          step: '01 · Material',
+          step: 'Fibre / Material',
           val: p.fibre,
-          desc: `Hand-forged in precious metals and set with ethically sourced, hand-selected gemstones (${p.fibre}).`,
-          mId: 'zari',
-          mLabel: 'Made By Masters'
+          mId: 'zari'
         });
       } else {
-        let stepIdx = 1;
-        const fmtStep = (label) => `0${stepIdx++} · ${label}`;
         if (spec.fibre || p.fibre) {
           const fMid = mbmIds.find(id => ['matka','mashru','muga','kora','linen','khadi'].includes(id)) || primaryMid;
-          const fMaster = MASTERS.find(x => x.id === fMid) || MASTERS[0];
           ftgRows.push({
-            step: fmtStep('Fibre'),
+            step: 'Fibre',
             val: spec.fibre || p.fibre,
-            desc: `Sourced from natural harvests (${spec.fibre || p.fibre})${spec.weavingRegion ? ' · Woven in ' + spec.weavingRegion : ''}.`,
-            mId: fMaster.id,
-            mLabel: `${fMaster.num} · ${fMaster.name}`
+            mId: fMid
           });
         }
         if (spec.spinning) {
-          const sMaster = MASTERS.find(x => x.id === 'handspun') || MASTERS[1];
           ftgRows.push({
-            step: fmtStep('Spinning'),
+            step: 'Spinning',
             val: spec.spinning,
-            desc: 'Natural fibers drawn out and twisted together by hand without electricity.',
-            mId: sMaster.id,
-            mLabel: `${sMaster.num} · ${sMaster.name}`
+            mId: 'handspun'
           });
         }
-        // Add each specific craft technique from Made By Masters glossary for this product
-        const craftMids = mbmIds.filter(id => !['handspun','singletailor'].includes(id));
-        if (craftMids.length > 0) {
-          const cMasters = craftMids.map(id => MASTERS.find(x => x.id === id)).filter(Boolean);
-          const mainCraft = cMasters[0] || MASTERS[0];
+        if (spec.weavingRegion) {
           ftgRows.push({
-            step: fmtStep('Made By Masters'),
-            val: cMasters.map(x => x.name).join(' · '),
-            desc: p.commercial,
-            mId: mainCraft.id,
-            mLabel: `${mainCraft.num} · ${mainCraft.name}`,
-            extraMasters: cMasters
+            step: 'Weaving Region',
+            val: spec.weavingRegion,
+            mId: primaryMid
+          });
+        }
+        if (spec.technique) {
+          const tMid = mbmIds.find(id => ['handwoven','changeant','khadi','jamdani','ikat','banaras','quilting','gotapatti'].includes(id)) || primaryMid;
+          ftgRows.push({
+            step: 'Technique',
+            val: spec.technique,
+            mId: tMid
+          });
+        }
+        if (spec.printing) {
+          const pMid = mbmIds.find(id => ['ajrakh','blockprint','woodblocks'].includes(id)) || primaryMid;
+          ftgRows.push({
+            step: 'Printing',
+            val: spec.printing,
+            mId: pMid
           });
         }
         if (spec.dyeing) {
           const dMid = mbmIds.includes('naturaldye') ? 'naturaldye' : primaryMid;
-          const dMaster = MASTERS.find(x => x.id === dMid) || MASTERS[0];
           ftgRows.push({
-            step: fmtStep('Dyeing'),
+            step: 'Dyeing',
             val: spec.dyeing,
-            desc: spec.dyeing.toLowerCase().includes('natural')
-              ? 'Derived from locally sourced plants and minerals drawing from Ayurvedic knowledge.'
-              : 'Raw, unbleached and undyed natural fibre in all its purity.',
-            mId: dMaster.id,
-            mLabel: `${dMaster.num} · ${dMaster.name}`
+            mId: dMid
           });
         }
-        if (spec.finish || spec.singleTailor) {
-          const stMaster = MASTERS.find(x => x.id === 'singletailor') || MASTERS[MASTERS.length - 1];
+        if (spec.finish) {
           ftgRows.push({
-            step: fmtStep('Heirloom Finish'),
-            val: spec.finish || 'Single-Tailor · French Seams',
-            desc: spec.singleTailor === 'Yes'
-              ? 'Individually cut and tailored from start to finish by a single Master Tailor.'
-              : 'Finished by hand with heirloom interior details.',
-            mId: stMaster.id,
-            mLabel: `${stMaster.num} · ${stMaster.name}`
+            step: 'Heirloom Finish',
+            val: spec.finish,
+            mId: 'singletailor'
+          });
+        }
+        if (spec.singleTailor) {
+          ftgRows.push({
+            step: 'Single-Tailor',
+            val: spec.singleTailor,
+            mId: 'singletailor'
           });
         }
       }
 
       document.getElementById('pdp-ftg-list').innerHTML = ftgRows.map(row => `
-        <div class="hw-ftg-open-row" style="cursor:pointer;" onclick="openMasters('${row.mId}', true)">
-          <div class="hw-ftg-row-top">
+        <div class="hw-ftg-open-row" style="cursor:pointer;" onclick="openMasters('${row.mId}', true)" title="Click to explore in Made By Masters">
+          <div class="hw-ftg-row-top" style="margin-bottom:0;">
             <span class="hw-ftg-step">${row.step}</span>
-            <span class="hw-ftg-val">${row.val}</span>
+            <span class="hw-ftg-val">${row.val} <span style="opacity:0.45; font-size:9px; margin-left:3px;">↗</span></span>
           </div>
-          <p class="hw-ftg-drawer-p">${row.desc}</p>
-          ${row.extraMasters && row.extraMasters.length > 1
-            ? `<div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:6px;">` +
-              row.extraMasters.map(cm => `<button type="button" class="hw-ftg-link" onclick="event.stopPropagation(); openMasters('${cm.id}', true)">${cm.num} · ${cm.name} →</button>`).join('') +
-              `</div>`
-            : `<button type="button" class="hw-ftg-link" onclick="event.stopPropagation(); openMasters('${row.mId}', true)">Explore ${row.mLabel} in Made By Masters →</button>`
-          }
         </div>
       `).join('');
 
