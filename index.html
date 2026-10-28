@@ -3386,7 +3386,7 @@
         const col = decodeURIComponent(h.replace('#collection/', ''));
         openCollection(col);
       } else if (h.startsWith('#masters')) {
-        const mId = h.split('/')[1] || 'khadi';
+        const mId = h.split('/')[1] || null;
         openMasters(mId);
       } else if (h === '#story') {
         openView('story');
