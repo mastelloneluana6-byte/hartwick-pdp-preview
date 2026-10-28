@@ -346,6 +346,14 @@
       z-index: 950;
       background: var(--hw-header-bg);
       border-bottom: none;
+      transition: background-color 0.35s var(--ease-luxury), backdrop-filter 0.35s var(--ease-luxury);
+    }
+    body.d1-seamless-nav:not(.is-scrolled) .hw-site-header {
+      background: linear-gradient(180deg, rgba(237, 229, 216, 0.72) 0%, rgba(237, 229, 216, 0.18) 78%, rgba(237, 229, 216, 0) 100%);
+    }
+    body.d1-seamless-nav.is-scrolled .hw-site-header {
+      background: rgba(237, 229, 216, 0.95);
+      backdrop-filter: blur(8px);
     }
     .hw-header-inner {
       max-width: 1440px;
@@ -633,20 +641,22 @@
     }
 
     /* ==========================================================================
-       DESIGN 1: TOTEME COUTURE INSPIRED — LEFT-ALIGNED EDITORIAL HERO,
-       CENTERED IVORY MANIFESTO BLOCK WITH CHEVRON, SEAMLESS 50/50 IN-FOCUS SPLIT,
-       3-COLUMN COLLECTION EDIT ON KHADI-LINEN, AND 50/50 CRAFT DIPTYCH
+       DESIGN 1: TOTEME COUTURE INSPIRED — HERO EXTENDED SEAMLESSLY UNDER MENU,
+       ULTRA-COMPACT IVORY MANIFESTO BAND, SEAMLESS 50/50 IN-FOCUS SPLIT,
+       AND 3-COLUMN PRODUCT EDIT
        ========================================================================== */
     .d1-toteme {
       max-width: 1440px;
       margin: 0 auto;
     }
 
-    /* 1. Full-Bleed Editorial Hero with Left-Middle Typography Overlay */
+    /* 1. Full-Bleed Editorial Hero Extended Upward Under the Menu (One Unified Visual) */
     .d1-tot-hero {
       position: relative;
-      width: 100%;
-      height: clamp(440px, 66vh, 660px);
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-top: -96px;
+      height: clamp(500px, 74vh, 710px);
       overflow: hidden;
       border-bottom: 1px solid var(--hw-border);
     }
@@ -654,17 +664,19 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 20%;
+      object-position: center 18%;
       display: block;
     }
     .d1-tot-hero__veil {
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(237, 229, 216, 0.78) 0%, rgba(237, 229, 216, 0.34) 44%, rgba(36, 25, 20, 0.08) 100%);
+      padding-top: 84px;
+      background: linear-gradient(90deg, rgba(237, 229, 216, 0.78) 0%, rgba(237, 229, 216, 0.34) 44%, rgba(36, 25, 20, 0.05) 100%);
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      padding: 0 clamp(28px, 6.5vw, 96px);
+      padding-left: clamp(28px, 6.5vw, 96px);
+      padding-right: clamp(28px, 6.5vw, 96px);
     }
     .d1-tot-hero__box {
       max-width: 460px;
@@ -675,9 +687,9 @@
       font-size: clamp(19px, 2.2vw, 29px);
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      line-height: 1.28;
+      line-height: 1.26;
       color: var(--hw-ink);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .d1-tot-hero__sub {
       font-family: var(--font-mono);
@@ -685,73 +697,73 @@
       font-size: 9.5px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      line-height: 1.65;
+      line-height: 1.6;
       color: var(--hw-ink);
-      margin-bottom: 18px;
       display: block;
     }
 
-    /* 2. Centered Warm-Ivory (#F8F5EE) Typographic Statement Block with Stacked Headline & Chevron */
+    /* 2. Ultra-Compact Warm-Ivory (#F8F5EE) Manifesto Block (No Excessive Vertical Gaps) */
     .d1-tot-center {
       background: #F8F5EE;
-      padding: clamp(42px, 5.5vw, 68px) 28px clamp(36px, 4.5vw, 54px);
+      padding: 22px 28px 18px;
       text-align: center;
       border-bottom: 1px solid var(--hw-border);
     }
     .d1-tot-center__kicker {
       font-family: var(--font-mono);
       font-weight: 600;
-      font-size: 9px;
+      font-size: 8.5px;
       letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--hw-muted);
-      margin-bottom: 14px;
+      margin-bottom: 6px;
       display: block;
     }
     .d1-tot-center__stack {
       font-family: var(--font-heading);
       font-weight: 500;
-      font-size: clamp(20px, 2.3vw, 31px);
+      font-size: clamp(17px, 1.85vw, 24px);
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      line-height: 1.38;
+      line-height: 1.32;
       color: var(--hw-ink);
-      max-width: 580px;
-      margin: 0 auto 18px;
+      max-width: 680px;
+      margin: 0 auto 8px;
     }
     .d1-tot-center__body {
       font-family: var(--font-body);
       font-weight: 500;
-      font-size: clamp(16.5px, 1.22vw, 18.5px);
-      line-height: 1.62;
+      font-size: clamp(15.5px, 1.15vw, 17.5px);
+      line-height: 1.5;
       color: var(--hw-ink);
-      max-width: 680px;
-      margin: 0 auto 10px;
+      max-width: 780px;
+      margin: 0 auto 4px;
     }
     .d1-tot-center__pillars {
-      max-width: 960px;
-      margin: 22px auto 18px;
-      padding-top: 16px;
+      max-width: 1080px;
+      margin: 10px auto 4px;
+      padding-top: 10px;
       border-top: 1px solid var(--hw-border);
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 10px 26px;
+      flex-wrap: nowrap;
+      gap: 18px;
     }
     .d1-tot-chevron {
       display: inline-block;
-      margin-top: 6px;
+      margin-top: 2px;
       font-family: var(--font-mono);
-      font-size: 13px;
+      font-size: 12px;
+      line-height: 1;
       color: var(--hw-muted);
       transition: transform 0.45s var(--ease-luxury);
     }
     .d1-tot-center:hover .d1-tot-chevron {
-      transform: translateY(4px);
+      transform: translateY(3px);
     }
 
-    /* 3. Seamless 50/50 Dual Portrait Split (Zero Gap) with Centered White Overlay Titles */
+    /* 3. Seamless 50/50 Dual Portrait Split (Zero Gap) */
     .d1-tot-split {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -760,8 +772,8 @@
     }
     .d1-tot-split__card {
       position: relative;
-      aspect-ratio: 1 / 1.14;
-      max-height: 640px;
+      aspect-ratio: 1 / 1.02;
+      max-height: 540px;
       width: 100%;
       overflow: hidden;
       display: block;
@@ -788,13 +800,13 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      padding: 20px;
       text-align: center;
     }
     .d1-tot-split__label {
       font-family: var(--font-heading);
       font-weight: 500;
-      font-size: clamp(14px, 1.45vw, 19px);
+      font-size: clamp(14px, 1.4vw, 18px);
       letter-spacing: 0.26em;
       text-transform: uppercase;
       color: #F8F5EE;
@@ -810,22 +822,22 @@
       margin-top: 6px;
     }
 
-    /* 4. 3-Column "NEW IN / COLLECTIONS" Product Grid on Warm Khadi-Linen (#EDE5D8) with Title Left & Price Right */
+    /* 4. Compact 3-Column "COLLECTIONS" Product Grid on Warm Khadi-Linen (#EDE5D8) */
     .d1-tot-grid-sec {
       background: var(--hw-bg);
-      padding: 36px 40px 40px;
+      padding: 22px 32px 24px;
       border-bottom: 1px solid var(--hw-border);
     }
     .d1-tot-grid-head {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
     }
     .d1-tot-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 16px;
     }
     .d1-tot-pcard {
       display: flex;
@@ -836,20 +848,20 @@
       transform: translateY(-3px);
     }
     .d1-tot-pcard__media {
-      aspect-ratio: 3 / 3.95;
-      margin-bottom: 10px;
+      aspect-ratio: 3 / 3.7;
+      margin-bottom: 8px;
       background: #F8F5EE;
     }
     .d1-tot-pcard__meta {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      gap: 12px;
+      gap: 10px;
     }
     .d1-tot-pcard__name {
       font-family: var(--font-body);
       font-weight: 500;
-      font-size: 15.5px;
+      font-size: 15px;
       color: var(--hw-ink);
       white-space: nowrap;
       overflow: hidden;
@@ -864,10 +876,10 @@
       flex-shrink: 0;
     }
 
-    /* 5. Warm Ivory (#F8F5EE) The Feel + 50/50 Craft Detail (Natural Dye & Block Printing) + Founder Quote */
+    /* 5. Ultra-Compact Warm Ivory (#F8F5EE) The Feel + 50/50 Craft Detail + Founder Quote */
     .d1-tot-feel-band {
       background: #F8F5EE;
-      padding: 34px 40px;
+      padding: 18px 32px;
       text-align: center;
       border-bottom: 1px solid var(--hw-border);
     }
@@ -878,25 +890,25 @@
       border-bottom: 1px solid var(--hw-border);
     }
     .d1-tot-craft__col {
-      padding: 28px 40px;
+      padding: 18px 32px;
       display: grid;
-      grid-template-columns: 136px 1fr;
-      gap: 22px;
+      grid-template-columns: 118px 1fr;
+      gap: 18px;
       align-items: center;
     }
     .d1-tot-craft__col:first-child {
       border-right: 1px solid var(--hw-border);
     }
     .d1-tot-craft__img {
-      width: 136px;
-      height: 164px;
+      width: 118px;
+      height: 142px;
     }
     .d1-tot-founder {
       background: var(--hw-bg);
-      padding: 26px 40px;
+      padding: 18px 32px;
       display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 32px;
+      grid-template-columns: 200px 1fr;
+      gap: 24px;
       align-items: center;
     }
 
@@ -962,7 +974,7 @@
     /* 2. 4-Column Collection / New Arrivals Runway Row (Header Left + ← → Arrows Right) */
     .d2-sob-arrivals {
       background: var(--hw-ivory);
-      padding: 32px 36px 34px;
+      padding: 20px 32px 22px;
       border-bottom: 1px solid var(--hw-border);
     }
     .d2-sob-arrivals__head {
@@ -1044,7 +1056,7 @@
     }
     .d2-sob-drop__left {
       background: var(--hw-alabaster);
-      padding: clamp(28px, 4vw, 52px) clamp(24px, 3.5vw, 48px);
+      padding: 22px 28px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1139,7 +1151,7 @@
     .d2-sob-about__right {
       position: relative;
       background: var(--hw-ivory);
-      padding: clamp(28px, 4vw, 52px) clamp(24px, 4vw, 54px) 150px;
+      padding: 24px 32px 135px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -1288,7 +1300,7 @@
       align-items: stretch;
     }
     .d3-split-editorial__left {
-      padding: clamp(32px, 4.5vw, 64px);
+      padding: 24px 36px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -1380,7 +1392,7 @@
 
     /* 3. Interactive 4-Column Product Carousel (with Prev / Next & Progress Line) */
     .d3-carousel-sec {
-      padding: 34px 36px 30px;
+      padding: 20px 32px 20px;
       border-bottom: 1px solid var(--hw-border-strong);
     }
     .d3-carousel-head {
@@ -1520,9 +1532,9 @@
     /* 5. Floating Scattered Instagram Collage with Centered Monogram & Handle (Exactly like Reference Image) */
     .d3-ig-collage {
       position: relative;
-      padding: 52px 36px 56px;
+      padding: 32px 32px 36px;
       border-bottom: 1px solid var(--hw-border-strong);
-      min-height: 430px;
+      min-height: 360px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1814,7 +1826,8 @@
       }
       .hw-logo-mark-img { width: 50px; height: 50px; }
 
-      .d1-pillars, .d3-pillars-ribbon { grid-template-columns: 1fr 1fr; gap: 14px; padding: 16px 0; margin-bottom: 24px; }
+      .d1-tot-center__pillars { flex-wrap: wrap; gap: 8px 14px; }
+      .d1-tot-hero { margin-top: -68px; }
       .d1-pillar { border-right: none; }
       .d1-tot-split,
       .d1-tot-grid,
@@ -1861,7 +1874,7 @@
     }
   </style>
 </head>
-<body>
+<body class="d1-seamless-nav">
 
   <!-- MINIMALIST TOP BAR TO SWITCH BETWEEN THE 3 HIGH-FASHION HOMEPAGE DESIGNS -->
   <div class="hw-design-switcher">
@@ -2017,24 +2030,20 @@
         </div>
       </section>
 
-      <!-- 2. Section 2 & 3 — Centered Warm-Ivory (#F8F5EE) Manifesto Block with Stacked Headline, Four Pillars & Chevron -->
+      <!-- 2. Section 2 & 3 — Ultra-Compact Warm-Ivory (#F8F5EE) Manifesto Block with Stacked Headline, Four Pillars & Chevron -->
       <section class="d1-tot-center hw-reveal">
         <span class="d1-tot-center__kicker">HARTWICK ATELIER</span>
         <h2 class="d1-tot-center__stack">
-          TEXTILE HISTORY<br />
-          DATES BACK TO<br />
-          HUMAN CIVILIZATION
+          TEXTILE HISTORY DATES BACK<br />
+          TO HUMAN CIVILIZATION
         </h2>
         <p class="d1-tot-center__body">
-          Hartwick Atelier specializes in hand spun and handwoven fabrics, natural and ayurvedic dyes, and exquisite heritage handwork. These artisanal techniques rely on rare knowledge and the natural cycles of the earth.
-        </p>
-        <p class="d1-tot-center__body">
-          Each handcrafted piece in the collection is a glimpse into the rich history, intricate process and generations of skill that have gone into its creation.
+          Hartwick Atelier specializes in hand spun and handwoven fabrics, natural and ayurvedic dyes, and exquisite heritage handwork. These artisanal techniques rely on rare knowledge and the natural cycles of the earth. Each handcrafted piece in the collection is a glimpse into the rich history, intricate process and generations of skill that have gone into its creation.
         </p>
 
         <div class="d1-tot-center__pillars">
-          <span class="t-detail-meta" style="color:var(--hw-ink);">I &middot; Handspun and Handwoven Fabrics.</span>
-          <span class="t-detail-meta" style="color:var(--hw-ink);">II &middot; Natural and Ayurvedic Dyes.</span>
+          <span class="t-detail-meta" style="color:var(--hw-ink);">I &middot; Handspun &amp; Handwoven Fabrics.</span>
+          <span class="t-detail-meta" style="color:var(--hw-ink);">II &middot; Natural &amp; Ayurvedic Dyes.</span>
           <span class="t-detail-meta" style="color:var(--hw-ink);">III &middot; Exquisite Heritage Handwork.</span>
           <span class="t-detail-meta" style="color:var(--hw-ink);">IV &middot; Finely Tailored, Heirloom Quality.</span>
         </div>
@@ -2768,10 +2777,15 @@
         if (sec) sec.classList.toggle('active', n === num);
         if (tab) tab.classList.toggle('active', n === num);
       });
+      document.body.classList.toggle('d1-seamless-nav', num === 1);
       window.scrollTo({ top: 0, behavior: 'smooth' });
       history.replaceState(null, '', '#design' + num);
       setTimeout(observeReveals, 50);
     }
+
+    window.addEventListener('scroll', () => {
+      document.body.classList.toggle('is-scrolled', window.scrollY > 40);
+    }, { passive: true });
 
     function toggleMobileMenu(open) {
       const el = document.getElementById('hw-mobile-menu-backdrop');
