@@ -2282,6 +2282,8 @@
       
       <!-- MENU VERSIE 1: ALLE CATEGORIEËN + INLINE SEARCH OP EXACT 1 HORIZONTAAL LEVEL, BAG EEN LEVEL NAAR BENEDEN -->
       <nav class="hw-nav-right">
+        <button class="hw-nav-link" id="nav-masters" onclick="openMasters(currentProduct ? currentProduct.masterId : 'khadi', false)">Made By Masters</button>
+        <button class="hw-nav-link" id="nav-appointment" onclick="openView('contact')">Private Appointment</button>
         <div class="hw-nav-item">
           <button class="hw-nav-link" id="nav-about" onclick="openView('story')">About +</button>
           <div class="hw-dropdown" style="left:0; min-width:165px;">
@@ -2289,8 +2291,6 @@
             <button class="hw-dropdown-btn" onclick="openView('contact')">Contact</button>
           </div>
         </div>
-        <button class="hw-nav-link" id="nav-masters" onclick="openMasters(currentProduct ? currentProduct.masterId : 'khadi', false)">Made By Masters</button>
-        <button class="hw-nav-link" id="nav-appointment" onclick="openView('contact')">Private Appointment</button>
         <div class="hw-search-wrap">
           <div class="hw-search-box">
             <svg class="hw-search-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
