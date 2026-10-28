@@ -1072,27 +1072,42 @@
       margin: 0 auto;
     }
     .hw-masters-grid {
-      display: block;
-      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(340px, 0.96fr) minmax(380px, 1.04fr);
+      gap: 32px;
+      align-items: start;
       border-top: 1px solid var(--hw-border-strong);
+      padding-top: 20px;
     }
+    /* LEFT COLUMN: SIDE-BY-SIDE TECHNIQUE BUTTONS (NO PHOTOS, NO PIECES BADGES) */
     .hw-masters-list {
       position: static;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px 10px;
       min-width: 0;
       width: 100%;
     }
-    .hw-m-item {
+    .hw-m-btn {
       position: relative;
-      border-bottom: 1px solid var(--hw-border);
-      min-width: 0;
       width: 100%;
+      min-width: 0;
       box-sizing: border-box;
-      background: transparent;
-      transition: background-color 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      background: rgba(255, 255, 255, 0.28);
+      border: 1px solid var(--hw-border);
+      padding: 10px 12px;
+      display: grid;
+      grid-template-columns: 22px minmax(0, 1fr) 14px;
+      align-items: center;
+      gap: 8px;
+      text-align: left;
+      cursor: pointer;
+      color: var(--hw-ink);
+      transition: background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                  border-color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .hw-m-item::before {
+    .hw-m-btn::before {
       content: '';
       position: absolute;
       left: 0;
@@ -1102,131 +1117,111 @@
       background: var(--hw-accent);
       opacity: 0;
       transform: scaleY(0);
-      transform-origin: top;
-      transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .hw-m-item.is-open::before {
+    .hw-m-btn:hover {
+      background: rgba(255, 255, 255, 0.55);
+      border-color: var(--hw-border-strong);
+    }
+    .hw-m-btn.is-active {
+      background: var(--hw-surface-soft);
+      border-color: var(--hw-accent);
+    }
+    .hw-m-btn.is-active::before {
       opacity: 1;
       transform: scaleY(1);
     }
-    .hw-m-item.is-open {
-      background: var(--hw-surface-soft);
-    }
-    .hw-m-item__trigger {
-      width: 100%;
-      min-width: 0;
-      box-sizing: border-box;
-      background: none;
-      border: none;
-      padding: 16px 18px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 24px;
-      align-items: center;
-      gap: 16px;
-      text-align: left;
-      cursor: pointer;
-      color: var(--hw-ink);
-      transition: padding-left 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .hw-m-item__trigger:hover {
-      padding-left: 22px;
-    }
-    .hw-m-item__title-row {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-      min-width: 0;
-    }
-    .hw-m-item__num {
+    .hw-m-btn__num {
       font-family: var(--font-mono);
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 600;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
       color: var(--hw-accent);
-      flex-shrink: 0;
-      min-width: 24px;
     }
-    .hw-m-item__headings {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      min-width: 0;
-    }
-    .hw-m-item__name {
+    .hw-m-btn__name {
       font-family: var(--font-heading);
-      font-size: 17px;
+      font-size: 13.5px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--hw-ink);
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: color 0.3s ease;
+    }
+    .hw-m-btn.is-active .hw-m-btn__name {
+      color: var(--hw-accent);
+    }
+    .hw-m-btn__icon {
+      font-family: var(--font-heading);
+      font-size: 14px;
+      color: var(--hw-accent);
+      text-align: right;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .hw-m-btn.is-active .hw-m-btn__icon {
+      transform: rotate(45deg);
+    }
+
+    /* RIGHT COLUMN: STATIC LIBRARY CARD WITH TECHNIQUE EXPLANATION + MAX 3 COMPACT PRODUCTS */
+    .hw-masters-card {
+      position: static;
+      background: var(--hw-surface-soft);
+      border: 1px solid var(--hw-border-strong);
+      padding: 24px 28px 26px;
+      box-sizing: border-box;
+      min-width: 0;
+      width: 100%;
+    }
+    @keyframes hwLibraryCardFade {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .hw-masters-card__inner.is-animating {
+      animation: hwLibraryCardFade 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .hw-masters-card__header {
+      border-bottom: 1px solid var(--hw-border);
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+    .hw-masters-card__kicker {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--hw-accent);
+      margin-bottom: 4px;
+    }
+    .hw-masters-card__title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.35rem, 2vw, 1.75rem);
       font-weight: 500;
       letter-spacing: 0.09em;
       text-transform: uppercase;
       color: var(--hw-ink);
-      line-height: 1.15;
       margin: 0;
-      transition: color 0.35s ease;
+      line-height: 1.15;
     }
-    .hw-m-item__trigger:hover .hw-m-item__name,
-    .hw-m-item.is-open .hw-m-item__name {
-      color: var(--hw-accent);
-    }
-    .hw-m-item__sub {
-      font-family: var(--font-mono);
-      font-size: 8.5px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--hw-muted);
-      line-height: 1.3;
-      display: block;
-      padding-left: 36px;
-    }
-    .hw-m-item__icon {
-      font-family: var(--font-heading);
-      font-size: 18px;
-      font-weight: 400;
-      color: var(--hw-accent);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 24px;
-      height: 24px;
-      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .hw-m-item.is-open .hw-m-item__icon {
-      transform: rotate(45deg);
-    }
-    .hw-m-item__panel {
-      display: grid;
-      grid-template-rows: 0fr;
-      opacity: 0;
-      padding: 0 20px 0 54px;
-      box-sizing: border-box;
-      transition: grid-template-rows 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1), padding 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .hw-m-item__panel-inner {
-      overflow: hidden;
-      min-height: 0;
-    }
-    .hw-m-item.is-open .hw-m-item__panel {
-      grid-template-rows: 1fr;
-      opacity: 1;
-      padding: 6px 20px 28px 54px;
-    }
-    .hw-m-garment-card__sub {
+    .hw-masters-card__body p {
       font-family: var(--font-body);
-      font-style: italic;
-      font-size: 13px;
-      color: var(--hw-muted);
-      line-height: 1.25;
-    }
-    .hw-m-item__body p {
-      font-family: var(--font-body);
-      font-size: 17px;
+      font-size: 16.5px;
       font-weight: 500;
-      line-height: 1.62;
+      line-height: 1.58;
       color: var(--hw-ink);
       margin: 0 0 10px 0;
-      max-width: 780px;
     }
-    .hw-m-item__body p strong {
+    .hw-masters-card__body p strong {
       font-family: var(--font-mono);
       font-size: 9.5px;
       font-weight: 600;
@@ -1234,42 +1229,31 @@
       text-transform: uppercase;
       color: var(--hw-accent);
     }
-    .hw-m-item__body p:last-child { margin-bottom: 0; }
-    .hw-m-item__body em {
+    .hw-masters-card__body p:last-child { margin-bottom: 0; }
+    .hw-masters-card__body em {
       font-family: var(--font-body);
       font-style: italic;
-      font-size: 16px;
+      font-size: 15.5px;
       color: var(--hw-accent);
     }
     .hw-m-garments {
-      margin-top: 20px;
-      padding-top: 18px;
+      margin-top: 18px;
+      padding-top: 16px;
       border-top: 1px solid var(--hw-border);
     }
     .hw-m-garments__grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, minmax(0, 148px));
+      gap: 14px;
     }
     .hw-m-garment-card {
       text-decoration: none;
       color: var(--hw-ink);
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 5px;
       cursor: pointer;
-      opacity: 0;
-      transform: translateY(14px);
-      transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .hw-m-item.is-open .hw-m-garment-card {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .hw-m-item.is-open .hw-m-garment-card:nth-child(1) { transition-delay: 0.06s; }
-    .hw-m-item.is-open .hw-m-garment-card:nth-child(2) { transition-delay: 0.13s; }
-    .hw-m-item.is-open .hw-m-garment-card:nth-child(3) { transition-delay: 0.20s; }
-    .hw-m-item.is-open .hw-m-garment-card:nth-child(4) { transition-delay: 0.27s; }
     .hw-m-garment-card__img {
       width: 100%;
       aspect-ratio: 3 / 4;
@@ -1281,37 +1265,42 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .hw-m-garment-card:hover .hw-m-garment-card__img img {
       transform: scale(1.045);
     }
     .hw-m-garment-card__title {
       font-family: var(--font-heading);
-      font-size: 13px;
+      font-size: 11.5px;
       font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--hw-ink);
       line-height: 1.2;
-      margin-top: 4px;
+      margin-top: 2px;
       transition: color 0.3s ease;
     }
     .hw-m-garment-card:hover .hw-m-garment-card__title {
       color: var(--hw-accent);
     }
+    .hw-m-garment-card__sub {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: 12px;
+      color: var(--hw-muted);
+      line-height: 1.22;
+    }
     @media (max-width: 960px) {
-      .hw-m-item.is-open .hw-m-item__panel {
-        padding-left: 18px;
+      .hw-masters-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
       }
-      .hw-m-item__panel {
-        padding-left: 18px;
-      }
-      .hw-m-item__sub {
-        padding-left: 0;
+      .hw-masters-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
       .hw-m-garments__grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
     .hw-masters-dyes {
@@ -2366,9 +2355,12 @@
           </p>
         </header>
 
-        <!-- 2. FOLD-OPEN ACCORDION TECHNIQUES (TEXT ONLY WHEN CLOSED; FOLDS OPEN TO SHOW DESCRIPTION + PRODUCT PHOTOS) -->
+        <!-- 2. LIBRARY CARD LAYOUT: SIDE-BY-SIDE TECHNIQUE BUTTONS ON LEFT + TECHNIQUE EXPLANATION & 3 COMPACT PRODUCTS ON RIGHT -->
         <div class="hw-masters-grid">
           <div class="hw-masters-list" id="masters-accordion-list"></div>
+          <div class="hw-masters-card" id="masters-library-card">
+            <div class="hw-masters-card__inner" id="masters-library-card-inner"></div>
+          </div>
         </div>
 
         <!-- 4. BOTANICAL & MINERAL DYES INDEX -->
@@ -3194,101 +3186,81 @@
       const accList = document.getElementById('masters-accordion-list');
       if (!accList || accList.children.length > 0) return;
 
-      accList.innerHTML = MASTERS.map((item) => {
-        const matchingProds = getMasterProducts(item).slice(0, 4);
-        const bodyHtml = (item.paragraphs || []).map(p => `<p>${p}</p>`).join('');
-        const garmentsHtml = matchingProds.length > 0 ? `
-          <div class="hw-m-garments">
-            <div class="hw-m-garments__grid">
-              ${matchingProds.map(prod => `
-                <a class="hw-m-garment-card" onclick="openProduct(${prod.id})">
-                  <div class="hw-m-garment-card__img">
-                    <img src="${prod.imgs[0]}" alt="${prod.title}" loading="lazy">
-                  </div>
-                  <span class="hw-m-garment-card__title">${prod.title}</span>
-                  <span class="hw-m-garment-card__sub">${prod.commercial}</span>
-                </a>
-              `).join('')}
-            </div>
-          </div>
-        ` : '';
+      accList.innerHTML = MASTERS.map((item, idx) => `
+        <button type="button" class="hw-m-btn ${idx === 0 ? 'is-active' : ''}" id="master-acc-${item.id}" data-master-id="${item.id}" onclick="selectMasterTechnique('${item.id}')">
+          <span class="hw-m-btn__num">${item.num}</span>
+          <span class="hw-m-btn__name">${item.name}</span>
+          <span class="hw-m-btn__icon">+</span>
+        </button>
+      `).join('');
 
-        return `
-          <article class="hw-m-item" id="master-acc-${item.id}" data-master-id="${item.id}">
-            <button type="button" class="hw-m-item__trigger" onclick="toggleMasterAccordion('${item.id}', this)">
-              <div class="hw-m-item__headings">
-                <div class="hw-m-item__title-row">
-                  <span class="hw-m-item__num">${item.num}</span>
-                  <h2 class="hw-m-item__name">${item.name}</h2>
-                </div>
-                <span class="hw-m-item__sub">${item.sub || ''}</span>
-              </div>
-              <span class="hw-m-item__icon">+</span>
-            </button>
-            <div class="hw-m-item__panel">
-              <div class="hw-m-item__panel-inner">
-                <div class="hw-m-item__body">
-                  ${bodyHtml}
-                </div>
-                ${garmentsHtml}
-              </div>
-            </div>
-          </article>
-        `;
-      }).join('');
+      renderMasterLibraryCard(MASTERS[0], false);
     }
 
-    function toggleMasterAccordion(masterId, btnEl) {
+    function renderMasterLibraryCard(m, animate = true) {
+      if (!m) return;
+      const cardInner = document.getElementById('masters-library-card-inner');
+      if (!cardInner) return;
+
+      const matchingProds = getMasterProducts(m).slice(0, 3);
+      const bodyHtml = (m.paragraphs || []).map(p => `<p>${p}</p>`).join('');
+      const garmentsHtml = matchingProds.length > 0 ? `
+        <div class="hw-m-garments">
+          <div class="hw-m-garments__grid">
+            ${matchingProds.map(prod => `
+              <a class="hw-m-garment-card" onclick="openProduct(${prod.id})">
+                <div class="hw-m-garment-card__img">
+                  <img src="${prod.imgs[0]}" alt="${prod.title}" loading="lazy">
+                </div>
+                <span class="hw-m-garment-card__title">${prod.title}</span>
+                <span class="hw-m-garment-card__sub">${prod.commercial}</span>
+              </a>
+            `).join('')}
+          </div>
+        </div>
+      ` : '';
+
+      cardInner.classList.remove('is-animating');
+      cardInner.innerHTML = `
+        <div class="hw-masters-card__header">
+          <span class="hw-masters-card__kicker">${m.num} &middot; ${m.sub || 'HERITAGE TECHNIQUE'}</span>
+          <h2 class="hw-masters-card__title">${m.name}</h2>
+        </div>
+        <div class="hw-masters-card__body">
+          ${bodyHtml}
+        </div>
+        ${garmentsHtml}
+      `;
+
+      if (animate) {
+        void cardInner.offsetWidth;
+        cardInner.classList.add('is-animating');
+      }
+    }
+
+    function selectMasterTechnique(masterId) {
       const m = MASTERS.find(x => x.id === masterId) || MASTERS[0];
-      const targetEl = document.getElementById('master-acc-' + m.id);
-      if (!targetEl) return;
-
-      const prevTop = btnEl ? btnEl.getBoundingClientRect().top : null;
-      const wasOpen = targetEl.classList.contains('is-open');
-
-      document.querySelectorAll('.hw-m-item').forEach(el => {
-        el.classList.remove('is-open');
+      document.querySelectorAll('.hw-m-btn').forEach(btn => {
+        btn.classList.toggle('is-active', btn.dataset.masterId === m.id);
       });
-
-      if (!wasOpen) {
-        targetEl.classList.add('is-open');
-      }
-
-      if (btnEl && prevTop !== null) {
-        const newTop = btnEl.getBoundingClientRect().top;
-        const delta = newTop - prevTop;
-        if (Math.abs(delta) > 1) {
-          window.scrollBy(0, delta);
-        }
-      }
-
-      history.replaceState(null, '', '#masters' + (!wasOpen ? '/' + m.id : ''));
+      renderMasterLibraryCard(m, true);
+      history.replaceState(null, '', '#masters/' + m.id);
     }
 
     function openMasters(masterId, scrollToItem = false) {
       buildMasterAccordionOnce();
       setActiveNav('nav-masters');
 
-      if (masterId) {
-        const m = MASTERS.find(x => x.id === masterId) || MASTERS[0];
-        document.querySelectorAll('.hw-m-item').forEach(item => {
-          item.classList.toggle('is-open', item.id === 'master-acc-' + m.id);
-        });
-        const targetArticle = document.getElementById('master-acc-' + m.id);
-        openView('masters', Boolean(scrollToItem && targetArticle));
-        history.replaceState(null, '', '#masters/' + m.id);
-        if (scrollToItem && targetArticle) {
-          setTimeout(() => {
-            targetArticle.scrollIntoView({ behavior: 'auto', block: 'start' });
-          }, 40);
-        }
-      } else {
-        document.querySelectorAll('.hw-m-item').forEach(item => {
-          item.classList.remove('is-open');
-        });
-        openView('masters', false);
-        history.replaceState(null, '', '#masters');
-      }
+      const targetId = masterId || (currentProduct && currentProduct.mbmIds && currentProduct.mbmIds[0]) || 'khadi';
+      const m = MASTERS.find(x => x.id === targetId) || MASTERS[0];
+
+      document.querySelectorAll('.hw-m-btn').forEach(btn => {
+        btn.classList.toggle('is-active', btn.dataset.masterId === m.id);
+      });
+      renderMasterLibraryCard(m, false);
+
+      openView('masters', false);
+      history.replaceState(null, '', '#masters/' + m.id);
     }
 
     function addCurrentToBag() {
@@ -3402,7 +3374,7 @@
         const col = decodeURIComponent(h.replace('#collection/', ''));
         openCollection(col);
       } else if (h.startsWith('#masters')) {
-        const mId = h.split('/')[1] || null;
+        const mId = h.split('/')[1] || 'khadi';
         openMasters(mId);
       } else if (h === '#story') {
         openView('story');
