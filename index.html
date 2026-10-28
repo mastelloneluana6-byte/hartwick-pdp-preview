@@ -760,16 +760,16 @@
       color: var(--hw-ink);
     }
 
-    /* COLLAPSING BULLET POINTS WITH ELEGANT "+" */
+    /* COLLAPSING BULLET POINTS & FIBRE TO GARMENT — COMPACT & TIGHT */
     .hw-collapsible-block {
       border-bottom: 1px solid var(--hw-border);
-      margin-bottom: 18px;
+      margin-bottom: 0;
     }
     .hw-collapsible-trigger {
       width: 100%;
       background: none;
       border: none;
-      padding: 12px 0;
+      padding: 8px 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -778,7 +778,7 @@
     }
     .hw-collapsible-title {
       font-family: var(--font-heading);
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -786,7 +786,7 @@
     }
     .hw-collapsible-plus {
       font-family: var(--font-heading);
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 400;
       line-height: 1;
       color: var(--hw-ink);
@@ -804,13 +804,13 @@
     .hw-collapsible-block.open .hw-collapsible-body {
       max-height: 920px;
       opacity: 1;
-      padding-bottom: 16px;
+      padding-bottom: 10px;
     }
     .hw-mono-spec-p {
       font-family: var(--font-mono);
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 400;
-      line-height: 1.65;
+      line-height: 1.55;
       color: var(--hw-ink);
       margin: 0;
     }
@@ -818,13 +818,13 @@
       list-style: none;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 6px;
+      gap: 4px;
     }
     .hw-v2-bullets li {
       font-family: var(--font-mono);
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 600;
-      line-height: 1.5;
+      line-height: 1.45;
       color: var(--hw-ink);
       padding-left: 14px;
       position: relative;
@@ -836,15 +836,15 @@
       color: var(--hw-accent);
     }
 
-    /* FIBRE TO GARMENT — PERMANENTLY OPEN (NOT COLLAPSING) */
+    /* FIBRE TO GARMENT — COMPACT SPACING */
     .hw-ftg-section {
-      margin-bottom: 20px;
+      margin-bottom: 6px;
     }
     .hw-ftg-heading {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
       cursor: pointer;
     }
     .hw-ftg-heading:hover .hw-ftg-heading-hint {
@@ -853,7 +853,7 @@
     }
     .hw-ftg-heading-title {
       font-family: var(--font-heading);
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -872,23 +872,26 @@
     .hw-ftg-open-row {
       position: relative;
       border-bottom: 1px solid var(--hw-border);
-      padding: 12px 4px;
+      padding: 7px 2px;
       cursor: pointer;
       transition: background-color 0.35s ease;
     }
+    .hw-ftg-open-row:last-child {
+      border-bottom: none;
+    }
     .hw-ftg-open-row:hover {
-      background: rgba(122, 92, 62, 0.035);
+      background: rgba(36, 25, 20, 0.03);
     }
     .hw-ftg-row-top {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      gap: 12px;
-      margin-bottom: 4px;
+      gap: 10px;
+      margin-bottom: 2px;
     }
     .hw-ftg-step {
       font-family: var(--font-mono);
-      font-size: 9.5px;
+      font-size: 9px;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -900,26 +903,26 @@
     }
     .hw-ftg-val {
       font-family: var(--font-mono);
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 600;
       color: var(--hw-ink);
       text-align: right;
     }
     .hw-ftg-drawer-p {
       font-family: var(--font-body);
-      font-size: 14.5px;
-      line-height: 1.55;
+      font-size: 14px;
+      line-height: 1.42;
       color: var(--hw-muted);
-      margin-bottom: 5px;
+      margin-bottom: 2px;
     }
     .hw-ftg-link {
       background: none;
       border: none;
       padding: 0;
       font-family: var(--font-mono);
-      font-size: 9px;
+      font-size: 8.5px;
       font-weight: 600;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
       color: var(--hw-accent);
       text-decoration: underline;
