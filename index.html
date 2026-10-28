@@ -1002,24 +1002,86 @@
       color: var(--hw-ink);
     }
 
-    /* Related Works on PDP */
+    /* Related Works on PDP — Compact Swipeable Carousel */
     .hw-related-section {
-      margin-top: 72px;
-      padding-top: 44px;
+      margin-top: 48px;
+      padding-top: 28px;
       border-top: 1px solid var(--hw-border);
     }
     .hw-related-head {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 24px;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
     }
     .hw-related-title {
       font-family: var(--font-heading);
-      font-size: 20px;
+      font-size: 16px;
       font-weight: 500;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
+    }
+    .hw-related-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hw-carousel-arrows {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hw-carousel-arrow {
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--hw-border-strong);
+      background: transparent;
+      color: var(--hw-ink);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: opacity 0.2s ease, border-color 0.2s ease;
+    }
+    .hw-carousel-arrow:hover {
+      border-color: var(--hw-ink);
+      opacity: 0.8;
+    }
+    .hw-related-carousel {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 6px;
+    }
+    .hw-related-carousel::-webkit-scrollbar {
+      display: none;
+    }
+    .hw-related-carousel .hw-product-card {
+      flex: 0 0 215px;
+      width: 215px;
+      scroll-snap-align: start;
+    }
+    .hw-related-carousel .hw-product-card-media {
+      aspect-ratio: 3 / 3.8;
+      margin-bottom: 8px;
+    }
+    .hw-related-carousel .hw-card-style-line {
+      font-size: 12px;
+      margin-bottom: 2px;
+    }
+    .hw-related-carousel .hw-card-variant-line {
+      font-size: 9.5px;
+      margin-bottom: 2px;
+    }
+    .hw-related-carousel .hw-card-craft-line {
+      font-size: 13px;
     }
 
     /* ==========================================================================
@@ -2667,14 +2729,26 @@
         word-break: break-word;
       }
       .hw-related-section {
-        margin-top: 36px;
-        padding-top: 24px;
+        margin-top: 28px;
+        padding-top: 20px;
       }
       .hw-related-head {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
         gap: 8px;
-        margin-bottom: 16px;
+        margin-bottom: 12px;
+      }
+      .hw-related-title {
+        font-size: 14px;
+      }
+      .hw-related-carousel {
+        gap: 12px;
+      }
+      .hw-related-carousel .hw-product-card {
+        flex: 0 0 152px;
+        width: 152px;
       }
 
       /* Made By Masters on Mobile */
@@ -3071,13 +3145,19 @@
         </div>
       </div>
 
-      <!-- More From This Collection -->
+      <!-- More From This Collection (Compact Swipeable Carousel) -->
       <div class="hw-related-section">
         <div class="hw-related-head">
           <h2 class="hw-related-title" id="pdp-related-title">More From This Collection</h2>
-          <button class="hw-nav-link" id="pdp-view-all-btn" onclick="openCollection('Skirts & Dresses')">View Full Collection →</button>
+          <div class="hw-related-controls">
+            <div class="hw-carousel-arrows">
+              <button type="button" class="hw-carousel-arrow" onclick="scrollRelatedCarousel(-1)" aria-label="Previous">‹</button>
+              <button type="button" class="hw-carousel-arrow" onclick="scrollRelatedCarousel(1)" aria-label="Next">›</button>
+            </div>
+            <button class="hw-nav-link" id="pdp-view-all-btn" onclick="openCollection('Skirts & Dresses')">View All →</button>
+          </div>
         </div>
-        <div class="hw-product-grid" id="pdp-related-grid"></div>
+        <div class="hw-related-carousel" id="pdp-related-grid"></div>
       </div>
     </div>
   </section>
@@ -3895,13 +3975,27 @@
         </div>
       `).join('');
 
-      const rel = PRODUCTS.filter(x => x.category === p.category && x.id !== p.id).slice(0, 3);
+      let rel = PRODUCTS.filter(x => x.category === p.category && x.id !== p.id);
+      if (rel.length < 5) {
+        const extra = PRODUCTS.filter(x => x.navGroup === p.navGroup && x.category !== p.category && x.id !== p.id);
+        rel = rel.concat(extra);
+      }
+      rel = rel.slice(0, 10);
       document.getElementById('pdp-related-title').textContent = 'More From ' + p.category;
       document.getElementById('pdp-view-all-btn').setAttribute('onclick', `openCollection('${p.category.replace(/'/g, "\\'")}')`);
-      document.getElementById('pdp-related-grid').innerHTML = rel.map((item, idx) => renderCardHtml(item, idx)).join('');
+      const relGrid = document.getElementById('pdp-related-grid');
+      relGrid.innerHTML = rel.map((item, idx) => renderCardHtml(item, idx)).join('');
+      relGrid.scrollLeft = 0;
 
       openView('product');
       history.replaceState(null, '', '#product/' + p.handle);
+    }
+
+    function scrollRelatedCarousel(dir) {
+      const el = document.getElementById('pdp-related-grid');
+      if (!el) return;
+      const step = window.innerWidth <= 768 ? 320 : 460;
+      el.scrollBy({ left: dir * step, behavior: 'smooth' });
     }
 
     function swapHeroImage(idx) {
