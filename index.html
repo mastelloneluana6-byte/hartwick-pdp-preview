@@ -1303,27 +1303,44 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
-    .hw-masters-dyes {
-      margin-top: 20px;
-      padding-top: 18px;
+    .hw-m-dye-pills {
+      margin-top: 14px;
+      padding-top: 12px;
       border-top: 1px solid var(--hw-border);
-      text-align: center;
     }
-    .hw-masters-dyes__grid {
+    .hw-m-dye-pills__label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--hw-accent);
+      margin-bottom: 8px;
+    }
+    .hw-m-dye-pills__grid {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px 18px;
-      max-width: 820px;
-      margin: 12px auto 0;
+      gap: 6px;
     }
-    .hw-masters-dye-tag {
-      font-family: var(--font-body);
-      font-style: italic;
-      font-size: 16.5px;
+    .hw-m-dye-pill {
+      background: rgba(255, 255, 255, 0.35);
+      border: 1px solid var(--hw-border);
+      padding: 5px 10px;
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: var(--hw-ink);
-      padding: 4px 10px;
-      border-bottom: 1px solid var(--hw-accent);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .hw-m-dye-pill:hover,
+    .hw-m-dye-pill.is-active {
+      background: var(--hw-surface-soft);
+      border-color: var(--hw-accent);
+      color: var(--hw-accent);
     }
 
     /* ==========================================================================
@@ -2362,27 +2379,6 @@
             <div class="hw-masters-card__inner" id="masters-library-card-inner"></div>
           </div>
         </div>
-
-        <!-- 4. BOTANICAL & MINERAL DYES INDEX -->
-        <div class="hw-masters-dyes">
-          <span class="hw-masters-eyebrow">LIVING ALCHEMY &middot; AYURVEDIC BOTANICALS &amp; MINERALS</span>
-          <h2 class="hw-masters-title" style="font-size: clamp(1.35rem, 2.1vw, 1.85rem); margin-bottom: 8px;">Natural Dyes in Our Collection</h2>
-          <div class="hw-masters-dyes__grid">
-            <span class="hw-masters-dye-tag">Wild Indigo</span>
-            <span class="hw-masters-dye-tag">Henna</span>
-            <span class="hw-masters-dye-tag">Turmeric</span>
-            <span class="hw-masters-dye-tag">Marigold</span>
-            <span class="hw-masters-dye-tag">Pomegranate Bark &amp; Seeds</span>
-            <span class="hw-masters-dye-tag">Tamarind</span>
-            <span class="hw-masters-dye-tag">Madder Root</span>
-            <span class="hw-masters-dye-tag">Jaggery</span>
-            <span class="hw-masters-dye-tag">Rhubarb Root</span>
-            <span class="hw-masters-dye-tag">Iron</span>
-            <span class="hw-masters-dye-tag">Wood Ash</span>
-            <span class="hw-masters-dye-tag">River Mud &amp; Red Clay</span>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
@@ -3197,13 +3193,54 @@
       renderMasterLibraryCard(MASTERS[0], false);
     }
 
-    function renderMasterLibraryCard(m, animate = true) {
+    const NATURAL_DYE_BOTANICALS = [
+      { id: 'all', name: 'All Natural Dyes', prodIds: [3, 11, 28] },
+      { id: 'indigo', name: 'Wild Indigo', prodIds: [3, 15, 57] },
+      { id: 'madder', name: 'Madder Root', prodIds: [11, 28, 43] },
+      { id: 'pomegranate', name: 'Pomegranate Bark & Seeds', prodIds: [3, 21, 36] },
+      { id: 'turmeric', name: 'Turmeric', prodIds: [21, 27, 47] },
+      { id: 'henna', name: 'Henna', prodIds: [28, 43, 56] },
+      { id: 'marigold', name: 'Marigold', prodIds: [27, 21, 58] },
+      { id: 'tamarind', name: 'Tamarind', prodIds: [3, 42, 47] },
+      { id: 'jaggery', name: 'Jaggery', prodIds: [15, 36, 42] },
+      { id: 'rhubarb', name: 'Rhubarb Root', prodIds: [11, 27, 59] },
+      { id: 'iron', name: 'Iron', prodIds: [38, 42, 15] },
+      { id: 'ash', name: 'Wood Ash', prodIds: [38, 36, 3] },
+      { id: 'clay', name: 'River Mud & Red Clay', prodIds: [28, 11, 47] }
+    ];
+
+    function selectNaturalDyeBotanical(dyeId) {
+      const m = MASTERS.find(x => x.id === 'naturaldye');
+      if (!m) return;
+      renderMasterLibraryCard(m, true, dyeId);
+    }
+
+    function renderMasterLibraryCard(m, animate = true, activeDyeId = 'all') {
       if (!m) return;
       const cardInner = document.getElementById('masters-library-card-inner');
       if (!cardInner) return;
 
-      const matchingProds = getMasterProducts(m).slice(0, 3);
+      let matchingProds = getMasterProducts(m).slice(0, 3);
+      if (m.id === 'naturaldye' && activeDyeId && activeDyeId !== 'all') {
+        const dyeEntry = NATURAL_DYE_BOTANICALS.find(d => d.id === activeDyeId);
+        if (dyeEntry && dyeEntry.prodIds) {
+          const customProds = dyeEntry.prodIds.map(pid => PRODUCTS.find(p => p.id === pid)).filter(Boolean);
+          if (customProds.length > 0) matchingProds = customProds.slice(0, 3);
+        }
+      }
+
       const bodyHtml = (m.paragraphs || []).map(p => `<p>${p}</p>`).join('');
+      const dyePillsHtml = m.id === 'naturaldye' ? `
+        <div class="hw-m-dye-pills">
+          <span class="hw-m-dye-pills__label">AYURVEDIC BOTANICALS &amp; MINERALS (FIBRE TO GARMENT)</span>
+          <div class="hw-m-dye-pills__grid">
+            ${NATURAL_DYE_BOTANICALS.map(d => `
+              <button type="button" class="hw-m-dye-pill ${d.id === activeDyeId ? 'is-active' : ''}" onclick="selectNaturalDyeBotanical('${d.id}')">${d.name}</button>
+            `).join('')}
+          </div>
+        </div>
+      ` : '';
+
       const garmentsHtml = matchingProds.length > 0 ? `
         <div class="hw-m-garments">
           <div class="hw-m-garments__grid">
@@ -3229,6 +3266,7 @@
         <div class="hw-masters-card__body">
           ${bodyHtml}
         </div>
+        ${dyePillsHtml}
         ${garmentsHtml}
       `;
 
