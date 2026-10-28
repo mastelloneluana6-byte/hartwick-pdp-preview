@@ -1090,6 +1090,7 @@
       width: 100%;
       box-sizing: border-box;
       background: transparent;
+      transition: background-color 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .hw-m-item::before {
       content: '';
@@ -1100,8 +1101,14 @@
       width: 2.5px;
       background: var(--hw-accent);
       opacity: 0;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .hw-m-item.is-open::before { opacity: 1; }
+    .hw-m-item.is-open::before {
+      opacity: 1;
+      transform: scaleY(1);
+    }
     .hw-m-item.is-open {
       background: var(--hw-surface-soft);
     }
@@ -1111,14 +1118,18 @@
       box-sizing: border-box;
       background: none;
       border: none;
-      padding: 14px 16px;
+      padding: 16px 18px;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto 24px;
+      grid-template-columns: minmax(0, 1fr) 24px;
       align-items: center;
       gap: 16px;
       text-align: left;
       cursor: pointer;
       color: var(--hw-ink);
+      transition: padding-left 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .hw-m-item__trigger:hover {
+      padding-left: 22px;
     }
     .hw-m-item__title-row {
       display: flex;
@@ -1150,7 +1161,9 @@
       color: var(--hw-ink);
       line-height: 1.15;
       margin: 0;
+      transition: color 0.35s ease;
     }
+    .hw-m-item__trigger:hover .hw-m-item__name,
     .hw-m-item.is-open .hw-m-item__name {
       color: var(--hw-accent);
     }
@@ -1165,21 +1178,6 @@
       display: block;
       padding-left: 36px;
     }
-    .hw-m-item__count {
-      font-family: var(--font-mono);
-      font-size: 8.5px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--hw-muted);
-      padding: 4px 8px;
-      border: 1px solid var(--hw-border);
-      white-space: nowrap;
-    }
-    .hw-m-item.is-open .hw-m-item__count {
-      color: var(--hw-accent);
-      border-color: var(--hw-accent);
-    }
     .hw-m-item__icon {
       font-family: var(--font-heading);
       font-size: 18px;
@@ -1190,17 +1188,27 @@
       justify-content: center;
       width: 24px;
       height: 24px;
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .hw-m-item.is-open .hw-m-item__icon {
       transform: rotate(45deg);
     }
     .hw-m-item__panel {
-      display: none;
-      padding: 6px 20px 26px 52px;
+      display: grid;
+      grid-template-rows: 0fr;
+      opacity: 0;
+      padding: 0 20px 0 54px;
       box-sizing: border-box;
+      transition: grid-template-rows 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1), padding 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .hw-m-item__panel-inner {
+      overflow: hidden;
+      min-height: 0;
     }
     .hw-m-item.is-open .hw-m-item__panel {
-      display: block;
+      grid-template-rows: 1fr;
+      opacity: 1;
+      padding: 6px 20px 28px 54px;
     }
     .hw-m-garment-card__sub {
       font-family: var(--font-body);
@@ -1234,24 +1242,14 @@
       color: var(--hw-accent);
     }
     .hw-m-garments {
-      margin-top: 18px;
-      padding-top: 16px;
+      margin-top: 20px;
+      padding-top: 18px;
       border-top: 1px solid var(--hw-border);
-    }
-    .hw-m-garments__label {
-      display: block;
-      font-family: var(--font-mono);
-      font-size: 9.5px;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--hw-accent);
-      margin-bottom: 14px;
     }
     .hw-m-garments__grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(195px, 240px));
-      gap: 18px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
     }
     .hw-m-garment-card {
       text-decoration: none;
@@ -1260,7 +1258,18 @@
       flex-direction: column;
       gap: 6px;
       cursor: pointer;
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
     }
+    .hw-m-item.is-open .hw-m-garment-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .hw-m-item.is-open .hw-m-garment-card:nth-child(1) { transition-delay: 0.06s; }
+    .hw-m-item.is-open .hw-m-garment-card:nth-child(2) { transition-delay: 0.13s; }
+    .hw-m-item.is-open .hw-m-garment-card:nth-child(3) { transition-delay: 0.20s; }
+    .hw-m-item.is-open .hw-m-garment-card:nth-child(4) { transition-delay: 0.27s; }
     .hw-m-garment-card__img {
       width: 100%;
       aspect-ratio: 3 / 4;
@@ -1272,6 +1281,10 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .hw-m-garment-card:hover .hw-m-garment-card__img img {
+      transform: scale(1.045);
     }
     .hw-m-garment-card__title {
       font-family: var(--font-heading);
@@ -1281,14 +1294,18 @@
       text-transform: uppercase;
       color: var(--hw-ink);
       line-height: 1.2;
-      margin-top: 2px;
+      margin-top: 4px;
+      transition: color 0.3s ease;
     }
     .hw-m-garment-card:hover .hw-m-garment-card__title {
       color: var(--hw-accent);
     }
     @media (max-width: 960px) {
+      .hw-m-item.is-open .hw-m-item__panel {
+        padding-left: 18px;
+      }
       .hw-m-item__panel {
-        padding-left: 16px;
+        padding-left: 18px;
       }
       .hw-m-item__sub {
         padding-left: 0;
@@ -3178,12 +3195,10 @@
       if (!accList || accList.children.length > 0) return;
 
       accList.innerHTML = MASTERS.map((item) => {
-        const matchingProds = getMasterProducts(item);
-        const countLabel = matchingProds.length === 1 ? '1 PIECE' : `${matchingProds.length} PIECES`;
+        const matchingProds = getMasterProducts(item).slice(0, 4);
         const bodyHtml = (item.paragraphs || []).map(p => `<p>${p}</p>`).join('');
         const garmentsHtml = matchingProds.length > 0 ? `
           <div class="hw-m-garments">
-            <span class="hw-m-garments__label">PIECES CRAFTED IN ${item.name.toUpperCase()} (${matchingProds.length})</span>
             <div class="hw-m-garments__grid">
               ${matchingProds.map(prod => `
                 <a class="hw-m-garment-card" onclick="openProduct(${prod.id})">
@@ -3208,14 +3223,15 @@
                 </div>
                 <span class="hw-m-item__sub">${item.sub || ''}</span>
               </div>
-              <span class="hw-m-item__count">${countLabel}</span>
               <span class="hw-m-item__icon">+</span>
             </button>
             <div class="hw-m-item__panel">
-              <div class="hw-m-item__body">
-                ${bodyHtml}
+              <div class="hw-m-item__panel-inner">
+                <div class="hw-m-item__body">
+                  ${bodyHtml}
+                </div>
+                ${garmentsHtml}
               </div>
-              ${garmentsHtml}
             </div>
           </article>
         `;
