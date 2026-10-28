@@ -2275,6 +2275,178 @@
     }
 
     /* ==========================================================================
+       SLIDE-OUT MOBILE MENU DRAWER (LEFT TO RIGHT) & MOBILE TOP BAR
+       ========================================================================== */
+    .hw-mobile-menu-btn,
+    .hw-mobile-bag-btn {
+      display: none;
+    }
+    .hw-mobile-menu-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(36, 25, 20, 0.36);
+      z-index: 1300;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.28s ease, visibility 0.28s ease;
+    }
+    .hw-mobile-menu-backdrop.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .hw-mobile-menu-drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 340px;
+      max-width: 86vw;
+      height: 100vh;
+      background: var(--hw-bg);
+      color: var(--hw-ink);
+      border-right: 1px solid var(--hw-border-strong);
+      z-index: 1350;
+      transform: translateX(-100%);
+      transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex;
+      flex-direction: column;
+      padding: 22px 22px 28px;
+      overflow-y: auto;
+    }
+    .hw-mobile-menu-backdrop.open .hw-mobile-menu-drawer {
+      transform: translateX(0);
+    }
+    .hw-m-drawer-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--hw-border);
+      margin-bottom: 14px;
+    }
+    .hw-m-drawer-title {
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--hw-ink);
+    }
+    .hw-m-drawer-close {
+      background: none;
+      border: none;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--hw-ink);
+      padding: 4px 0;
+      cursor: pointer;
+    }
+    .hw-m-drawer-search {
+      position: relative;
+      margin-bottom: 16px;
+    }
+    .hw-m-drawer-search-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid var(--hw-border-strong);
+      padding: 6px 2px;
+    }
+    .hw-m-drawer-search-input {
+      width: 100%;
+      border: none;
+      background: transparent;
+      outline: none;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--hw-ink);
+    }
+    .hw-m-drawer-search-input::placeholder {
+      color: var(--hw-light);
+    }
+    .hw-m-drawer-nav {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .hw-m-nav-group {
+      border-bottom: 1px solid var(--hw-border);
+    }
+    .hw-m-nav-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 13px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--hw-ink);
+      text-align: left;
+      cursor: pointer;
+    }
+    .hw-m-nav-plus {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 600;
+      transition: transform 0.25s ease;
+    }
+    .hw-m-nav-group.open .hw-m-nav-plus {
+      transform: rotate(45deg);
+    }
+    .hw-m-nav-sub {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.28s ease, opacity 0.22s ease, padding-bottom 0.22s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .hw-m-nav-group.open .hw-m-nav-sub {
+      max-height: 420px;
+      opacity: 1;
+      padding-bottom: 12px;
+    }
+    .hw-m-nav-sub-btn {
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 6px 0 6px 10px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--hw-muted);
+      cursor: pointer;
+    }
+    .hw-m-nav-sub-btn:hover {
+      color: var(--hw-ink);
+    }
+    .hw-m-drawer-foot {
+      margin-top: 24px;
+      padding-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--hw-muted);
+    }
+
+    /* ==========================================================================
        COMPLETE TABLET & MOBILE RESPONSIVE DESIGN (<= 1024px, <= 768px, <= 480px)
        ========================================================================== */
     .hw-nav-item:focus-within .hw-dropdown {
@@ -2284,25 +2456,53 @@
     }
 
     @media (max-width: 1024px) {
-      .hw-header-inner {
-        grid-template-columns: 1fr;
-        justify-items: center;
-        gap: 8px;
-        padding: 10px 20px 4px;
+      .hw-nav-left,
+      .hw-nav-right,
+      .hw-header-subbar-v2 {
+        display: none !important;
       }
-      .hw-logo-center {
-        order: -1;
-        padding: 0;
+      .hw-header-inner {
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        padding: 10px 20px;
+        gap: 12px;
+      }
+      .hw-mobile-menu-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        justify-self: start;
+        background: none;
+        border: none;
+        padding: 6px 0;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--hw-ink);
+        cursor: pointer;
+      }
+      .hw-burger-lines {
+        display: inline-flex;
+        flex-direction: column;
+        gap: 4px;
+        width: 18px;
+      }
+      .hw-burger-lines span {
+        display: block;
+        width: 100%;
+        height: 1.5px;
+        background: var(--hw-ink);
+      }
+      .hw-mobile-bag-btn {
+        display: inline-flex;
+        justify-self: end;
+        font-size: 11px !important;
       }
       .hw-logo-mark-img {
         width: 54px;
         height: 54px;
-      }
-      .hw-nav-left, .hw-nav-right {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px 16px;
-        width: 100%;
       }
       .hw-product-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2595,6 +2795,10 @@
        ========================================================================== -->
   <header class="hw-site-header">
     <div class="hw-header-inner">
+      <button type="button" class="hw-mobile-menu-btn" onclick="toggleMobileMenu(true)" aria-label="Open menu">
+        <span class="hw-burger-lines"><span></span><span></span><span></span></span>
+        <span>Menu</span>
+      </button>
       <nav class="hw-nav-left">
         <div class="hw-nav-item">
           <button class="hw-nav-link active" id="nav-apparel" onclick="openCollection('Skirts & Dresses')">Apparel +</button>
@@ -2658,7 +2862,7 @@
           <div class="hw-search-results" id="hw-search-results"></div>
         </div>
       </nav>
-      
+      <button type="button" class="hw-nav-link hw-mobile-bag-btn" onclick="toggleBag(true)">Bag (<span id="bag-count-mobile">0</span>)</button>
     </div>
     
     <div class="hw-header-subbar-v2">
@@ -2668,6 +2872,103 @@
     </div>
     
   </header>
+
+  <!-- SLIDE-OUT MOBILE MENU DRAWER (OPENS LEFT TO RIGHT) -->
+  <div class="hw-mobile-menu-backdrop" id="hw-mobile-menu-backdrop" onclick="if(event.target===this) toggleMobileMenu(false)">
+    <aside class="hw-mobile-menu-drawer" aria-label="Mobile Navigation">
+      <div class="hw-m-drawer-head">
+        <span class="hw-m-drawer-title">Menu</span>
+        <button type="button" class="hw-m-drawer-close" onclick="toggleMobileMenu(false)">Close ×</button>
+      </div>
+
+      <div class="hw-m-drawer-search">
+        <div class="hw-m-drawer-search-box">
+          <svg class="hw-search-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="search" class="hw-m-drawer-search-input" id="hw-mobile-search-input" placeholder="Search pieces..." oninput="hwFilterMobileSearch(this.value)" autocomplete="off" />
+        </div>
+        <div class="hw-search-results" id="hw-mobile-search-results" style="position:static; width:100%; transform:none; box-shadow:none; margin-top:6px;"></div>
+      </div>
+
+      <nav class="hw-m-drawer-nav">
+        <div class="hw-m-nav-group open">
+          <button type="button" class="hw-m-nav-trigger" onclick="this.parentElement.classList.toggle('open')">
+            <span>Apparel</span>
+            <span class="hw-m-nav-plus">+</span>
+          </button>
+          <div class="hw-m-nav-sub">
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openCollection('Apparel')">All Apparel</button>
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openCollection('Skirts & Dresses')">Skirts & Dresses</button>
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openCollection('Shirts & Blouses')">Shirts & Blouses</button>
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openCollection('Trousers')">Trousers</button>
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openCollection('Coats & Accessories')">Coats & Accessories</button>
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openCollection('Loungewear')">Loungewear</button>
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openCollection('Yoga Mats')">Upaya Yoga Mats</button>
+          </div>
+        </div>
+
+        <div class="hw-m-nav-group">
+          <button type="button" class="hw-m-nav-trigger" onclick="this.parentElement.classList.toggle('open')">
+            <span>Fine Jewellery</span>
+            <span class="hw-m-nav-plus">+</span>
+          </button>
+          <div class="hw-m-nav-sub">
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openCollection('Fine Jewellery')">All Fine Jewellery</button>
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openCollection('Rings')">Rings</button>
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openCollection('Earrings')">Earrings</button>
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openCollection('Bangles + Bracelets')">Bangles & Bracelets</button>
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openCollection('Necklaces + Pendants')">Necklaces & Pendants</button>
+          </div>
+        </div>
+
+        <div class="hw-m-nav-group">
+          <button type="button" class="hw-m-nav-trigger" onclick="this.parentElement.classList.toggle('open')">
+            <span>Fine Silk Scarves</span>
+            <span class="hw-m-nav-plus">+</span>
+          </button>
+          <div class="hw-m-nav-sub">
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openCollection('Fine Silk Scarves')">All Fine Silk</button>
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openCollection('Dupattas')">Oversized Dupattas</button>
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openCollection('Classic Stoles')">Classic Stoles</button>
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openCollection('Shaylas')">Shaylas</button>
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openCollection('Large Squares')">Large Squares</button>
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openCollection('Medium Squares')">Medium Squares</button>
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openCollection('Petit Squares')">Petit Squares</button>
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openCollection('Rich Ribbons')">Rich Ribbons</button>
+          </div>
+        </div>
+
+        <div class="hw-m-nav-group">
+          <button type="button" class="hw-m-nav-trigger" onclick="toggleMobileMenu(false); openMasters(currentProduct ? currentProduct.masterId : 'khadi', false)">
+            <span>Made By Masters</span>
+            <span class="hw-m-nav-plus">→</span>
+          </button>
+        </div>
+
+        <div class="hw-m-nav-group">
+          <button type="button" class="hw-m-nav-trigger" onclick="toggleMobileMenu(false); openView('contact')">
+            <span>Private Appointment</span>
+            <span class="hw-m-nav-plus">→</span>
+          </button>
+        </div>
+
+        <div class="hw-m-nav-group">
+          <button type="button" class="hw-m-nav-trigger" onclick="this.parentElement.classList.toggle('open')">
+            <span>About</span>
+            <span class="hw-m-nav-plus">+</span>
+          </button>
+          <div class="hw-m-nav-sub">
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openView('story')">Our Story</button>
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openView('contact')">Contact</button>
+          </div>
+        </div>
+      </nav>
+
+      <div class="hw-m-drawer-foot">
+        <a href="mailto:contact@HARTWICKATELIER.com" style="text-decoration:underline; text-underline-offset:3px;">contact@HARTWICKATELIER.com</a>
+        <a href="https://instagram.com/worldofhartwickatelier" target="_blank" rel="noopener">@WORLDOFHARTWICKATELIER</a>
+      </div>
+    </aside>
+  </div>
 
   <!-- ==========================================================================
        VIEW 1: COLLECTION PAGE — EXACT FOTO 1 LAYOUT:
@@ -3768,8 +4069,44 @@
       renderBag();
     }
 
+    function toggleMobileMenu(open) {
+      const el = document.getElementById('hw-mobile-menu-backdrop');
+      if (el) el.classList.toggle('open', open);
+    }
+
+    function hwFilterMobileSearch(query) {
+      const box = document.getElementById('hw-mobile-search-results');
+      if (!box) return;
+      const q = (query || '').trim().toLowerCase();
+      if (!q) {
+        box.classList.remove('open');
+        box.innerHTML = '';
+        return;
+      }
+      const matches = PRODUCTS.filter(p =>
+        (p.title + ' ' + p.subtitle + ' ' + p.commercial + ' ' + p.category + ' ' + p.technique + ' ' + p.fibre).toLowerCase().includes(q)
+      ).slice(0, 6);
+      if (matches.length === 0) {
+        box.innerHTML = '<div style="padding:10px 12px; font-family:var(--font-body); font-style:italic; color:var(--hw-muted);">No matching pieces found.</div>';
+      } else {
+        box.innerHTML = matches.map(m => `
+          <button type="button" class="hw-search-result-item" onclick="document.getElementById('hw-mobile-search-results').classList.remove('open'); document.getElementById('hw-mobile-search-input').value=''; toggleMobileMenu(false); openProduct(${m.id});">
+            <img src="${m.imgs[0]}" alt="${m.title}" />
+            <div>
+              <span class="hw-search-result-title">${m.title}</span>
+              <span class="hw-search-result-sub">${m.subtitle} · ${m.technique}</span>
+            </div>
+            <span class="hw-search-result-price">${m.price}</span>
+          </button>
+        `).join('');
+      }
+      box.classList.add('open');
+    }
+
     function renderBag() {
       document.getElementById('bag-count').textContent = bag.length;
+      const mobCount = document.getElementById('bag-count-mobile');
+      if (mobCount) mobCount.textContent = bag.length;
       const container = document.getElementById('bag-items');
       if (bag.length === 0) {
         container.innerHTML = '<p style="color:var(--hw-muted); font-style:italic;">Your bag is currently empty.</p>';
