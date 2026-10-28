@@ -591,13 +591,13 @@
       font-size: 16.5px;
       font-style: italic;
       color: var(--hw-muted);
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
     /* Sibling Style Variations Switcher */
     .hw-v2-variations {
-      margin-bottom: 18px;
-      padding-bottom: 16px;
+      margin-bottom: 8px;
+      padding-bottom: 8px;
       border-bottom: 1px solid var(--hw-border);
     }
     .hw-v2-var-label {
@@ -607,7 +607,7 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--hw-muted);
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
     .hw-v2-var-grid {
       display: flex;
@@ -660,15 +660,15 @@
 
     /* COMPACT, SLEEK SIZE & ADD TO BAG BUTTONS */
     .hw-v2-purchase-block {
-      margin-bottom: 10px;
-      padding-bottom: 10px;
+      margin-bottom: 6px;
+      padding-bottom: 6px;
       border-bottom: 1px solid var(--hw-border);
     }
     .hw-v2-size-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
     }
     .hw-v2-size-label {
       font-family: var(--font-mono);
@@ -735,30 +735,26 @@
       border-color: var(--hw-accent);
     }
 
-    /* Two-Part Unfolded Story (Style + Cloth, no word "Expression") */
+    /* Open, Clean Editorial Copy (No Category Headers, No Accordion) */
     .hw-v2-stories {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 10px;
+      gap: 8px;
+      margin-top: 2px;
       margin-bottom: 0;
-      padding-bottom: 10px;
+      padding-bottom: 8px;
       border-bottom: 1px solid var(--hw-border);
     }
     .hw-v2-story-kicker {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--hw-accent);
-      margin-bottom: 4px;
+      display: none !important;
     }
     .hw-v2-story-p {
       font-family: var(--font-body);
       font-size: 15.5px;
       font-weight: 500;
-      line-height: 1.65;
+      line-height: 1.58;
       color: var(--hw-ink);
+      margin: 0;
     }
 
     /* COLLAPSING BULLET POINTS & FIBRE TO GARMENT — COMPACT & TIGHT */
@@ -2108,7 +2104,8 @@
     .hw-sqs-footer-main {
       max-width: 1380px;
       margin: 0 auto;
-      padding: 24px 40px 56px;
+      padding: 28px 40px 56px;
+      border-top: 1px solid rgba(36, 25, 20, 0.22);
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1.35fr;
       gap: 40px;
