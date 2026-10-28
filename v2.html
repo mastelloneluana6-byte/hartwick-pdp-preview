@@ -236,7 +236,7 @@
     }
     .hw-nav-link {
       font-family: var(--font-mono);
-      font-size: 11.5px;
+      font-size: 12.2px;
       font-weight: 600;
       letter-spacing: 0.13em;
       text-transform: uppercase;
@@ -284,7 +284,7 @@
       background: none;
       border: none;
       font-family: var(--font-mono);
-      font-size: 10.5px;
+      font-size: 11.2px;
       font-weight: 600;
       letter-spacing: 0.13em;
       text-transform: uppercase;
@@ -444,7 +444,7 @@
     .hw-product-card-media {
       position: relative;
       aspect-ratio: 3 / 3.85;
-      background: #EFECE5;
+      background: #EDE5D8;
       overflow: hidden;
       margin-bottom: 14px;
     }
@@ -509,7 +509,7 @@
     }
     .hw-v2-lookbook-item {
       position: relative;
-      background: #EFECE5;
+      background: #EDE5D8;
       overflow: hidden;
       aspect-ratio: 3 / 4;
       cursor: pointer;
@@ -628,7 +628,7 @@
       overflow: hidden;
       border: 1px solid var(--hw-border);
       margin-bottom: 4px;
-      background: #F2EFE9;
+      background: #EDE5D8;
       transition: all 0.2s;
     }
     .hw-v2-var-card.active .hw-v2-var-thumb {
@@ -833,9 +833,25 @@
       color: var(--hw-accent);
     }
 
-    /* FIBRE TO GARMENT — COMPACT SPACING */
-    .hw-ftg-section {
+    /* STATIC OPEN FIT BLOCK & FIBRE TO GARMENT — COMPACT SPACING */
+    .hw-static-fit-block {
+      padding: 8px 0 10px;
+      border-bottom: 1px solid var(--hw-border);
+      margin-bottom: 0;
+    }
+    .hw-static-section-title {
+      font-family: var(--font-heading);
+      font-size: 13.5px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--hw-ink);
       margin-bottom: 6px;
+    }
+    .hw-ftg-section {
+      padding: 8px 0 6px;
+      border-bottom: 1px solid var(--hw-border);
+      margin-bottom: 0;
     }
     .hw-ftg-heading {
       display: flex;
@@ -1238,7 +1254,7 @@
     .hw-m-garment-card__img {
       width: 100%;
       aspect-ratio: 3 / 4;
-      background: #E8E2D7;
+      background: #EDE5D8;
       overflow: hidden;
     }
     .hw-m-garment-card__img img {
@@ -1398,7 +1414,7 @@
       max-width: 460px;
       margin-left: auto;
       aspect-ratio: 4 / 5;
-      background: #E7E1D6;
+      background: #EDE5D8;
       overflow: hidden;
     }
     .hw-story__hero-frame img {
@@ -1493,7 +1509,7 @@
     .hw-chapter__img-wrap {
       width: 100%;
       aspect-ratio: 4 / 5;
-      background: #E8E2D7;
+      background: #EDE5D8;
       overflow: hidden;
       position: relative;
     }
@@ -1612,7 +1628,7 @@
     }
     .hw-finale__diptych-item {
       aspect-ratio: 4 / 5;
-      background: #E8E2D7;
+      background: #EDE5D8;
       overflow: hidden;
     }
     .hw-finale__diptych-item img {
@@ -1748,7 +1764,7 @@
       width: 100%;
       max-width: 320px;
       aspect-ratio: 4 / 5;
-      background: #E7E1D6;
+      background: #EDE5D8;
       overflow: hidden;
       position: relative;
       box-shadow: 0 18px 38px -20px rgba(24, 22, 20, 0.14);
@@ -2343,30 +2359,28 @@
             </div>
           </div>
 
-          <!-- Two Unfolded Editorial Paragraphs: 1. The Silhouette (Style) & 2. The Cloth (Specific Piece) -->
+          <!-- b & c. Open Description: Silhouette text & Craft text (without headers, no accordion) -->
           <div class="hw-v2-stories">
-            <div>
-              <div class="hw-v2-story-kicker" id="pdp-style-kicker">The Silhouette — Tribeca Skirt</div>
-              <p class="hw-v2-story-p" id="pdp-long-desc"></p>
-            </div>
-            <div>
-              <div class="hw-v2-story-kicker" id="pdp-cloth-kicker">The Craft & Material — Tribeca Emerald</div>
-              <p class="hw-v2-story-p" id="pdp-short-desc"></p>
-            </div>
+            <p class="hw-v2-story-p" id="pdp-long-desc"></p>
+            <p class="hw-v2-story-p" id="pdp-short-desc"></p>
           </div>
 
-          <!-- COLLAPSING BULLET POINTS WITH ELEGANT "+" -->
-          <div class="hw-collapsible-block" id="pdp-bullets-acc">
-            <button type="button" class="hw-collapsible-trigger" onclick="this.parentElement.classList.toggle('open')">
-              <span class="hw-collapsible-title">Fit</span>
-              <span class="hw-collapsible-plus">+</span>
-            </button>
-            <div class="hw-collapsible-body">
-              <ul class="hw-v2-bullets" id="pdp-bullets"></ul>
-            </div>
+          <!-- d. FIT (open, static text - renamed from Garment Details & Specifications) -->
+          <div class="hw-static-fit-block" id="pdp-bullets-acc">
+            <div class="hw-static-section-title">FIT</div>
+            <ul class="hw-v2-bullets" id="pdp-bullets"></ul>
           </div>
 
-          <!-- COLLAPSING CARE & AGING WITH ELEGANT "+" (COMPACT & NOTO SANS MONO) -->
+          <!-- e. Fibre to Garment / Craft Origins (open section) -->
+          <div class="hw-ftg-section" id="pdp-ftg-anchor">
+            <div class="hw-ftg-heading" onclick="openMasters(currentProduct ? currentProduct.masterId : 'khadi', true)" title="Open Made By Masters for this garment">
+              <span class="hw-static-section-title" style="margin-bottom:0;">Fibre to Garment · Craft Origins</span>
+              <span class="hw-ftg-heading-hint">Explore Made By Masters →</span>
+            </div>
+            <div class="hw-ftg-list" id="pdp-ftg-list"></div>
+          </div>
+
+          <!-- f. Care & Aging (accordion) -->
           <div class="hw-collapsible-block" id="pdp-care-acc">
             <button type="button" class="hw-collapsible-trigger" onclick="this.parentElement.classList.toggle('open')">
               <span class="hw-collapsible-title" id="pdp-care-title">Care & Aging</span>
@@ -2377,7 +2391,7 @@
             </div>
           </div>
 
-          <!-- COLLAPSING COMPACT SHIPPING & RETURNS WITH ELEGANT "+" -->
+          <!-- g. Shipping & Returns (accordion) -->
           <div class="hw-collapsible-block" id="pdp-shipping-acc">
             <button type="button" class="hw-collapsible-trigger" onclick="this.parentElement.classList.toggle('open')">
               <span class="hw-collapsible-title">Shipping & Returns</span>
@@ -2385,20 +2399,6 @@
             </button>
             <div class="hw-collapsible-body">
               <p class="hw-mono-spec-p" id="pdp-shipping-text">Complimentary insured express courier delivery worldwide. Dispatched within 2–3 business days in archival cloth packaging. Returns accepted within 14 days of receipt in unworn condition with original tags attached.</p>
-            </div>
-          </div>
-
-          <!-- COLLAPSIBLE FIBRE TO GARMENT · CRAFT ORIGINS (OPEN BY DEFAULT, EXPANDABLE ACCORDION) -->
-          <div class="hw-collapsible-block open hw-ftg-section" id="pdp-ftg-anchor">
-            <button type="button" class="hw-collapsible-trigger" onclick="this.parentElement.classList.toggle('open')">
-              <span class="hw-collapsible-title">Fibre to Garment · Craft Origins</span>
-              <span class="hw-collapsible-plus">+</span>
-            </button>
-            <div class="hw-collapsible-body">
-              <div class="hw-ftg-heading" onclick="openMasters(currentProduct ? currentProduct.masterId : 'khadi', true)" title="Open Made By Masters for this garment">
-                <span class="hw-ftg-heading-hint">Click any step to enter Made By Masters →</span>
-              </div>
-              <div class="hw-ftg-list" id="pdp-ftg-list"></div>
             </div>
           </div>
         </div>
@@ -3118,26 +3118,21 @@
         <button class="hw-v2-size-btn ${sz === selectedSize ? 'active' : ''}" onclick="selectSize('${sz.replace(/'/g, "\\'")}', this)">${sz}</button>
       `).join('');
 
-      document.getElementById('pdp-style-kicker').textContent = 'The Silhouette — ' + p.subtitle;
       document.getElementById('pdp-long-desc').textContent = p.longDesc || p.shortDesc;
-      document.getElementById('pdp-cloth-kicker').textContent = 'The Craft & Material — ' + p.title;
       document.getElementById('pdp-short-desc').textContent = p.shortDesc || p.commercial;
 
-      // Collapsing Bullet Points with "+"
+      // Open Static FIT Bullet Points
       const bullets = p.bullets && p.bullets.length ? p.bullets : [
         p.commercial,
         'Crafted via ' + p.technique + ' in ' + p.origin,
         'Individually cut and finished with heirloom interior seams'
       ];
       document.getElementById('pdp-bullets').innerHTML = bullets.map(b => `<li>${b}</li>`).join('');
-      document.getElementById('pdp-bullets-acc').classList.remove('open');
       document.getElementById('pdp-care-acc').classList.remove('open');
       const shipAcc = document.getElementById('pdp-shipping-acc');
       if (shipAcc) shipAcc.classList.remove('open');
-      const ftgAcc = document.getElementById('pdp-ftg-anchor');
-      if (ftgAcc) ftgAcc.classList.add('open');
 
-      document.getElementById('pdp-care-title').textContent = 'Care & Aging — ' + p.title;
+      document.getElementById('pdp-care-title').textContent = 'Care & Aging';
       document.getElementById('pdp-care-text').textContent = buildCareCopy(p);
 
       // Fibre to Garment — 100% Accurate from Spreadsheet ('Fibre to Garment' & 'Made By Masters glossary')
