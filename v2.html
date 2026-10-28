@@ -1065,19 +1065,186 @@
       color: var(--hw-accent);
       border-bottom-color: var(--hw-accent);
     }
-    /* 2-COLUMN LAYOUT ANDERSOM: LEFT = ACCORDION CHAPTERS + TEXT + GARMENTS, RIGHT = STICKY FRAMED PHOTO */
+    /* 2-COLUMN LAYOUT: LEFT = COMPACT 2-COL TECHNIQUE BOXES (01-14), RIGHT = STORY + GARMENTS + PHOTO (ZERO OVERLAP) */
+    .hw-masters-shell {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
     .hw-masters-grid {
       display: grid;
-      grid-template-columns: minmax(0, 0.62fr) minmax(280px, 0.38fr);
-      gap: clamp(2.2rem, 4.5vw, 4.5rem);
+      grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+      gap: 44px;
       align-items: start;
+      border-top: 1px solid var(--hw-border-strong);
+      padding-top: 20px;
+    }
+    .hw-masters-list {
+      position: sticky;
+      top: 96px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 20px;
+      row-gap: 0;
+      align-items: stretch;
+      min-width: 0;
+      width: 100%;
+    }
+    .hw-m-item {
+      position: relative;
+      border-bottom: 1px solid var(--hw-border);
+      min-width: 0;
+      width: 100%;
+      overflow: hidden;
+      box-sizing: border-box;
+      transition: background-color 0.25s ease, padding-left 0.25s var(--hw-m-ease);
+    }
+    .hw-m-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--hw-accent);
+      transform: scaleY(0);
+      transform-origin: center;
+      transition: transform 0.35s var(--hw-m-silk);
+    }
+    .hw-m-item.is-open::before { transform: scaleY(1); }
+    .hw-m-item.is-open {
+      padding-left: 10px;
+      background: var(--hw-surface-soft);
+    }
+    .hw-m-item__trigger {
+      width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+      background: none;
+      border: none;
+      padding: 11px 6px;
+      display: grid;
+      grid-template-columns: 20px minmax(0, 1fr) 16px;
+      align-items: center;
+      gap: 8px;
+      text-align: left;
+      cursor: pointer;
+      color: var(--hw-ink);
+    }
+    .hw-m-item__num {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--hw-accent);
+    }
+    .hw-m-item__headings {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+      overflow: hidden;
+    }
+    .hw-m-item__name {
+      font-family: var(--font-heading);
+      font-size: 14.5px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--hw-ink);
+      line-height: 1.15;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .hw-m-item.is-open .hw-m-item__name {
+      color: var(--hw-accent);
+    }
+    .hw-m-item__sub {
+      font-family: var(--font-mono);
+      font-size: 7.5px;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--hw-muted);
+      line-height: 1.25;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+    }
+    .hw-m-item.is-open .hw-m-item__sub { color: var(--hw-accent); }
+    .hw-m-item__icon {
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--hw-accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      transition: transform 0.35s var(--hw-m-silk);
+    }
+    .hw-m-item.is-open .hw-m-item__icon {
+      transform: rotate(45deg);
+      color: var(--hw-accent);
+    }
+    .hw-masters-right {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(230px, 0.85fr);
+      gap: 32px;
+      align-items: start;
+      min-width: 0;
+      width: 100%;
+    }
+    .hw-masters-detail {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .hw-masters-detail__head {
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid var(--hw-border);
+    }
+    .hw-masters-detail__num {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--hw-accent);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .hw-masters-detail__title {
+      font-family: var(--font-heading);
+      font-size: clamp(22px, 2.2vw, 28px);
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--hw-ink);
+      margin: 0 0 5px 0;
+      line-height: 1.12;
+    }
+    .hw-masters-detail__sub {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--hw-muted);
+      display: block;
     }
     .hw-masters-visual {
       position: sticky;
-      top: 110px;
+      top: 96px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
+      min-width: 0;
     }
     .hw-masters-visual__frame {
       width: 100%;
@@ -1105,119 +1272,13 @@
       padding-top: 8px;
       border-top: 1px solid var(--hw-border);
     }
-    .hw-masters-list {
-      border-top: 1px solid var(--hw-border);
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      column-gap: 22px;
-      grid-auto-flow: dense;
-      align-items: start;
-    }
-    .hw-m-item {
-      position: relative;
-      border-bottom: 1px solid var(--hw-border);
-      scroll-margin-top: 110px;
-      transition: background-color 0.35s ease, padding-left 0.35s var(--hw-m-ease);
-    }
-    .hw-m-item::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 10px;
-      bottom: 10px;
-      width: 2px;
-      background: var(--hw-accent);
-      transform: scaleY(0);
-      transform-origin: top;
-      transition: transform 0.45s var(--hw-m-silk);
-    }
-    .hw-m-item.is-open::before { transform: scaleY(1); }
-    .hw-m-item.is-open {
-      grid-column: 1 / -1;
-      padding-left: 12px;
-      background: var(--hw-surface-soft);
-    }
-    .hw-m-item__trigger {
-      width: 100%;
-      background: none;
-      border: none;
-      padding: 10px 4px;
-      display: grid;
-      grid-template-columns: 22px 1fr auto;
-      align-items: center;
-      gap: 8px;
-      text-align: left;
-      cursor: pointer;
-      color: var(--hw-ink);
-    }
-    .hw-m-item__num {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      color: var(--hw-accent);
-    }
-    .hw-m-item__headings { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
-    .hw-m-item__name {
-      font-family: var(--font-heading);
-      font-size: clamp(14.5px, 1.2vw, 17px);
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--hw-ink);
-      line-height: 1.15;
-      margin: 0;
-    }
-    .hw-m-item.is-open .hw-m-item__name {
-      color: var(--hw-accent);
-    }
-    .hw-m-item__sub {
-      font-family: var(--font-mono);
-      font-size: 8px;
-      font-weight: 600;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-      color: var(--hw-muted);
-      line-height: 1.25;
-    }
-    .hw-m-item.is-open .hw-m-item__sub { color: var(--hw-accent); }
-    .hw-m-item__icon {
-      font-family: var(--font-heading);
-      font-size: 16px;
-      font-weight: 400;
-      color: var(--hw-accent);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 18px;
-      height: 18px;
-      transition: transform 0.4s var(--hw-m-silk);
-    }
-    .hw-m-item.is-open .hw-m-item__icon {
-      transform: rotate(45deg);
-      color: var(--hw-accent);
-    }
-    .hw-m-item__panel {
-      display: grid;
-      grid-template-rows: 0fr;
-      opacity: 0;
-      transition: grid-template-rows 0.5s var(--hw-m-silk), opacity 0.4s var(--hw-m-silk);
-    }
-    .hw-m-item.is-open .hw-m-item__panel {
-      grid-template-rows: 1fr;
-      opacity: 1;
-    }
-    .hw-m-item__inner { overflow: hidden; }
-    .hw-m-item__content {
-      padding: 2px 8px 18px 30px;
-    }
     .hw-m-item__body p {
       font-family: var(--font-body);
-      font-size: 15.5px;
+      font-size: 16px;
       font-weight: 500;
-      line-height: 1.6;
+      line-height: 1.62;
       color: var(--hw-ink);
-      margin: 0 0 9px 0;
+      margin: 0 0 10px 0;
       max-width: 640px;
     }
     .hw-m-item__body p strong {
@@ -2333,22 +2394,34 @@
           </p>
         </header>
 
-        <!-- 2. 2-COLUMN LAYOUT ANDERSOM: LEFT = ACCORDION CHAPTERS + TEXT + GARMENTS, RIGHT = STICKY FRAMED PHOTO -->
+        <!-- 2. 2-COLUMN LAYOUT: LEFT = COMPACT 2-COL TECHNIQUE BOXES (01-14), RIGHT = STORY + GARMENTS + STICKY PHOTO -->
         <div class="hw-masters-grid">
 
-          <!-- LEFT COLUMN: ALL 14 VERBATIM GLOSSARY CHAPTERS + PIECES CRAFTED IN... -->
+          <!-- LEFT COLUMN: ALL 14 TECHNIQUE BOXES SIDE-BY-SIDE -->
           <div class="hw-masters-list" id="masters-accordion-list"></div>
 
-          <!-- RIGHT COLUMN: STICKY ARCHIVAL PHOTO -->
-          <aside class="hw-masters-visual">
-            <div class="hw-masters-visual__frame">
-              <img id="HwMastersActiveImg" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/3a6786b9-45ce-459e-83cb-4bee1d2e3554/184_HARTWICK_STYLE_FABRIC4R1A8940.jpg" alt="Hartwick Heritage Craft">
+          <!-- RIGHT COLUMN: SELECTED TECHNIQUE STORY + GARMENTS + ARCHIVAL PHOTO -->
+          <div class="hw-masters-right" id="masters-detail-pane">
+            <div class="hw-masters-detail">
+              <div class="hw-masters-detail__head">
+                <span class="hw-masters-detail__num" id="HwMastersDetailNum">01 &middot; TECHNIQUE</span>
+                <h2 class="hw-masters-detail__title" id="HwMastersDetailTitle">Khadi</h2>
+                <span class="hw-masters-detail__sub" id="HwMastersDetailSub">Handspun &amp; Handwoven Freedom Cloth</span>
+              </div>
+              <div class="hw-m-item__body" id="HwMastersDetailBody"></div>
+              <div class="hw-m-garments" id="HwMastersDetailGarments"></div>
             </div>
-            <div class="hw-masters-visual__caption">
-              <span id="HwMastersActiveLabel">01 &middot; KHADI</span>
-              <span>MADE BY MASTERS</span>
-            </div>
-          </aside>
+
+            <aside class="hw-masters-visual">
+              <div class="hw-masters-visual__frame">
+                <img id="HwMastersActiveImg" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/3a6786b9-45ce-459e-83cb-4bee1d2e3554/184_HARTWICK_STYLE_FABRIC4R1A8940.jpg" alt="Hartwick Heritage Craft">
+              </div>
+              <div class="hw-masters-visual__caption">
+                <span id="HwMastersActiveLabel">01 &middot; KHADI</span>
+                <span>MADE BY MASTERS</span>
+              </div>
+            </aside>
+          </div>
 
         </div>
 
@@ -3126,66 +3199,19 @@
       const accList = document.getElementById('masters-accordion-list');
       if (!accList || accList.children.length > 0) return;
 
-      const pillBar = document.getElementById('masters-pill-bar');
-      if (pillBar) {
-        pillBar.innerHTML = MASTERS.map((item, idx) => `
-          <button type="button" class="hw-masters-pill ${idx === 0 ? 'is-active' : ''}" data-master-id="${item.id}" onclick="openMasters('${item.id}', true)">
-            <span>${item.num} &middot; ${item.name}</span>
-          </button>
-        `).join('');
-      }
-
-      accList.innerHTML = MASTERS.map((item, idx) => {
-        let matching = PRODUCTS.filter(p => p.masterId === item.id);
-        if (matching.length === 0) {
-          const kw = item.name.toLowerCase().split(' ')[0];
-          matching = PRODUCTS.filter(p => (p.technique + ' ' + p.fibre + ' ' + p.commercial + ' ' + p.tags).toLowerCase().includes(kw));
-        }
-        if (matching.length === 0) matching = PRODUCTS.slice(0, 4);
-        const top4 = matching.slice(0, 4);
-
-        const garmentsHtml = `
-          <div class="hw-m-garments">
-            <span class="hw-m-garments__label">PIECES CRAFTED IN ${item.name.toUpperCase()}</span>
-            <div class="hw-m-garments__grid">
-              ${top4.map(prod => `
-                <a class="hw-m-garment-card" onclick="openProduct(${prod.id})">
-                  <div class="hw-m-garment-card__img">
-                    <img src="${prod.imgs[0]}" alt="${prod.title}" loading="lazy">
-                  </div>
-                  <span class="hw-m-garment-card__title">${prod.title}</span>
-                </a>
-              `).join('')}
+      accList.innerHTML = MASTERS.map((item, idx) => `
+        <article class="hw-m-item ${idx === 0 ? 'is-open' : ''}" id="master-acc-${item.id}" data-master-id="${item.id}">
+          <button type="button" class="hw-m-item__trigger" onclick="toggleMasterAccordion('${item.id}')" title="${item.num} · ${item.name} — ${item.sub}">
+            <span class="hw-m-item__num">${item.num}</span>
+            <div class="hw-m-item__headings">
+              <h2 class="hw-m-item__name">${item.name}</h2>
+              <span class="hw-m-item__sub">${item.sub}</span>
             </div>
-          </div>
-        `;
-
-        return `
-          <article class="hw-m-item ${idx === 0 ? 'is-open' : ''}" id="master-acc-${item.id}" data-master-id="${item.id}" data-img="${item.img}" data-title="${item.num} · ${item.name.toUpperCase()}">
-            <button type="button" class="hw-m-item__trigger" onclick="toggleMasterAccordion('${item.id}')">
-              <span class="hw-m-item__num">${item.num}</span>
-              <div class="hw-m-item__headings">
-                <h2 class="hw-m-item__name">${item.name}</h2>
-                <span class="hw-m-item__sub">${item.sub}</span>
-              </div>
-              <span class="hw-m-item__icon">+</span>
-            </button>
-            <div class="hw-m-item__panel">
-              <div class="hw-m-item__inner">
-                <div class="hw-m-item__content">
-                  <div class="hw-m-item__body">
-                    <p><strong>${item.name.toUpperCase()}:</strong> ${item.lead}</p>
-                    <p>${item.c1}</p>
-                    <p>${item.c2}</p>
-                    <p><em>Handwork naturally results in variations. We cherish these nuances for their human touch.</em></p>
-                  </div>
-                  ${garmentsHtml}
-                </div>
-              </div>
-            </div>
+            <span class="hw-m-item__icon">+</span>
           </article>
-        `;
-      }).join('');
+      `).join('');
+
+      syncMasterPhoto(MASTERS[0]);
     }
 
     function syncMasterPhoto(m) {
@@ -3200,23 +3226,55 @@
       if (lblEl) {
         lblEl.textContent = m.num + ' · ' + m.name.toUpperCase();
       }
+
+      const numEl = document.getElementById('HwMastersDetailNum');
+      const titleEl = document.getElementById('HwMastersDetailTitle');
+      const subEl = document.getElementById('HwMastersDetailSub');
+      const bodyEl = document.getElementById('HwMastersDetailBody');
+      const garmEl = document.getElementById('HwMastersDetailGarments');
+
+      if (numEl) numEl.textContent = m.num + ' / 14 · MADE BY MASTERS';
+      if (titleEl) titleEl.textContent = m.name;
+      if (subEl) subEl.textContent = m.sub;
+      if (bodyEl) {
+        bodyEl.innerHTML = `
+          <p><strong>${m.name.toUpperCase()}:</strong> ${m.lead}</p>
+          <p>${m.c1}</p>
+          <p>${m.c2}</p>
+          <p><em>Handwork naturally results in variations. We cherish these nuances for their human touch.</em></p>
+        `;
+      }
+      if (garmEl) {
+        let matching = PRODUCTS.filter(p => p.masterId === m.id);
+        if (matching.length === 0) {
+          const kw = m.name.toLowerCase().split(' ')[0];
+          matching = PRODUCTS.filter(p => (p.technique + ' ' + p.fibre + ' ' + p.commercial + ' ' + p.tags).toLowerCase().includes(kw));
+        }
+        if (matching.length === 0) matching = PRODUCTS.slice(0, 4);
+        const top4 = matching.slice(0, 4);
+        garmEl.innerHTML = `
+          <span class="hw-m-garments__label">PIECES CRAFTED IN ${m.name.toUpperCase()}</span>
+          <div class="hw-m-garments__grid">
+            ${top4.map(prod => `
+              <a class="hw-m-garment-card" onclick="openProduct(${prod.id})">
+                <div class="hw-m-garment-card__img">
+                  <img src="${prod.imgs[0]}" alt="${prod.title}" loading="lazy">
+                </div>
+                <span class="hw-m-garment-card__title">${prod.title}</span>
+              </a>
+            `).join('')}
+          </div>
+        `;
+      }
     }
 
     function toggleMasterAccordion(masterId) {
       const m = MASTERS.find(x => x.id === masterId) || MASTERS[0];
-      const article = document.getElementById('master-acc-' + m.id);
-      if (!article) return;
-      const willOpen = !article.classList.contains('is-open');
-      document.querySelectorAll('.hw-m-item.is-open').forEach(el => {
-        if (el !== article) el.classList.remove('is-open');
+      document.querySelectorAll('.hw-m-item').forEach(el => {
+        el.classList.toggle('is-open', el.id === 'master-acc-' + m.id);
       });
-      article.classList.toggle('is-open', willOpen);
-      if (willOpen) {
-        syncMasterPhoto(m);
-        document.querySelectorAll('.hw-masters-pill').forEach(p => {
-          p.classList.toggle('is-active', p.getAttribute('data-master-id') === m.id);
-        });
-      }
+      syncMasterPhoto(m);
+      history.replaceState(null, '', '#masters/' + m.id);
     }
 
     function openMasters(masterId, scrollToItem = true) {
