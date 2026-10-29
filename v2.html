@@ -739,8 +739,168 @@
     }
     @media (max-width: 1024px) {
       .d1-tot-hero { margin-top: -72px; }
-      .d1-tot-split, .d1-tot-grid, .d1-tot-craft, .d1-tot-founder { grid-template-columns: 1fr; }
-      .d1-tot-split__card:first-child, .d1-tot-craft__col:first-child { border-right: none; border-bottom: 1px solid var(--hw-border); }
+      .d1-tot-craft, .d1-tot-founder { grid-template-columns: 1fr; }
+      .d1-tot-craft__col:first-child { border-right: none; border-bottom: 1px solid var(--hw-border); }
+    }
+    @media (max-width: 768px) {
+      .d1-tot-hero {
+        margin-top: -62px;
+        height: clamp(350px, 54vh, 430px);
+      }
+      .d1-tot-hero img {
+        object-position: 62% 18%;
+      }
+      .d1-tot-hero__veil {
+        padding: 58px 16px 20px;
+        align-items: flex-end;
+        background: linear-gradient(180deg, rgba(237, 229, 216, 0.45) 0%, rgba(237, 229, 216, 0.08) 38%, rgba(237, 229, 216, 0.88) 100%);
+      }
+      .d1-tot-hero__box {
+        max-width: 100%;
+      }
+      .d1-tot-hero__title {
+        font-size: clamp(16px, 4.6vw, 20px);
+        letter-spacing: 0.16em;
+        line-height: 1.24;
+        margin: 0 0 5px 0;
+      }
+      .d1-tot-hero__sub {
+        font-size: 8.5px;
+        letter-spacing: 0.14em;
+        line-height: 1.45;
+      }
+      .d1-tot-center {
+        padding: 16px 14px 12px;
+      }
+      .d1-tot-center__kicker {
+        font-size: 8px;
+        letter-spacing: 0.2em;
+        margin-bottom: 4px;
+      }
+      .d1-tot-center__stack {
+        font-size: clamp(14px, 4.1vw, 17.5px);
+        letter-spacing: 0.14em;
+        line-height: 1.28;
+        margin-bottom: 6px;
+      }
+      .d1-tot-center__body {
+        font-size: 13.8px;
+        line-height: 1.46;
+        margin-bottom: 4px;
+      }
+      .d1-tot-center__pillars {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5px 10px;
+        text-align: left;
+        margin: 8px auto 2px;
+        padding-top: 8px;
+      }
+      .d1-tot-center__pillars .t-detail-meta {
+        font-size: 7.5px;
+        letter-spacing: 0.11em;
+        line-height: 1.3;
+      }
+      .d1-tot-split {
+        grid-template-columns: 1fr 1fr;
+      }
+      .d1-tot-split__card {
+        aspect-ratio: 3 / 3.85;
+        max-height: 270px;
+      }
+      .d1-tot-split__card:first-child {
+        border-right: 1px solid var(--hw-border);
+        border-bottom: none;
+      }
+      .d1-tot-split__overlay {
+        padding: 10px;
+      }
+      .d1-tot-split__label {
+        font-size: clamp(10.5px, 3vw, 13px);
+        letter-spacing: 0.14em;
+        line-height: 1.25;
+      }
+      .d1-tot-split__sub {
+        font-size: 7px;
+        letter-spacing: 0.11em;
+        margin-top: 4px;
+        line-height: 1.3;
+      }
+      .d1-tot-grid-sec {
+        padding: 14px 12px 16px;
+      }
+      .d1-tot-grid-head {
+        margin-bottom: 8px;
+      }
+      .d1-tot-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .d1-tot-pcard__media {
+        aspect-ratio: 3 / 3.8;
+        margin-bottom: 5px;
+      }
+      .d1-tot-pcard__meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1px;
+      }
+      .d1-tot-pcard__name {
+        font-size: 11px;
+        line-height: 1.2;
+        width: 100%;
+      }
+      .d1-tot-pcard__price {
+        font-size: 8.5px;
+        letter-spacing: 0.1em;
+        color: var(--hw-muted);
+      }
+      .d1-tot-feel-band {
+        padding: 14px 14px;
+      }
+      .d1-tot-feel-band .t-detail-meta {
+        font-size: 8px;
+        margin-bottom: 4px !important;
+      }
+      .d1-tot-feel-band .t-story-quote {
+        font-size: 14.5px;
+        line-height: 1.46;
+      }
+      .d1-tot-craft__col {
+        padding: 12px 14px;
+        grid-template-columns: 82px 1fr;
+        gap: 12px;
+      }
+      .d1-tot-craft__img {
+        width: 82px;
+        height: 100px;
+      }
+      .d1-tot-craft__col .t-detail-meta {
+        font-size: 7.5px;
+        letter-spacing: 0.15em;
+      }
+      .d1-tot-craft__col .t-heading-lg {
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        margin: 2px 0 4px !important;
+      }
+      .d1-tot-craft__col .t-story-body {
+        font-size: 13px !important;
+        line-height: 1.42;
+      }
+      .d1-tot-founder {
+        padding: 14px 14px;
+        gap: 6px;
+        margin-bottom: 8px;
+      }
+      .d1-tot-founder .t-heading-md {
+        font-size: 11px;
+        letter-spacing: 0.15em;
+      }
+      .d1-tot-founder .t-story-quote {
+        font-size: 14px !important;
+        line-height: 1.46;
+      }
     }
 
     /* ==========================================================================
@@ -3117,35 +3277,50 @@
 
       /* Made By Masters on Mobile */
       .hw-masters-page {
-        padding: 6px 16px 24px;
+        padding: 10px 14px 28px;
       }
       .hw-masters-intro {
-        margin-bottom: 14px;
+        margin-bottom: 12px;
+      }
+      .hw-masters-index-bar {
+        display: none;
       }
       .hw-masters-title {
-        font-size: clamp(22px, 6vw, 28px);
+        font-size: clamp(20px, 5.4vw, 25px);
       }
-      .hw-masters-lead-p {
-        font-size: 15px;
+      .hw-masters-lead-p,
+      .hw-masters-nuance {
+        font-size: 14px;
+        line-height: 1.46;
       }
       .hw-masters-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 6px;
+        gap: 5px;
         padding-right: 0;
         border-right: none;
       }
       .hw-m-btn {
-        padding: 8px 8px;
+        padding: 7px 8px;
       }
       .hw-m-btn__name {
         font-size: 10.5px;
       }
       .hw-masters-card {
-        padding: 6px 0 12px;
+        padding: 4px 0 12px;
+      }
+      .hw-masters-card__body p {
+        font-size: 14.5px;
+        line-height: 1.5;
       }
       .hw-m-garments__grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .hw-m-garment-card__title {
+        font-size: 9.5px;
+      }
+      .hw-m-garment-card__sub {
+        font-size: 11px;
       }
 
       /* Our Story & Ultra-Compact Contact / Private Appointment on Mobile */
@@ -3297,8 +3472,8 @@
 
     @media (max-width: 480px) {
       .hw-product-grid {
-        grid-template-columns: 1fr;
-        gap: 28px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px 10px;
       }
       .hw-v2-size-RowAndAtc {
         flex-direction: column;
