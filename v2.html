@@ -3501,6 +3501,133 @@
         padding: 20px 16px;
       }
     }
+
+    /* ==========================================================================
+       COMPLETE MOBILE & DESKTOP LUXURY EDITORIAL ANIMATION CHOREOGRAPHY
+       ========================================================================== */
+    @keyframes hwHeroZoom {
+      0% { transform: scale(1.065); filter: brightness(0.95); }
+      100% { transform: scale(1); filter: brightness(1); }
+    }
+    @keyframes hwHeroTextUp {
+      0% { opacity: 0; transform: translateY(18px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes hwStaggerUp {
+      0% { opacity: 0; transform: translateY(20px) scale(0.99); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes hwDrawerLinkIn {
+      0% { opacity: 0; transform: translateX(-12px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes hwGentleFloat {
+      0%, 100% { transform: translateY(0); opacity: 0.72; }
+      50% { transform: translateY(4px); opacity: 1; }
+    }
+
+    /* Hero entrance choreography */
+    .hw-view.active .d1-tot-hero img {
+      animation: hwHeroZoom 1.65s var(--hw-ease-out) both;
+    }
+    .hw-view.active .d1-tot-hero__title {
+      animation: hwHeroTextUp 0.85s var(--hw-ease-silk) 0.12s both;
+    }
+    .hw-view.active .d1-tot-hero__sub {
+      animation: hwHeroTextUp 0.85s var(--hw-ease-silk) 0.26s both;
+    }
+    .d1-tot-chevron {
+      animation: hwGentleFloat 2.6s ease-in-out infinite;
+    }
+
+    /* Scroll-reveal base & revealed state (works on both Mobile & Desktop) */
+    .hw-scroll-reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition:
+        opacity 0.78s var(--hw-ease-silk),
+        transform 0.78s var(--hw-ease-silk);
+      transition-delay: var(--reveal-delay, 0ms);
+      will-change: opacity, transform;
+    }
+    .hw-scroll-reveal.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Soft image scale-in when card enters viewport on mobile & desktop */
+    .hw-scroll-reveal .hw-product-card-media img,
+    .hw-scroll-reveal .d1-tot-pcard__media img.img-primary,
+    .hw-scroll-reveal.d1-tot-split__card img,
+    .hw-scroll-reveal.hw-v2-lookbook-item img,
+    .hw-scroll-reveal .hw-m-garment-card__img img,
+    .hw-scroll-reveal .d1-tot-craft__img img,
+    .hw-scroll-reveal .hw-chapter__img-wrap img {
+      transform: scale(1.05);
+      transition: transform 1.25s var(--hw-ease-out), opacity 0.75s var(--hw-ease-silk);
+    }
+    .hw-scroll-reveal.is-revealed .hw-product-card-media img,
+    .hw-scroll-reveal.is-revealed .d1-tot-pcard__media img.img-primary,
+    .hw-scroll-reveal.is-revealed.d1-tot-split__card img,
+    .hw-scroll-reveal.is-revealed.hw-v2-lookbook-item img,
+    .hw-scroll-reveal.is-revealed .hw-m-garment-card__img img,
+    .hw-scroll-reveal.is-revealed .d1-tot-craft__img img,
+    .hw-scroll-reveal.is-revealed .hw-chapter__img-wrap img {
+      transform: scale(1);
+    }
+
+    /* Mobile drawer staggered link animation when opened */
+    .hw-mobile-menu-backdrop.open .hw-m-nav-group {
+      animation: hwDrawerLinkIn 0.45s var(--hw-ease-silk) both;
+    }
+    .hw-mobile-menu-backdrop.open .hw-m-nav-group:nth-child(1) { animation-delay: 0.04s; }
+    .hw-mobile-menu-backdrop.open .hw-m-nav-group:nth-child(2) { animation-delay: 0.08s; }
+    .hw-mobile-menu-backdrop.open .hw-m-nav-group:nth-child(3) { animation-delay: 0.12s; }
+    .hw-mobile-menu-backdrop.open .hw-m-nav-group:nth-child(4) { animation-delay: 0.16s; }
+    .hw-mobile-menu-backdrop.open .hw-m-nav-group:nth-child(5) { animation-delay: 0.20s; }
+    .hw-mobile-menu-backdrop.open .hw-m-nav-group:nth-child(6) { animation-delay: 0.24s; }
+
+    /* Tactile touch-feedback micro-interactions on Mobile & Tablet */
+    .hw-product-card,
+    .d1-tot-pcard,
+    .d1-tot-split__card,
+    .d1-tot-craft__col,
+    .hw-m-btn,
+    .hw-m-garment-card,
+    .hw-subfilter-pill,
+    .hw-v2-var-card,
+    .hw-v2-size-btn,
+    .hw-ftg-open-row {
+      transition: transform 0.32s var(--hw-ease-out), opacity 0.25s ease, border-color 0.3s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .hw-product-card:active,
+    .d1-tot-pcard:active,
+    .d1-tot-split__card:active,
+    .d1-tot-craft__col:active,
+    .hw-m-btn:active,
+    .hw-m-garment-card:active,
+    .hw-v2-var-card:active {
+      transform: scale(0.978);
+    }
+
+    /* On touch devices, gently crossfade dual-media cards when tapped or in focus */
+    @media (hover: none) {
+      @keyframes hwMobileEditorialPeek {
+        0%, 62%, 100% { opacity: 0; transform: scale(1.03); }
+        74%, 90% { opacity: 1; transform: scale(1); }
+      }
+      .d1-tot-pcard.is-revealed .hw-dual-media .img-secondary {
+        animation: hwMobileEditorialPeek 9s var(--hw-ease-silk) infinite;
+      }
+      .d1-tot-pcard:nth-child(2).is-revealed .hw-dual-media .img-secondary {
+        animation-delay: 3s;
+      }
+      .d1-tot-pcard:nth-child(3).is-revealed .hw-dual-media .img-secondary {
+        animation-delay: 6s;
+      }
+    }
+
   </style>
 </head>
 <body class="d1-seamless-nav">
@@ -4923,6 +5050,7 @@
         void cardInner.offsetWidth;
         cardInner.classList.add('is-animating');
       }
+      setTimeout(initLuxuryScrollChoreography, 20);
     }
 
     function selectMasterTechnique(masterId) {
@@ -5064,26 +5192,75 @@
       e.target.reset();
     }
 
+    let hwScrollObserver = null;
     function initLuxuryScrollChoreography() {
-      const targets = document.querySelectorAll('.hw-sqs-ig-item, .hw-sqs-footer-main > div, .hw-related-section, .hw-chapter, .hw-finale, .hw-concierge__info, .hw-concierge__form-wrap');
-      targets.forEach((el, idx) => {
-        if (!el.classList.contains('hw-scroll-reveal')) {
-          el.classList.add('hw-scroll-reveal');
-          el.style.transitionDelay = ((idx % 6) * 55) + 'ms';
-        }
-      });
+      const selector = [
+        /* Homepage (#view-home) */
+        '.d1-tot-center__kicker',
+        '.d1-tot-center__stack',
+        '.d1-tot-center__body',
+        '.d1-tot-center__pillars .t-detail-meta',
+        '.d1-tot-split__card',
+        '.d1-tot-grid-head',
+        '.d1-tot-pcard',
+        '.d1-tot-feel-band',
+        '.d1-tot-craft__col',
+        '.d1-tot-founder',
+        /* Collection (#view-collection) */
+        '.hw-subfilter-bar',
+        '.hw-product-card',
+        /* Product Page (#view-product) */
+        '.hw-v2-lookbook-item',
+        '.hw-v2-title-row',
+        '.hw-v2-variations',
+        '.hw-v2-purchase-block',
+        '.hw-v2-story-block',
+        '.hw-static-fit-block',
+        '.hw-ftg-open-row',
+        '.hw-related-section',
+        /* Made By Masters (#view-masters) */
+        '.hw-masters-intro',
+        '.hw-m-btn',
+        '.hw-masters-card',
+        '.hw-m-garment-card',
+        /* Story, Concierge & Footer */
+        '.hw-story__hero',
+        '.hw-chapter',
+        '.hw-finale',
+        '.hw-concierge__info',
+        '.hw-concierge__form-wrap',
+        '.hw-footer-quote-band',
+        '.hw-sqs-ig-item',
+        '.hw-dispatch-box',
+        '.hw-sqs-footer-main > div'
+      ].join(', ');
+
+      const targets = document.querySelectorAll(selector);
       if ('IntersectionObserver' in window) {
-        const obs = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-revealed');
-              obs.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
-        targets.forEach(el => obs.observe(el));
+        if (!hwScrollObserver) {
+          hwScrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                hwScrollObserver.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.06, rootMargin: '0px 0px -12px 0px' });
+        }
+        targets.forEach((el, idx) => {
+          if (!el.classList.contains('hw-scroll-reveal')) {
+            el.classList.add('hw-scroll-reveal');
+            const delay = (idx % 4) * 55;
+            el.style.setProperty('--reveal-delay', delay + 'ms');
+          }
+          if (!el.classList.contains('is-revealed')) {
+            hwScrollObserver.observe(el);
+          }
+        });
       } else {
-        targets.forEach(el => el.classList.add('is-revealed'));
+        targets.forEach(el => {
+          el.classList.add('hw-scroll-reveal', 'is-revealed');
+        });
       }
     }
 

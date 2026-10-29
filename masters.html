@@ -1355,6 +1355,49 @@
         font-size: 11px;
       }
     }
+
+    /* ==========================================================================
+       SILKY SCROLL-REVEAL & MOBILE TOUCH ANIMATION CHOREOGRAPHY
+       ========================================================================== */
+    @keyframes hwCardGlideIn {
+      0% { opacity: 0; transform: translateY(14px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .hw-scroll-reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.72s var(--hw-ease-silk), transform 0.72s var(--hw-ease-silk);
+      transition-delay: var(--reveal-delay, 0ms);
+      will-change: opacity, transform;
+    }
+    .hw-scroll-reveal.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .d1-card,
+    .d2-stage > div,
+    .d4-chapter.is-open .d4-chapter__body > div {
+      animation: hwCardGlideIn 0.52s var(--hw-ease-silk) both;
+    }
+    .hw-m-garment-card {
+      animation: hwCardGlideIn 0.55s var(--hw-ease-silk) both;
+    }
+    .hw-m-garment-card:nth-child(1) { animation-delay: 0.04s; }
+    .hw-m-garment-card:nth-child(2) { animation-delay: 0.11s; }
+    .hw-m-garment-card:nth-child(3) { animation-delay: 0.18s; }
+    .d1-btn,
+    .d2-tab,
+    .d3-card,
+    .d4-chapter__bar,
+    .hw-m-garment-card {
+      transition: transform 0.3s var(--hw-ease-out), border-color 0.3s ease, opacity 0.25s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .d1-btn:active,
+    .d2-tab:active,
+    .hw-m-garment-card:active {
+      transform: scale(0.978);
+    }
   </style>
 </head>
 <body>
@@ -1790,6 +1833,34 @@
     /* ==========================================================================
        SWITCH MASTERPAGE DESIGN (1 — 4)
        ========================================================================== */
+    let hwMastersObserver = null;
+    function initMastersScrollReveal() {
+      const targets = document.querySelectorAll('.d1-header, .d2-header, .d3-hero-header, .d4-header, .d1-btn, .d2-tab, .d3-card, .d4-chapter');
+      if ('IntersectionObserver' in window) {
+        if (!hwMastersObserver) {
+          hwMastersObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                hwMastersObserver.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.06, rootMargin: '0px 0px -12px 0px' });
+        }
+        targets.forEach((el, idx) => {
+          if (!el.classList.contains('hw-scroll-reveal')) {
+            el.classList.add('hw-scroll-reveal');
+            el.style.setProperty('--reveal-delay', ((idx % 4) * 45) + 'ms');
+          }
+          if (!el.classList.contains('is-revealed')) {
+            hwMastersObserver.observe(el);
+          }
+        });
+      } else {
+        targets.forEach(el => el.classList.add('hw-scroll-reveal', 'is-revealed'));
+      }
+    }
+
     function switchMasterDesign(n) {
       activeDesign = n;
       [1, 2, 3, 4].forEach(i => {
@@ -1800,6 +1871,7 @@
         history.replaceState(null, '', '#design' + n);
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(initMastersScrollReveal, 30);
     }
 
     function initFromHash() {
@@ -1814,6 +1886,7 @@
     renderDesign3();
     renderDesign4();
     initFromHash();
+    initMastersScrollReveal();
     window.addEventListener('hashchange', initFromHash);
   </script>
 </body>
