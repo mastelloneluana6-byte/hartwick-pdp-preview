@@ -706,7 +706,30 @@
     .d1-tot-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: 24px;
+    }
+    .d1-tot-col-block {
+      display: flex;
+      flex-direction: column;
+      transition: opacity 0.35s ease;
+    }
+    .d1-tot-col-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--hw-border);
+      gap: 12px;
+    }
+    .d1-tot-col-title {
+      font-family: var(--font-heading);
+      font-size: 13.5px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--hw-ink);
+      margin: 0;
     }
     .d1-tot-pcard {
       display: flex;
@@ -4461,42 +4484,68 @@
 
       <!-- 4. Section 5 (Part B) — 3-Column Collection Edit on Warm Khadi-Linen (#EDE5D8) -->
       <section class="d1-tot-grid-sec">
-        <div class="d1-tot-grid-head">
-          <h2 class="t-heading-md" id="d1-dynamic-grid-title" style="margin:0;">COLLECTIONS &middot; MATKA SILK</h2>
-          <button type="button" class="t-detail-link" id="d1-dynamic-grid-cta" onclick="openCollection('Skirts & Dresses')">SEE ALL</button>
+        <div class="d1-tot-grid-head" style="margin-bottom: 16px;">
+          <span class="t-detail-meta" id="d1-dynamic-grid-title" style="color:var(--hw-muted); letter-spacing:0.2em;">CURATED BY EDIT &middot; MATKA SILK</span>
+          <div style="display:flex; gap:18px; align-items:center; flex-wrap:wrap;">
+            <button type="button" class="d1-tot-edit-pill active" id="cat-mode-all" onclick="setHomeGridCategoryMode('ALL')">ALL CATEGORIES</button>
+            <button type="button" class="d1-tot-edit-pill" id="cat-mode-trousers" onclick="setHomeGridCategoryMode('TROUSERS')">TROUSERS (3)</button>
+            <button type="button" class="d1-tot-edit-pill" id="cat-mode-coats" onclick="setHomeGridCategoryMode('COATS')">COATS &amp; BAGS (3)</button>
+            <button type="button" class="d1-tot-edit-pill" id="cat-mode-accessories" onclick="setHomeGridCategoryMode('ACCESSORIES')">ACCESSORIES (3)</button>
+          </div>
         </div>
 
         <div class="d1-tot-grid" id="d1-dynamic-edit-grid">
-          <div class="d1-tot-pcard" onclick="openProduct(1)">
-            <div class="d1-tot-pcard__media hw-dual-media">
-              <img class="img-primary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/0e0c3b00-61cb-4eed-8741-db304f1fd896/004034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w" alt="Tribeca Emerald Skirt" />
-              <img class="img-secondary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1761394286610-IZ46RMUKJAHY9K3G8K4Z/034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg" alt="Tribeca Emerald Detail" />
+          <!-- COLUMN 1: SKIRTS & DRESSES -->
+          <div class="d1-tot-col-block">
+            <div class="d1-tot-col-head">
+              <h2 class="d1-tot-col-title">SKIRTS &amp; DRESSES</h2>
+              <button type="button" class="t-detail-link" onclick="openCollection('Skirts & Dresses')">SEE ALL</button>
             </div>
-            <div class="d1-tot-pcard__meta">
-              <span class="d1-tot-pcard__name">Tribeca Emerald Skirt &middot; Matka Silk</span>
-              <span class="d1-tot-pcard__price">&euro; 696</span>
-            </div>
-          </div>
-
-          <div class="d1-tot-pcard" onclick="openProduct(7)">
-            <div class="d1-tot-pcard__media hw-dual-media">
-              <img class="img-primary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/c5a3da4d-5d66-4d98-bf24-dcdff0587017/006_HARTWICK_HANDWOVEN_PARIS_TROUSERS_KHADI_TWILL_AMMAN_SHIRT.jpg?format=1500w" alt="Amman Checkerboard Shirt" />
-              <img class="img-secondary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/8bbfed41-6c2e-4791-916c-571fd8c3b7c9/001_HARTWICK_HANDWOVEN_LUCCA_TROUSERS_KHADI_REDBRICK_AMMAN_CHECKERBOARD.jpg" alt="Amman Shirt Detail" />
-            </div>
-            <div class="d1-tot-pcard__meta">
-              <span class="d1-tot-pcard__name">Amman Checkerboard Shirt &middot; Khadi</span>
-              <span class="d1-tot-pcard__price">&euro; 408</span>
+            <div class="d1-tot-pcard" onclick="openProduct(1)">
+              <div class="d1-tot-pcard__media hw-dual-media">
+                <img class="img-primary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/0e0c3b00-61cb-4eed-8741-db304f1fd896/004034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w" alt="Tribeca Emerald Skirt" />
+                <img class="img-secondary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1761394286610-IZ46RMUKJAHY9K3G8K4Z/034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg" alt="Tribeca Emerald Detail" />
+              </div>
+              <div class="d1-tot-pcard__meta">
+                <span class="d1-tot-pcard__name">Tribeca Skirt &middot; Matka Silk</span>
+                <span class="d1-tot-pcard__price">&euro; 696</span>
+              </div>
             </div>
           </div>
 
-          <div class="d1-tot-pcard" onclick="openProduct(40)">
-            <div class="d1-tot-pcard__media hw-dual-media">
-              <img class="img-primary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/8d28d4d4-4b30-44c7-999b-636e1a552025/002+_HARTWICK_HANDWOVEN_MARYLEBONE_COAT_IKAT_BOMBAY_TROUSERS_SITGES_TOTEBAG.jpg" alt="Marylebone Celeste Coat" />
-              <img class="img-secondary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/cee2a89a-47b0-49ef-bec1-07c7473bdf43/010+_HARTWICK_HANDWOVEN_MARYLEBONE_COAT_IKAT_BOMBAY_TROUSERS_SITGES_TOTEBAG.jpg" alt="Marylebone Coat Back" />
+          <!-- COLUMN 2: TROUSERS -->
+          <div class="d1-tot-col-block">
+            <div class="d1-tot-col-head">
+              <h2 class="d1-tot-col-title">TROUSERS</h2>
+              <button type="button" class="t-detail-link" onclick="openCollection('Trousers')">SEE ALL</button>
             </div>
-            <div class="d1-tot-pcard__meta">
-              <span class="d1-tot-pcard__name">Marylebone Celeste Coat &middot; Ikat Silk</span>
-              <span class="d1-tot-pcard__price">&euro; 824</span>
+            <div class="d1-tot-pcard" onclick="openProduct(38)">
+              <div class="d1-tot-pcard__media hw-dual-media">
+                <img class="img-primary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1761411008753-51CC0FJDD1KDT5G3S0IW/001_HARTWICK_HANDWOVEN_JODHPUR_SHIRT_KHADI_SEOUL_TROUSERS_SILK_NATURALDYE.jpg?format=1500w" alt="Seoul Black Matka Trousers" />
+                <img class="img-secondary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/c5a3da4d-5d66-4d98-bf24-dcdff0587017/006_HARTWICK_HANDWOVEN_PARIS_TROUSERS_KHADI_TWILL_AMMAN_SHIRT.jpg?format=1500w" alt="Trousers Detail" />
+              </div>
+              <div class="d1-tot-pcard__meta">
+                <span class="d1-tot-pcard__name">Seoul Trousers &middot; Raw Matka Silk</span>
+                <span class="d1-tot-pcard__price">&euro; 560</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- COLUMN 3: COATS & ACCESSORIES -->
+          <div class="d1-tot-col-block">
+            <div class="d1-tot-col-head">
+              <h2 class="d1-tot-col-title">COATS &amp; ACCESSORIES</h2>
+              <button type="button" class="t-detail-link" onclick="openCollection('Coats & Bags')">SEE ALL</button>
+            </div>
+            <div class="d1-tot-pcard" onclick="openProduct(40)">
+              <div class="d1-tot-pcard__media hw-dual-media">
+                <img class="img-primary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/8d28d4d4-4b30-44c7-999b-636e1a552025/002+_HARTWICK_HANDWOVEN_MARYLEBONE_COAT_IKAT_BOMBAY_TROUSERS_SITGES_TOTEBAG.jpg" alt="Marylebone Celeste Coat" />
+                <img class="img-secondary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/cee2a89a-47b0-49ef-bec1-07c7473bdf43/010+_HARTWICK_HANDWOVEN_MARYLEBONE_COAT_IKAT_BOMBAY_TROUSERS_SITGES_TOTEBAG.jpg" alt="Marylebone Coat Back" />
+              </div>
+              <div class="d1-tot-pcard__meta">
+                <span class="d1-tot-pcard__name">Marylebone Coat &middot; Ikat</span>
+                <span class="d1-tot-pcard__price">&euro; 824</span>
+              </div>
             </div>
           </div>
         </div>
@@ -6488,8 +6537,12 @@
         desc: 'MATKA SILK',
         img: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/b9443331-bc80-48fb-814c-1c473d3d8bdc/001_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_AMMAN_SHIRT.jpg',
         collection: 'Skirts & Dresses',
-        gridTitle: 'COLLECTIONS · MATKA SILK EDIT',
-        productIds: [1, 38, 7]
+        gridTitle: 'CURATED BY EDIT · MATKA SILK',
+        blocks: [
+          { catTitle: 'SKIRTS & DRESSES', col: 'Skirts & Dresses', prodId: 1 },
+          { catTitle: 'TROUSERS', col: 'Trousers', prodId: 38 },
+          { catTitle: 'COATS & ACCESSORIES', col: 'Coats & Bags', prodId: 40 }
+        ]
       },
       {
         tag: 'WINTER COLLECTION',
@@ -6497,8 +6550,12 @@
         desc: 'WINTER COLLECTION',
         img: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/8d28d4d4-4b30-44c7-999b-636e1a552025/002+_HARTWICK_HANDWOVEN_MARYLEBONE_COAT_IKAT_BOMBAY_TROUSERS_SITGES_TOTEBAG.jpg',
         collection: 'Coats & Bags',
-        gridTitle: 'COLLECTIONS · WINTER COLLECTION',
-        productIds: [40, 41, 53]
+        gridTitle: 'CURATED BY EDIT · WINTER COLLECTION',
+        blocks: [
+          { catTitle: 'SHIRTS & BLOUSES', col: 'Shirts & Blouses', prodId: 24 },
+          { catTitle: 'TROUSERS', col: 'Trousers', prodId: 28 },
+          { catTitle: 'COATS', col: 'Coats & Bags', prodId: 41 }
+        ]
       },
       {
         tag: 'IKAT',
@@ -6506,8 +6563,12 @@
         desc: 'IKAT',
         img: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fcda712d-37c3-4440-9896-a9968e7e7369/010_HARTWICK_HANDWOVEN_LUCCA_TROUSERS_SANTAFE_SHIRT_IKAT.jpg?format=1500w',
         collection: 'Shirts & Blouses',
-        gridTitle: 'COLLECTIONS · IKAT EDIT',
-        productIds: [16, 19, 22]
+        gridTitle: 'CURATED BY EDIT · IKAT',
+        blocks: [
+          { catTitle: 'SHIRTS & BLOUSES', col: 'Shirts & Blouses', prodId: 16 },
+          { catTitle: 'TROUSERS', col: 'Trousers', prodId: 29 },
+          { catTitle: 'COATS', col: 'Coats & Bags', prodId: 40 }
+        ]
       },
       {
         tag: 'HANDSPUN KHADI',
@@ -6515,8 +6576,12 @@
         desc: 'HANDSPUN KHADI',
         img: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/c5a3da4d-5d66-4d98-bf24-dcdff0587017/006_HARTWICK_HANDWOVEN_PARIS_TROUSERS_KHADI_TWILL_AMMAN_SHIRT.jpg?format=1500w',
         collection: 'Apparel',
-        gridTitle: 'COLLECTIONS · HANDSPUN KHADI EDIT',
-        productIds: [7, 25, 29]
+        gridTitle: 'CURATED BY EDIT · HANDSPUN KHADI',
+        blocks: [
+          { catTitle: 'SHIRTS & BLOUSES', col: 'Shirts & Blouses', prodId: 7 },
+          { catTitle: 'TROUSERS', col: 'Trousers', prodId: 37 },
+          { catTitle: 'ACCESSORIES', col: 'Coats & Bags', prodId: 53 }
+        ]
       }
     ];
 
@@ -6530,65 +6595,113 @@
         desc: 'FINE SILK & JEWELLERY',
         img: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/19c9c1dd-0fcf-4c77-a43d-59d41df9860f/009073_HARTWICK_HANDWOVEN_PALMA_SKIRT_SILK_NATURALDYE_BLOCKPRINT_AMMAN_SHIRT_LINEN.jpg?format=1500w',
         collection: 'Fine Silk',
-        gridTitle: 'COLLECTIONS · FINE SILK & JEWELLERY EDIT',
-        productIds: [57, 79, 84]
+        gridTitle: 'CURATED BY EDIT · FINE SILK & JEWELLERY',
+        blocks: [
+          { catTitle: 'FINE SILK DUPATTAS', col: 'Fine Silk', prodId: 57 },
+          { catTitle: 'TROUSERS', col: 'Trousers', prodId: 30 },
+          { catTitle: 'FINE JEWELLERY', col: 'Fine Jewellery', prodId: 79 }
+        ]
       },
       FINE_JEWELLERY: {
         head: 'IN FOCUS EDIT',
         desc: 'LIMINAL FINE JEWELLERY',
         img: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a00dafc2-eaeb-476b-872d-879c49cdcb79/v005HARTWICK_LIMINAL_STEP_RING_24KGOLD_RHODOLITE_SILVER_HANDCRAFTED.jpg',
         collection: 'Fine Jewellery',
-        gridTitle: 'COLLECTIONS · LIMINAL FINE JEWELLERY',
-        productIds: [79, 84, 91]
+        gridTitle: 'CURATED BY EDIT · LIMINAL FINE JEWELLERY',
+        blocks: [
+          { catTitle: 'STEP RINGS', col: 'Rings', prodId: 79 },
+          { catTitle: 'ART DECO EARRINGS', col: 'Earrings', prodId: 84 },
+          { catTitle: 'BYZANTINE NECKLACES', col: 'Necklaces + Pendants', prodId: 91 }
+        ]
+      }
+    };
+
+    const CATEGORY_DEDICATED_GRIDS = {
+      TROUSERS: {
+        gridTitle: 'CATEGORY IN FOCUS · TROUSERS',
+        blocks: [
+          { catTitle: 'TROUSERS · MATKA SILK', col: 'Trousers', prodId: 38 },
+          { catTitle: 'TROUSERS · IKAT', col: 'Trousers', prodId: 29 },
+          { catTitle: 'TROUSERS · KHADI TWILL', col: 'Trousers', prodId: 37 }
+        ]
       },
-      FINE_SILK: {
-        head: 'IN FOCUS EDIT',
-        desc: 'BLOCK PRINTED MASHRU SILK',
-        img: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a12d1e92-239b-42af-b6ad-cca9ce9cea6a/230_HARTWICK_FINESILK_DUPATTA_SCARF_NATURALDYE_BLOCKPRINT.jpg?format=1500w',
-        collection: 'Fine Silk',
-        gridTitle: 'COLLECTIONS · FINE SILK EDIT',
-        productIds: [57, 58, 59]
+      COATS: {
+        gridTitle: 'CATEGORY IN FOCUS · COATS & BAGS',
+        blocks: [
+          { catTitle: 'COATS · CELESTE IKAT', col: 'Coats & Bags', prodId: 40 },
+          { catTitle: 'COATS · NEIGE IKAT', col: 'Coats & Bags', prodId: 41 },
+          { catTitle: 'BAGS · BLOCK PRINT', col: 'Coats & Bags', prodId: 53 }
+        ]
+      },
+      ACCESSORIES: {
+        gridTitle: 'CATEGORY IN FOCUS · ACCESSORIES',
+        blocks: [
+          { catTitle: 'ACCESSORIES · TOTE BAGS', col: 'Coats & Bags', prodId: 53 },
+          { catTitle: 'ACCESSORIES · FINE SILK', col: 'Fine Silk', prodId: 57 },
+          { catTitle: 'ACCESSORIES · JEWELLERY', col: 'Fine Jewellery', prodId: 79 }
+        ]
       }
     };
 
     let currentLeftEditIdx = 0;
     let currentRightEditKey = ACTIVE_RIGHT_EDIT_KEY;
+    let currentHomeCatMode = 'ALL';
     let inFocusTimer = null;
     let inFocusPaused = false;
 
-    function renderEditProductsGrid(titleText, colName, productIds) {
+    function renderCategoryBlocksGrid(titleText, blocks) {
       const gridTitle = document.getElementById('d1-dynamic-grid-title');
-      const gridCta = document.getElementById('d1-dynamic-grid-cta');
       const gridEl = document.getElementById('d1-dynamic-edit-grid');
       if (gridTitle) gridTitle.textContent = titleText;
-      if (gridCta) gridCta.setAttribute('onclick', "openCollection('" + colName.replace(/'/g, "\\'") + "')");
-      if (gridEl && typeof PRODUCTS !== 'undefined') {
-        const picked = productIds.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
-        if (picked.length > 0) {
-          gridEl.innerHTML = picked.map(p => `
-            <div class="d1-tot-pcard" onclick="openProduct(${p.id})">
-              <div class="d1-tot-pcard__media hw-dual-media">
-                <img class="img-primary" src="${p.imgs[0]}" alt="${p.title}" />
-                <img class="img-secondary" src="${p.imgs[1] || p.imgs[0]}" alt="${p.title} detail" />
+      if (gridEl && typeof PRODUCTS !== 'undefined' && Array.isArray(blocks)) {
+        gridEl.innerHTML = blocks.map(b => {
+          const p = PRODUCTS.find(x => x.id === b.prodId) || PRODUCTS[0];
+          return `
+            <div class="d1-tot-col-block">
+              <div class="d1-tot-col-head">
+                <h2 class="d1-tot-col-title">${b.catTitle}</h2>
+                <button type="button" class="t-detail-link" onclick="openCollection('${b.col.replace(/'/g, "\\'")}')">SEE ALL</button>
               </div>
-              <div class="d1-tot-pcard__meta">
-                <span class="d1-tot-pcard__name">${p.subtitle || p.title} &middot; ${p.technique || p.fibre}</span>
-                <span class="d1-tot-pcard__price">${p.price}</span>
+              <div class="d1-tot-pcard" onclick="openProduct(${p.id})">
+                <div class="d1-tot-pcard__media hw-dual-media">
+                  <img class="img-primary" src="${p.imgs[0]}" alt="${p.title}" />
+                  <img class="img-secondary" src="${p.imgs[1] || p.imgs[0]}" alt="${p.title} detail" />
+                </div>
+                <div class="d1-tot-pcard__meta">
+                  <span class="d1-tot-pcard__name">${p.subtitle || p.title} &middot; ${p.technique || p.fibre}</span>
+                  <span class="d1-tot-pcard__price">${p.price}</span>
+                </div>
               </div>
             </div>
-          `).join('');
-        }
+          `;
+        }).join('');
+      }
+    }
+
+    function setHomeGridCategoryMode(mode) {
+      currentHomeCatMode = mode;
+      ['all', 'trousers', 'coats', 'accessories'].forEach(k => {
+        const el = document.getElementById('cat-mode-' + k);
+        if (el) el.classList.toggle('active', k.toUpperCase() === mode);
+      });
+      if (mode === 'ALL') {
+        const item = LEFT_IN_FOCUS_EDITS[currentLeftEditIdx] || LEFT_IN_FOCUS_EDITS[0];
+        renderCategoryBlocksGrid(item.gridTitle, item.blocks);
+      } else if (CATEGORY_DEDICATED_GRIDS[mode]) {
+        const cfg = CATEGORY_DEDICATED_GRIDS[mode];
+        renderCategoryBlocksGrid(cfg.gridTitle, cfg.blocks);
       }
     }
 
     function setInFocusRotation(idx, updateGrid = true) {
       if (idx === 3) {
-        // Clicking the 4th pill ("FINE SILK & JEWELLERY") highlights the Right Launch Edit in the product row below
-        document.querySelectorAll('.d1-tot-edit-pill').forEach((btn, i) => {
+        document.querySelectorAll('.d1-tot-edit-bar .d1-tot-edit-pill').forEach((btn, i) => {
           btn.classList.toggle('active', i === 3);
         });
         const rightEdit = RIGHT_EDIT_CATALOG[currentRightEditKey] || RIGHT_EDIT_CATALOG.FINE_SILK_AND_JEWELLERY;
-        renderEditProductsGrid(rightEdit.gridTitle, rightEdit.collection, rightEdit.productIds);
+        if (currentHomeCatMode === 'ALL') {
+          renderCategoryBlocksGrid(rightEdit.gridTitle, rightEdit.blocks);
+        }
         return;
       }
 
@@ -6599,7 +6712,7 @@
       const leftHead = document.getElementById('in-focus-left-head');
       const leftDesc = document.getElementById('in-focus-left-desc');
 
-      document.querySelectorAll('.d1-tot-edit-pill').forEach((btn, i) => {
+      document.querySelectorAll('.d1-tot-edit-bar .d1-tot-edit-pill').forEach((btn, i) => {
         btn.classList.toggle('active', i === currentLeftEditIdx);
       });
 
@@ -6613,12 +6726,11 @@
         }, 220);
       }
 
-      if (updateGrid) {
-        renderEditProductsGrid(item.gridTitle, item.collection, item.productIds);
+      if (updateGrid && currentHomeCatMode === 'ALL') {
+        renderCategoryBlocksGrid(item.gridTitle, item.blocks);
       }
     }
 
-    // Helper to dynamically update the Right Panel Edit whenever focus changes
     function setRightPanelEdit(editKey) {
       if (!RIGHT_EDIT_CATALOG[editKey]) return;
       currentRightEditKey = editKey;
@@ -6653,7 +6765,6 @@
     }
 
     function startInFocusRotation() {
-      // Ensure Right Panel is initialized to ACTIVE_RIGHT_EDIT_KEY ('FINE_SILK_AND_JEWELLERY' for launch)
       setRightPanelEdit(ACTIVE_RIGHT_EDIT_KEY);
       if (inFocusTimer) clearInterval(inFocusTimer);
       inFocusTimer = setInterval(() => {
