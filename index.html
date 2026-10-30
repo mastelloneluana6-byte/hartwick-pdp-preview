@@ -6440,110 +6440,94 @@
 
     
     /* ==========================================================================
-       DYNAMIC "IN FOCUS EDIT" ROTATION LOGIC (PULLS FROM COLLECTION TAGS)
+       DUAL INDEPENDENT "IN FOCUS EDIT" LOGIC:
+       1. LEFT PANEL: Rotating Apparel/Textile Edit (Matka Silk, Winter Collection, Ikat, Handspun Khadi)
+       2. RIGHT PANEL: Configurable Independent Edit — Locked to "FINE SILK & JEWELLERY" for Launch
+          (Change ACTIVE_RIGHT_EDIT_KEY below to switch the Right Edit at any time)
        ========================================================================== */
-    const IN_FOCUS_EDITS = [
+    const LEFT_IN_FOCUS_EDITS = [
       {
         tag: 'MATKA SILK',
-        leftHead: 'IN FOCUS EDIT',
-        leftDesc: 'MATKA SILK',
-        leftImg: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/b9443331-bc80-48fb-814c-1c473d3d8bdc/001_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_AMMAN_SHIRT.jpg',
-        leftCol: 'Skirts & Dresses',
-        rightHead: 'IN FOCUS EDIT',
-        rightDesc: 'FINE SILK & JEWELLERY',
-        rightImg: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/19c9c1dd-0fcf-4c77-a43d-59d41df9860f/009073_HARTWICK_HANDWOVEN_PALMA_SKIRT_SILK_NATURALDYE_BLOCKPRINT_AMMAN_SHIRT_LINEN.jpg?format=1500w',
-        rightCol: 'Fine Silk',
+        head: 'IN FOCUS EDIT',
+        desc: 'MATKA SILK',
+        img: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/b9443331-bc80-48fb-814c-1c473d3d8bdc/001_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_AMMAN_SHIRT.jpg',
+        collection: 'Skirts & Dresses',
         gridTitle: 'COLLECTIONS · MATKA SILK EDIT',
-        gridCol: 'Skirts & Dresses',
         productIds: [1, 38, 7]
       },
       {
         tag: 'WINTER COLLECTION',
-        leftHead: 'IN FOCUS EDIT',
-        leftDesc: 'WINTER COLLECTION',
-        leftImg: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/8d28d4d4-4b30-44c7-999b-636e1a552025/002+_HARTWICK_HANDWOVEN_MARYLEBONE_COAT_IKAT_BOMBAY_TROUSERS_SITGES_TOTEBAG.jpg',
-        leftCol: 'Coats & Bags',
-        rightHead: 'IN FOCUS EDIT',
-        rightDesc: 'IKAT',
-        rightImg: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1761416723143-GHM3L5OF7UA3UZ8FMPZR/038002_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_TOKYO_SHIRT_IKAT4R1A3873.jpg?format=1500w',
-        rightCol: 'Shirts & Blouses',
+        head: 'IN FOCUS EDIT',
+        desc: 'WINTER COLLECTION',
+        img: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/8d28d4d4-4b30-44c7-999b-636e1a552025/002+_HARTWICK_HANDWOVEN_MARYLEBONE_COAT_IKAT_BOMBAY_TROUSERS_SITGES_TOTEBAG.jpg',
+        collection: 'Coats & Bags',
         gridTitle: 'COLLECTIONS · WINTER COLLECTION',
-        gridCol: 'Coats & Bags',
         productIds: [40, 41, 53]
       },
       {
         tag: 'IKAT',
-        leftHead: 'IN FOCUS EDIT',
-        leftDesc: 'IKAT',
-        leftImg: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fcda712d-37c3-4440-9896-a9968e7e7369/010_HARTWICK_HANDWOVEN_LUCCA_TROUSERS_SANTAFE_SHIRT_IKAT.jpg?format=1500w',
-        leftCol: 'Shirts & Blouses',
-        rightHead: 'IN FOCUS EDIT',
-        rightDesc: 'MATKA SILK',
-        rightImg: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/0e0c3b00-61cb-4eed-8741-db304f1fd896/004034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w',
-        rightCol: 'Skirts & Dresses',
+        head: 'IN FOCUS EDIT',
+        desc: 'IKAT',
+        img: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fcda712d-37c3-4440-9896-a9968e7e7369/010_HARTWICK_HANDWOVEN_LUCCA_TROUSERS_SANTAFE_SHIRT_IKAT.jpg?format=1500w',
+        collection: 'Shirts & Blouses',
         gridTitle: 'COLLECTIONS · IKAT EDIT',
-        gridCol: 'Shirts & Blouses',
         productIds: [16, 19, 22]
       },
       {
-        tag: 'FINE SILK & JEWELLERY',
-        leftHead: 'IN FOCUS EDIT',
-        leftDesc: 'FINE SILK & JEWELLERY',
-        leftImg: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a12d1e92-239b-42af-b6ad-cca9ce9cea6a/230_HARTWICK_FINESILK_DUPATTA_SCARF_NATURALDYE_BLOCKPRINT.jpg?format=1500w',
-        leftCol: 'Fine Silk',
-        rightHead: 'IN FOCUS EDIT',
-        rightDesc: 'LIMINAL FINE JEWELLERY',
-        rightImg: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a00dafc2-eaeb-476b-872d-879c49cdcb79/v005HARTWICK_LIMINAL_STEP_RING_24KGOLD_RHODOLITE_SILVER_HANDCRAFTED.jpg',
-        rightCol: 'Fine Jewellery',
-        gridTitle: 'COLLECTIONS · FINE SILK & JEWELLERY',
-        gridCol: 'Fine Silk',
-        productIds: [57, 79, 84]
+        tag: 'HANDSPUN KHADI',
+        head: 'IN FOCUS EDIT',
+        desc: 'HANDSPUN KHADI',
+        img: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/c5a3da4d-5d66-4d98-bf24-dcdff0587017/006_HARTWICK_HANDWOVEN_PARIS_TROUSERS_KHADI_TWILL_AMMAN_SHIRT.jpg?format=1500w',
+        collection: 'Apparel',
+        gridTitle: 'COLLECTIONS · HANDSPUN KHADI EDIT',
+        productIds: [7, 25, 29]
       }
     ];
 
-    let currentInFocusIdx = 0;
+    // RIGHT PANEL EDIT CONFIGURATION — Easily switchable by changing ACTIVE_RIGHT_EDIT_KEY
+    // For launch: kept on 'FINE_SILK_AND_JEWELLERY'
+    const ACTIVE_RIGHT_EDIT_KEY = 'FINE_SILK_AND_JEWELLERY';
+
+    const RIGHT_EDIT_CATALOG = {
+      FINE_SILK_AND_JEWELLERY: {
+        head: 'IN FOCUS EDIT',
+        desc: 'FINE SILK & JEWELLERY',
+        img: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/19c9c1dd-0fcf-4c77-a43d-59d41df9860f/009073_HARTWICK_HANDWOVEN_PALMA_SKIRT_SILK_NATURALDYE_BLOCKPRINT_AMMAN_SHIRT_LINEN.jpg?format=1500w',
+        collection: 'Fine Silk',
+        gridTitle: 'COLLECTIONS · FINE SILK & JEWELLERY EDIT',
+        productIds: [57, 79, 84]
+      },
+      FINE_JEWELLERY: {
+        head: 'IN FOCUS EDIT',
+        desc: 'LIMINAL FINE JEWELLERY',
+        img: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a00dafc2-eaeb-476b-872d-879c49cdcb79/v005HARTWICK_LIMINAL_STEP_RING_24KGOLD_RHODOLITE_SILVER_HANDCRAFTED.jpg',
+        collection: 'Fine Jewellery',
+        gridTitle: 'COLLECTIONS · LIMINAL FINE JEWELLERY',
+        productIds: [79, 84, 91]
+      },
+      FINE_SILK: {
+        head: 'IN FOCUS EDIT',
+        desc: 'BLOCK PRINTED MASHRU SILK',
+        img: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a12d1e92-239b-42af-b6ad-cca9ce9cea6a/230_HARTWICK_FINESILK_DUPATTA_SCARF_NATURALDYE_BLOCKPRINT.jpg?format=1500w',
+        collection: 'Fine Silk',
+        gridTitle: 'COLLECTIONS · FINE SILK EDIT',
+        productIds: [57, 58, 59]
+      }
+    };
+
+    let currentLeftEditIdx = 0;
+    let currentRightEditKey = ACTIVE_RIGHT_EDIT_KEY;
     let inFocusTimer = null;
     let inFocusPaused = false;
 
-    function setInFocusRotation(idx) {
-      currentInFocusIdx = ((idx % IN_FOCUS_EDITS.length) + IN_FOCUS_EDITS.length) % IN_FOCUS_EDITS.length;
-      const item = IN_FOCUS_EDITS[currentInFocusIdx];
-      const leftCard = document.getElementById('in-focus-left-card');
-      const rightCard = document.getElementById('in-focus-right-card');
-      const leftImg = document.getElementById('in-focus-left-img');
-      const rightImg = document.getElementById('in-focus-right-img');
-      const leftHead = document.getElementById('in-focus-left-head');
-      const rightHead = document.getElementById('in-focus-right-head');
-      const leftDesc = document.getElementById('in-focus-left-desc');
-      const rightDesc = document.getElementById('in-focus-right-desc');
-
-      document.querySelectorAll('.d1-tot-edit-pill').forEach((btn, i) => {
-        btn.classList.toggle('active', i === currentInFocusIdx);
-      });
-
-      if (leftCard && rightCard) {
-        leftCard.classList.add('is-switching');
-        rightCard.classList.add('is-switching');
-        setTimeout(() => {
-          if (leftImg) leftImg.src = item.leftImg;
-          if (rightImg) rightImg.src = item.rightImg;
-          if (leftHead) leftHead.textContent = item.leftHead;
-          if (rightHead) rightHead.textContent = item.rightHead;
-          if (leftDesc) leftDesc.textContent = item.leftDesc;
-          if (rightDesc) rightDesc.textContent = item.rightDesc;
-          leftCard.classList.remove('is-switching');
-          rightCard.classList.remove('is-switching');
-        }, 220);
-      }
-
-      // Dynamically update the 3-card collection highlight row below from PRODUCTS
+    function renderEditProductsGrid(titleText, colName, productIds) {
       const gridTitle = document.getElementById('d1-dynamic-grid-title');
       const gridCta = document.getElementById('d1-dynamic-grid-cta');
       const gridEl = document.getElementById('d1-dynamic-edit-grid');
-      if (gridTitle) gridTitle.textContent = item.gridTitle;
-      if (gridCta) gridCta.setAttribute('onclick', "openCollection('" + item.gridCol.replace(/'/g, "\\'") + "')");
+      if (gridTitle) gridTitle.textContent = titleText;
+      if (gridCta) gridCta.setAttribute('onclick', "openCollection('" + colName.replace(/'/g, "\\'") + "')");
       if (gridEl && typeof PRODUCTS !== 'undefined') {
-        const picked = item.productIds.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
+        const picked = productIds.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
         if (picked.length > 0) {
           gridEl.innerHTML = picked.map(p => `
             <div class="d1-tot-pcard" onclick="openProduct(${p.id})">
@@ -6561,9 +6545,71 @@
       }
     }
 
+    function setInFocusRotation(idx, updateGrid = true) {
+      if (idx === 3) {
+        // Clicking the 4th pill ("FINE SILK & JEWELLERY") highlights the Right Launch Edit in the product row below
+        document.querySelectorAll('.d1-tot-edit-pill').forEach((btn, i) => {
+          btn.classList.toggle('active', i === 3);
+        });
+        const rightEdit = RIGHT_EDIT_CATALOG[currentRightEditKey] || RIGHT_EDIT_CATALOG.FINE_SILK_AND_JEWELLERY;
+        renderEditProductsGrid(rightEdit.gridTitle, rightEdit.collection, rightEdit.productIds);
+        return;
+      }
+
+      currentLeftEditIdx = ((idx % LEFT_IN_FOCUS_EDITS.length) + LEFT_IN_FOCUS_EDITS.length) % LEFT_IN_FOCUS_EDITS.length;
+      const item = LEFT_IN_FOCUS_EDITS[currentLeftEditIdx];
+      const leftCard = document.getElementById('in-focus-left-card');
+      const leftImg = document.getElementById('in-focus-left-img');
+      const leftHead = document.getElementById('in-focus-left-head');
+      const leftDesc = document.getElementById('in-focus-left-desc');
+
+      document.querySelectorAll('.d1-tot-edit-pill').forEach((btn, i) => {
+        btn.classList.toggle('active', i === currentLeftEditIdx);
+      });
+
+      if (leftCard) {
+        leftCard.classList.add('is-switching');
+        setTimeout(() => {
+          if (leftImg) leftImg.src = item.img;
+          if (leftHead) leftHead.textContent = item.head;
+          if (leftDesc) leftDesc.textContent = item.desc;
+          leftCard.classList.remove('is-switching');
+        }, 220);
+      }
+
+      if (updateGrid) {
+        renderEditProductsGrid(item.gridTitle, item.collection, item.productIds);
+      }
+    }
+
+    // Helper to dynamically update the Right Panel Edit whenever focus changes
+    function setRightPanelEdit(editKey) {
+      if (!RIGHT_EDIT_CATALOG[editKey]) return;
+      currentRightEditKey = editKey;
+      const rightEdit = RIGHT_EDIT_CATALOG[editKey];
+      const rightCard = document.getElementById('in-focus-right-card');
+      const rightImg = document.getElementById('in-focus-right-img');
+      const rightHead = document.getElementById('in-focus-right-head');
+      const rightDesc = document.getElementById('in-focus-right-desc');
+      if (rightCard) {
+        rightCard.classList.add('is-switching');
+        setTimeout(() => {
+          if (rightImg) rightImg.src = rightEdit.img;
+          if (rightHead) rightHead.textContent = rightEdit.head;
+          if (rightDesc) rightDesc.textContent = rightEdit.desc;
+          rightCard.classList.remove('is-switching');
+        }, 220);
+      }
+    }
+
     function openInFocusCard(side) {
-      const item = IN_FOCUS_EDITS[currentInFocusIdx] || IN_FOCUS_EDITS[0];
-      openCollection(side === 'left' ? item.leftCol : item.rightCol);
+      if (side === 'right') {
+        const rightEdit = RIGHT_EDIT_CATALOG[currentRightEditKey] || RIGHT_EDIT_CATALOG.FINE_SILK_AND_JEWELLERY;
+        openCollection(rightEdit.collection);
+      } else {
+        const leftEdit = LEFT_IN_FOCUS_EDITS[currentLeftEditIdx] || LEFT_IN_FOCUS_EDITS[0];
+        openCollection(leftEdit.collection);
+      }
     }
 
     function pauseInFocusRotation(pause) {
@@ -6571,10 +6617,13 @@
     }
 
     function startInFocusRotation() {
+      // Ensure Right Panel is initialized to ACTIVE_RIGHT_EDIT_KEY ('FINE_SILK_AND_JEWELLERY' for launch)
+      setRightPanelEdit(ACTIVE_RIGHT_EDIT_KEY);
       if (inFocusTimer) clearInterval(inFocusTimer);
       inFocusTimer = setInterval(() => {
         if (!inFocusPaused && document.getElementById('view-home')?.classList.contains('active')) {
-          setInFocusRotation(currentInFocusIdx + 1);
+          const nextIdx = (currentLeftEditIdx + 1) % 3;
+          setInFocusRotation(nextIdx, true);
         }
       }, 4600);
     }
