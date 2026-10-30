@@ -1753,11 +1753,11 @@
       position: relative;
     }
     .hw-masters-ftg-left .hw-ftg-open-row:hover {
-      background-color: rgba(36, 25, 20, 0.035);
+      background-color: rgba(248, 245, 238, 0.55);
       padding-left: 10px;
     }
     .hw-masters-ftg-left .hw-ftg-open-row.is-active {
-      background-color: rgba(107, 45, 30, 0.06);
+      background-color: #F4EFE6;
       padding-left: 12px;
     }
     .hw-masters-ftg-left .hw-ftg-open-row.is-active::before {
@@ -6069,23 +6069,26 @@
 
     let showAllMasterProducts = false;
 
+    const MASTER_FTG_LABELS = {"khadi":"Handspun & Handwoven","handspun":"Charkha Spun Yarn","handwoven":"Wooden Handloom","blockprint":"Hand-Stamped Print","woodenblocks":"Carved Teakwood Sets","naturaldye":"Ayurvedic Botanicals","ajrakh":"16-Step Resist Print","ikat":"Tied, Dyed & Woven","zari":"Zari Ribbon Appliqué","jamdani":"UNESCO Loom Inlay","brocade":"Varanasi Silk & Zari","mashru":"Satin Silk · Cotton Back","kora":"Raw Unbleached Cotton","muga":"Golden-Cream Wild Silk"};
+
     function buildMasterAccordionOnce() {
       const accList = document.getElementById('masters-accordion-list');
       if (!accList || accList.children.length > 0) return;
 
-      accList.innerHTML = MASTERS.map((item, idx) => {
-        const count = getMasterProducts(item).length;
+      const core14 = MASTERS.slice(0, 14);
+      accList.innerHTML = core14.map((item, idx) => {
+        const ftgLabel = MASTER_FTG_LABELS[item.id] || 'Heritage Craft';
         return `
-          <div class="hw-ftg-open-row ${idx === 0 ? 'is-active' : ''}" id="master-acc-${item.id}" data-master-id="${item.id}" role="button" tabindex="0" onclick="selectMasterTechnique('${item.id}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectMasterTechnique('${item.id}');}">
+          <div class="hw-ftg-open-row ${idx === 0 ? 'is-active' : ''}" id="master-acc-${item.id}" data-master-id="${item.id}" role="option" aria-selected="${idx === 0}" tabindex="0" onclick="selectMasterTechnique('${item.id}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectMasterTechnique('${item.id}');}">
             <div class="hw-ftg-row-top">
               <span class="hw-ftg-step"><span class="hw-m-num" style="margin-right:8px;">${item.num}</span>${item.name}</span>
-              <span class="hw-ftg-val">${count} ${count === 1 ? 'Piece' : 'Pieces'} &rarr;</span>
+              <span class="hw-ftg-val">${ftgLabel} <span style="opacity:0.55; margin-left:3px;">${idx === 0 ? '→' : '↗'}</span></span>
             </div>
           </div>
         `;
       }).join('');
 
-      renderMasterLibraryCard(MASTERS[0], false);
+      renderMasterLibraryCard(core14[0], false);
     }
 
     const NATURAL_DYE_BOTANICALS = [

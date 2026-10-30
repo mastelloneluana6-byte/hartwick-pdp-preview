@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hartwick — Made By Masters</title>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.15/dist/hls.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=Montserrat:wght@400;500;600;700&family=Noto+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -254,36 +255,36 @@
        COMPACT TOP SPACING SO LEFT LIST & RIGHT VIDEO/TEXT/PRODUCTS STAY ABOVE FOLD
        ========================================================================== */
     .hw-masters-page {
-      padding: 12px clamp(1.5rem, 4vw, 4rem) 56px;
+      padding: 6px clamp(1.5rem, 4vw, 4rem) 48px;
       max-width: 1360px;
       margin: 0 auto;
     }
 
-    /* Compact Top Intro Bar — Keeps Workbench Above the Fold */
+    /* Compact Top Intro Bar — Keeps Workbench High Above the Fold */
     .hw-masters-top-bar {
       display: grid;
-      grid-template-columns: minmax(280px, 0.38fr) minmax(380px, 0.62fr);
+      grid-template-columns: minmax(260px, 0.38fr) minmax(380px, 0.62fr);
       gap: 32px;
       align-items: baseline;
-      padding-bottom: 10px;
-      margin-bottom: 14px;
+      padding: 4px 0 8px;
+      margin-bottom: 10px;
       border-bottom: 1px solid var(--hw-border-strong);
     }
     .hw-masters-eyebrow {
       display: block;
       font-family: var(--font-mono);
-      font-size: 9px;
+      font-size: 8.5px;
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--hw-muted);
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
     .hw-masters-title {
       font-family: var(--font-heading);
-      font-size: clamp(20px, 2.1vw, 27px);
+      font-size: clamp(19px, 1.9vw, 24px);
       font-weight: 500;
-      line-height: 1.12;
+      line-height: 1.08;
       letter-spacing: 0.13em;
       text-transform: uppercase;
       color: var(--hw-ink);
@@ -292,20 +293,20 @@
     .hw-masters-lead-wrap {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 2px;
     }
     .hw-masters-lead-p {
       font-family: var(--font-body);
-      font-size: 15.5px;
+      font-size: 14.5px;
       font-weight: 500;
-      line-height: 1.46;
+      line-height: 1.4;
       color: var(--hw-ink);
       margin: 0;
     }
     .hw-masters-nuance {
       font-family: var(--font-body);
       font-style: italic;
-      font-size: 14.5px;
+      font-size: 13.5px;
       font-weight: 500;
       color: var(--hw-muted);
       margin: 0;
@@ -359,10 +360,11 @@
       position: relative;
       width: 100%;
       border-bottom: 1px solid var(--hw-border);
-      padding: 8.5px 6px 8.5px 8px;
+      padding: 7.5px 8px;
       cursor: pointer;
       text-align: left;
       display: block;
+      user-select: none;
       transition: background-color 0.25s ease, padding-left 0.25s var(--hw-ease-out);
     }
     .hw-ftg-open-row::before {
@@ -377,12 +379,13 @@
       transition: transform 0.25s var(--hw-ease-out);
     }
     .hw-ftg-open-row:hover {
-      background: rgba(36, 25, 20, 0.035);
+      background: rgba(248, 245, 238, 0.55);
+      padding-left: 11px;
     }
     .hw-ftg-open-row.is-active {
-      background: rgba(36, 25, 20, 0.055);
+      background: #F4EFE6;
       border-bottom-color: var(--hw-border-strong);
-      padding-left: 12px;
+      padding-left: 13px;
     }
     .hw-ftg-open-row.is-active::before {
       transform: scaleY(1);
@@ -1329,11 +1332,68 @@
       renderMastersStage();
     }
 
+    const SQS_VIDEO_LIBRARY_BASE = 'https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/';
+    const MASTER_SQS_VIDEO_IDS = {
+      khadi: 'e33b06d4-eb6e-451e-9322-b64552cdbb24',
+      handspun: 'e33b06d4-eb6e-451e-9322-b64552cdbb24',
+      handwoven: '45238685-311b-4802-b9f0-2f64feafae45',
+      blockprint: 'b84d65ed-79b0-476f-a0ac-72dd8ef1aebd',
+      woodenblocks: 'cb5a9b7b-2f28-482b-90cf-16503c1173e5',
+      naturaldye: '5c1daaee-39c1-4730-a4e9-d753c2d6ae0a',
+      ajrakh: '039157c4-8aca-4803-b69e-0b6e65160c30',
+      ikat: 'e2e2b308-21a7-41cc-9ef1-5e17d2a634cd',
+      zari: '5e04d90d-a169-4d96-a3a1-c52060b7fa3e',
+      jamdani: 'f4364d2b-2f95-4de3-9e0a-6f6d1a9f38fe',
+      brocade: 'c7d94b93-978f-4e1c-b25f-c00bb4acbb0c',
+      mashru: '215b9ec5-5021-4364-9950-4fb2f8aa9aad',
+      kora: '45238685-311b-4802-b9f0-2f64feafae45',
+      muga: 'c7d94b93-978f-4e1c-b25f-c00bb4acbb0c'
+    };
+
+    function attachMasterHlsVideo(videoEl, tech) {
+      if (!videoEl || !tech) return;
+      if (videoEl._hlsInstance) {
+        try { videoEl._hlsInstance.destroy(); } catch (e) {}
+        videoEl._hlsInstance = null;
+      }
+      const sqsId = MASTER_SQS_VIDEO_IDS[tech.id] || MASTER_SQS_VIDEO_IDS.khadi;
+      const hlsUrl = SQS_VIDEO_LIBRARY_BASE + sqsId + '/playlist.m3u8';
+      if (videoEl.canPlayType('application/vnd.apple.mpegurl')) {
+        videoEl.src = hlsUrl;
+        videoEl.play().catch(() => {});
+      } else if (window.Hls && window.Hls.isSupported()) {
+        const hls = new window.Hls({ enableWorker: true, lowLatencyMode: false });
+        hls.loadSource(hlsUrl);
+        hls.attachMedia(videoEl);
+        hls.on(window.Hls.Events.MANIFEST_PARSED, () => {
+          videoEl.play().catch(() => {});
+        });
+        hls.on(window.Hls.Events.ERROR, (ev, data) => {
+          if (data && data.fatal) {
+            try { hls.destroy(); } catch (e) {}
+            videoEl.src = tech.videoWebm || tech.videoOrig;
+            videoEl.play().catch(() => {});
+          }
+        });
+        videoEl._hlsInstance = hls;
+      } else {
+        videoEl.src = tech.videoWebm || tech.videoOrig;
+        videoEl.play().catch(() => {});
+      }
+    }
+
+    function toggleVideoMute(videoId, btn) {
+      const v = document.getElementById(videoId);
+      if (!v) return;
+      v.muted = !v.muted;
+      btn.textContent = v.muted ? 'Sound Off' : 'Sound On';
+    }
+
     function renderMastersList() {
       const listEl = document.getElementById('masters-ftg-list');
       if (!listEl) return;
       listEl.innerHTML = TECHNIQUES.map((t, idx) => `
-        <button type="button" class="hw-ftg-open-row ${idx === activeTechIndex ? 'is-active' : ''}" onclick="selectTechnique(${idx})">
+        <div class="hw-ftg-open-row ${idx === activeTechIndex ? 'is-active' : ''}" role="option" aria-selected="${idx === activeTechIndex}" tabindex="0" onclick="selectTechnique(${idx})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectTechnique(${idx});}">
           <div class="hw-ftg-row-top">
             <span class="hw-ftg-step">
               <span class="hw-ftg-step-num">${t.num}</span>
@@ -1341,7 +1401,7 @@
             </span>
             <span class="hw-ftg-val">${t.ftgVal} <span class="hw-ftg-arrow">${idx === activeTechIndex ? '→' : '↗'}</span></span>
           </div>
-        </button>
+        </div>
       `).join('');
     }
 
@@ -1372,7 +1432,7 @@
 
       stageEl.innerHTML = `
         <div class="hw-masters-stage__inner">
-          <!-- 1. TOP RIGHT: FIBRE-TO-GARMENT HEADER + PROCESS VIDEO -->
+          <!-- 1. TOP RIGHT: FIBRE-TO-GARMENT HEADER + ATELIER PROCESS VIDEO -->
           <div class="hw-ftg-heading">
             <span class="hw-static-section-title">${t.num} / 14 &mdash; ${t.name}</span>
             <span class="hw-ftg-heading-hint">${t.region}</span>
@@ -1380,18 +1440,18 @@
 
           <div class="hw-craft-video-wrap">
             <div class="hw-craft-video-frame">
-              <video id="hw-master-video" autoplay muted loop playsinline poster="${t.img}">
-                <source src="${t.videoWebm}" type="video/webm" />
-                <source src="${t.videoOrig}" type="video/webm" />
-              </video>
+              <video id="hw-master-video" autoplay muted loop playsinline poster="${t.img}"></video>
             </div>
             <div class="hw-video-ftg-bar">
               <span class="hw-ftg-step">Atelier Process Film &middot; ${t.name}</span>
-              <button type="button" class="hw-video-toggle-btn" onclick="toggleVideoPlay('hw-master-video', this)">Pause Film</button>
+              <div style="display:inline-flex; gap:14px; align-items:center;">
+                <button type="button" class="hw-video-toggle-btn" onclick="toggleVideoPlay('hw-master-video', this)">Pause Film</button>
+                <button type="button" class="hw-video-toggle-btn" onclick="toggleVideoMute('hw-master-video', this)">Sound Off</button>
+              </div>
             </div>
           </div>
 
-          <!-- 2. MIDDLE RIGHT: SHORT TEXT ABOUT IT FROM THE SHEETS DOC -->
+          <!-- 2. MIDDLE RIGHT: SHORT TEXT ABOUT THE TECHNIQUE FROM THE GOOGLE SHEETS DOC -->
           <div class="hw-masters-sheet-copy">
             <div class="hw-masters-sheet-copy__head">
               <h2 class="hw-masters-sheet-copy__title">${t.name}</h2>
@@ -1402,14 +1462,14 @@
 
           ${dyePillsHtml}
 
-          <!-- 3. BOTTOM RIGHT: PRODUCTS WHICH USE THIS TECHNIQUE -->
+          <!-- 3. BOTTOM RIGHT: RELATED PRODUCTS WHICH USE THIS SPECIFIC TECHNIQUE -->
           <div class="hw-m-garments">
             <div class="hw-m-garments__head">
-              <span class="hw-static-section-title">Pieces Crafted in ${t.name} (${allProds.length})</span>
+              <span class="hw-static-section-title">Products Using ${t.name} (${allProds.length})</span>
               <div class="hw-m-garments__actions">
                 ${allProds.length > 3 ? `
                   <button type="button" class="hw-video-toggle-btn" onclick="toggleShowAllProducts()">
-                    ${showAllProducts ? 'Show Top 3 Pieces' : 'Show All ' + allProds.length + ' Pieces'}
+                    ${showAllProducts ? 'Show Top 3 Pieces ↑' : 'View All ' + allProds.length + ' Pieces ↓'}
                   </button>
                 ` : ''}
                 <a class="hw-video-toggle-btn" href="v2.html">Explore Collection &rarr;</a>
@@ -1432,6 +1492,9 @@
           </div>
         </div>
       `;
+
+      const vEl = document.getElementById('hw-master-video');
+      if (vEl) attachMasterHlsVideo(vEl, t);
     }
 
     function renderMastersWorkbench() {
