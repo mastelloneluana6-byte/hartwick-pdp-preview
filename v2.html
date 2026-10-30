@@ -3966,7 +3966,7 @@
     .hw-film-stage {
       position: relative;
       width: 100%;
-      aspect-ratio: 4 / 4.65;
+      aspect-ratio: 9 / 16;
       background: #EAE3D5;
       overflow: hidden;
       margin-bottom: 18px;
@@ -4603,30 +4603,52 @@
 
       <!-- 6. ATELIER IN MOTION: DEDICATED FINE JEWELLERY & FINE SILK VIDEO SHOWCASE (BEFORE INSTAGRAM & THE DISPATCH SIGN UP CTA) -->
       <section class="hw-home-film-showcase" id="hw-home-films">
-        <div class="hw-home-film-head">
-          <div>
-            <span class="hw-home-film-kicker">ATELIER IN MOTION</span>
-            <h2 class="hw-home-film-title">FINE JEWELLERY &amp; FINE SILK</h2>
-          </div>
-          <p class="hw-home-film-sub">
-            Hand-carved gemstones and block-printed Mashru silks, captured in the quiet rhythm of our Jaipur and Kutch ateliers.
-          </p>
-        </div>
-
         <div class="hw-home-film-grid">
-          <!-- LEFT FILM: FINE JEWELLERY (AUTOPLAY, SEAMLESS EDITORIAL) -->
-          <article class="hw-film-card" id="home-film-card-jewellery">
-            <div class="hw-film-stage" onclick="openCollection('Fine Jewellery')">
+          <!-- 1. YOGA (Squarespace block 3a2bf3b255e1f0dd5307 -> /handwoven-yoga-mats) -->
+          <article class="hw-film-card" id="home-film-card-yoga">
+            <div class="hw-film-stage" onclick="openCollection('Yoga Mats')">
               <video
                 class="hw-stream-video"
-                id="home-video-jewellery"
+                id="home-video-yoga"
                 data-sqs-id="07ca2cea-bc19-4893-aaff-b8ce2b636233"
-                poster="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fad0ba3a-a1b3-41a6-bec9-9c82b64c30f5/CROP_HARTWICK_LIMINAL_SILVER_GOLD_EMERALD_RINGS_TOURMELINE_RHODOLITE_1781.jpg"
+                poster="https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/07ca2cea-bc19-4893-aaff-b8ce2b636233/thumbnail"
                 autoplay
                 muted
                 loop
                 playsinline
               ></video>
+              <div class="hw-sqs-video-cta-overlay">
+                <button type="button" class="hw-sqs-video-cta-btn" onclick="event.stopPropagation(); openCollection('Yoga Mats')">YOGA</button>
+              </div>
+              <div class="hw-film-controls" onclick="event.stopPropagation();">
+                <div class="hw-film-progress-track"><div class="hw-film-progress-bar"></div></div>
+                <div class="hw-film-ctrl-row">
+                  <div class="hw-film-ctrl-left">
+                    <button type="button" class="hw-film-ctrl-btn" onclick="toggleHwFilmPlay(this)">PAUSE</button>
+                    <button type="button" class="hw-film-ctrl-btn" onclick="toggleHwFilmMute(this)">SOUND OFF</button>
+                  </div>
+                  <button type="button" class="hw-film-ctrl-btn" onclick="openHwFilmLightboxFromStage(this, 'YOGA · HANDWOVEN WELLNESS', 'HANDSPUN KHADI & AYURVEDIC DYES')">FULLSCREEN</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. FINE JEWELLERY (Squarespace block e15099c1bd98c85411f2 -> /fine-jewellery-2025) -->
+          <article class="hw-film-card" id="home-film-card-jewellery">
+            <div class="hw-film-stage" onclick="openCollection('Fine Jewellery')">
+              <video
+                class="hw-stream-video"
+                id="home-video-jewellery"
+                data-sqs-id="a97ea5d7-c28c-47e3-b7c0-7ffd8b263fae"
+                poster="https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a97ea5d7-c28c-47e3-b7c0-7ffd8b263fae/thumbnail"
+                autoplay
+                muted
+                loop
+                playsinline
+              ></video>
+              <div class="hw-sqs-video-cta-overlay">
+                <button type="button" class="hw-sqs-video-cta-btn" onclick="event.stopPropagation(); openCollection('Fine Jewellery')">FINE JEWELLERY</button>
+              </div>
               <div class="hw-film-controls" onclick="event.stopPropagation();">
                 <div class="hw-film-progress-track"><div class="hw-film-progress-bar"></div></div>
                 <div class="hw-film-ctrl-row">
@@ -4638,32 +4660,24 @@
                 </div>
               </div>
             </div>
-
-            <div class="hw-film-card-meta">
-              <span class="hw-home-film-kicker">JAIPUR ATELIER &middot; MADE TO ORDER</span>
-              <div class="hw-film-card-toprow">
-                <h3 class="hw-film-card-heading">FINE JEWELLERY &middot; LIMINAL</h3>
-                <button type="button" class="hw-film-cta-link" onclick="openCollection('Fine Jewellery')">EXPLORE JEWELLERY</button>
-              </div>
-              <p class="hw-film-card-copy">
-                Handcrafted in Jaipur in 22k &amp; 23k gold, sterling silver, hand-carved emeralds, and uncut Polki diamonds.
-              </p>
-            </div>
           </article>
 
-          <!-- RIGHT FILM: FINE SILK (AUTOPLAY, SEAMLESS EDITORIAL) -->
+          <!-- 3. FINE SILKS (Squarespace block 7a4bbe34ce979f067d3d -> /the-silk-collection) -->
           <article class="hw-film-card" id="home-film-card-silk">
             <div class="hw-film-stage" onclick="openCollection('Fine Silk')">
               <video
                 class="hw-stream-video"
                 id="home-video-silk"
                 data-sqs-id="1d9d5412-4154-4b6e-a7de-6477ab4c1c9d"
-                poster="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1739485853760-7GB5PB4HDZ3AIJE2XE1K/214_HARTWICK_FINESILK_DUPATTA_SCARF_NATURALDYE_BLOCKPRINT.jpg"
+                poster="https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1d9d5412-4154-4b6e-a7de-6477ab4c1c9d/thumbnail"
                 autoplay
                 muted
                 loop
                 playsinline
               ></video>
+              <div class="hw-sqs-video-cta-overlay">
+                <button type="button" class="hw-sqs-video-cta-btn" onclick="event.stopPropagation(); openCollection('Fine Silk')">FINE SILKS</button>
+              </div>
               <div class="hw-film-controls" onclick="event.stopPropagation();">
                 <div class="hw-film-progress-track"><div class="hw-film-progress-bar"></div></div>
                 <div class="hw-film-ctrl-row">
@@ -4671,20 +4685,38 @@
                     <button type="button" class="hw-film-ctrl-btn" onclick="toggleHwFilmPlay(this)">PAUSE</button>
                     <button type="button" class="hw-film-ctrl-btn" onclick="toggleHwFilmMute(this)">SOUND OFF</button>
                   </div>
-                  <button type="button" class="hw-film-ctrl-btn" onclick="openHwFilmLightboxFromStage(this, 'FINE SILK · HAND BLOCK PRINTED MASHRU', '16 ARTISAN PROCESSES · NATURAL BOTANICAL & MINERAL DYES')">FULLSCREEN</button>
+                  <button type="button" class="hw-film-ctrl-btn" onclick="openHwFilmLightboxFromStage(this, 'FINE SILKS · BLOCK PRINTED MASHRU', '16 ARTISAN PROCESSES · 100% NATURAL DYE')">FULLSCREEN</button>
                 </div>
               </div>
             </div>
+          </article>
 
-            <div class="hw-film-card-meta">
-              <span class="hw-home-film-kicker">KUTCH ATELIER &middot; 100% NATURAL DYE</span>
-              <div class="hw-film-card-toprow">
-                <h3 class="hw-film-card-heading">FINE SILK &middot; BLOCK PRINTED MASHRU</h3>
-                <button type="button" class="hw-film-cta-link" onclick="openCollection('Fine Silk')">EXPLORE SILK</button>
+          <!-- 4. APPAREL (Squarespace block 1b9542097b479f15e3d8 -> /apparel-2025) -->
+          <article class="hw-film-card" id="home-film-card-apparel">
+            <div class="hw-film-stage" onclick="openCollection('Apparel')">
+              <video
+                class="hw-stream-video"
+                id="home-video-apparel"
+                data-sqs-id="c7ef24a5-2ab8-43c6-b2f9-29b0a3b1efdc"
+                poster="https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/c7ef24a5-2ab8-43c6-b2f9-29b0a3b1efdc/thumbnail"
+                autoplay
+                muted
+                loop
+                playsinline
+              ></video>
+              <div class="hw-sqs-video-cta-overlay">
+                <button type="button" class="hw-sqs-video-cta-btn" onclick="event.stopPropagation(); openCollection('Apparel')">APPAREL</button>
               </div>
-              <p class="hw-film-card-copy">
-                Printed layer by layer with hand-carved wooden blocks and botanical dyes on lustrous Mashru silk, finished with hand-rolled edges.
-              </p>
+              <div class="hw-film-controls" onclick="event.stopPropagation();">
+                <div class="hw-film-progress-track"><div class="hw-film-progress-bar"></div></div>
+                <div class="hw-film-ctrl-row">
+                  <div class="hw-film-ctrl-left">
+                    <button type="button" class="hw-film-ctrl-btn" onclick="toggleHwFilmPlay(this)">PAUSE</button>
+                    <button type="button" class="hw-film-ctrl-btn" onclick="toggleHwFilmMute(this)">SOUND OFF</button>
+                  </div>
+                  <button type="button" class="hw-film-ctrl-btn" onclick="openHwFilmLightboxFromStage(this, 'APPAREL COLLECTION', 'HANDSPUN & HANDWOVEN NATURAL FIBRES')">FULLSCREEN</button>
+                </div>
+              </div>
             </div>
           </article>
         </div>
@@ -4704,7 +4736,7 @@
         <p class="hw-col-positioning-quote-text">Positioning Statement — Space Saver: Inspired by traditional Indian jewellery, Byzantine and Anatolian archaeological findings, and vintage Italian gold chains. Each piece is Made to Order and handcrafted by master stonecutters, stone setters and goldsmiths in Jaipur.</p>
         <div class="hw-col-positioning-quote-meta" style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:14px;">
           <span>HA JEWELLERY POSITIONING QUOTE &middot; SPACE SAVER (FINAL QUOTE TBC) &middot; ALL JEWELLERY MADE TO ORDER</span>
-          <button type="button" class="hw-film-cta-link" onclick="openHwFilmLightbox('07ca2cea-bc19-4893-aaff-b8ce2b636233', 'FINE JEWELLERY · LIMINAL COLLECTION', 'JAIPUR GOLDSMITHS · MADE TO ORDER', 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fad0ba3a-a1b3-41a6-bec9-9c82b64c30f5/CROP_HARTWICK_LIMINAL_SILVER_GOLD_EMERALD_RINGS_TOURMELINE_RHODOLITE_1781.jpg')">WATCH FILM</button>
+          <button type="button" class="hw-film-cta-link" onclick="openHwFilmLightbox('a97ea5d7-c28c-47e3-b7c0-7ffd8b263fae', 'FINE JEWELLERY · LIMINAL COLLECTION', 'JAIPUR GOLDSMITHS · MADE TO ORDER', 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fad0ba3a-a1b3-41a6-bec9-9c82b64c30f5/CROP_HARTWICK_LIMINAL_SILVER_GOLD_EMERALD_RINGS_TOURMELINE_RHODOLITE_1781.jpg')">WATCH FILM</button>
         </div>
       </div>
       <div class="hw-subfilter-bar" id="col-subfilters"></div>
@@ -5501,12 +5533,20 @@
 
     const HW_CRAFT_VIDEOS = {
       jewellery: {
-        id: '07ca2cea-bc19-4893-aaff-b8ce2b636233',
-        dur: '00:18',
+        id: 'a97ea5d7-c28c-47e3-b7c0-7ffd8b263fae',
+        dur: '00:17',
         title: 'LIMINAL FINE JEWELLERY IN MOTION',
-        kicker: 'JAIPUR GOLDSMITHS · MADE TO ORDER · 00:18',
+        kicker: 'JAIPUR GOLDSMITHS · MADE TO ORDER · 00:17',
         desc: 'Handcrafted to order by master stonecutters, stone setters and goldsmiths in Jaipur using high-karat 22k & 23k gold, sterling silver, hand-carved emeralds, and uncut Polki diamonds.',
-        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fad0ba3a-a1b3-41a6-bec9-9c82b64c30f5/CROP_HARTWICK_LIMINAL_SILVER_GOLD_EMERALD_RINGS_TOURMELINE_RHODOLITE_1781.jpg'
+        poster: 'https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a97ea5d7-c28c-47e3-b7c0-7ffd8b263fae/thumbnail'
+      },
+      jewellery_craft: {
+        id: '8248a30d-6474-4ee7-ab31-26a5cc33bceb',
+        dur: '00:20',
+        title: 'JAIPUR GOLDSMITHING & STONE SETTING',
+        kicker: 'FINE JEWELLERY · JAIPUR ATELIER · 00:20',
+        desc: 'Each piece is crafted by hand by generational goldsmiths and stonecutters in Jaipur.',
+        poster: 'https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/8248a30d-6474-4ee7-ab31-26a5cc33bceb/thumbnail'
       },
       silk: {
         id: '1d9d5412-4154-4b6e-a7de-6477ab4c1c9d',
@@ -5514,170 +5554,195 @@
         title: 'FINE MASHRU SILK IN MOTION',
         kicker: 'FINE SILK COLLECTION · DRAPE & LUSTRE · 00:29',
         desc: 'Fine Mashru silk block printed by hand with all-natural botanical and mineral dyes and finished with hand-rolled edges.',
-        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1739485853760-7GB5PB4HDZ3AIJE2XE1K/214_HARTWICK_FINESILK_DUPATTA_SCARF_NATURALDYE_BLOCKPRINT.jpg'
+        poster: 'https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1d9d5412-4154-4b6e-a7de-6477ab4c1c9d/thumbnail'
       },
       silk_process: {
         id: '039157c4-8aca-4803-b69e-0b6e65160c30',
         dur: '00:55',
-        title: '16-STEP SILK BLOCK PRINTING & DYEING',
+        title: 'MASHRU SILK & 16-STEP NATURAL DYEING',
         kicker: 'MASTER PRINTERS IN KUTCH · 00:55',
         desc: 'Each Fine Silk piece requires a minimum of 16 artisan processes, resting between each layer of resist printing and natural vat dyeing.',
-        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/31a9d117-730e-45ba-9a75-4e2144af03e0/267_HARTWICK_FINESILK_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg'
+        poster: 'https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/039157c4-8aca-4803-b69e-0b6e65160c30/thumbnail'
       },
       apparel: {
         id: 'c7ef24a5-2ab8-43c6-b2f9-29b0a3b1efdc',
         dur: '00:22',
         title: 'SILHOUETTE & DRAPE IN MOTION',
-        kicker: 'ATELIER LOOKBOOK FILM · 00:22',
+        kicker: 'APPAREL COLLECTION FILM · 00:22',
         desc: 'Handspun and handwoven natural fibres drape and breathe with a supple softness in a rhythm that can only be created by skilled human hands.',
-        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/0e0c3b00-61cb-4eed-8741-db304f1fd896/004034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w'
+        poster: 'https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/c7ef24a5-2ab8-43c6-b2f9-29b0a3b1efdc/thumbnail'
       },
       yoga: {
-        id: 'a97ea5d7-c28c-47e3-b7c0-7ffd8b263fae',
-        dur: '00:17',
+        id: '07ca2cea-bc19-4893-aaff-b8ce2b636233',
+        dur: '00:18',
         title: 'UPAYA HANDWOVEN WELLNESS IN MOTION',
-        kicker: 'AYURVEDIC KHADI YOGA MATS · 00:17',
+        kicker: 'AYURVEDIC KHADI YOGA MATS · 00:18',
         desc: 'Handspun and handwoven cotton khadi quilted yoga mats infused with Ayurvedic turmeric, indigo, and marigold overdyes.',
-        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/e9d0ed0b-29bf-4f71-9cec-0d7335adbd37/008_HARTWICK_EDITORIAL_JAIPUR.jpg'
+        poster: 'https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/07ca2cea-bc19-4893-aaff-b8ce2b636233/thumbnail'
       },
-      handspun: {
+      khadi: {
         id: 'e33b06d4-eb6e-451e-9322-b64552cdbb24',
         dur: '00:29',
-        title: 'HANDSPUN & HANDWOVEN KHADI',
-        kicker: 'MADE BY MASTERS · CHARKHA & HANDLOOM · 00:29',
-        desc: 'Natural fibres drawn out and twisted by hand into yarn on a charkha wheel, then woven on a pit loom without electricity.',
-        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/b9443331-bc80-48fb-814c-1c473d3d8bdc/001_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_AMMAN_SHIRT.jpg'
+        title: 'KHADI · HANDSPUN & HANDWOVEN CLOTH',
+        kicker: 'MADE BY MASTERS · KHADI · 00:29',
+        desc: 'Handspun and handwoven natural fibre cloth, spun and woven by hand without electricity.',
+        poster: 'https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/e33b06d4-eb6e-451e-9322-b64552cdbb24/thumbnail'
       },
-      handwoven: {
+      handspun: {
         id: '45238685-311b-4802-b9f0-2f64feafae45',
         dur: '00:32',
-        title: 'THE RHYTHM OF THE HANDLOOM',
-        kicker: 'MADE BY MASTERS · MASTER WEAVERS · 00:32',
-        desc: 'Woven shuttle by shuttle on traditional wooden looms, creating breathable heirloom cloth alive with human nuance.',
-        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/c5a3da4d-5d66-4d98-bf24-dcdff0587017/006_HARTWICK_HANDWOVEN_PARIS_TROUSERS_KHADI_TWILL_AMMAN_SHIRT.jpg?format=1500w'
+        title: 'HAND SPUN ON THE CHARKHA',
+        kicker: 'MADE BY MASTERS · HAND SPUN · 00:32',
+        desc: 'Natural fibres drawn out and twisted together by hand to form a breathable, living yarn.',
+        poster: 'https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/45238685-311b-4802-b9f0-2f64feafae45/thumbnail'
+      },
+      handwoven: {
+        id: 'f4364d2b-2f95-4de3-9e0a-6f6d1a9f38fe',
+        dur: '00:12',
+        title: 'HANDWOVEN ON THE WOODEN LOOM',
+        kicker: 'MADE BY MASTERS · HANDWOVEN · 00:12',
+        desc: 'Handspun yarns woven together shuttle by shuttle using a traditional wooden handloom.',
+        poster: 'https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/f4364d2b-2f95-4de3-9e0a-6f6d1a9f38fe/thumbnail'
+      },
+      blockprint: {
+        id: 'e2e2b308-21a7-41cc-9ef1-5e17d2a634cd',
+        dur: '00:12',
+        title: 'BLOCK PRINTED BY HAND',
+        kicker: 'MADE BY MASTERS · MASTER PRINTERS · 00:12',
+        desc: 'Printed by hand using hand-carved wooden blocks dipped in natural mineral and botanical dyes.',
+        poster: 'https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/e2e2b308-21a7-41cc-9ef1-5e17d2a634cd/thumbnail'
+      },
+      woodblocks: {
+        id: 'c7d94b93-978f-4e1c-b25f-c00bb4acbb0c',
+        dur: '00:12',
+        title: 'HAND CARVED WOODEN BLOCKS',
+        kicker: 'MADE BY MASTERS · CARVING ATELIER · 00:12',
+        desc: 'Each colour in a print is layered using a different hand-carved wooden block from the registration set.',
+        poster: 'https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/c7d94b93-978f-4e1c-b25f-c00bb4acbb0c/thumbnail'
+      },
+      naturaldye: {
+        id: '5e04d90d-a169-4d96-a3a1-c52060b7fa3e',
+        dur: '00:11',
+        title: 'BOTANICAL & MINERAL NATURAL DYEING',
+        kicker: 'MADE BY MASTERS · NATURAL DYE · 00:11',
+        desc: 'Derived from locally sourced plants and minerals drawing from thousands of years of Ayurvedic knowledge.',
+        poster: 'https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/5e04d90d-a169-4d96-a3a1-c52060b7fa3e/thumbnail'
+      },
+      ajrakh: {
+        id: 'b84d65ed-79b0-476f-a0ac-72dd8ef1aebd',
+        dur: '00:30',
+        title: 'AJRAKH · SUN, WIND & WATER',
+        kicker: 'MADE BY MASTERS · AJRAKH · 00:30',
+        desc: 'Ancient 16-step resist block printing and natural vat dyeing in tune with the rhythms of the sun, wind, and water.',
+        poster: 'https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/b84d65ed-79b0-476f-a0ac-72dd8ef1aebd/thumbnail'
+      },
+      mashru: {
+        id: '039157c4-8aca-4803-b69e-0b6e65160c30',
+        dur: '00:55',
+        title: 'MASHRU SILK · SATIN FACE & COTTON BACK',
+        kicker: 'MADE BY MASTERS · MASHRU SILK · 00:55',
+        desc: 'Lustrous silk face with a soft cotton warp backing, block printed by hand with natural mineral and plant dyes.',
+        poster: 'https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/039157c4-8aca-4803-b69e-0b6e65160c30/thumbnail'
+      },
+      gotapatti: {
+        id: '0f596fba-3552-4086-b39c-dab91b9f0146',
+        dur: '00:48',
+        title: 'GOTA PATTI & ZARI HERITAGE EMBROIDERY',
+        kicker: 'MADE BY MASTERS · RAJASTHAN · 00:48',
+        desc: 'Traditional Rajasthani metallic ribbon appliqué and zari handwork traced back to the 3rd century.',
+        poster: 'https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/0f596fba-3552-4086-b39c-dab91b9f0146/thumbnail'
+      },
+      zari: {
+        id: '0f596fba-3552-4086-b39c-dab91b9f0146',
+        dur: '00:48',
+        title: 'GOTA PATTI & ZARI HERITAGE EMBROIDERY',
+        kicker: 'MADE BY MASTERS · RAJASTHAN · 00:48',
+        desc: 'Traditional Rajasthani metallic ribbon appliqué and zari handwork traced back to the 3rd century.',
+        poster: 'https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/0f596fba-3552-4086-b39c-dab91b9f0146/thumbnail'
       },
       jamdani: {
         id: 'f4364d2b-2f95-4de3-9e0a-6f6d1a9f38fe',
         dur: '00:12',
-        title: 'DISCONTINUOUS WEFT JAMDANI WEAVING',
-        kicker: 'MADE BY MASTERS · WEST BENGAL · 00:12',
-        desc: 'Intricate geometric motifs inlaid by hand directly on the loom using fine spindles—a UNESCO-recognized heritage art.',
-        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/c5a3da4d-5d66-4d98-bf24-dcdff0587017/006_HARTWICK_HANDWOVEN_PARIS_TROUSERS_KHADI_TWILL_AMMAN_SHIRT.jpg?format=1500w'
+        title: 'HANDWOVEN & JAMDANI LOOM WEAVING',
+        kicker: 'MADE BY MASTERS · MASTER WEAVERS · 00:12',
+        desc: 'Woven by hand on traditional wooden looms in West Bengal.',
+        poster: 'https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/f4364d2b-2f95-4de3-9e0a-6f6d1a9f38fe/thumbnail'
       },
       ikat: {
-        id: 'e2e2b308-21a7-41cc-9ef1-5e17d2a634cd',
-        dur: '00:12',
-        title: 'RESIST-DYED HANDWOVEN IKAT',
-        kicker: 'MADE BY MASTERS · MASTER IKAT WEAVERS · 00:12',
-        desc: 'Warp and weft yarns are hand-tied and resist-dyed before weaving so the pattern emerges as the cloth is woven.',
-        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/8d28d4d4-4b30-44c7-999b-636e1a552025/002+_HARTWICK_HANDWOVEN_MARYLEBONE_COAT_IKAT_BOMBAY_TROUSERS_SITGES_TOTEBAG.jpg'
+        id: '45238685-311b-4802-b9f0-2f64feafae45',
+        dur: '00:32',
+        title: 'HANDSPUN & RESIST-DYED YARN',
+        kicker: 'MADE BY MASTERS · MASTER WEAVERS · 00:32',
+        desc: 'Yarns prepared, tied, and dyed by hand before weaving on the handloom.',
+        poster: 'https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/45238685-311b-4802-b9f0-2f64feafae45/thumbnail'
       },
       banaras: {
-        id: 'c7d94b93-978f-4e1c-b25f-c00bb4acbb0c',
-        dur: '00:12',
-        title: 'BANARAS SILK & ZARI BROCADE',
-        kicker: 'MADE BY MASTERS · VARANASI · 00:12',
-        desc: 'Lustrous handwoven silk brocade interwoven with fine metallic zari threads by master weavers in Varanasi.',
-        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/0e0c3b00-61cb-4eed-8741-db304f1fd896/004034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w'
-      },
-      zari: {
-        id: '5e04d90d-a169-4d96-a3a1-c52060b7fa3e',
-        dur: '00:11',
-        title: 'HERITAGE METALWORK, ZARI & GOTA PATTI',
-        kicker: 'MADE BY MASTERS · JAIPUR · 00:11',
-        desc: 'Refined gold, silver, and metallic ribbon handwork practiced by generational master artisans in Rajasthan.',
-        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fad0ba3a-a1b3-41a6-bec9-9c82b64c30f5/CROP_HARTWICK_LIMINAL_SILVER_GOLD_EMERALD_RINGS_TOURMELINE_RHODOLITE_1781.jpg'
-      },
-      naturaldye: {
-        id: '5c1daaee-39c1-4730-a4e9-d753c2d6ae0a',
-        dur: '00:06',
-        title: 'BOTANICAL & MINERAL NATURAL DYEING',
-        kicker: 'MADE BY MASTERS · MASTER COLORISTS · 00:06',
-        desc: 'Small-batch vats of wild indigo, pomegranate rind, madder root, turmeric, iron, and jaggery.',
-        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/e9d0ed0b-29bf-4f71-9cec-0d7335adbd37/008_HARTWICK_EDITORIAL_JAIPUR.jpg'
-      },
-      blockprint: {
-        id: 'b84d65ed-79b0-476f-a0ac-72dd8ef1aebd',
-        dur: '00:30',
-        title: 'HAND BLOCK PRINTING LAYER BY LAYER',
-        kicker: 'MADE BY MASTERS · MASTER PRINTERS · 00:30',
-        desc: 'Hand-carved wooden blocks dipped in natural dye and stamped by hand with steady precision.',
-        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/31a9d117-730e-45ba-9a75-4e2144af03e0/267_HARTWICK_FINESILK_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg'
-      },
-      woodblocks: {
-        id: 'cb5a9b7b-2f28-482b-90cf-16503c1173e5',
-        dur: '00:09',
-        title: 'HAND-CARVED TEAK WOODEN BLOCKS',
-        kicker: 'MADE BY MASTERS · CARVING ATELIER · 00:09',
-        desc: 'Each motif begins as seasoned wood carved by hand into intricate multi-block registration sets.',
-        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/31a9d117-730e-45ba-9a75-4e2144af03e0/267_HARTWICK_FINESILK_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg'
-      },
-      mashru: {
-        id: '215b9ec5-5021-4364-9950-4fb2f8aa9aad',
-        dur: '00:29',
-        title: 'FINE MASHRU SILK PRINTING & FINISHING',
-        kicker: 'MADE BY MASTERS · KUTCH · 00:29',
-        desc: 'Lustrous silk face with a soft cotton warp backing, block printed by hand with natural mineral and plant dyes.',
-        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1739485853760-7GB5PB4HDZ3AIJE2XE1K/214_HARTWICK_FINESILK_DUPATTA_SCARF_NATURALDYE_BLOCKPRINT.jpg'
-      },
-      singletailor: {
         id: '0f596fba-3552-4086-b39c-dab91b9f0146',
         dur: '00:48',
+        title: 'SILK & ZARI HERITAGE HANDWORK',
+        kicker: 'MADE BY MASTERS · ZARI & BROCADE · 00:48',
+        desc: 'Lustrous silk and metallic zari threadwork practiced by master artisans.',
+        poster: 'https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/0f596fba-3552-4086-b39c-dab91b9f0146/thumbnail'
+      },
+      singletailor: {
+        id: 'e33b06d4-eb6e-451e-9322-b64552cdbb24',
+        dur: '00:29',
         title: 'SINGLE-TAILOR HEIRLOOM CONSTRUCTION',
-        kicker: 'MADE BY MASTERS · ATELIER TAILORING · 00:48',
+        kicker: 'MADE BY MASTERS · ATELIER TAILORING · 00:29',
         desc: 'Every garment is assembled from start to finish by a single master tailor with French seams and mother-of-pearl buttons.',
-        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/7cc1a6d4-ab61-4929-a96b-e7c9e388ed54/002_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_TOKYO_SHIRT_IKAT_03.jpg'
+        poster: 'https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/e33b06d4-eb6e-451e-9322-b64552cdbb24/thumbnail'
       }
     };
 
     function getProductFilms(p) {
-      if (!p) return { primary: HW_CRAFT_VIDEOS.apparel, secondary: HW_CRAFT_VIDEOS.singletailor };
+      if (!p) return { primary: HW_CRAFT_VIDEOS.apparel, secondary: HW_CRAFT_VIDEOS.khadi };
       if (p.navGroup === 'Fine Jewellery') {
-        return { primary: HW_CRAFT_VIDEOS.jewellery, secondary: HW_CRAFT_VIDEOS.zari };
+        return { primary: HW_CRAFT_VIDEOS.jewellery, secondary: HW_CRAFT_VIDEOS.jewellery_craft };
       }
-      if (p.navGroup === 'Fine Silk') {
+      if (p.navGroup === 'Fine Silk' || p.navGroup === 'Fine Silk Scarves') {
         return { primary: HW_CRAFT_VIDEOS.silk, secondary: HW_CRAFT_VIDEOS.silk_process };
       }
       if (p.category === 'Yoga Mats') {
-        return { primary: HW_CRAFT_VIDEOS.yoga, secondary: HW_CRAFT_VIDEOS.handspun };
+        return { primary: HW_CRAFT_VIDEOS.yoga, secondary: HW_CRAFT_VIDEOS.khadi };
       }
       const hay = ((p.technique || '') + ' ' + (p.commercial || '') + ' ' + (p.fibre || '') + ' ' + (p.masterId || '')).toLowerCase();
-      let craft = HW_CRAFT_VIDEOS.handspun;
-      if (hay.includes('ikat')) craft = HW_CRAFT_VIDEOS.ikat;
-      else if (hay.includes('jamdani')) craft = HW_CRAFT_VIDEOS.jamdani;
-      else if (hay.includes('brocade') || hay.includes('banaras')) craft = HW_CRAFT_VIDEOS.banaras;
-      else if (hay.includes('gota') || hay.includes('zari')) craft = HW_CRAFT_VIDEOS.zari;
-      else if (hay.includes('block print') || hay.includes('ajrakh')) craft = HW_CRAFT_VIDEOS.blockprint;
+      let craft = HW_CRAFT_VIDEOS.khadi;
+      if (hay.includes('ajrakh')) craft = HW_CRAFT_VIDEOS.ajrakh;
+      else if (hay.includes('block print')) craft = HW_CRAFT_VIDEOS.blockprint;
       else if (hay.includes('mashru')) craft = HW_CRAFT_VIDEOS.mashru;
       else if (hay.includes('natural dye') || hay.includes('ayurvedic')) craft = HW_CRAFT_VIDEOS.naturaldye;
-      else if (hay.includes('silk') || hay.includes('linen')) craft = HW_CRAFT_VIDEOS.handwoven;
+      else if (hay.includes('gota') || hay.includes('zari') || hay.includes('brocade') || hay.includes('banaras')) craft = HW_CRAFT_VIDEOS.gotapatti;
+      else if (hay.includes('jamdani') || hay.includes('handwoven')) craft = HW_CRAFT_VIDEOS.handwoven;
+      else if (hay.includes('ikat') || hay.includes('handspun')) craft = HW_CRAFT_VIDEOS.handspun;
       return { primary: HW_CRAFT_VIDEOS.apparel, secondary: craft };
     }
 
     function getMasterVideoSpec(masterId) {
       const map = {
-        khadi: HW_CRAFT_VIDEOS.handspun,
+        khadi: HW_CRAFT_VIDEOS.khadi,
         handspun: HW_CRAFT_VIDEOS.handspun,
         handwoven: HW_CRAFT_VIDEOS.handwoven,
         matka: HW_CRAFT_VIDEOS.handwoven,
         muga: HW_CRAFT_VIDEOS.handwoven,
-        kora: HW_CRAFT_VIDEOS.handwoven,
+        kora: HW_CRAFT_VIDEOS.khadi,
         linen: HW_CRAFT_VIDEOS.handwoven,
         changeant: HW_CRAFT_VIDEOS.handwoven,
-        jamdani: HW_CRAFT_VIDEOS.jamdani,
-        ikat: HW_CRAFT_VIDEOS.ikat,
-        banaras: HW_CRAFT_VIDEOS.banaras,
-        gotapatti: HW_CRAFT_VIDEOS.zari,
-        zari: HW_CRAFT_VIDEOS.zari,
-        quilting: HW_CRAFT_VIDEOS.zari,
+        jamdani: HW_CRAFT_VIDEOS.handwoven,
+        ikat: HW_CRAFT_VIDEOS.handspun,
+        banaras: HW_CRAFT_VIDEOS.gotapatti,
+        brocade: HW_CRAFT_VIDEOS.gotapatti,
+        gotapatti: HW_CRAFT_VIDEOS.gotapatti,
+        zari: HW_CRAFT_VIDEOS.gotapatti,
+        quilting: HW_CRAFT_VIDEOS.khadi,
         naturaldye: HW_CRAFT_VIDEOS.naturaldye,
         blockprint: HW_CRAFT_VIDEOS.blockprint,
-        ajrakh: HW_CRAFT_VIDEOS.blockprint,
+        ajrakh: HW_CRAFT_VIDEOS.ajrakh,
         woodblocks: HW_CRAFT_VIDEOS.woodblocks,
+        woodenblocks: HW_CRAFT_VIDEOS.woodblocks,
         mashru: HW_CRAFT_VIDEOS.mashru,
         singletailor: HW_CRAFT_VIDEOS.singletailor
       };
-      return map[masterId] || HW_CRAFT_VIDEOS.handspun;
+      return map[masterId] || HW_CRAFT_VIDEOS.khadi;
     }
 
     function attachSqsStreamToVideo(videoEl, sqsId, posterUrl) {
@@ -5840,7 +5905,7 @@
             <p class="hw-col-positioning-quote-text">Positioning Statement — Space Saver: Inspired by traditional Indian jewellery, Byzantine and Anatolian archaeological findings, and vintage Italian gold chains. Each piece is Made to Order and handcrafted by master stonecutters, stone setters and goldsmiths in Jaipur.</p>
             <div class="hw-col-positioning-quote-meta" style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:14px;">
               <span>HA JEWELLERY POSITIONING QUOTE &middot; SPACE SAVER (FINAL QUOTE TBC) &middot; ALL JEWELLERY MADE TO ORDER</span>
-              <button type="button" class="hw-film-cta-link" onclick="openHwFilmLightbox('07ca2cea-bc19-4893-aaff-b8ce2b636233', 'FINE JEWELLERY · LIMINAL COLLECTION', 'JAIPUR GOLDSMITHS · MADE TO ORDER', 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fad0ba3a-a1b3-41a6-bec9-9c82b64c30f5/CROP_HARTWICK_LIMINAL_SILVER_GOLD_EMERALD_RINGS_TOURMELINE_RHODOLITE_1781.jpg')">WATCH FILM</button>
+              <button type="button" class="hw-film-cta-link" onclick="openHwFilmLightbox('a97ea5d7-c28c-47e3-b7c0-7ffd8b263fae', 'FINE JEWELLERY · LIMINAL COLLECTION', 'JAIPUR GOLDSMITHS · MADE TO ORDER', 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fad0ba3a-a1b3-41a6-bec9-9c82b64c30f5/CROP_HARTWICK_LIMINAL_SILVER_GOLD_EMERALD_RINGS_TOURMELINE_RHODOLITE_1781.jpg')">WATCH FILM</button>
             </div>
           `;
           quoteEl.style.display = 'block';
