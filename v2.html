@@ -1197,6 +1197,12 @@
       line-height: 1.15;
       color: var(--hw-ink);
     }
+    .hw-v2-var-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
     .hw-v2-price {
       display: inline-block;
       font-family: var(--font-mono);
@@ -1205,7 +1211,8 @@
       letter-spacing: 0.06em;
       color: var(--hw-ink);
       white-space: nowrap;
-      margin-top: 10px;
+      margin-top: 0;
+      flex-shrink: 0;
     }
     .hw-v2-sub {
       font-family: var(--font-body);
@@ -4734,11 +4741,11 @@
           </div>
           <p class="hw-v2-sub" id="pdp-sub" style="cursor:pointer;" onclick="openMasters(currentProduct ? currentProduct.masterId : 'khadi', true)" title="Click to explore this craft in Made By Masters">Handwoven Emerald Matka Silk</p>
 
-          <!-- Style Variations Switcher (Siblings of this exact Style) + Product Price Underneath Thumbnails -->
+          <!-- Style Variations Switcher (Siblings of this exact Style) + Product Price Next to Thumbnails -->
           <div class="hw-v2-variations" id="pdp-variations-wrap">
             <div class="hw-v2-var-label" id="pdp-var-label">Style Variations</div>
-            <div class="hw-v2-var-grid" id="pdp-var-grid"></div>
-            <div class="hw-v2-price-row">
+            <div class="hw-v2-var-row">
+              <div class="hw-v2-var-grid" id="pdp-var-grid"></div>
               <span class="hw-v2-price" id="pdp-price">€696</span>
             </div>
           </div>
