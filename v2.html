@@ -15,13 +15,23 @@
     }
     @font-face {
       font-family: 'Junicode';
-      src: url('https://cdn.jsdelivr.net/gh/psb1558/Junicode-font@master/webfonts/Junicode-Bold.woff2') format('woff2');
+      src: url('https://cdn.jsdelivr.net/gh/psb1558/Junicode-font@master/webfonts/Junicode-Regular.woff2') format('woff2');
       font-weight: 500; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Junicode';
+      src: url('https://cdn.jsdelivr.net/gh/psb1558/Junicode-font@master/webfonts/Junicode-Bold.woff2') format('woff2');
+      font-weight: 700; font-style: normal; font-display: swap;
     }
     @font-face {
       font-family: 'Junicode';
       src: url('https://cdn.jsdelivr.net/gh/psb1558/Junicode-font@master/webfonts/Junicode-Italic.woff2') format('woff2');
       font-weight: 400; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Junicode';
+      src: url('https://cdn.jsdelivr.net/gh/psb1558/Junicode-font@master/webfonts/Junicode-Italic.woff2') format('woff2');
+      font-weight: 500; font-style: italic; font-display: swap;
     }
 
     
@@ -594,7 +604,7 @@
     .d1-tot-chevron {
       display: inline-block;
       margin-top: 2px;
-      font-family: var(--font-mono);
+      font-family: var(--font-mono); font-weight: 600;
       font-size: 12px;
       line-height: 1;
       color: var(--hw-muted);
@@ -1007,7 +1017,8 @@
     .hw-card-craft-line {
       font-family: var(--font-body);
       font-size: 14.5px;
-      font-style: italic;
+      font-weight: 500;
+      font-style: normal;
       color: var(--hw-light);
       line-height: 1.35;
     }
@@ -1115,7 +1126,8 @@
     .hw-v2-sub {
       font-family: var(--font-body);
       font-size: 16.5px;
-      font-style: italic;
+      font-weight: 500;
+      font-style: normal;
       color: var(--hw-muted);
       margin-bottom: 10px;
     }
@@ -1292,12 +1304,19 @@
       width: 100%;
       background: none;
       border: none;
-      padding: 6px 0;
+      padding: 9px 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 12px;
       cursor: pointer;
       text-align: left;
+    }
+    .hw-collapsible-right {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-left: auto;
     }
     .hw-collapsible-title {
       font-family: var(--font-heading);
@@ -1400,7 +1419,7 @@
       color: var(--hw-muted);
       opacity: 0.42;
       transition: all 0.2s ease;
-      font-weight: 500;
+      font-weight: 600;
     }
     .hw-fit-pill .hw-fit-diamond {
       font-size: 6.5px;
@@ -1432,8 +1451,10 @@
     .hw-ftg-heading {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 6px;
+      align-items: center;
+      gap: 12px;
+      padding: 2px 0 7px;
+      margin-bottom: 0;
       cursor: pointer;
     }
     .hw-ftg-heading:hover .hw-ftg-heading-hint {
@@ -1461,7 +1482,7 @@
     .hw-ftg-open-row {
       position: relative;
       border-bottom: 1px solid var(--hw-border);
-      padding: 7px 2px;
+      padding: 8px 0;
       cursor: pointer;
       transition: background-color 0.35s ease;
     }
@@ -1474,17 +1495,18 @@
     .hw-ftg-row-top {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      gap: 10px;
-      margin-bottom: 2px;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 0;
     }
     .hw-ftg-step {
       font-family: var(--font-mono);
-      font-size: 9px;
+      font-size: 10px;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--hw-muted);
+      line-height: 1.45;
       transition: color 0.3s ease;
     }
     .hw-ftg-open-row:hover .hw-ftg-step {
@@ -1494,6 +1516,8 @@
       font-family: var(--font-mono);
       font-size: 10px;
       font-weight: 600;
+      letter-spacing: 0.04em;
+      line-height: 1.45;
       color: var(--hw-ink);
       text-align: right;
     }
@@ -1671,7 +1695,7 @@
       font-family: var(--font-body);
       font-style: italic;
       font-size: 17px;
-      font-weight: 400;
+      font-weight: 500;
       color: var(--hw-accent);
       margin: 8px 0 0 0;
     }
@@ -2032,7 +2056,7 @@
       font-family: var(--font-body);
       font-style: italic;
       font-size: clamp(1.2rem, 1.65vw, 1.48rem);
-      font-weight: 400;
+      font-weight: 500;
       line-height: 1.58;
       color: var(--hw-muted);
       margin: 0 0 24px 0;
@@ -2368,7 +2392,7 @@
       font-family: var(--font-body);
       font-style: italic;
       font-size: clamp(1.15rem, 1.45vw, 1.35rem);
-      font-weight: 400;
+      font-weight: 500;
       line-height: 1.55;
       color: var(--hw-muted);
       margin: 0 0 36px 0;
@@ -2654,7 +2678,7 @@
       font-family: var(--font-body);
       font-style: italic;
       font-size: clamp(1.02rem, 1.3vw, 1.18rem);
-      font-weight: 400;
+      font-weight: 500;
       line-height: 1.5;
       color: var(--hw-ink);
       max-width: 720px;
@@ -4127,17 +4151,22 @@
             <p class="hw-v2-story-p" id="pdp-short-desc"></p>
           </div>
 
-          <!-- d. FIT (open, static text - renamed from Garment Details & Specifications) -->
-          <div class="hw-static-fit-block" id="pdp-bullets-acc">
-            <div class="hw-static-fit-head">
-              <div class="hw-static-section-title" style="margin-bottom:0;">FIT</div>
-              <div class="hw-fit-indicator" id="pdp-fit-indicator" aria-label="Garment fit category">
-                <span class="hw-fit-pill active" id="pdp-fit-classic"><span class="hw-fit-diamond">◆</span>Classic Fit</span>
-                <span class="hw-fit-sep">/</span>
-                <span class="hw-fit-pill" id="pdp-fit-tailored"><span class="hw-fit-diamond">◆</span>Tailored Fit</span>
-              </div>
+          <!-- d. FIT (collapsible accordion with architectural Fit indicator) -->
+          <div class="hw-collapsible-block" id="pdp-bullets-acc">
+            <button type="button" class="hw-collapsible-trigger" onclick="this.parentElement.classList.toggle('open')">
+              <span class="hw-collapsible-title">FIT</span>
+              <span class="hw-collapsible-right">
+                <span class="hw-fit-indicator" id="pdp-fit-indicator" aria-label="Garment fit category">
+                  <span class="hw-fit-pill active" id="pdp-fit-classic"><span class="hw-fit-diamond">◆</span>Classic Fit</span>
+                  <span class="hw-fit-sep">/</span>
+                  <span class="hw-fit-pill" id="pdp-fit-tailored"><span class="hw-fit-diamond">◆</span>Tailored Fit</span>
+                </span>
+                <span class="hw-collapsible-plus">+</span>
+              </span>
+            </button>
+            <div class="hw-collapsible-body">
+              <ul class="hw-v2-bullets" id="pdp-bullets"></ul>
             </div>
-            <ul class="hw-v2-bullets" id="pdp-bullets"></ul>
           </div>
 
           <!-- e. Fibre to Garment / Craft Origins (open section) -->
@@ -4922,6 +4951,8 @@
         'Individually cut and finished with heirloom interior seams'
       ];
       document.getElementById('pdp-bullets').innerHTML = bullets.map(b => `<li>${b}</li>`).join('');
+      const fitAcc = document.getElementById('pdp-bullets-acc');
+      if (fitAcc) fitAcc.classList.remove('open');
       document.getElementById('pdp-care-acc').classList.remove('open');
       const shipAcc = document.getElementById('pdp-shipping-acc');
       if (shipAcc) shipAcc.classList.remove('open');
