@@ -1198,12 +1198,14 @@
       color: var(--hw-ink);
     }
     .hw-v2-price {
+      display: inline-block;
       font-family: var(--font-mono);
-      font-size: 15px;
+      font-size: 18px;
       font-weight: 600;
       letter-spacing: 0.06em;
       color: var(--hw-ink);
       white-space: nowrap;
+      margin-top: 10px;
     }
     .hw-v2-sub {
       font-family: var(--font-body);
@@ -4729,14 +4731,16 @@
 
           <div class="hw-v2-title-row">
             <h1 class="hw-v2-title" id="pdp-title">TRIBECA EMERALD</h1>
-            <span class="hw-v2-price" id="pdp-price">€696</span>
           </div>
           <p class="hw-v2-sub" id="pdp-sub" style="cursor:pointer;" onclick="openMasters(currentProduct ? currentProduct.masterId : 'khadi', true)" title="Click to explore this craft in Made By Masters">Handwoven Emerald Matka Silk</p>
 
-          <!-- Style Variations Switcher (Siblings of this exact Style) -->
+          <!-- Style Variations Switcher (Siblings of this exact Style) + Product Price Underneath Thumbnails -->
           <div class="hw-v2-variations" id="pdp-variations-wrap">
             <div class="hw-v2-var-label" id="pdp-var-label">Style Variations</div>
             <div class="hw-v2-var-grid" id="pdp-var-grid"></div>
+            <div class="hw-v2-price-row">
+              <span class="hw-v2-price" id="pdp-price">€696</span>
+            </div>
           </div>
 
           <!-- Compact, Sleek Size & Add to Bag Controls -->
