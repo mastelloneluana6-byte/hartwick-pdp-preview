@@ -2009,6 +2009,43 @@
       padding: 6px 6px 8px;
       border: 1px solid rgba(36, 25, 20, 0.08);
     }
+    .hw-masters-page.is-option-3 {
+      background-color: #F6F2E9;
+    }
+    .hw-masters-page.is-option-3 .hw-masters-top-bar {
+      border-bottom: 3px double rgba(138, 107, 71, 0.35);
+    }
+    .hw-masters-page.is-option-3 .hw-masters-ftg-left {
+      border-top: 2px solid #1C1410;
+    }
+    .hw-masters-page.is-option-3 .hw-masters-ftg-left .hw-ftg-open-row {
+      border-bottom: 1px solid rgba(138, 107, 71, 0.22);
+    }
+    .hw-masters-page.is-option-3 .hw-masters-ftg-left .hw-ftg-open-row.is-active {
+      background: linear-gradient(90deg, rgba(138, 107, 71, 0.12) 0%, rgba(138, 107, 71, 0.02) 100%);
+      padding-left: 12px;
+    }
+    .hw-masters-page.is-option-3 .hw-masters-ftg-left .hw-ftg-open-row.is-active::before {
+      background-color: #8A6B47;
+    }
+    .hw-masters-page.is-option-3 .hw-masters-card {
+      background: #FBF9F4;
+      border: 1px solid rgba(138, 107, 71, 0.30);
+      box-shadow: 0 18px 42px rgba(28, 20, 16, 0.045);
+      padding: 14px 20px 18px;
+    }
+    .hw-masters-page.is-option-3 .hw-masters-card__body {
+      border-left: 2px solid #8A6B47;
+      padding-left: 14px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .hw-masters-page.is-option-3 .hw-m-garment-card {
+      background: #F5F0E6;
+      padding: 7px 7px 9px;
+      border: 1px solid rgba(138, 107, 71, 0.22);
+    }
     @media (max-width: 960px) {
       .hw-masters-top-bar {
         grid-template-columns: 1fr;
@@ -4754,6 +4791,7 @@
           <div style="display:inline-flex; border:1px solid var(--hw-border-strong); background:rgba(248,245,238,0.55); padding:2px; gap:2px;">
             <button type="button" id="v2-masters-opt-1" onclick="setV2MastersOption(1)" style="font-family:var(--font-mono); font-size:8.5px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border:none; cursor:pointer; background:var(--hw-ink); color:#F8F5EE;">Option 01 &middot; Ledger</button>
             <button type="button" id="v2-masters-opt-2" onclick="setV2MastersOption(2)" style="font-family:var(--font-mono); font-size:8.5px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border:none; cursor:pointer; background:transparent; color:var(--hw-muted);">Option 02 &middot; Pastel Atelier</button>
+            <button type="button" id="v2-masters-opt-3" onclick="setV2MastersOption(3)" style="font-family:var(--font-mono); font-size:8.5px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border:none; cursor:pointer; background:transparent; color:var(--hw-muted);">Option 03 &middot; Haute Salon</button>
           </div>
         </header>
 
@@ -6062,18 +6100,16 @@
     function setV2MastersOption(opt) {
       const page = document.getElementById('glossary');
       if (!page) return;
-      const isOpt2 = opt === 2;
-      page.classList.toggle('is-option-2', isOpt2);
-      const b1 = document.getElementById('v2-masters-opt-1');
-      const b2 = document.getElementById('v2-masters-opt-2');
-      if (b1) {
-        b1.style.background = isOpt2 ? 'transparent' : 'var(--hw-ink)';
-        b1.style.color = isOpt2 ? 'var(--hw-muted)' : '#F8F5EE';
-      }
-      if (b2) {
-        b2.style.background = isOpt2 ? 'var(--hw-ink)' : 'transparent';
-        b2.style.color = isOpt2 ? '#F8F5EE' : 'var(--hw-muted)';
-      }
+      page.classList.toggle('is-option-2', opt === 2);
+      page.classList.toggle('is-option-3', opt === 3);
+      [1, 2, 3].forEach(n => {
+        const b = document.getElementById('v2-masters-opt-' + n);
+        if (b) {
+          const active = (opt === n) || (![2, 3].includes(opt) && n === 1);
+          b.style.background = active ? 'var(--hw-ink)' : 'transparent';
+          b.style.color = active ? '#F8F5EE' : 'var(--hw-muted)';
+        }
+      });
     }
 
     let showAllMasterProducts = false;

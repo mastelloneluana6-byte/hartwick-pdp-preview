@@ -772,6 +772,155 @@
     }
 
     /* ==========================================================================
+       HIGH-END OPTION 03: HAUTE SALON / PRIVATE ARCHIVE (ULTRA-EXCLUSIVE)
+       - Warm Silk Cashmere Ivory (#F7F4ED) + Espresso (#1C1410) + Burnished Bronze (#8A6B47)
+       - Double-hairline museum framing, passe-partout video & numbered Collector Editions
+       - Strictly keeps Left 01-14 Fibre-to-Garment list + Top-Right Video + Sheets Text + Products above the fold
+       ========================================================================== */
+    body.is-option-3 {
+      background-color: #F6F2E9;
+      color: #1C1410;
+    }
+    body.is-option-3 .hw-site-header {
+      background: rgba(246, 242, 233, 0.97);
+      border-bottom: 1px solid rgba(138, 107, 71, 0.28);
+    }
+    .hw-masters-page.is-option-3 .hw-masters-top-bar {
+      border-bottom: 3px double rgba(138, 107, 71, 0.35);
+      padding-bottom: 8px;
+    }
+    .hw-masters-page.is-option-3 .hw-masters-eyebrow {
+      color: #8A6B47;
+    }
+    .hw-masters-page.is-option-3 .hw-masters-workbench {
+      grid-template-columns: 248px minmax(0, 1fr);
+      gap: 32px;
+    }
+    /* Left Sidebar in Option 03: Clean Fibre-to-Garment typography lines with burnished bronze accents (NO buttons, only 01 / Khadi) */
+    .hw-masters-page.is-option-3 .hw-ftg-section {
+      padding: 4px 0;
+    }
+    .hw-masters-page.is-option-3 .hw-ftg-heading {
+      border-bottom: 2px solid #1C1410;
+      padding-bottom: 6px;
+    }
+    .hw-masters-page.is-option-3 .hw-ftg-heading-hint {
+      color: #8A6B47;
+    }
+    .hw-masters-page.is-option-3 .hw-ftg-open-row {
+      padding: 6.5px 4px;
+      border-bottom: 1px solid rgba(138, 107, 71, 0.22);
+      transition: all 0.25s var(--hw-ease-silk);
+    }
+    .hw-masters-page.is-option-3 .hw-ftg-open-row:hover {
+      padding-left: 9px;
+      background: rgba(138, 107, 71, 0.04);
+    }
+    .hw-masters-page.is-option-3 .hw-ftg-open-row.is-active {
+      background: linear-gradient(90deg, rgba(138, 107, 71, 0.11) 0%, rgba(138, 107, 71, 0.02) 100%);
+      border-bottom-color: #8A6B47;
+      padding-left: 12px;
+    }
+    .hw-masters-page.is-option-3 .hw-ftg-open-row.is-active::before {
+      width: 2px;
+      background: #8A6B47;
+    }
+    .hw-masters-page.is-option-3 .hw-ftg-open-row.is-active .hw-ftg-step-num {
+      color: #8A6B47;
+    }
+    .hw-masters-page.is-option-3 .hw-ftg-open-row.is-active .hw-ftg-ind {
+      color: #8A6B47;
+    }
+
+    /* Right Stage in Option 03: Haute Salon Monograph Plate */
+    .hw-masters-page.is-option-3 .hw-masters-stage {
+      background: #FBF9F4;
+      border: 1px solid rgba(138, 107, 71, 0.30);
+      box-shadow: 0 18px 42px rgba(28, 20, 16, 0.045);
+      padding: 12px 20px 16px;
+      position: relative;
+    }
+    .hw-masters-page.is-option-3 .hw-masters-stage::before {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border: 1px solid rgba(138, 107, 71, 0.14);
+      pointer-events: none;
+    }
+    .hw-masters-page.is-option-3 .hw-ftg-heading {
+      border-bottom: 1px solid rgba(138, 107, 71, 0.32);
+    }
+    /* 1. Top-Right Video in Option 03: Passe-Partout Cinema Frame */
+    .hw-masters-page.is-option-3 .hw-craft-video-wrap {
+      background: #F3EFE6;
+      padding: 7px 9px 6px;
+      border: 1px solid rgba(138, 107, 71, 0.24);
+      margin-top: 7px;
+    }
+    .hw-masters-page.is-option-3 .hw-craft-video-frame {
+      max-height: 192px;
+      border: 1px solid rgba(28, 20, 16, 0.22);
+    }
+    /* 2. Middle Right: Google Sheets Copy as Museum Monograph Plaque */
+    .hw-masters-page.is-option-3 .hw-masters-sheet-copy {
+      padding: 9px 0 8px 14px;
+      margin: 8px 0 4px;
+      border-left: 2px solid #8A6B47;
+      border-bottom: 1px solid rgba(138, 107, 71, 0.24);
+    }
+    .hw-masters-page.is-option-3 .hw-masters-sheet-copy__sub {
+      color: #8A6B47;
+    }
+    .hw-masters-page.is-option-3 .hw-masters-sheet-copy__paras {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .hw-masters-page.is-option-3 .hw-masters-sheet-copy__paras p {
+      font-size: 14px;
+      line-height: 1.44;
+      margin-bottom: 0;
+    }
+    /* 3. Bottom Right: Numbered Collector Edition Plates */
+    .hw-masters-page.is-option-3 .hw-m-garments__head {
+      border-bottom: 1px solid rgba(138, 107, 71, 0.26);
+    }
+    .hw-masters-page.is-option-3 .hw-m-garments__grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .hw-masters-page.is-option-3 .hw-m-garment-card {
+      background: #F5F0E6;
+      border: 1px solid rgba(138, 107, 71, 0.22);
+      padding: 7px 7px 9px;
+      transition: transform 0.35s var(--hw-ease-silk), border-color 0.35s ease, box-shadow 0.35s ease;
+      position: relative;
+    }
+    .hw-masters-page.is-option-3 .hw-m-garment-card:hover {
+      transform: translateY(-2px);
+      border-color: #8A6B47;
+      box-shadow: 0 10px 24px rgba(28, 20, 16, 0.07);
+    }
+    .hw-masters-page.is-option-3 .hw-m-garment-card__plate {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 7.5px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #8A6B47;
+      padding-bottom: 4px;
+      margin-bottom: 4px;
+      border-bottom: 1px solid rgba(138, 107, 71, 0.18);
+    }
+    .hw-masters-page.is-option-3 .hw-m-garment-card__img {
+      max-height: 158px;
+      border: 1px solid rgba(28, 20, 16, 0.12);
+    }
+
+    /* ==========================================================================
        SLIDE-OUT MOBILE MENU DRAWER & RESPONSIVE DESIGN
        ========================================================================== */
     .hw-mobile-menu-btn,
@@ -1068,6 +1217,7 @@
       <div class="hw-masters-opt-switcher" role="tablist" aria-label="High-End Layout Options">
         <button type="button" class="hw-masters-opt-pill is-active" id="opt-pill-1" onclick="setMastersOption(1)">Option 01 &middot; Ledger</button>
         <button type="button" class="hw-masters-opt-pill" id="opt-pill-2" onclick="setMastersOption(2)">Option 02 &middot; Pastel Atelier</button>
+        <button type="button" class="hw-masters-opt-pill" id="opt-pill-3" onclick="setMastersOption(3)">Option 03 &middot; Haute Salon</button>
       </div>
     </header>
 
@@ -1478,15 +1628,21 @@
 
     let currentMastersOption = 1;
 
+    const ROMAN_NUMS = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
+
     function setMastersOption(optNum) {
-      currentMastersOption = optNum === 2 ? 2 : 1;
+      currentMastersOption = (optNum === 2 || optNum === 3) ? optNum : 1;
       const pageEl = document.querySelector('.hw-masters-page');
-      if (pageEl) pageEl.classList.toggle('is-option-2', currentMastersOption === 2);
+      if (pageEl) {
+        pageEl.classList.toggle('is-option-2', currentMastersOption === 2);
+        pageEl.classList.toggle('is-option-3', currentMastersOption === 3);
+      }
       document.body.classList.toggle('is-option-2', currentMastersOption === 2);
-      const p1 = document.getElementById('opt-pill-1');
-      const p2 = document.getElementById('opt-pill-2');
-      if (p1) p1.classList.toggle('is-active', currentMastersOption === 1);
-      if (p2) p2.classList.toggle('is-active', currentMastersOption === 2);
+      document.body.classList.toggle('is-option-3', currentMastersOption === 3);
+      [1, 2, 3].forEach(n => {
+        const pill = document.getElementById('opt-pill-' + n);
+        if (pill) pill.classList.toggle('is-active', currentMastersOption === n);
+      });
       renderMastersWorkbench();
     }
 
@@ -1519,7 +1675,7 @@
       }
 
       const allProds = prodIds.map(id => PRODUCTS_DB[id]).filter(Boolean);
-      const defaultLimit = currentMastersOption === 2 ? 4 : 3;
+      const defaultLimit = (currentMastersOption === 2 || currentMastersOption === 3) ? 4 : 3;
       const visibleProds = showAllProducts ? allProds : allProds.slice(0, defaultLimit);
 
       const dyePillsHtml = t.id === 'naturaldye' ? `
@@ -1581,8 +1737,9 @@
               </div>
             </div>
             <div class="hw-m-garments__grid">
-              ${visibleProds.map(g => `
+              ${visibleProds.map((g, gIdx) => `
                 <a class="hw-m-garment-card" href="v2.html#product/${g.handle}">
+                  ${currentMastersOption === 3 ? `<div class="hw-m-garment-card__plate"><span>EDITION ${ROMAN_NUMS[gIdx] || (gIdx + 1)}</span><span>ARCHIVE ${t.num}</span></div>` : ''}
                   <div class="hw-m-garment-card__img">
                     <img src="${g.img}" alt="${g.title}" loading="lazy" />
                   </div>
@@ -1609,6 +1766,10 @@
 
     function initFromHash() {
       const h = (window.location.hash || '').replace(/^#/, '').toLowerCase();
+      if (h === 'design3' || h === 'option3') {
+        setMastersOption(3);
+        return;
+      }
       if (h === 'design2' || h === 'option2') {
         setMastersOption(2);
         return;
