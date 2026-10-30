@@ -5187,23 +5187,19 @@
     <div class="hw-concierge">
       <div class="hw-concierge__shell">
 
-        <!-- LEFT COLUMN: ATELIER CONCIERGE DIRECTORY -->
+        <!-- LEFT COLUMN: PRIVATE APPOINTMENT OVERVIEW -->
         <aside class="hw-concierge__info">
-          <span class="hw-concierge__eyebrow">HARTWICK ATELIER &middot; CLIENT SERVICES</span>
-          <h1 class="hw-concierge__title">Inquiries &amp; Private Appointments</h1>
+          <span class="hw-concierge__eyebrow">HARTWICK ATELIER &middot; PRIVATE VIEWINGS</span>
+          <h1 class="hw-concierge__title">Request a Private Appointment</h1>
 
           <p class="hw-concierge__lead">
-            Request a private appointment &mdash; available virtually, at trunk shows, or through our retail partners. Whether inquiring about a specific expression, bespoke measurements, or scheduling a private viewing, our atelier is delighted to assist you personally.
+            Request a private appointment &mdash; available virtually, at trunk shows, or through our retail partners. Our atelier is delighted to assist you personally with private viewings and bespoke measurements.
           </p>
 
           <div class="hw-concierge__directory">
             <div class="hw-concierge__dir-item">
-              <span class="hw-concierge__dir-label">Request a Private Appointment</span>
+              <span class="hw-concierge__dir-label">Private Appointments</span>
               <span class="hw-concierge__dir-val">Virtual &middot; Trunk Shows &middot; Retail Partners</span>
-            </div>
-            <div class="hw-concierge__dir-item">
-              <span class="hw-concierge__dir-label">Direct Atelier Desk</span>
-              <a href="mailto:contact@hartwickatelier.com" class="hw-concierge__dir-link">contact@hartwickatelier.com</a>
             </div>
             <div class="hw-concierge__dir-item">
               <span class="hw-concierge__dir-label">Follow the Atelier</span>
@@ -5216,28 +5212,16 @@
           </div>
         </aside>
 
-        <!-- RIGHT COLUMN: LUXURY MINIMALIST CONCIERGE FORM -->
+        <!-- RIGHT COLUMN: CLEAN STRAIGHTFORWARD APPOINTMENT REQUEST FORM -->
         <div class="hw-concierge__form-wrap">
           <form id="HwConciergeForm" onsubmit="hwSubmitConciergeForm(event)">
+            <input type="hidden" name="Subject" id="HwContactTopicInput" value="Request a Private Appointment">
             <div class="hw-concierge__status" id="HwConciergeStatus">
               <h3 class="hw-concierge__status-title">Thank You from Hartwick Atelier</h3>
-              <p class="hw-concierge__status-text">Your message has been received. Our concierge will respond personally to your inquiry within 24&ndash;48 hours.</p>
+              <p class="hw-concierge__status-text">Your private appointment request has been received. Our atelier will respond personally within 24&ndash;48 hours to coordinate your viewing.</p>
             </div>
 
-            <!-- 1. SUBJECT SELECTION PILLS -->
-            <div class="hw-concierge__topics">
-              <span class="hw-concierge__topics-label">Select Subject of Inquiry</span>
-              <input type="hidden" name="Subject" id="HwContactTopicInput" value="Private Appointments">
-              <div class="hw-concierge__pills">
-                <button type="button" class="hw-concierge__pill is-selected" onclick="hwSelectTopic(this, 'Private Appointments')">Private Appointments</button>
-                <button type="button" class="hw-concierge__pill" onclick="hwSelectTopic(this, 'Garment & Sizing Inquiry')">Garment &amp; Sizing</button>
-                <button type="button" class="hw-concierge__pill" onclick="hwSelectTopic(this, 'Bespoke / Special Order')">Bespoke Request</button>
-                <button type="button" class="hw-concierge__pill" onclick="hwSelectTopic(this, 'Press & Styling')">Press &amp; Styling</button>
-                <button type="button" class="hw-concierge__pill" onclick="hwSelectTopic(this, 'General Inquiry')">General Inquiry</button>
-              </div>
-            </div>
-
-            <!-- 2. NAME & EMAIL -->
+            <!-- 1. NAME & EMAIL -->
             <div class="hw-concierge__grid-2">
               <div class="hw-c-field">
                 <label class="hw-c-label" for="ContactForm-name">01 / Name</label>
@@ -5249,7 +5233,7 @@
               </div>
             </div>
 
-            <!-- 3. PHONE & CITY / TRUNK SHOW -->
+            <!-- 2. PHONE & APPOINTMENT TYPE -->
             <div class="hw-concierge__grid-2">
               <div class="hw-c-field">
                 <label class="hw-c-label" for="ContactForm-phone">03 / Phone (Optional)</label>
@@ -5261,19 +5245,19 @@
               </div>
             </div>
 
-            <!-- 4. MESSAGE -->
+            <!-- 3. PREFERRED DATES & PIECES OF INTEREST -->
             <div class="hw-c-field">
-              <label class="hw-c-label" for="ContactForm-body">05 / Message</label>
-              <textarea rows="5" id="ContactForm-body" class="hw-c-textarea" name="comment" placeholder="Please share the pieces you are interested in, preferred dates for a private appointment, or your question..." required></textarea>
+              <label class="hw-c-label" for="ContactForm-body">05 / Preferred Dates &amp; Pieces of Interest</label>
+              <textarea rows="5" id="ContactForm-body" class="hw-c-textarea" name="comment" placeholder="Please share the pieces you are interested in and your preferred dates for a private appointment..." required></textarea>
             </div>
 
-            <!-- 5. SUBMIT -->
+            <!-- 4. SUBMIT -->
             <div class="hw-concierge__footer">
               <button type="submit" class="hw-concierge__submit" id="HwConciergeSubmitBtn">
                 Request a Private Appointment
               </button>
               <p class="hw-concierge__note">
-                Every message is read personally by our studio. We respond within 24&ndash;48 hours.
+                Every request is read personally by our studio. We respond within 24&ndash;48 hours.
               </p>
             </div>
           </form>
@@ -5379,8 +5363,12 @@
       <div>
         <h4 class="hw-sqs-col-heading">CONNECT WITH US</h4>
         <ul class="hw-sqs-col-list">
+          <li><button onclick="openView('contact')">PRIVATE APPOINTMENTS</button></li>
+          <li><a href="mailto:contact@hartwickatelier.com?subject=Garment%20%26%20Sizing%20Inquiry">GARMENT &amp; SIZING</a></li>
+          <li><a href="mailto:contact@hartwickatelier.com?subject=Bespoke%20Request">BESPOKE REQUEST</a></li>
+          <li><a href="mailto:contact@hartwickatelier.com?subject=Press%20%26%20Styling%20Inquiry">PRESS &amp; STYLING</a></li>
+          <li><a href="mailto:contact@hartwickatelier.com?subject=General%20Inquiry">GENERAL INQUIRY</a></li>
           <li><a href="https://instagram.com/worldofhartwickatelier" target="_blank" rel="noopener">INSTAGRAM</a></li>
-          <li><button onclick="openView('contact')">CONTACT</button></li>
         </ul>
       </div>
 
@@ -6857,6 +6845,8 @@
         openMasters(mId);
       } else if (h === '#story') {
         openView('story');
+      } else if (h === '#nature') {
+        openView('nature');
       } else if (h === '#contact') {
         openView('contact');
       } else if (h === '#home' || h === '#design1' || !h) {
