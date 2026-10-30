@@ -4389,7 +4389,7 @@
           TO HUMAN CIVILIZATION
         </h2>
         <p class="d1-tot-center__body">
-          Hartwick Atelier specializes in hand spun and handwoven fabrics, natural and ayurvedic dyes, and exquisite heritage handwork. These artisanal techniques rely on rare knowledge and the natural cycles of the earth. Each handcrafted piece in the collection is a glimpse into the rich history, intricate process and generations of skill that have gone into its creation.
+          &ldquo;Wearing handspun and handwoven fabric has a different feeling than wearing industrially produced fabrics; handwoven natural fibres drape and breathe with a supple softness in a rhythm that can only be created by a human hand. The feeling is truly luxurious.&rdquo;
         </p>
 
         <div class="d1-tot-center__pillars">
@@ -4465,12 +4465,6 @@
       </section>
 
       <!-- 5. Section 4 (The Feel) + Section 6 (Craft Detail: Natural Dye & Block Printing) + Section 7 (Founder Quote) -->
-      <section class="d1-tot-feel-band">
-        <span class="t-detail-meta" style="margin-bottom:8px;">THE FEEL</span>
-        <blockquote class="t-story-quote" style="max-width:860px; margin:0 auto;">
-          &ldquo;Wearing handspun and handwoven fabric has a different feeling than wearing industrially produced fabrics; handwoven natural fibres drape and breathe with a supple softness in a rhythm that can only be created by a human hand. The feeling is truly luxurious.&rdquo;
-        </blockquote>
-      </section>
 
       <section class="d1-tot-craft">
         <div class="d1-tot-craft__col" onclick="openMasters('naturaldye', false)">
@@ -5702,11 +5696,34 @@
       currentCollection = colName;
 
       const isJewelCol = colName === 'Fine Jewellery' || ['Rings','Earrings','Bangles + Bracelets','Necklaces + Pendants'].includes(colName);
+      const isSilkCol = colName === 'Fine Silk Scarves' || ['Dupattas','Classic Stoles','Shaylas','Large Squares','Medium Squares','Petit Squares','Rich Ribbons'].includes(colName);
       const quoteEl = document.getElementById('col-positioning-quote');
-      if (quoteEl) quoteEl.style.display = isJewelCol ? 'block' : 'none';
+      if (quoteEl) {
+        if (isSilkCol) {
+          quoteEl.innerHTML = `
+            <p class="hw-col-positioning-quote-text">“All fine silk pieces are fine Mashru silk, block printed by hand by Master Printers with all-natural mineral and plant dyes, and finished with hand-rolled edges. Handcraft is refined work and artisans are the caretakers of valuable heritage — rooted in thousands of years of knowledge, these pieces are made using the natural rhythms of the sun, wind, and water.”</p>
+            <div class="hw-col-positioning-quote-meta" style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:14px;">
+              <span>FINE MASHRU SILK &middot; BLOCK PRINTED BY HAND &middot; 100% NATURAL DYE &middot; HAND-ROLLED EDGES</span>
+              <button type="button" class="hw-film-reel-pill active" onclick="openHwFilmLightbox('1d9d5412-4154-4b6e-a7de-6477ab4c1c9d', 'FINE SILK · BLOCK PRINTED MASHRU', 'MASTER PRINTERS · 100% NATURAL DYE', 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/31a9d117-730e-45ba-9a75-4e2144af03e0/267_HARTWICK_FINESILK_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg')">▶ WATCH FINE SILK FILM (00:29)</button>
+            </div>
+          `;
+          quoteEl.style.display = 'block';
+        } else if (isJewelCol) {
+          quoteEl.innerHTML = `
+            <p class="hw-col-positioning-quote-text">“Positioning Quote — Space Saver: Inspired by traditional Indian jewellery, Byzantine and Anatolian archaeological findings, and vintage Italian gold chains. Each piece is Made to Order and handcrafted by master stonecutters, stone setters and goldsmiths in Jaipur.”</p>
+            <div class="hw-col-positioning-quote-meta" style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:14px;">
+              <span>HA JEWELLERY POSITIONING QUOTE &middot; SPACE SAVER (FINAL QUOTE TBC) &middot; ALL JEWELLERY MADE TO ORDER</span>
+              <button type="button" class="hw-film-reel-pill active" onclick="openHwFilmLightbox('07ca2cea-bc19-4893-aaff-b8ce2b636233', 'FINE JEWELLERY · LIMINAL COLLECTION', 'JAIPUR GOLDSMITHS · MADE TO ORDER', 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fad0ba3a-a1b3-41a6-bec9-9c82b64c30f5/CROP_HARTWICK_LIMINAL_SILVER_GOLD_EMERALD_RINGS_TOURMELINE_RHODOLITE_1781.jpg')">▶ WATCH JEWELLERY FILM (00:18)</button>
+            </div>
+          `;
+          quoteEl.style.display = 'block';
+        } else {
+          quoteEl.style.display = 'none';
+        }
+      }
       if (isJewelCol) {
         setActiveNav('nav-jewellery');
-      } else if (colName === 'Fine Silk Scarves' || ['Dupattas','Classic Stoles','Shaylas','Large Squares','Medium Squares','Petit Squares','Rich Ribbons'].includes(colName)) {
+      } else if (isSilkCol) {
         setActiveNav('nav-silk');
       } else {
         setActiveNav('nav-apparel');
