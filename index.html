@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hartwick — Menu Indeling Versie 1 (Inline Search & Bag Level Omlaag)</title>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.15/dist/hls.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=Montserrat:wght@400;500;600;700&family=Noto+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -3786,6 +3787,398 @@
         height: 123px !important;
       }
     }
+
+    /* ==========================================================================
+       HARTWICK EDITORIAL VIDEO TREATMENT (HOMEPAGE, PDP, COLLECTIONS, MASTERS)
+       - Strict 3-tier Brand Font Hierarchy:
+         * Porter Medium (var(--font-heading), 500)
+         * Junicode Medium (var(--font-body), 500)
+         * Noto Sans Mono Semi-Bold (var(--font-mono), 600)
+       ========================================================================== */
+    .hw-home-film-showcase {
+      max-width: 1460px;
+      margin: 0 auto;
+      padding: 64px 40px 72px;
+      border-top: 1px solid var(--hw-border);
+      background: #F8F5EE;
+    }
+    .hw-home-film-head {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 42px;
+    }
+    .hw-home-film-kicker {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--hw-muted);
+      margin-bottom: 10px;
+    }
+    .hw-home-film-title {
+      font-family: var(--font-heading);
+      font-size: clamp(22px, 2.4vw, 30px);
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--hw-ink);
+      margin: 0 0 12px;
+      line-height: 1.3;
+    }
+    .hw-home-film-sub {
+      font-family: var(--font-body);
+      font-size: 17.5px;
+      font-weight: 500;
+      line-height: 1.55;
+      color: var(--hw-muted);
+      margin: 0;
+    }
+    .hw-home-film-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: stretch;
+    }
+    .hw-film-card {
+      display: flex;
+      flex-direction: column;
+      background: #EDE5D8;
+      border: 1px solid var(--hw-border);
+      padding: 18px 18px 24px;
+    }
+    .hw-film-reels-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--hw-border);
+    }
+    .hw-film-reels-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .hw-film-reel-pill {
+      font-family: var(--font-mono);
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 9px;
+      border: 1px solid var(--hw-border);
+      background: rgba(248, 245, 238, 0.55);
+      color: var(--hw-muted);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .hw-film-reel-pill:hover,
+    .hw-film-reel-pill.active {
+      background: var(--hw-ink);
+      color: #F8F5EE;
+      border-color: var(--hw-ink);
+    }
+    .hw-film-stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 4.8;
+      background: #1E1916;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .hw-film-stage video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hw-film-badge-top {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+      z-index: 3;
+    }
+    .hw-film-tag {
+      font-family: var(--font-mono);
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 5px 9px;
+      background: rgba(24, 20, 17, 0.72);
+      color: #F8F5EE;
+      backdrop-filter: blur(6px);
+    }
+    .hw-film-controls {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 10px 12px;
+      background: linear-gradient(to top, rgba(20, 16, 13, 0.82), rgba(20, 16, 13, 0));
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 3;
+    }
+    .hw-film-progress-track {
+      width: 100%;
+      height: 2px;
+      background: rgba(248, 245, 238, 0.28);
+      overflow: hidden;
+    }
+    .hw-film-progress-bar {
+      width: 0%;
+      height: 100%;
+      background: #F8F5EE;
+      transition: width 0.2s linear;
+    }
+    .hw-film-ctrl-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+    .hw-film-ctrl-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hw-film-ctrl-btn {
+      font-family: var(--font-mono);
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      background: rgba(248, 245, 238, 0.16);
+      border: 1px solid rgba(248, 245, 238, 0.35);
+      color: #F8F5EE;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      transition: background 0.2s ease;
+    }
+    .hw-film-ctrl-btn:hover {
+      background: rgba(248, 245, 238, 0.32);
+    }
+    .hw-film-card-meta {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .hw-film-card-heading {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--hw-ink);
+      margin: 0 0 8px;
+      line-height: 1.35;
+    }
+    .hw-film-card-copy {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.55;
+      color: var(--hw-muted);
+      margin: 0 0 16px;
+      flex: 1;
+    }
+    .hw-film-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid var(--hw-border);
+    }
+    .hw-film-cta-btn {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: var(--hw-ink);
+      color: #F8F5EE;
+      border: none;
+      padding: 9px 16px;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+    .hw-film-cta-btn:hover {
+      opacity: 0.86;
+    }
+
+    /* PDP Lookbook Video Tile & Hero Watch Badge */
+    .hw-hero-watch-pill {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      z-index: 4;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 7px 12px;
+      background: rgba(24, 20, 17, 0.78);
+      color: #F8F5EE;
+      border: 1px solid rgba(248, 245, 238, 0.35);
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: background 0.2s ease;
+    }
+    .hw-hero-watch-pill:hover {
+      background: rgba(24, 20, 17, 0.94);
+    }
+    .hw-lookbook-video-tile {
+      position: relative;
+      background: #1E1916;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+    }
+    .hw-lookbook-video-tile video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* PDP Dual Editorial Film Band (Silhouette in Motion + Craft Process) */
+    .hw-pdp-film-band {
+      margin-top: 56px;
+      padding: 36px 0 12px;
+      border-top: 1px solid var(--hw-border);
+    }
+    .hw-pdp-film-band-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .hw-pdp-film-band-title {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--hw-ink);
+      margin: 4px 0 0;
+    }
+    .hw-pdp-film-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .hw-pdp-film-box {
+      background: #EDE5D8;
+      border: 1px solid var(--hw-border);
+      padding: 14px 14px 18px;
+      display: flex;
+      flex-direction: column;
+    }
+    .hw-pdp-film-box .hw-film-stage {
+      aspect-ratio: 16 / 10;
+      margin-bottom: 12px;
+    }
+    .hw-pdp-film-box-title {
+      font-family: var(--font-heading);
+      font-size: 13.5px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--hw-ink);
+      margin: 0 0 6px;
+    }
+    .hw-pdp-film-box-desc {
+      font-family: var(--font-body);
+      font-size: 15.5px;
+      font-weight: 500;
+      line-height: 1.5;
+      color: var(--hw-muted);
+      margin: 0;
+    }
+
+    /* Masters Library Card Inline Craft Video */
+    .hw-m-video-wrap {
+      margin: 20px 0 24px;
+      padding: 14px;
+      background: #F8F5EE;
+      border: 1px solid var(--hw-border);
+    }
+    .hw-m-video-wrap .hw-film-stage {
+      aspect-ratio: 16 / 9;
+      margin-bottom: 10px;
+    }
+
+    /* Fullscreen Atelier Film Lightbox Modal */
+    .hw-film-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(18, 15, 12, 0.92);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+    }
+    .hw-film-lightbox.open {
+      display: flex;
+    }
+    .hw-film-lightbox-dialog {
+      width: 100%;
+      max-width: 980px;
+      background: #F8F5EE;
+      border: 1px solid var(--hw-border);
+      padding: 20px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .hw-film-lightbox-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--hw-border);
+      padding-bottom: 10px;
+    }
+    .hw-film-lightbox-stage {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      max-height: 70vh;
+      background: #14110E;
+      position: relative;
+      overflow: hidden;
+    }
+    .hw-film-lightbox-stage video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .hw-home-film-showcase {
+        padding: 44px 20px 52px;
+      }
+      .hw-home-film-grid,
+      .hw-pdp-film-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
 <body class="d1-seamless-nav">
@@ -4118,6 +4511,119 @@
         </blockquote>
       </section>
 
+      <!-- 6. ATELIER IN MOTION: DEDICATED FINE JEWELLERY & FINE SILK VIDEO SHOWCASE (BEFORE INSTAGRAM & THE DISPATCH SIGN UP CTA) -->
+      <section class="hw-home-film-showcase" id="hw-home-films">
+        <div class="hw-home-film-head">
+          <span class="hw-home-film-kicker">ATELIER IN MOTION &middot; MOVING IMAGE ARCHIVE</span>
+          <h2 class="hw-home-film-title">FINE JEWELLERY &amp; FINE SILK IN MOTION</h2>
+          <p class="hw-home-film-sub">
+            Every hand-carved gemstone and block-printed silk holds the rhythm of the artisan&rsquo;s hand. Experience our Jaipur goldsmiths and Kutch master printers in motion.
+          </p>
+        </div>
+
+        <div class="hw-home-film-grid">
+          <!-- LEFT FILM: FINE JEWELLERY -->
+          <article class="hw-film-card" id="home-film-card-jewellery">
+            <div class="hw-film-reels-bar">
+              <div class="hw-film-reels-group">
+                <button type="button" class="hw-film-reel-pill active" onclick="switchHomeFilmReel('jewellery', '07ca2cea-bc19-4893-aaff-b8ce2b636233', 'FILM I · LIMINAL JEWELLERY · 00:18', 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fad0ba3a-a1b3-41a6-bec9-9c82b64c30f5/CROP_HARTWICK_LIMINAL_SILVER_GOLD_EMERALD_RINGS_TOURMELINE_RHODOLITE_1781.jpg', this)">REEL 01 &middot; LIMINAL COLLECTION (00:18)</button>
+                <button type="button" class="hw-film-reel-pill" onclick="switchHomeFilmReel('jewellery', '5e04d90d-a169-4d96-a3a1-c52060b7fa3e', 'FILM II · JAIPUR GOLDSMITHING · 00:11', 'https://cdn.shopify.com/s/files/1/0894/7492/4843/files/HartwickAtelier-StepRingRhodolite-01.jpg?v=1732720351', this)">REEL 02 &middot; JAIPUR CRAFT (00:11)</button>
+              </div>
+              <span class="hw-home-film-kicker" style="margin:0;">MADE TO ORDER</span>
+            </div>
+
+            <div class="hw-film-stage">
+              <video
+                class="hw-stream-video"
+                id="home-video-jewellery"
+                data-sqs-id="07ca2cea-bc19-4893-aaff-b8ce2b636233"
+                poster="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fad0ba3a-a1b3-41a6-bec9-9c82b64c30f5/CROP_HARTWICK_LIMINAL_SILVER_GOLD_EMERALD_RINGS_TOURMELINE_RHODOLITE_1781.jpg"
+                autoplay
+                muted
+                loop
+                playsinline
+              ></video>
+              <div class="hw-film-badge-top">
+                <span class="hw-film-tag" id="home-tag-jewellery">FILM I &middot; LIMINAL JEWELLERY &middot; 00:18</span>
+                <span class="hw-film-tag">JAIPUR ATELIER</span>
+              </div>
+              <div class="hw-film-controls">
+                <div class="hw-film-progress-track"><div class="hw-film-progress-bar"></div></div>
+                <div class="hw-film-ctrl-row">
+                  <div class="hw-film-ctrl-left">
+                    <button type="button" class="hw-film-ctrl-btn" onclick="toggleHwFilmPlay(this)">PAUSE ❚❚</button>
+                    <button type="button" class="hw-film-ctrl-btn" onclick="toggleHwFilmMute(this)">SOUND OFF</button>
+                  </div>
+                  <button type="button" class="hw-film-ctrl-btn" onclick="openHwFilmLightboxFromStage(this, 'FINE JEWELLERY · LIMINAL COLLECTION', 'MADE TO ORDER · HANDCRAFTED IN JAIPUR')">THEATER ⤢</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="hw-film-card-meta">
+              <h3 class="hw-film-card-heading">FINE JEWELLERY &middot; LIMINAL COLLECTION</h3>
+              <p class="hw-film-card-copy">
+                Inspired by traditional Indian jewellery, Byzantine and Anatolian archaeological findings, and vintage Italian gold chains. Each piece is Made to Order by master stonecutters and goldsmiths in Jaipur using 22k &amp; 23k gold, sterling silver, hand-carved emeralds, and uncut Polki diamonds.
+              </p>
+              <div class="hw-film-card-footer">
+                <span class="t-detail-meta">RINGS &middot; EARRINGS &middot; BRACELETS &middot; PENDANTS</span>
+                <button type="button" class="hw-film-cta-btn" onclick="openCollection('Fine Jewellery')">EXPLORE FINE JEWELLERY &rarr;</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- RIGHT FILM: FINE SILK -->
+          <article class="hw-film-card" id="home-film-card-silk">
+            <div class="hw-film-reels-bar">
+              <div class="hw-film-reels-group">
+                <button type="button" class="hw-film-reel-pill active" onclick="switchHomeFilmReel('silk', '1d9d5412-4154-4b6e-a7de-6477ab4c1c9d', 'FILM I · FINE SILK COLLECTION · 00:29', 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1739485853760-7GB5PB4HDZ3AIJE2XE1K/214_HARTWICK_FINESILK_DUPATTA_SCARF_NATURALDYE_BLOCKPRINT.jpg', this)">REEL 01 &middot; SILK IN MOTION (00:29)</button>
+                <button type="button" class="hw-film-reel-pill" onclick="switchHomeFilmReel('silk', '039157c4-8aca-4803-b69e-0b6e65160c30', 'FILM II · 16-STEP SILK PROCESS · 00:55', 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/31a9d117-730e-45ba-9a75-4e2144af03e0/267_HARTWICK_FINESILK_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg', this)">REEL 02 &middot; 16-STEP PROCESS (00:55)</button>
+                <button type="button" class="hw-film-reel-pill" onclick="switchHomeFilmReel('silk', '215b9ec5-5021-4364-9950-4fb2f8aa9aad', 'FILM III · HAND BLOCK PRINTING · 00:29', 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/e9d0ed0b-29bf-4f71-9cec-0d7335adbd37/008_HARTWICK_EDITORIAL_JAIPUR.jpg', this)">REEL 03 &middot; BLOCK PRINT (00:29)</button>
+              </div>
+              <span class="hw-home-film-kicker" style="margin:0;">100% NATURAL DYE</span>
+            </div>
+
+            <div class="hw-film-stage">
+              <video
+                class="hw-stream-video"
+                id="home-video-silk"
+                data-sqs-id="1d9d5412-4154-4b6e-a7de-6477ab4c1c9d"
+                poster="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1739485853760-7GB5PB4HDZ3AIJE2XE1K/214_HARTWICK_FINESILK_DUPATTA_SCARF_NATURALDYE_BLOCKPRINT.jpg"
+                autoplay
+                muted
+                loop
+                playsinline
+              ></video>
+              <div class="hw-film-badge-top">
+                <span class="hw-film-tag" id="home-tag-silk">FILM I &middot; FINE SILK COLLECTION &middot; 00:29</span>
+                <span class="hw-film-tag">KUTCH ATELIER</span>
+              </div>
+              <div class="hw-film-controls">
+                <div class="hw-film-progress-track"><div class="hw-film-progress-bar"></div></div>
+                <div class="hw-film-ctrl-row">
+                  <div class="hw-film-ctrl-left">
+                    <button type="button" class="hw-film-ctrl-btn" onclick="toggleHwFilmPlay(this)">PAUSE ❚❚</button>
+                    <button type="button" class="hw-film-ctrl-btn" onclick="toggleHwFilmMute(this)">SOUND OFF</button>
+                  </div>
+                  <button type="button" class="hw-film-ctrl-btn" onclick="openHwFilmLightboxFromStage(this, 'FINE SILK · HAND BLOCK PRINTED MASHRU', '16 ARTISAN PROCESSES · NATURAL BOTANICAL & MINERAL DYES')">THEATER ⤢</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="hw-film-card-meta">
+              <h3 class="hw-film-card-heading">FINE SILK &middot; BLOCK PRINTED MASHRU</h3>
+              <p class="hw-film-card-copy">
+                Using hand-carved teak wooden blocks, Master Printers print each colour layer by layer on lustrous Fine Mashru Silk using resist dyeing techniques and all-natural plant and mineral dyes, finished with hand-rolled edges.
+              </p>
+              <div class="hw-film-card-footer">
+                <span class="t-detail-meta">DUPATTAS &middot; STOLES &middot; SHAYLAS &middot; SQUARES</span>
+                <button type="button" class="hw-film-cta-btn" onclick="openCollection('Fine Silk Scarves')">EXPLORE FINE SILK &rarr;</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+
     </div>
   </main>
 
@@ -4129,7 +4635,10 @@
     <div class="hw-collection-wrap">
       <div class="hw-col-positioning-quote" id="col-positioning-quote" style="display:none;">
         <p class="hw-col-positioning-quote-text">“Positioning Quote — Space Saver: Inspired by traditional Indian jewellery, Byzantine and Anatolian archaeological findings, and vintage Italian gold chains. Each piece is Made to Order and handcrafted by master stonecutters, stone setters and goldsmiths in Jaipur.”</p>
-        <div class="hw-col-positioning-quote-meta">HA JEWELLERY POSITIONING QUOTE · SPACE SAVER (FINAL QUOTE TBC) · ALL JEWELLERY MADE TO ORDER</div>
+        <div class="hw-col-positioning-quote-meta" style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:14px;">
+          <span>HA JEWELLERY POSITIONING QUOTE &middot; SPACE SAVER (FINAL QUOTE TBC) &middot; ALL JEWELLERY MADE TO ORDER</span>
+          <button type="button" class="hw-film-reel-pill active" onclick="openHwFilmLightbox('07ca2cea-bc19-4893-aaff-b8ce2b636233', 'FINE JEWELLERY · LIMINAL COLLECTION', 'JAIPUR GOLDSMITHS · MADE TO ORDER', 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fad0ba3a-a1b3-41a6-bec9-9c82b64c30f5/CROP_HARTWICK_LIMINAL_SILVER_GOLD_EMERALD_RINGS_TOURMELINE_RHODOLITE_1781.jpg')">▶ WATCH JEWELLERY FILM (00:18)</button>
+        </div>
       </div>
       <div class="hw-subfilter-bar" id="col-subfilters"></div>
       <div class="hw-product-grid" id="col-products-grid"></div>
@@ -4230,6 +4739,10 @@
           </div>
         </div>
       </div>
+
+      
+      <!-- PDP EDITORIAL VIDEO TREATMENT: SILHOUETTE IN MOTION + FIBRE TO GARMENT CRAFT PROCESS -->
+      <div class="hw-pdp-film-band" id="pdp-film-band"></div>
 
       <!-- More From This Collection (Compact Swipeable Carousel) -->
       <div class="hw-related-section">
@@ -4650,6 +5163,25 @@
   <!-- ==========================================================================
        EXACT SQUARESPACE FOOTER (VERBATIM FROM SQUARESPACE SITE)
        ========================================================================== -->
+  
+  <!-- ==========================================================================
+       ATELIER FILM THEATER LIGHTBOX MODAL (SITE-WIDE VIDEO TREATMENT)
+       ========================================================================== -->
+  <div class="hw-film-lightbox" id="hw-film-lightbox" onclick="if(event.target===this) closeHwFilmLightbox()">
+    <div class="hw-film-lightbox-dialog">
+      <div class="hw-film-lightbox-top">
+        <div>
+          <span class="hw-home-film-kicker" id="hw-lightbox-kicker" style="margin-bottom:2px;">ATELIER FILM ARCHIVE</span>
+          <h3 class="hw-film-card-heading" id="hw-lightbox-title" style="margin:0;">HARTWICK ATELIER IN MOTION</h3>
+        </div>
+        <button type="button" onclick="closeHwFilmLightbox()" style="background:none; border:1px solid var(--hw-border); padding:6px 12px; font-family:var(--font-mono); font-size:9.5px; font-weight:600; letter-spacing:0.12em; cursor:pointer;">CLOSE ×</button>
+      </div>
+      <div class="hw-film-lightbox-stage">
+        <video id="hw-lightbox-video" controls autoplay playsinline loop></video>
+      </div>
+    </div>
+  </div>
+
   <footer class="hw-sqs-footer">
     <!-- Top Section: Layer 1 (Press / Collector Quote) + Layer 2 (Asymmetric Dual CTA: IG Lifestyle + The Dispatch) -->
     <div class="hw-sqs-ig-section">
@@ -4780,6 +5312,7 @@
     function openHome() {
       document.querySelectorAll('.hw-nav-link').forEach(el => el.classList.remove('active'));
       openView('home');
+      setTimeout(() => initHwVideoElements(document.getElementById('view-home')), 50);
       history.replaceState(null, '', '#home');
     }
 
@@ -4839,6 +5372,315 @@
         box.classList.remove('open');
       }
     });
+
+    
+    /* ==========================================================================
+       SITE-WIDE VIDEO ENGINE (SQUARESPACE ALEXANDRIA HLS + MP4 STREAMING)
+       ========================================================================== */
+    const SQS_VIDEO_LIBRARY_BASE = 'https://video.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/';
+
+    const HW_CRAFT_VIDEOS = {
+      jewellery: {
+        id: '07ca2cea-bc19-4893-aaff-b8ce2b636233',
+        dur: '00:18',
+        title: 'LIMINAL FINE JEWELLERY IN MOTION',
+        kicker: 'JAIPUR GOLDSMITHS · MADE TO ORDER · 00:18',
+        desc: 'Handcrafted to order by master stonecutters, stone setters and goldsmiths in Jaipur using high-karat 22k & 23k gold, sterling silver, hand-carved emeralds, and uncut Polki diamonds.',
+        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fad0ba3a-a1b3-41a6-bec9-9c82b64c30f5/CROP_HARTWICK_LIMINAL_SILVER_GOLD_EMERALD_RINGS_TOURMELINE_RHODOLITE_1781.jpg'
+      },
+      silk: {
+        id: '1d9d5412-4154-4b6e-a7de-6477ab4c1c9d',
+        dur: '00:29',
+        title: 'FINE MASHRU SILK IN MOTION',
+        kicker: 'FINE SILK COLLECTION · DRAPE & LUSTRE · 00:29',
+        desc: 'Fine Mashru silk block printed by hand with all-natural botanical and mineral dyes and finished with hand-rolled edges.',
+        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1739485853760-7GB5PB4HDZ3AIJE2XE1K/214_HARTWICK_FINESILK_DUPATTA_SCARF_NATURALDYE_BLOCKPRINT.jpg'
+      },
+      silk_process: {
+        id: '039157c4-8aca-4803-b69e-0b6e65160c30',
+        dur: '00:55',
+        title: '16-STEP SILK BLOCK PRINTING & DYEING',
+        kicker: 'MASTER PRINTERS IN KUTCH · 00:55',
+        desc: 'Each Fine Silk piece requires a minimum of 16 artisan processes, resting between each layer of resist printing and natural vat dyeing.',
+        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/31a9d117-730e-45ba-9a75-4e2144af03e0/267_HARTWICK_FINESILK_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg'
+      },
+      apparel: {
+        id: 'c7ef24a5-2ab8-43c6-b2f9-29b0a3b1efdc',
+        dur: '00:22',
+        title: 'SILHOUETTE & DRAPE IN MOTION',
+        kicker: 'ATELIER LOOKBOOK FILM · 00:22',
+        desc: 'Handspun and handwoven natural fibres drape and breathe with a supple softness in a rhythm that can only be created by skilled human hands.',
+        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/0e0c3b00-61cb-4eed-8741-db304f1fd896/004034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w'
+      },
+      yoga: {
+        id: 'a97ea5d7-c28c-47e3-b7c0-7ffd8b263fae',
+        dur: '00:17',
+        title: 'UPAYA HANDWOVEN WELLNESS IN MOTION',
+        kicker: 'AYURVEDIC KHADI YOGA MATS · 00:17',
+        desc: 'Handspun and handwoven cotton khadi quilted yoga mats infused with Ayurvedic turmeric, indigo, and marigold overdyes.',
+        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/e9d0ed0b-29bf-4f71-9cec-0d7335adbd37/008_HARTWICK_EDITORIAL_JAIPUR.jpg'
+      },
+      handspun: {
+        id: 'e33b06d4-eb6e-451e-9322-b64552cdbb24',
+        dur: '00:29',
+        title: 'HANDSPUN & HANDWOVEN KHADI',
+        kicker: 'MADE BY MASTERS · CHARKHA & HANDLOOM · 00:29',
+        desc: 'Natural fibres drawn out and twisted by hand into yarn on a charkha wheel, then woven on a pit loom without electricity.',
+        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/b9443331-bc80-48fb-814c-1c473d3d8bdc/001_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_AMMAN_SHIRT.jpg'
+      },
+      handwoven: {
+        id: '45238685-311b-4802-b9f0-2f64feafae45',
+        dur: '00:32',
+        title: 'THE RHYTHM OF THE HANDLOOM',
+        kicker: 'MADE BY MASTERS · MASTER WEAVERS · 00:32',
+        desc: 'Woven shuttle by shuttle on traditional wooden looms, creating breathable heirloom cloth alive with human nuance.',
+        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/c5a3da4d-5d66-4d98-bf24-dcdff0587017/006_HARTWICK_HANDWOVEN_PARIS_TROUSERS_KHADI_TWILL_AMMAN_SHIRT.jpg?format=1500w'
+      },
+      jamdani: {
+        id: 'f4364d2b-2f95-4de3-9e0a-6f6d1a9f38fe',
+        dur: '00:12',
+        title: 'DISCONTINUOUS WEFT JAMDANI WEAVING',
+        kicker: 'MADE BY MASTERS · WEST BENGAL · 00:12',
+        desc: 'Intricate geometric motifs inlaid by hand directly on the loom using fine spindles—a UNESCO-recognized heritage art.',
+        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/c5a3da4d-5d66-4d98-bf24-dcdff0587017/006_HARTWICK_HANDWOVEN_PARIS_TROUSERS_KHADI_TWILL_AMMAN_SHIRT.jpg?format=1500w'
+      },
+      ikat: {
+        id: 'e2e2b308-21a7-41cc-9ef1-5e17d2a634cd',
+        dur: '00:12',
+        title: 'RESIST-DYED HANDWOVEN IKAT',
+        kicker: 'MADE BY MASTERS · MASTER IKAT WEAVERS · 00:12',
+        desc: 'Warp and weft yarns are hand-tied and resist-dyed before weaving so the pattern emerges as the cloth is woven.',
+        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/8d28d4d4-4b30-44c7-999b-636e1a552025/002+_HARTWICK_HANDWOVEN_MARYLEBONE_COAT_IKAT_BOMBAY_TROUSERS_SITGES_TOTEBAG.jpg'
+      },
+      banaras: {
+        id: 'c7d94b93-978f-4e1c-b25f-c00bb4acbb0c',
+        dur: '00:12',
+        title: 'BANARAS SILK & ZARI BROCADE',
+        kicker: 'MADE BY MASTERS · VARANASI · 00:12',
+        desc: 'Lustrous handwoven silk brocade interwoven with fine metallic zari threads by master weavers in Varanasi.',
+        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/0e0c3b00-61cb-4eed-8741-db304f1fd896/004034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w'
+      },
+      zari: {
+        id: '5e04d90d-a169-4d96-a3a1-c52060b7fa3e',
+        dur: '00:11',
+        title: 'HERITAGE METALWORK, ZARI & GOTA PATTI',
+        kicker: 'MADE BY MASTERS · JAIPUR · 00:11',
+        desc: 'Refined gold, silver, and metallic ribbon handwork practiced by generational master artisans in Rajasthan.',
+        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fad0ba3a-a1b3-41a6-bec9-9c82b64c30f5/CROP_HARTWICK_LIMINAL_SILVER_GOLD_EMERALD_RINGS_TOURMELINE_RHODOLITE_1781.jpg'
+      },
+      naturaldye: {
+        id: '5c1daaee-39c1-4730-a4e9-d753c2d6ae0a',
+        dur: '00:06',
+        title: 'BOTANICAL & MINERAL NATURAL DYEING',
+        kicker: 'MADE BY MASTERS · MASTER COLORISTS · 00:06',
+        desc: 'Small-batch vats of wild indigo, pomegranate rind, madder root, turmeric, iron, and jaggery.',
+        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/e9d0ed0b-29bf-4f71-9cec-0d7335adbd37/008_HARTWICK_EDITORIAL_JAIPUR.jpg'
+      },
+      blockprint: {
+        id: 'b84d65ed-79b0-476f-a0ac-72dd8ef1aebd',
+        dur: '00:30',
+        title: 'HAND BLOCK PRINTING LAYER BY LAYER',
+        kicker: 'MADE BY MASTERS · MASTER PRINTERS · 00:30',
+        desc: 'Hand-carved wooden blocks dipped in natural dye and stamped by hand with steady precision.',
+        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/31a9d117-730e-45ba-9a75-4e2144af03e0/267_HARTWICK_FINESILK_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg'
+      },
+      woodblocks: {
+        id: 'cb5a9b7b-2f28-482b-90cf-16503c1173e5',
+        dur: '00:09',
+        title: 'HAND-CARVED TEAK WOODEN BLOCKS',
+        kicker: 'MADE BY MASTERS · CARVING ATELIER · 00:09',
+        desc: 'Each motif begins as seasoned wood carved by hand into intricate multi-block registration sets.',
+        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/31a9d117-730e-45ba-9a75-4e2144af03e0/267_HARTWICK_FINESILK_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg'
+      },
+      mashru: {
+        id: '215b9ec5-5021-4364-9950-4fb2f8aa9aad',
+        dur: '00:29',
+        title: 'FINE MASHRU SILK PRINTING & FINISHING',
+        kicker: 'MADE BY MASTERS · KUTCH · 00:29',
+        desc: 'Lustrous silk face with a soft cotton warp backing, block printed by hand with natural mineral and plant dyes.',
+        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1739485853760-7GB5PB4HDZ3AIJE2XE1K/214_HARTWICK_FINESILK_DUPATTA_SCARF_NATURALDYE_BLOCKPRINT.jpg'
+      },
+      singletailor: {
+        id: '0f596fba-3552-4086-b39c-dab91b9f0146',
+        dur: '00:48',
+        title: 'SINGLE-TAILOR HEIRLOOM CONSTRUCTION',
+        kicker: 'MADE BY MASTERS · ATELIER TAILORING · 00:48',
+        desc: 'Every garment is assembled from start to finish by a single master tailor with French seams and mother-of-pearl buttons.',
+        poster: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/7cc1a6d4-ab61-4929-a96b-e7c9e388ed54/002_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_TOKYO_SHIRT_IKAT_03.jpg'
+      }
+    };
+
+    function getProductFilms(p) {
+      if (!p) return { primary: HW_CRAFT_VIDEOS.apparel, secondary: HW_CRAFT_VIDEOS.singletailor };
+      if (p.navGroup === 'Fine Jewellery') {
+        return { primary: HW_CRAFT_VIDEOS.jewellery, secondary: HW_CRAFT_VIDEOS.zari };
+      }
+      if (p.navGroup === 'Fine Silk Scarves') {
+        return { primary: HW_CRAFT_VIDEOS.silk, secondary: HW_CRAFT_VIDEOS.silk_process };
+      }
+      if (p.category === 'Yoga Mats') {
+        return { primary: HW_CRAFT_VIDEOS.yoga, secondary: HW_CRAFT_VIDEOS.handspun };
+      }
+      const hay = ((p.technique || '') + ' ' + (p.commercial || '') + ' ' + (p.fibre || '') + ' ' + (p.masterId || '')).toLowerCase();
+      let craft = HW_CRAFT_VIDEOS.handspun;
+      if (hay.includes('ikat')) craft = HW_CRAFT_VIDEOS.ikat;
+      else if (hay.includes('jamdani')) craft = HW_CRAFT_VIDEOS.jamdani;
+      else if (hay.includes('brocade') || hay.includes('banaras')) craft = HW_CRAFT_VIDEOS.banaras;
+      else if (hay.includes('gota') || hay.includes('zari')) craft = HW_CRAFT_VIDEOS.zari;
+      else if (hay.includes('block print') || hay.includes('ajrakh')) craft = HW_CRAFT_VIDEOS.blockprint;
+      else if (hay.includes('mashru')) craft = HW_CRAFT_VIDEOS.mashru;
+      else if (hay.includes('natural dye') || hay.includes('ayurvedic')) craft = HW_CRAFT_VIDEOS.naturaldye;
+      else if (hay.includes('silk') || hay.includes('linen')) craft = HW_CRAFT_VIDEOS.handwoven;
+      return { primary: HW_CRAFT_VIDEOS.apparel, secondary: craft };
+    }
+
+    function getMasterVideoSpec(masterId) {
+      const map = {
+        khadi: HW_CRAFT_VIDEOS.handspun,
+        handspun: HW_CRAFT_VIDEOS.handspun,
+        handwoven: HW_CRAFT_VIDEOS.handwoven,
+        matka: HW_CRAFT_VIDEOS.handwoven,
+        muga: HW_CRAFT_VIDEOS.handwoven,
+        kora: HW_CRAFT_VIDEOS.handwoven,
+        linen: HW_CRAFT_VIDEOS.handwoven,
+        changeant: HW_CRAFT_VIDEOS.handwoven,
+        jamdani: HW_CRAFT_VIDEOS.jamdani,
+        ikat: HW_CRAFT_VIDEOS.ikat,
+        banaras: HW_CRAFT_VIDEOS.banaras,
+        gotapatti: HW_CRAFT_VIDEOS.zari,
+        zari: HW_CRAFT_VIDEOS.zari,
+        quilting: HW_CRAFT_VIDEOS.zari,
+        naturaldye: HW_CRAFT_VIDEOS.naturaldye,
+        blockprint: HW_CRAFT_VIDEOS.blockprint,
+        ajrakh: HW_CRAFT_VIDEOS.blockprint,
+        woodblocks: HW_CRAFT_VIDEOS.woodblocks,
+        mashru: HW_CRAFT_VIDEOS.mashru,
+        singletailor: HW_CRAFT_VIDEOS.singletailor
+      };
+      return map[masterId] || HW_CRAFT_VIDEOS.handspun;
+    }
+
+    function attachSqsStreamToVideo(videoEl, sqsId, posterUrl) {
+      if (!videoEl || !sqsId) return;
+      if (videoEl._hlsInstance) {
+        try { videoEl._hlsInstance.destroy(); } catch (e) {}
+        videoEl._hlsInstance = null;
+      }
+      videoEl.dataset.sqsId = sqsId;
+      if (posterUrl) videoEl.poster = posterUrl;
+      const hlsUrl = SQS_VIDEO_LIBRARY_BASE + sqsId + '/playlist.m3u8';
+
+      if (videoEl.canPlayType('application/vnd.apple.mpegurl')) {
+        videoEl.src = hlsUrl;
+        videoEl.play().catch(() => {});
+      } else if (window.Hls && window.Hls.isSupported()) {
+        const hls = new window.Hls({ enableWorker: true, lowLatencyMode: false });
+        hls.loadSource(hlsUrl);
+        hls.attachMedia(videoEl);
+        hls.on(window.Hls.Events.MANIFEST_PARSED, () => {
+          if (videoEl.autoplay) videoEl.play().catch(() => {});
+        });
+        videoEl._hlsInstance = hls;
+      } else {
+        videoEl.src = hlsUrl;
+      }
+
+      if (!videoEl._hasProgressListener) {
+        videoEl._hasProgressListener = true;
+        videoEl.addEventListener('timeupdate', () => {
+          const stage = videoEl.closest('.hw-film-stage, .hw-lookbook-video-tile');
+          if (!stage || !videoEl.duration) return;
+          const bar = stage.querySelector('.hw-film-progress-bar');
+          if (bar) bar.style.width = ((videoEl.currentTime / videoEl.duration) * 100).toFixed(1) + '%';
+        });
+      }
+    }
+
+    function initHwVideoElements(root = document) {
+      const vids = root.querySelectorAll('video.hw-stream-video');
+      vids.forEach(v => {
+        const id = v.dataset.sqsId;
+        if (id && v.dataset.initializedId !== id) {
+          v.dataset.initializedId = id;
+          attachSqsStreamToVideo(v, id, v.getAttribute('poster'));
+        }
+      });
+    }
+
+    function switchHomeFilmReel(group, sqsId, tagLabel, posterUrl, btn) {
+      const card = document.getElementById('home-film-card-' + group);
+      if (!card) return;
+      card.querySelectorAll('.hw-film-reel-pill').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      const v = document.getElementById('home-video-' + group);
+      const tag = document.getElementById('home-tag-' + group);
+      if (tag) tag.textContent = tagLabel;
+      if (v) {
+        v.dataset.initializedId = sqsId;
+        attachSqsStreamToVideo(v, sqsId, posterUrl);
+      }
+    }
+
+    function toggleHwFilmPlay(btn) {
+      const stage = btn.closest('.hw-film-stage, .hw-lookbook-video-tile');
+      if (!stage) return;
+      const v = stage.querySelector('video');
+      if (!v) return;
+      if (v.paused) {
+        v.play().catch(() => {});
+        btn.textContent = 'PAUSE ❚❚';
+      } else {
+        v.pause();
+        btn.textContent = 'PLAY ▶';
+      }
+    }
+
+    function toggleHwFilmMute(btn) {
+      const stage = btn.closest('.hw-film-stage, .hw-lookbook-video-tile');
+      if (!stage) return;
+      const v = stage.querySelector('video');
+      if (!v) return;
+      v.muted = !v.muted;
+      btn.textContent = v.muted ? 'SOUND OFF' : 'SOUND ON';
+    }
+
+    function openHwFilmLightbox(sqsId, title, kicker, posterUrl) {
+      const modal = document.getElementById('hw-film-lightbox');
+      const v = document.getElementById('hw-lightbox-video');
+      const tEl = document.getElementById('hw-lightbox-title');
+      const kEl = document.getElementById('hw-lightbox-kicker');
+      if (!modal || !v) return;
+      if (tEl) tEl.textContent = title || 'HARTWICK ATELIER IN MOTION';
+      if (kEl) kEl.textContent = kicker || 'ATELIER FILM ARCHIVE';
+      modal.classList.add('open');
+      v.muted = false;
+      attachSqsStreamToVideo(v, sqsId, posterUrl || '');
+      v.play().catch(() => {
+        v.muted = true;
+        v.play().catch(() => {});
+      });
+    }
+
+    function openHwFilmLightboxFromStage(btn, title, kicker) {
+      const stage = btn.closest('.hw-film-stage, .hw-lookbook-video-tile');
+      const v = stage ? stage.querySelector('video') : null;
+      const sqsId = v ? v.dataset.sqsId : '07ca2cea-bc19-4893-aaff-b8ce2b636233';
+      const poster = v ? v.poster : '';
+      openHwFilmLightbox(sqsId, title, kicker, poster);
+    }
+
+    function closeHwFilmLightbox() {
+      const modal = document.getElementById('hw-film-lightbox');
+      const v = document.getElementById('hw-lightbox-video');
+      if (v) {
+        v.pause();
+        if (v._hlsInstance) {
+          try { v._hlsInstance.destroy(); } catch (e) {}
+          v._hlsInstance = null;
+        }
+      }
+      if (modal) modal.classList.remove('open');
+    }
 
     function renderCardHtml(item, idx = 0) {
       const hasSecond = item.imgs && item.imgs.length > 1;
@@ -4917,12 +5759,95 @@
       else if (p.navGroup === 'Fine Silk Scarves') setActiveNav('nav-silk');
       else setActiveNav('nav-apparel');
 
-      const gal = document.getElementById('pdp-gallery');
-      gal.innerHTML = p.imgs.map((url, idx) => `
-        <div class="hw-v2-lookbook-item ${idx === 0 ? 'hero-span' : ''}" style="--stagger:${idx * 75}ms;" onclick="swapHeroImage(${idx})">
-          <img src="${url}" alt="${p.title} view ${idx + 1}" />
-        </div>
-      `).join('');
+            const gal = document.getElementById('pdp-gallery');
+      const films = getProductFilms(p);
+      const galleryHtml = [];
+      p.imgs.forEach((url, idx) => {
+        galleryHtml.push(`
+          <div class="hw-v2-lookbook-item ${idx === 0 ? 'hero-span' : ''}" style="--stagger:${idx * 75}ms;" onclick="swapHeroImage(${idx})">
+            <img src="${url}" alt="${p.title} view ${idx + 1}" />
+            ${idx === 0 ? `<button type="button" class="hw-hero-watch-pill" onclick="event.stopPropagation(); openHwFilmLightbox('${films.primary.id}', '${p.title.replace(/'/g, "\\'")}', '${films.primary.kicker.replace(/'/g, "\\'")}', '${p.imgs[0]}')">▶ IN MOTION &middot; WATCH FILM (${films.primary.dur})</button>` : ''}
+          </div>
+        `);
+        if (idx === 0) {
+          galleryHtml.push(`
+            <div class="hw-v2-lookbook-item hw-lookbook-video-tile" style="--stagger:60ms;">
+              <video class="hw-stream-video" data-sqs-id="${films.primary.id}" poster="${p.imgs[1] || p.imgs[0]}" autoplay muted loop playsinline></video>
+              <div class="hw-film-badge-top">
+                <span class="hw-film-tag">IN MOTION &middot; ${films.primary.dur}</span>
+                <span class="hw-film-tag">ATELIER FILM</span>
+              </div>
+              <div class="hw-film-controls">
+                <div class="hw-film-progress-track"><div class="hw-film-progress-bar"></div></div>
+                <div class="hw-film-ctrl-row">
+                  <div class="hw-film-ctrl-left">
+                    <button type="button" class="hw-film-ctrl-btn" onclick="event.stopPropagation(); toggleHwFilmPlay(this)">PAUSE ❚❚</button>
+                    <button type="button" class="hw-film-ctrl-btn" onclick="event.stopPropagation(); toggleHwFilmMute(this)">SOUND OFF</button>
+                  </div>
+                  <button type="button" class="hw-film-ctrl-btn" onclick="event.stopPropagation(); openHwFilmLightboxFromStage(this, '${p.title.replace(/'/g, "\\'")}', '${films.primary.kicker.replace(/'/g, "\\'")}')">THEATER ⤢</button>
+                </div>
+              </div>
+            </div>
+          `);
+        }
+      });
+      gal.innerHTML = galleryHtml.join('');
+
+      const pdpFilmBand = document.getElementById('pdp-film-band');
+      if (pdpFilmBand) {
+        pdpFilmBand.innerHTML = `
+          <div class="hw-pdp-film-band-head">
+            <div>
+              <span class="hw-home-film-kicker" style="text-align:left; margin-bottom:4px;">MOVING IMAGE DOSSIER &middot; SILHOUETTE &amp; CRAFT</span>
+              <h2 class="hw-pdp-film-band-title">IN MOTION: ${p.subtitle || p.title}</h2>
+            </div>
+            <button type="button" class="hw-film-reel-pill active" onclick="openHwFilmLightbox('${films.secondary.id}', '${films.secondary.title.replace(/'/g, "\\'")}', '${films.secondary.kicker.replace(/'/g, "\\'")}', '${films.secondary.poster}')">▶ FULLSCREEN CRAFT FILM (${films.secondary.dur})</button>
+          </div>
+          <div class="hw-pdp-film-grid">
+            <div class="hw-pdp-film-box">
+              <div class="hw-film-stage">
+                <video class="hw-stream-video" data-sqs-id="${films.primary.id}" poster="${p.imgs[0]}" autoplay muted loop playsinline></video>
+                <div class="hw-film-badge-top">
+                  <span class="hw-film-tag">REEL I &middot; SILHOUETTE &amp; DRAPE &middot; ${films.primary.dur}</span>
+                </div>
+                <div class="hw-film-controls">
+                  <div class="hw-film-progress-track"><div class="hw-film-progress-bar"></div></div>
+                  <div class="hw-film-ctrl-row">
+                    <div class="hw-film-ctrl-left">
+                      <button type="button" class="hw-film-ctrl-btn" onclick="toggleHwFilmPlay(this)">PAUSE ❚❚</button>
+                      <button type="button" class="hw-film-ctrl-btn" onclick="toggleHwFilmMute(this)">SOUND OFF</button>
+                    </div>
+                    <button type="button" class="hw-film-ctrl-btn" onclick="openHwFilmLightboxFromStage(this, '${p.title.replace(/'/g, "\\'")}', '${films.primary.kicker.replace(/'/g, "\\'")}')">THEATER ⤢</button>
+                  </div>
+                </div>
+              </div>
+              <h3 class="hw-pdp-film-box-title">${films.primary.title}</h3>
+              <p class="hw-pdp-film-box-desc">${films.primary.desc}</p>
+            </div>
+
+            <div class="hw-pdp-film-box">
+              <div class="hw-film-stage">
+                <video class="hw-stream-video" data-sqs-id="${films.secondary.id}" poster="${films.secondary.poster}" autoplay muted loop playsinline></video>
+                <div class="hw-film-badge-top">
+                  <span class="hw-film-tag">REEL II &middot; ARTISAN PROCESS &middot; ${films.secondary.dur}</span>
+                </div>
+                <div class="hw-film-controls">
+                  <div class="hw-film-progress-track"><div class="hw-film-progress-bar"></div></div>
+                  <div class="hw-film-ctrl-row">
+                    <div class="hw-film-ctrl-left">
+                      <button type="button" class="hw-film-ctrl-btn" onclick="toggleHwFilmPlay(this)">PAUSE ❚❚</button>
+                      <button type="button" class="hw-film-ctrl-btn" onclick="toggleHwFilmMute(this)">SOUND OFF</button>
+                    </div>
+                    <button type="button" class="hw-film-ctrl-btn" onclick="openHwFilmLightboxFromStage(this, '${films.secondary.title.replace(/'/g, "\\'")}', '${films.secondary.kicker.replace(/'/g, "\\'")}')">THEATER ⤢</button>
+                  </div>
+                </div>
+              </div>
+              <h3 class="hw-pdp-film-box-title">${films.secondary.title}</h3>
+              <p class="hw-pdp-film-box-desc">${films.secondary.desc}</p>
+            </div>
+          </div>
+        `;
+      }
 
       document.getElementById('pdp-breadcrumb').innerHTML = `
         <button onclick="openCollection('${p.navGroup}')">${p.navGroup}</button>
@@ -5096,6 +6021,7 @@
       relGrid.scrollLeft = 0;
 
       openView('product');
+      initHwVideoElements(document.getElementById('view-product'));
       history.replaceState(null, '', '#product/' + p.handle);
     }
 
@@ -5221,6 +6147,33 @@
           ${bodyHtml}
         </div>
         ${dyePillsHtml}
+        ${(() => {
+          const mv = getMasterVideoSpec(m.id);
+          return `
+            <div class="hw-m-video-wrap">
+              <div class="hw-film-stage">
+                <video class="hw-stream-video" data-sqs-id="${mv.id}" poster="${mv.poster}" autoplay muted loop playsinline></video>
+                <div class="hw-film-badge-top">
+                  <span class="hw-film-tag">${mv.kicker}</span>
+                </div>
+                <div class="hw-film-controls">
+                  <div class="hw-film-progress-track"><div class="hw-film-progress-bar"></div></div>
+                  <div class="hw-film-ctrl-row">
+                    <div class="hw-film-ctrl-left">
+                      <button type="button" class="hw-film-ctrl-btn" onclick="toggleHwFilmPlay(this)">PAUSE ❚❚</button>
+                      <button type="button" class="hw-film-ctrl-btn" onclick="toggleHwFilmMute(this)">SOUND OFF</button>
+                    </div>
+                    <button type="button" class="hw-film-ctrl-btn" onclick="openHwFilmLightboxFromStage(this, '${mv.title.replace(/'/g, "\\'")}', '${mv.kicker.replace(/'/g, "\\'")}')">THEATER ⤢</button>
+                  </div>
+                </div>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="t-detail-meta">${mv.title}</span>
+                <span class="t-detail-meta">ARCHIVAL FILM &middot; ${mv.dur}</span>
+              </div>
+            </div>
+          `;
+        })()}
         ${garmentsHtml}
       `;
 
@@ -5228,7 +6181,7 @@
         void cardInner.offsetWidth;
         cardInner.classList.add('is-animating');
       }
-      setTimeout(initLuxuryScrollChoreography, 20);
+      setTimeout(() => { initLuxuryScrollChoreography(); initHwVideoElements(cardInner); }, 20);
     }
 
     function selectMasterTechnique(masterId) {
@@ -5464,6 +6417,7 @@
         openProduct(1);
       }
       initLuxuryScrollChoreography();
+      initHwVideoElements(document);
     });
   </script>
 </body>
