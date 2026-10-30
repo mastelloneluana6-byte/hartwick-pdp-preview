@@ -4314,7 +4314,7 @@
           <button class="hw-nav-link" id="nav-about" onclick="openView('story')">About +</button>
           <div class="hw-dropdown" style="left:0; min-width:165px;">
             <button class="hw-dropdown-btn" onclick="openView('story')">Our Story</button>
-            <button class="hw-dropdown-btn" onclick="openView('story')">Limited by Nature</button>
+            <button class="hw-dropdown-btn" onclick="openView('nature')">Limited By Nature</button>
             <button class="hw-dropdown-btn" onclick="openView('contact')">Contact</button>
           </div>
         </div>
@@ -4425,7 +4425,7 @@
           </button>
           <div class="hw-m-nav-sub">
             <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openView('story')">Our Story</button>
-            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openView('story')">Limited by Nature</button>
+            <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openView('nature')">Limited By Nature</button>
             <button type="button" class="hw-m-nav-sub-btn" onclick="toggleMobileMenu(false); openView('contact')">Contact</button>
           </div>
         </div>
@@ -5302,7 +5302,7 @@
         <h4 class="hw-sqs-col-heading">ABOUT</h4>
         <ul class="hw-sqs-col-list">
           <li><button onclick="openMasters()">MADE BY MASTERS</button></li>
-          <li><button onclick="openView('story')">LIMITED BY NATURE</button></li>
+          <li><button onclick="openView('nature')">LIMITED BY NATURE</button></li>
           <li><button onclick="openView('story')">OUR STORY</button></li>
         </ul>
       </div>
@@ -5310,7 +5310,6 @@
       <div>
         <h4 class="hw-sqs-col-heading">CONNECT WITH US</h4>
         <ul class="hw-sqs-col-list">
-          <li><button onclick="openView('contact')">UPCOMING CITIES</button></li>
           <li><a href="https://instagram.com/worldofhartwickatelier" target="_blank" rel="noopener">INSTAGRAM</a></li>
           <li><button onclick="openView('contact')">CONTACT</button></li>
         </ul>
@@ -5386,7 +5385,9 @@
         el.classList.add('active');
       }
       document.body.classList.toggle('d1-seamless-nav', viewName === 'home');
-      if (viewName === 'story') setActiveNav('nav-about');
+      if (viewName === 'story' || viewName === 'nature') setActiveNav('nav-about');
+      if (viewName === 'nature') history.replaceState(null, '', '#nature');
+      if (viewName === 'story') history.replaceState(null, '', '#story');
       if (viewName === 'contact') setActiveNav('nav-appointment');
       if (!skipScrollTop) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
