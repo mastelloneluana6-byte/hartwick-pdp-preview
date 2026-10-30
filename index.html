@@ -1674,191 +1674,132 @@
       color: var(--hw-ink);
       width: 100%;
       box-sizing: border-box;
-      padding: 6px clamp(1.5rem, 5vw, 5.5rem) 14px;
+      padding: 4px clamp(1.5rem, 4.5vw, 4.5rem) 28px;
       font-family: var(--font-body);
       -webkit-font-smoothing: antialiased;
       font-weight: 500;
     }
     .hw-masters-shell {
       width: 100%;
-      max-width: 1180px;
+      max-width: 1260px;
       margin: 0 auto;
     }
-    .hw-masters-intro {
-      max-width: 820px;
-      margin: 0 auto 20px;
-      text-align: center;
+    /* COMPACT TOP BAR: KEEPS THE WORKBENCH ABOVE THE FOLD */
+    .hw-masters-top-bar {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.72fr) minmax(340px, 1.28fr);
+      gap: 24px;
+      align-items: baseline;
+      padding: 8px 0 12px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid var(--hw-border);
     }
     .hw-masters-eyebrow {
       display: block;
       font-family: var(--font-mono);
-      font-size: 9.5px;
+      font-size: 8.5px;
       font-weight: 600;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--hw-accent);
-      margin-bottom: 10px;
+      margin-bottom: 3px;
     }
     .hw-masters-title {
       font-family: var(--font-heading);
-      font-size: clamp(24px, 2.8vw, 34px);
+      font-size: clamp(20px, 2.1vw, 26px);
       font-weight: 500;
-      line-height: 1.12;
+      line-height: 1.08;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--hw-ink);
-      margin: 0 0 10px 0;
+      margin: 0;
     }
     .hw-masters-lead-p {
       font-family: var(--font-body);
-      font-size: 17px;
+      font-size: 13.5px;
       font-weight: 500;
-      line-height: 1.56;
-      color: var(--hw-ink);
-      margin: 0 0 8px 0;
+      line-height: 1.42;
+      color: var(--hw-muted);
+      margin: 0;
     }
     .hw-masters-nuance {
       font-family: var(--font-body);
       font-style: italic;
-      font-size: 17px;
+      font-size: 13px;
       font-weight: 500;
       color: var(--hw-accent);
-      margin: 8px 0 0 0;
+      margin: 3px 0 0 0;
     }
-    .hw-masters-index-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px 16px;
-      margin: 0 auto 18px;
-      max-width: 1040px;
-      border-top: 1px solid var(--hw-border);
-      border-bottom: 1px solid var(--hw-border);
-      padding: 10px 0;
-    }
-    .hw-masters-pill {
-      background: transparent;
-      border: none;
-      border-bottom: 1.5px solid transparent;
-      padding: 4px 2px;
-      font-family: var(--font-mono);
-      font-size: 9.5px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--hw-muted);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: color 0.25s ease, border-color 0.25s ease;
-    }
-    .hw-masters-pill:hover, .hw-masters-pill.is-active {
-      background: transparent;
-      color: var(--hw-accent);
-      border-bottom-color: var(--hw-accent);
-    }
-    /* 2-COLUMN LAYOUT: LEFT = ACCORDION TECHNIQUES THAT FOLD OPEN WITH PRODUCT PHOTOS, RIGHT = FRAMED PRODUCT PHOTO */
-    .hw-masters-shell {
-      width: 100%;
-      max-width: 1240px;
-      margin: 0 auto;
-    }
+
+    /* 2-COLUMN WORKBENCH: LEFT = 14 TECHNIQUES IN FIBRE-TO-GARMENT LEDGER ROWS (NOT BUTTONS), RIGHT = TOP VIDEO + SHEETS TEXT + PRODUCTS */
     .hw-masters-grid {
       display: grid;
-      grid-template-columns: minmax(340px, 0.96fr) minmax(380px, 1.04fr);
-      gap: 32px;
+      grid-template-columns: minmax(290px, 0.76fr) minmax(420px, 1.24fr);
+      gap: clamp(24px, 3.5vw, 48px);
       align-items: start;
-      border-top: none;
-      padding-top: 4px;
+      padding-top: 2px;
     }
-    /* LEFT COLUMN: SIDE-BY-SIDE TECHNIQUE BUTTONS (SAME BACKGROUND, NO SECTION DIFFERENCES) */
-    .hw-masters-list {
-      position: static;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 6px 12px;
-      min-width: 0;
-      width: 100%;
+    .hw-masters-ftg-left {
+      position: sticky;
+      top: 68px;
+      border-top: 1px solid var(--hw-border);
+      padding-top: 10px;
     }
-    .hw-m-btn {
-      position: relative;
-      width: 100%;
-      min-width: 0;
-      box-sizing: border-box;
-      background: transparent;
-      border: 1px solid rgba(36, 25, 20, 0.15);
-      padding: 10px 12px;
-      display: grid;
-      grid-template-columns: 22px minmax(0, 1fr) 14px;
-      align-items: center;
-      gap: 8px;
-      text-align: left;
+    .hw-masters-ftg-left .hw-ftg-open-row {
+      padding: 8px 6px;
       cursor: pointer;
-      color: var(--hw-ink);
-      transition: border-color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-                  transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: background-color 0.2s ease, padding-left 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+      position: relative;
     }
-    .hw-m-btn::before {
+    .hw-masters-ftg-left .hw-ftg-open-row:hover {
+      background-color: rgba(36, 25, 20, 0.035);
+      padding-left: 10px;
+    }
+    .hw-masters-ftg-left .hw-ftg-open-row.is-active {
+      background-color: rgba(107, 45, 30, 0.06);
+      padding-left: 12px;
+    }
+    .hw-masters-ftg-left .hw-ftg-open-row.is-active::before {
       content: '';
       position: absolute;
       left: 0;
       top: 0;
       bottom: 0;
-      width: 2.5px;
-      background: var(--hw-ink);
-      opacity: 0;
-      transform: scaleY(0);
-      transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      width: 2px;
+      background-color: var(--hw-accent);
     }
-    .hw-m-btn:hover {
-      border-color: rgba(36, 25, 20, 0.45);
+    .hw-masters-ftg-left .hw-ftg-row-top {
+      margin-bottom: 0;
     }
-    .hw-m-btn.is-active {
-      background: transparent;
-      border-color: var(--hw-ink);
+    .hw-masters-ftg-left .hw-ftg-step {
+      color: var(--hw-muted);
+      transition: color 0.2s ease;
     }
-    .hw-m-btn.is-active::before {
-      opacity: 1;
-      transform: scaleY(1);
+    .hw-masters-ftg-left .hw-ftg-open-row:hover .hw-ftg-step,
+    .hw-masters-ftg-left .hw-ftg-open-row.is-active .hw-ftg-step {
+      color: var(--hw-ink);
     }
-    .hw-m-btn__num {
+    .hw-masters-ftg-left .hw-ftg-open-row.is-active .hw-ftg-step .hw-m-num {
+      color: var(--hw-accent);
+    }
+    .hw-masters-ftg-left .hw-ftg-val {
       font-family: var(--font-mono);
-      font-size: 9px;
+      font-size: 8.5px;
       font-weight: 600;
-      letter-spacing: 0.12em;
-      color: var(--hw-ink);
-    }
-    .hw-m-btn__name {
-      font-family: var(--font-heading);
-      font-size: 13.5px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--hw-ink);
-      line-height: 1.2;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      color: var(--hw-light);
     }
-    .hw-m-btn__icon {
-      font-family: var(--font-heading);
-      font-size: 14px;
-      color: var(--hw-ink);
-      text-align: right;
-      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-      font-weight: 500;
-    }
-    .hw-m-btn.is-active .hw-m-btn__icon {
-      transform: rotate(45deg);
+    .hw-masters-ftg-left .hw-ftg-open-row.is-active .hw-ftg-val {
+      color: var(--hw-accent);
     }
 
-    /* RIGHT COLUMN: STATIC LIBRARY CARD (SEAMLESS, NO BOX BORDER OR DIFFERENT BACKGROUND) */
+    /* RIGHT COLUMN: TOP-RIGHT VIDEO -> SHORT SHEETS DOC TEXT -> MATCHING PRODUCTS */
     .hw-masters-card {
       position: static;
       background: transparent;
-      border: none;
-      padding: 4px 12px 16px;
+      border-top: 1px solid var(--hw-border);
+      padding: 10px 0 16px;
       box-sizing: border-box;
       min-width: 0;
       width: 100%;
@@ -1866,7 +1807,7 @@
     @keyframes hwLibraryCardFade {
       from {
         opacity: 0;
-        transform: translateY(6px);
+        transform: translateY(5px);
       }
       to {
         opacity: 1;
@@ -1874,12 +1815,28 @@
       }
     }
     .hw-masters-card__inner.is-animating {
-      animation: hwLibraryCardFade 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation: hwLibraryCardFade 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .hw-masters-stage-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .hw-masters-stage-head .hw-ftg-heading {
+      margin-bottom: 0;
     }
     .hw-masters-card__header {
-      border-bottom: none;
-      padding-bottom: 4px;
-      margin-bottom: 10px;
+      border-top: 1px solid var(--hw-border);
+      padding-top: 12px;
+      margin-top: 12px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
     }
     .hw-masters-card__kicker {
       display: block;
@@ -1888,12 +1845,11 @@
       font-weight: 600;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--hw-ink);
-      margin-bottom: 4px;
+      color: var(--hw-accent);
     }
     .hw-masters-card__title {
       font-family: var(--font-heading);
-      font-size: clamp(1.35rem, 2vw, 1.75rem);
+      font-size: clamp(1.2rem, 1.7vw, 1.5rem);
       font-weight: 500;
       letter-spacing: 0.09em;
       text-transform: uppercase;
@@ -1903,15 +1859,15 @@
     }
     .hw-masters-card__body p {
       font-family: var(--font-body);
-      font-size: 16.5px;
+      font-size: 15.5px;
       font-weight: 500;
-      line-height: 1.58;
+      line-height: 1.52;
       color: var(--hw-ink);
-      margin: 0 0 10px 0;
+      margin: 0 0 8px 0;
     }
     .hw-masters-card__body p strong {
       font-family: var(--font-mono);
-      font-size: 9.5px;
+      font-size: 9px;
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -1921,17 +1877,38 @@
     .hw-masters-card__body em {
       font-family: var(--font-body);
       font-style: italic;
-      font-size: 15.5px;
+      font-size: 15px;
       color: var(--hw-ink);
     }
     .hw-m-garments {
       margin-top: 16px;
-      padding-top: 8px;
-      border-top: none;
+      padding-top: 12px;
+      border-top: 1px solid var(--hw-border);
+    }
+    .hw-m-garments__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+      gap: 12px;
+    }
+    .hw-m-garments__toggle {
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: var(--font-mono);
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--hw-accent);
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
     .hw-m-garments__grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 148px));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
     }
     .hw-m-garment-card {
@@ -1939,7 +1916,7 @@
       color: var(--hw-ink);
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 4px;
       cursor: pointer;
     }
     .hw-m-garment-card__img {
@@ -1947,6 +1924,7 @@
       aspect-ratio: 3 / 4;
       background: #EDE5D8;
       overflow: hidden;
+      border: 1px solid var(--hw-border);
     }
     .hw-m-garment-card__img img {
       width: 100%;
@@ -1975,16 +1953,27 @@
       color: var(--hw-muted);
       line-height: 1.22;
     }
+    .hw-m-garment-card__price {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--hw-ink);
+    }
     @media (max-width: 960px) {
+      .hw-masters-top-bar {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
       .hw-masters-grid {
         grid-template-columns: 1fr;
         gap: 20px;
       }
-      .hw-masters-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .hw-masters-ftg-left {
+        position: static;
       }
       .hw-m-garments__grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
     .hw-m-dye-pills {
@@ -4764,30 +4753,37 @@
     <div class="hw-masters-page" id="glossary">
       <div class="hw-masters-shell">
 
-        <!-- 1. EDITORIAL INTRO -->
-        <header class="hw-masters-intro">
-          <h1 class="hw-masters-title">Made by Masters</h1>
-          <p class="hw-masters-lead-p">
-            Textile History dates back to the beginning of human civilization. Hartwick Atelier specializes in hand spun and handwoven fabrics, natural and ayurvedic dyes, and exquisite heritage handwork. These artisanal techniques rely on rare knowledge and the natural cycles of the sun, wind and rain.
-          </p>
-          <p class="hw-masters-lead-p">
-            Each handcrafted piece in the collection is a glimpse into the rich history, intricate process, and generations of skill that have gone into its creation.
-          </p>
-          <p class="hw-masters-nuance">
-            &ldquo;Handwork naturally results in variations. We cherish these nuances for their human touch.&rdquo;
-          </p>
+        <!-- 1. COMPACT TOP BAR (WATCHING TOP SPACING SO WORKBENCH STAYS ABOVE THE FOLD) -->
+        <header class="hw-masters-top-bar">
+          <div>
+            <span class="hw-masters-eyebrow">FIBRE TO GARMENT &middot; ARCHIVAL CRAFT INDEX</span>
+            <h1 class="hw-masters-title">Made by Masters</h1>
+          </div>
+          <div>
+            <p class="hw-masters-lead-p">
+              Hartwick Atelier specializes in hand spun and handwoven fabrics, natural and ayurvedic dyes, and exquisite heritage handwork in tune with the cycles of the sun, wind and rain.
+            </p>
+            <p class="hw-masters-nuance">
+              &ldquo;Handwork naturally results in variations. We cherish these nuances for their human touch.&rdquo;
+            </p>
+          </div>
         </header>
 
-        <!-- 2. LIBRARY CARD LAYOUT: SIDE-BY-SIDE TECHNIQUE BUTTONS ON LEFT + TECHNIQUE EXPLANATION & 3 COMPACT PRODUCTS ON RIGHT -->
+        <!-- 2. 2-COLUMN WORKBENCH: FIBRE-TO-GARMENT LIST ON LEFT + VIDEO, SHEETS TEXT & PRODUCTS ON RIGHT -->
         <div class="hw-masters-grid">
-          <div class="hw-masters-list" id="masters-accordion-list"></div>
+          <aside class="hw-masters-ftg-left" aria-label="14 Heritage Techniques">
+            <div class="hw-ftg-heading" style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;">
+              <span>FIBRE TO GARMENT &middot; THE 14 TECHNIQUES</span>
+              <span style="color:var(--hw-light); font-size:8.5px;">SELECT ROW</span>
+            </div>
+            <div class="hw-ftg-list" id="masters-accordion-list"></div>
+          </aside>
           <div class="hw-masters-card" id="masters-library-card">
             <div class="hw-masters-card__inner" id="masters-library-card-inner"></div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </div>  </section>
 
   <!-- ==========================================================================
        VIEW 4: OUR STORY — 100% VERBATIM TEXT & ARCHIVAL IMAGES FROM SQUARESPACE
@@ -6075,17 +6071,23 @@
       return PRODUCTS.filter(p => Array.isArray(p.mbmIds) && p.mbmIds.includes(m.id));
     }
 
+    let showAllMasterProducts = false;
+
     function buildMasterAccordionOnce() {
       const accList = document.getElementById('masters-accordion-list');
       if (!accList || accList.children.length > 0) return;
 
-      accList.innerHTML = MASTERS.map((item, idx) => `
-        <button type="button" class="hw-m-btn ${idx === 0 ? 'is-active' : ''}" id="master-acc-${item.id}" data-master-id="${item.id}" onclick="selectMasterTechnique('${item.id}')">
-          <span class="hw-m-btn__num">${item.num}</span>
-          <span class="hw-m-btn__name">${item.name}</span>
-          <span class="hw-m-btn__icon">+</span>
-        </button>
-      `).join('');
+      accList.innerHTML = MASTERS.map((item, idx) => {
+        const count = getMasterProducts(item).length;
+        return `
+          <div class="hw-ftg-open-row ${idx === 0 ? 'is-active' : ''}" id="master-acc-${item.id}" data-master-id="${item.id}" role="button" tabindex="0" onclick="selectMasterTechnique('${item.id}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectMasterTechnique('${item.id}');}">
+            <div class="hw-ftg-row-top">
+              <span class="hw-ftg-step"><span class="hw-m-num" style="margin-right:8px;">${item.num}</span>${item.name}</span>
+              <span class="hw-ftg-val">${count} ${count === 1 ? 'Piece' : 'Pieces'} &rarr;</span>
+            </div>
+          </div>
+        `;
+      }).join('');
 
       renderMasterLibraryCard(MASTERS[0], false);
     }
@@ -6112,19 +6114,26 @@
       renderMasterLibraryCard(m, true, dyeId);
     }
 
+    function toggleAllMasterProducts(masterId, activeDyeId) {
+      showAllMasterProducts = !showAllMasterProducts;
+      const m = MASTERS.find(x => x.id === masterId) || MASTERS[0];
+      renderMasterLibraryCard(m, false, activeDyeId || 'all');
+    }
+
     function renderMasterLibraryCard(m, animate = true, activeDyeId = 'all') {
       if (!m) return;
       const cardInner = document.getElementById('masters-library-card-inner');
       if (!cardInner) return;
 
-      let matchingProds = getMasterProducts(m).slice(0, 3);
+      let allMatchingProds = getMasterProducts(m);
       if (m.id === 'naturaldye' && activeDyeId && activeDyeId !== 'all') {
         const dyeEntry = NATURAL_DYE_BOTANICALS.find(d => d.id === activeDyeId);
         if (dyeEntry && dyeEntry.prodIds) {
           const customProds = dyeEntry.prodIds.map(pid => PRODUCTS.find(p => p.id === pid)).filter(Boolean);
-          if (customProds.length > 0) matchingProds = customProds.slice(0, 3);
+          if (customProds.length > 0) allMatchingProds = customProds;
         }
       }
+      const visibleProds = showAllMasterProducts ? allMatchingProds : allMatchingProds.slice(0, 3);
 
       const bodyHtml = (m.paragraphs || []).map(p => `<p>${p}</p>`).join('');
       const dyePillsHtml = m.id === 'naturaldye' ? `
@@ -6138,16 +6147,51 @@
         </div>
       ` : '';
 
-      const garmentsHtml = matchingProds.length > 0 ? `
+      const mv = getMasterVideoSpec(m.id);
+      const videoTopRightHtml = `
+        <div class="hw-masters-stage-head">
+          <div class="hw-ftg-heading">${m.num} &middot; ${m.name.toUpperCase()} &mdash; PROCESS IN MOTION</div>
+          <span class="t-detail-meta">ARCHIVAL FILM &middot; ${mv.dur}</span>
+        </div>
+        <div class="hw-m-video-wrap" style="margin-top:0; padding-top:0; border-top:none;">
+          <div class="hw-film-stage">
+            <video class="hw-stream-video" data-sqs-id="${mv.id}" poster="${mv.poster}" autoplay muted loop playsinline></video>
+            <div class="hw-film-badge-top">
+              <span class="hw-film-tag">${mv.kicker}</span>
+            </div>
+            <div class="hw-film-controls">
+              <div class="hw-film-progress-track"><div class="hw-film-progress-bar"></div></div>
+              <div class="hw-film-ctrl-row">
+                <div class="hw-film-ctrl-left">
+                  <button type="button" class="hw-film-ctrl-btn" onclick="toggleHwFilmPlay(this)">PAUSE ❚❚</button>
+                  <button type="button" class="hw-film-ctrl-btn" onclick="toggleHwFilmMute(this)">SOUND OFF</button>
+                </div>
+                <button type="button" class="hw-film-ctrl-btn" onclick="openHwFilmLightboxFromStage(this, '${mv.title.replace(/'/g, "\\'")}', '${mv.kicker.replace(/'/g, "\\'")}')">THEATER ⤢</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      const garmentsHtml = visibleProds.length > 0 ? `
         <div class="hw-m-garments">
+          <div class="hw-m-garments__head">
+            <div class="hw-ftg-heading" style="margin-bottom:0;">PRODUCTS IN THIS TECHNIQUE &middot; ${m.name.toUpperCase()} (${allMatchingProds.length})</div>
+            ${allMatchingProds.length > 3 ? `
+              <button type="button" class="hw-m-garments__toggle" onclick="toggleAllMasterProducts('${m.id}', '${activeDyeId}')">
+                ${showAllMasterProducts ? 'Show Featured 3 ↑' : `View All ${allMatchingProds.length} Pieces ↓`}
+              </button>
+            ` : ''}
+          </div>
           <div class="hw-m-garments__grid">
-            ${matchingProds.map(prod => `
+            ${visibleProds.map(prod => `
               <a class="hw-m-garment-card" onclick="openProduct(${prod.id})">
                 <div class="hw-m-garment-card__img">
                   <img src="${prod.imgs[0]}" alt="${prod.title}" loading="lazy">
                 </div>
                 <span class="hw-m-garment-card__title">${prod.title}</span>
                 <span class="hw-m-garment-card__sub">${prod.commercial}</span>
+                <span class="hw-m-garment-card__price">${prod.price || ''}</span>
               </a>
             `).join('')}
           </div>
@@ -6156,41 +6200,15 @@
 
       cardInner.classList.remove('is-animating');
       cardInner.innerHTML = `
+        ${videoTopRightHtml}
         <div class="hw-masters-card__header">
-          <span class="hw-masters-card__kicker">${m.num} &middot; ${m.sub || 'HERITAGE TECHNIQUE'}</span>
           <h2 class="hw-masters-card__title">${m.name}</h2>
+          <span class="hw-masters-card__kicker">${m.num} &middot; ${m.sub || 'SHEETS DOC ARCHIVE'}</span>
         </div>
         <div class="hw-masters-card__body">
           ${bodyHtml}
         </div>
         ${dyePillsHtml}
-        ${(() => {
-          const mv = getMasterVideoSpec(m.id);
-          return `
-            <div class="hw-m-video-wrap">
-              <div class="hw-film-stage">
-                <video class="hw-stream-video" data-sqs-id="${mv.id}" poster="${mv.poster}" autoplay muted loop playsinline></video>
-                <div class="hw-film-badge-top">
-                  <span class="hw-film-tag">${mv.kicker}</span>
-                </div>
-                <div class="hw-film-controls">
-                  <div class="hw-film-progress-track"><div class="hw-film-progress-bar"></div></div>
-                  <div class="hw-film-ctrl-row">
-                    <div class="hw-film-ctrl-left">
-                      <button type="button" class="hw-film-ctrl-btn" onclick="toggleHwFilmPlay(this)">PAUSE ❚❚</button>
-                      <button type="button" class="hw-film-ctrl-btn" onclick="toggleHwFilmMute(this)">SOUND OFF</button>
-                    </div>
-                    <button type="button" class="hw-film-ctrl-btn" onclick="openHwFilmLightboxFromStage(this, '${mv.title.replace(/'/g, "\\'")}', '${mv.kicker.replace(/'/g, "\\'")}')">THEATER ⤢</button>
-                  </div>
-                </div>
-              </div>
-              <div style="display:flex; justify-content:space-between; align-items:center;">
-                <span class="t-detail-meta">${mv.title}</span>
-                <span class="t-detail-meta">ARCHIVAL FILM &middot; ${mv.dur}</span>
-              </div>
-            </div>
-          `;
-        })()}
         ${garmentsHtml}
       `;
 
@@ -6202,23 +6220,25 @@
     }
 
     function selectMasterTechnique(masterId) {
+      showAllMasterProducts = false;
       const m = MASTERS.find(x => x.id === masterId) || MASTERS[0];
-      document.querySelectorAll('.hw-m-btn').forEach(btn => {
-        btn.classList.toggle('is-active', btn.dataset.masterId === m.id);
+      document.querySelectorAll('#masters-accordion-list .hw-ftg-open-row').forEach(row => {
+        row.classList.toggle('is-active', row.dataset.masterId === m.id);
       });
       renderMasterLibraryCard(m, true);
       history.replaceState(null, '', '#masters/' + m.id);
     }
 
     function openMasters(masterId, scrollToItem = false) {
+      showAllMasterProducts = false;
       buildMasterAccordionOnce();
       setActiveNav('nav-masters');
 
       const targetId = masterId || (currentProduct && currentProduct.mbmIds && currentProduct.mbmIds[0]) || 'khadi';
       const m = MASTERS.find(x => x.id === targetId) || MASTERS[0];
 
-      document.querySelectorAll('.hw-m-btn').forEach(btn => {
-        btn.classList.toggle('is-active', btn.dataset.masterId === m.id);
+      document.querySelectorAll('#masters-accordion-list .hw-ftg-open-row').forEach(row => {
+        row.classList.toggle('is-active', row.dataset.masterId === m.id);
       });
       renderMasterLibraryCard(m, false);
 
