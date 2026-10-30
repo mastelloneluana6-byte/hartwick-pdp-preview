@@ -37,20 +37,20 @@
 
     
     :root {
-      --hw-bg: #EDE5D8;
-      --hw-bg-alt: #EDE5D8;
-      --hw-surface-soft: #EDE5D8;
-      --hw-card: #EDE5D8;
+      --hw-bg: #FAF8F4;
+      --hw-bg-alt: #FAF8F4;
+      --hw-surface-soft: #FAF8F4;
+      --hw-card: #FAF8F4;
       --hw-ink: #241914;
       --hw-muted: #5A4B40;
       --hw-light: #7A6B60;
       --hw-accent: #241914;
       --hw-accent-secondary: #241914;
-      --hw-border: rgba(36, 25, 20, 0.14);
-      --hw-border-strong: rgba(36, 25, 20, 0.28);
-      --hw-header-bg: #EDE5D8;
-      --hw-masters-bg: #EDE5D8;
-      --hw-footer-bg: #EDE5D8;
+      --hw-border: rgba(36, 25, 20, 0.11);
+      --hw-border-strong: rgba(36, 25, 20, 0.22);
+      --hw-header-bg: #FAF8F4;
+      --hw-masters-bg: #FAF8F4;
+      --hw-footer-bg: #FAF8F4;
       --hw-footer-ink: #241914;
       --hw-footer-border: transparent;
       --font-heading: 'Porter', 'Porter Medium', 'Jost', 'Montserrat', sans-serif;
@@ -86,14 +86,14 @@
       transition: background-color 0.35s ease, backdrop-filter 0.35s ease;
     }
     body.d1-seamless-nav:not(.is-scrolled) .hw-site-header {
-      background: linear-gradient(180deg, rgba(248, 245, 238, 0.94) 0%, rgba(237, 229, 216, 0.84) 72%, rgba(237, 229, 216, 0) 100%);
+      background: linear-gradient(180deg, rgba(252, 250, 246, 0.94) 0%, rgba(250, 248, 244, 0.84) 72%, rgba(250, 248, 244, 0) 100%);
       padding-bottom: 6px;
       backdrop-filter: none;
     }
     body.d1-seamless-nav:not(.is-scrolled) .hw-site-header .hw-nav-link,
     body.d1-seamless-nav:not(.is-scrolled) .hw-site-header .hw-search-input {
       color: var(--hw-ink);
-      text-shadow: 0 1px 10px rgba(248, 245, 238, 0.95), 0 0 6px rgba(248, 245, 238, 0.9);
+      text-shadow: 0 1px 10px rgba(252, 250, 246, 0.95), 0 0 6px rgba(252, 250, 246, 0.9);
     }
     body.d1-seamless-nav:not(.is-scrolled) .hw-site-header .hw-search-input::placeholder {
       color: var(--hw-ink);
@@ -106,7 +106,7 @@
       border-bottom-color: rgba(36, 25, 20, 0.55);
     }
     body.d1-seamless-nav.is-scrolled .hw-site-header {
-      background: rgba(237, 229, 216, 0.95);
+      background: rgba(250, 248, 244, 0.95);
       backdrop-filter: blur(8px);
     }
     .hw-header-inner {
@@ -514,7 +514,7 @@
       position: absolute;
       inset: 0;
       padding-top: 84px;
-      background: linear-gradient(90deg, rgba(237, 229, 216, 0.78) 0%, rgba(237, 229, 216, 0.34) 44%, rgba(36, 25, 20, 0.05) 100%);
+      background: linear-gradient(90deg, rgba(250, 248, 244, 0.78) 0%, rgba(250, 248, 244, 0.34) 44%, rgba(36, 25, 20, 0.05) 100%);
       display: flex;
       align-items: center;
       justify-content: flex-start;
@@ -543,7 +543,7 @@
       display: block;
     }
     .d1-tot-center {
-      background: #F8F5EE;
+      background: #FCFAF6;
       padding: 22px 28px 18px;
       text-align: center;
       border-bottom: 1px solid var(--hw-border);
@@ -640,7 +640,7 @@
       font-size: clamp(14px, 1.4vw, 18px);
       letter-spacing: 0.26em;
       text-transform: uppercase;
-      color: #F8F5EE;
+      color: #FCFAF6;
       text-shadow: 0 2px 18px rgba(36, 25, 20, 0.45);
       margin: 0;
     }
@@ -650,7 +650,7 @@
       font-size: 10px;
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: rgba(248, 245, 238, 0.94);
+      color: rgba(252, 250, 246, 0.94);
       margin-top: 8px;
       text-shadow: 0 1px 12px rgba(36, 25, 20, 0.55);
       transition: opacity 0.45s ease, transform 0.45s ease;
@@ -664,7 +664,7 @@
       transform: translateY(4px);
     }
     .d1-tot-edit-bar {
-      background: #F8F5EE;
+      background: #FCFAF6;
       border-bottom: 1px solid var(--hw-border);
       padding: 10px 32px;
       display: flex;
@@ -741,7 +741,7 @@
     .d1-tot-pcard__media {
       aspect-ratio: 3 / 3.7;
       margin-bottom: 8px;
-      background: #F8F5EE;
+      background: #FCFAF6;
     }
     .d1-tot-pcard__meta {
       display: flex;
@@ -767,13 +767,13 @@
       flex-shrink: 0;
     }
     .d1-tot-nature-tech-quote {
-      background: #F8F5EE;
+      background: #FCFAF6;
       padding: 26px 32px 28px;
       text-align: center;
       border-bottom: 1px solid var(--hw-border);
     }
     .d1-tot-feel-band {
-      background: #F4EFE6;
+      background: #F6F3EC;
       padding: 18px 32px;
       text-align: center;
       border-bottom: 1px solid var(--hw-border);
@@ -819,7 +819,7 @@
       .d1-tot-hero__veil {
         padding: 58px 16px 20px;
         align-items: flex-end;
-        background: linear-gradient(180deg, rgba(237, 229, 216, 0.45) 0%, rgba(237, 229, 216, 0.08) 38%, rgba(237, 229, 216, 0.88) 100%);
+        background: linear-gradient(180deg, rgba(250, 248, 244, 0.45) 0%, rgba(250, 248, 244, 0.08) 38%, rgba(250, 248, 244, 0.88) 100%);
       }
       .d1-tot-hero__box {
         max-width: 100%;
@@ -985,7 +985,7 @@
       text-align: center;
       border-top: 1px solid var(--hw-border);
       border-bottom: 1px solid var(--hw-border);
-      background: rgba(237, 229, 216, 0.28);
+      background: rgba(250, 248, 244, 0.28);
     }
     .hw-col-positioning-quote-text {
       font-family: var(--font-body);
@@ -1062,7 +1062,7 @@
     .hw-product-card-media {
       position: relative;
       aspect-ratio: 3 / 3.85;
-      background: #EDE5D8;
+      background: #FAF8F4;
       overflow: hidden;
       margin-bottom: 14px;
     }
@@ -1128,7 +1128,7 @@
     }
     .hw-v2-lookbook-item {
       position: relative;
-      background: #EDE5D8;
+      background: #FAF8F4;
       overflow: hidden;
       aspect-ratio: 3 / 4;
       cursor: pointer;
@@ -1147,7 +1147,7 @@
     .hw-v2-panel {
       position: sticky;
       top: 90px;
-      background: #EDE5D8;
+      background: #FAF8F4;
       border: none;
       padding: 12px 18px 32px;
       box-shadow: none;
@@ -1248,7 +1248,7 @@
       overflow: hidden;
       border: 1px solid var(--hw-border);
       margin-bottom: 4px;
-      background: #EDE5D8;
+      background: #FAF8F4;
       transition: all 0.2s;
     }
     .hw-v2-var-card.active .hw-v2-var-thumb {
@@ -1807,11 +1807,11 @@
       position: relative;
     }
     .hw-masters-ftg-left .hw-ftg-open-row:hover {
-      background-color: rgba(248, 245, 238, 0.55);
+      background-color: rgba(252, 250, 246, 0.55);
       padding-left: 10px;
     }
     .hw-masters-ftg-left .hw-ftg-open-row.is-active {
-      background-color: #F4EFE6;
+      background-color: #F6F3EC;
       padding-left: 12px;
     }
     .hw-masters-ftg-left .hw-ftg-open-row.is-active::before {
@@ -1977,7 +1977,7 @@
     .hw-m-garment-card__img {
       width: 100%;
       aspect-ratio: 3 / 4;
-      background: #EDE5D8;
+      background: #FAF8F4;
       overflow: hidden;
       border: 1px solid var(--hw-border);
     }
@@ -2016,7 +2016,7 @@
       color: var(--hw-ink);
     }
     .hw-masters-page.is-option-2 {
-      background-color: #F4F0E8;
+      background-color: #F7F5EF;
     }
     .hw-masters-page.is-option-2 .hw-masters-ftg-left {
       background: #FAF8F3;
@@ -2211,7 +2211,7 @@
       max-width: 460px;
       margin-left: auto;
       aspect-ratio: 4 / 5;
-      background: #EDE5D8;
+      background: #FAF8F4;
       overflow: hidden;
     }
     .hw-story__hero-frame img {
@@ -2225,7 +2225,7 @@
       position: sticky;
       top: 58px;
       z-index: 15;
-      background: #EDE5D8;
+      background: #FAF8F4;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       display: flex;
@@ -2306,7 +2306,7 @@
     .hw-chapter__img-wrap {
       width: 100%;
       aspect-ratio: 4 / 5;
-      background: #EDE5D8;
+      background: #FAF8F4;
       overflow: hidden;
       position: relative;
     }
@@ -2426,7 +2426,7 @@
     }
     .hw-finale__diptych-item {
       aspect-ratio: 4 / 5;
-      background: #EDE5D8;
+      background: #FAF8F4;
       overflow: hidden;
     }
     .hw-finale__diptych-item img {
@@ -2563,7 +2563,7 @@
       width: 100%;
       max-width: 320px;
       aspect-ratio: 4 / 5;
-      background: #EDE5D8;
+      background: #FAF8F4;
       overflow: hidden;
       position: relative;
       box-shadow: 0 18px 38px -20px rgba(24, 22, 20, 0.14);
@@ -3796,27 +3796,27 @@
       aspect-ratio: 2 / 3 !important;
       width: 100% !important;
       overflow: hidden !important;
-      background: #EDE5D8;
+      background: #FAF8F4;
     }
     .hw-sqs-ig-item {
       aspect-ratio: 1 / 1 !important;
       width: 100% !important;
       overflow: hidden !important;
-      background: #EDE5D8;
+      background: #FAF8F4;
     }
     .d1-tot-split__card {
       aspect-ratio: 2 / 3 !important;
       max-height: none !important;
       width: 100% !important;
       overflow: hidden !important;
-      background: #EDE5D8;
+      background: #FAF8F4;
     }
     .hw-v2-lookbook-item,
     .hw-v2-lookbook-item.hero-span {
       aspect-ratio: 2 / 3 !important;
       width: 100% !important;
       overflow: hidden !important;
-      background: #EDE5D8;
+      background: #FAF8F4;
     }
     .hw-v2-lookbook-item.hero-span {
       grid-column: span 2;
@@ -3845,13 +3845,13 @@
       aspect-ratio: 4 / 5 !important;
       width: 100% !important;
       overflow: hidden !important;
-      background: #EDE5D8;
+      background: #FAF8F4;
     }
     .hw-chapter__img-wrap--landscape {
       aspect-ratio: 16 / 10 !important;
       width: 100% !important;
       overflow: hidden !important;
-      background: #EDE5D8;
+      background: #FAF8F4;
     }
     .hw-story__hero-frame img,
     .hw-chapter__img-wrap img,
@@ -3867,20 +3867,20 @@
       width: 76px !important;
       height: 114px !important;
       overflow: hidden !important;
-      background: #EDE5D8;
+      background: #FAF8F4;
     }
     .d1-tot-craft__img {
       width: 118px !important;
       height: 177px !important;
       overflow: hidden !important;
-      background: #EDE5D8;
+      background: #FAF8F4;
     }
     .hw-search-result-item img {
       width: 38px !important;
       height: 57px !important;
       object-fit: cover !important;
       object-position: center center !important;
-      background: #EDE5D8;
+      background: #FAF8F4;
     }
     @media (max-width: 768px) {
       .hw-v2-var-thumb {
@@ -3905,7 +3905,7 @@
       margin: 0 auto;
       padding: 52px 48px 64px;
       border-top: 1px solid var(--hw-border);
-      background: #F8F5EE;
+      background: #FCFAF6;
     }
     .hw-home-film-head {
       display: flex;
@@ -4006,13 +4006,13 @@
     .hw-film-progress-track {
       width: 100%;
       height: 1px;
-      background: rgba(248, 245, 238, 0.28);
+      background: rgba(252, 250, 246, 0.28);
       overflow: hidden;
     }
     .hw-film-progress-bar {
       width: 0%;
       height: 100%;
-      background: rgba(248, 245, 238, 0.92);
+      background: rgba(252, 250, 246, 0.92);
       transition: width 0.2s linear;
     }
     .hw-film-ctrl-row {
@@ -4035,7 +4035,7 @@
       padding: 0;
       background: transparent;
       border: none;
-      color: rgba(248, 245, 238, 0.92);
+      color: rgba(252, 250, 246, 0.92);
       cursor: pointer;
       transition: opacity 0.2s ease;
     }
@@ -4104,7 +4104,7 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       padding: 6px 11px;
-      background: rgba(248, 245, 238, 0.88);
+      background: rgba(252, 250, 246, 0.88);
       color: var(--hw-ink);
       border: 1px solid var(--hw-border);
       cursor: pointer;
@@ -4112,7 +4112,7 @@
       transition: background 0.2s ease;
     }
     .hw-hero-watch-pill:hover {
-      background: #F8F5EE;
+      background: #FCFAF6;
     }
     .hw-lookbook-video-tile {
       position: relative;
@@ -4214,7 +4214,7 @@
     .hw-film-lightbox-dialog {
       width: 100%;
       max-width: 980px;
-      background: #F8F5EE;
+      background: #FCFAF6;
       border: 1px solid var(--hw-border);
       padding: 20px 24px 24px;
       display: flex;
@@ -4455,7 +4455,7 @@
         </div>
       </section>
 
-      <!-- 2. Section 2 & 3 — Ultra-Compact Warm-Ivory (#F8F5EE) Manifesto Block with Stacked Headline, Four Pillars & Chevron -->
+      <!-- 2. Section 2 & 3 — Ultra-Compact Warm-Ivory (#FCFAF6) Manifesto Block with Stacked Headline, Four Pillars & Chevron -->
       <section class="d1-tot-center">
         <p class="d1-tot-center__body">
           &ldquo;Wearing handspun and handwoven fabric has a different feeling than wearing industrially produced fabrics; handwoven natural fibres drape and breathe with a supple softness in a rhythm that can only be created by a human hand. The feeling is truly luxurious.&rdquo;
@@ -4491,7 +4491,7 @@
         <button type="button" class="d1-tot-edit-pill" onclick="setInFocusRotation(3)">FINE SILK &amp; JEWELLERY</button>
       </div>
 
-      <!-- 4. Section 5 (Part B) — 3-Column Collection Edit on Warm Khadi-Linen (#EDE5D8) -->
+      <!-- 4. Section 5 (Part B) — 3-Column Collection Edit on Warm Khadi-Linen (#FAF8F4) -->
       <section class="d1-tot-grid-sec">
         <div class="d1-tot-grid-head" style="margin-bottom: 16px;">
           <span class="t-detail-meta" id="d1-dynamic-grid-title" style="color:var(--hw-muted); letter-spacing:0.2em;">CURATED BY EDIT &middot; MATKA SILK</span>
@@ -4846,8 +4846,8 @@
           <p class="hw-masters-lead-p" style="font-size:13.5px; line-height:1.32;">
             Hand spun and handwoven fabrics, natural and ayurvedic dyes, and heritage handwork in tune with the sun, wind and rain. <em style="color:var(--hw-ink);">&ldquo;We cherish these nuances for their human touch.&rdquo;</em>
           </p>
-          <div style="display:inline-flex; border:1px solid var(--hw-border-strong); background:rgba(248,245,238,0.55); padding:2px; gap:2px;">
-            <button type="button" id="v2-masters-opt-1" onclick="setV2MastersOption(1)" style="font-family:var(--font-mono); font-size:8.5px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border:none; cursor:pointer; background:var(--hw-ink); color:#F8F5EE;">Option 01 &middot; Ledger</button>
+          <div style="display:inline-flex; border:1px solid var(--hw-border-strong); background:rgba(252, 250, 246,0.55); padding:2px; gap:2px;">
+            <button type="button" id="v2-masters-opt-1" onclick="setV2MastersOption(1)" style="font-family:var(--font-mono); font-size:8.5px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border:none; cursor:pointer; background:var(--hw-ink); color:#FCFAF6;">Option 01 &middot; Ledger</button>
             <button type="button" id="v2-masters-opt-2" onclick="setV2MastersOption(2)" style="font-family:var(--font-mono); font-size:8.5px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border:none; cursor:pointer; background:transparent; color:var(--hw-muted);">Option 02 &middot; Pastel Atelier</button>
             <button type="button" id="v2-masters-opt-3" onclick="setV2MastersOption(3)" style="font-family:var(--font-mono); font-size:8.5px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border:none; cursor:pointer; background:transparent; color:var(--hw-muted);">Option 03 &middot; Haute Salon</button>
           </div>
@@ -5110,40 +5110,73 @@
   <!-- ==========================================================================
        VIEW 5: LUXURY MINIMALIST CONCIERGE CONTACT FORM
        ========================================================================== -->
-    <!-- ==========================================================================
-       VIEW 4B: LIMITED BY NATURE PAGE (SPACE SAVER / PAGE TO BE CREATED)
+      <!-- ==========================================================================
+       VIEW 4B: LIMITED BY NATURE PAGE (NATURE IMAGERY + COPY TO FOLLOW SPACE SAVER)
        ========================================================================== -->
-  <section class="hw-view hw-story" id="view-nature">
+  <section class="hw-view hw-story" id="view-nature" style="padding-top: 0;">
+    <!-- Full-Bleed Nature Hero Banner (Cotton Fields & Natural Cycles) -->
+    <div style="position:relative; width:100vw; margin-left:calc(50% - 50vw); height:clamp(340px, 52vh, 520px); overflow:hidden; margin-bottom:56px; border-bottom:1px solid var(--hw-border);">
+      <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/0f9d2225-1884-49cd-83e8-e835a79aaf42/002_HARTWICK_HANDWOVEN_PALMA_SKIRT_KHADI_PRAGUE_SHIRT_NATURALDYE_COTTONFIELDS.jpg?format=2500w" alt="Limited By Nature — Cotton Fields & Natural Cycles" style="width:100%; height:100%; object-fit:cover; object-position:center 38%; display:block;" />
+      <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(250,248,244,0.18) 0%, rgba(36,25,20,0.38) 100%); display:flex; flex-direction:column; align-items:center; justify-content:flex-end; padding:40px 24px; text-align:center;">
+        <span style="font-family:var(--font-mono); font-size:9.5px; font-weight:600; letter-spacing:0.26em; text-transform:uppercase; color:#FAF8F4; margin-bottom:8px;">HARTWICK ATELIER &middot; ETHOS</span>
+        <h1 style="font-family:var(--font-heading); font-size:clamp(26px, 3.4vw, 42px); font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:#FAF8F4; margin:0;">LIMITED BY NATURE</h1>
+      </div>
+    </div>
+
     <div class="hw-story__shell">
-      <header class="hw-story__hero" style="border-bottom: 1px solid var(--hw-border); padding-bottom: 48px;">
+      <header class="hw-story__hero" style="border-bottom: 1px solid var(--hw-border); padding-bottom: 52px;">
         <div class="hw-story__hero-copy">
-          <span class="hw-story__eyebrow">HARTWICK ATELIER &middot; ETHOS</span>
-          <h1 class="hw-story__title">Limited By Nature</h1>
-          <p class="hw-story__subtitle" style="font-style:normal;">
-            Page Space Saver &mdash; Dedicated editorial space for Hartwick Atelier&rsquo;s &ldquo;Limited By Nature&rdquo; philosophy, small-batch natural production, and living heritage craft (final copy to be provided).
+          <span class="hw-story__eyebrow">LIMITED BY NATURE &middot; COPY TO FOLLOW (SPACE SAVER)</span>
+          <h2 class="hw-story__title" style="font-size:clamp(1.65rem, 2.5vw, 2.3rem);">Governed by Sun, Wind, and Rain</h2>
+          <p class="hw-story__subtitle" style="font-style:normal; color:var(--hw-ink); max-width:560px;">
+            Our collections are limited by nature, made by hand in truly sustainable quantities, with zero waste practices. Each collection is made using the natural cycles of the sun, wind, and rain.
+          </p>
+          <p class="t-story-body" style="margin:0 0 22px; max-width:560px; color:var(--hw-muted);">
+            Every natural colour and handspun texture is a portrait of a season &mdash; a reflection of the infinite, unrepeatable variations in temperature, rainfall, humidity, and wind. Handwoven fabrics can only be made at the pace and rhythm of master artisans.
           </p>
           <div class="hw-story__meta">
-            <span>HANDSPUN &amp; HANDWOVEN</span>
+            <span>SUN, WIND &amp; MONSOON</span>
             <span>&middot;</span>
-            <span>PLANT &amp; MINERAL DYES</span>
+            <span>BOTANICAL &amp; MINERAL DYES</span>
             <span>&middot;</span>
-            <span>ZERO ELECTRICITY LOOMS</span>
+            <span>BIODEGRADABLE FIBRES</span>
           </div>
         </div>
         <div class="hw-story__hero-portrait">
           <div class="hw-story__portrait-frame">
-            <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/e9d0ed0b-29bf-4f71-9cec-0d7335adbd37/008_HARTWICK_EDITORIAL_JAIPUR.jpg" alt="Limited By Nature — Hartwick Atelier" />
+            <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1733585356963-UYLAKZUX9O52IES83CEB/image-asset.jpeg" alt="Natural Botanical Pigments & Earth Fibres" />
           </div>
         </div>
       </header>
 
-      <div style="max-width: 780px; margin: 56px auto 0; text-align: center;">
-        <span class="t-detail-meta" style="display:block; margin-bottom:10px;">LIMITED BY NATURE &middot; SPACE SAVER (TO BE CREATED)</span>
-        <p class="t-story-quote" style="font-style:normal; margin: 0 auto 24px;">
-          &ldquo;Every Hartwick Atelier piece is governed by the rhythms of the natural world &mdash; sun, wind, monsoon, seasonal harvests, and the unhurried mastery of human hands.&rdquo;
-        </p>
-        <div class="hw-finale__actions" style="margin-top:32px;">
-          <button type="button" class="hw-finale__btn hw-finale__btn--primary" onclick="openMasters('khadi', false)">Explore Made By Masters</button>
+      <!-- 3-Column Nature Pillars (Space Saver for Final Copy) -->
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:36px; padding:48px 0; border-bottom:1px solid var(--hw-border);">
+        <div>
+          <span class="t-detail-meta" style="display:block; margin-bottom:8px;">01 &middot; NATURAL CYCLES</span>
+          <h3 class="t-heading-md" style="margin:0 0 12px;">Limited Quantities = Limited Editions</h3>
+          <p class="t-story-body" style="font-size:15.5px; margin:0; color:var(--hw-muted);">
+            Working with natural cycles and handcrafted fabrics creates a natural limit on how much can be produced. We produce small batches of numbered lots, typically 25&ndash;30 pieces in each lot, labeled by hand with a unique Limited Edition Number and Lot Number.
+          </p>
+        </div>
+        <div>
+          <span class="t-detail-meta" style="display:block; margin-bottom:8px;">02 &middot; UNHURRIED CRAFT</span>
+          <h3 class="t-heading-md" style="margin:0 0 12px;">Heirloom Quality &amp; Durability</h3>
+          <p class="t-story-body" style="font-size:15.5px; margin:0; color:var(--hw-muted);">
+            Simple khadi can be woven 1&ndash;2m per day, while complicated ikats and brocades take several hours per inch. Ajrakh printing requires 16 days of process with a day of drying in the sun between each &mdash; designed as prized possessions to last a lifetime.
+          </p>
+        </div>
+        <div>
+          <span class="t-detail-meta" style="display:block; margin-bottom:8px;">03 &middot; RETURN TO THE SOIL</span>
+          <h3 class="t-heading-md" style="margin:0 0 12px;">Zero Waste &amp; Biodegradable</h3>
+          <p class="t-story-body" style="font-size:15.5px; margin:0; color:var(--hw-muted);">
+            All fabrics are made from pure natural fibres with no toxic chemicals, stitched with pure cotton thread, and finished with mother-of-pearl buttons. Off-cuts are turned into handmade cotton rag paper hangtags, and at the end of its lifecycle, every garment returns cleanly to the soil.
+          </p>
+        </div>
+      </div>
+
+      <div style="max-width: 780px; margin: 48px auto 0; text-align: center;">
+        <div class="hw-finale__actions">
+          <button type="button" class="hw-finale__btn hw-finale__btn--primary" onclick="openMasters('naturaldye', false)">Explore Natural Dyes &amp; Masters</button>
           <button type="button" class="hw-finale__btn hw-finale__btn--secondary" onclick="openView('story')">Read Our Story</button>
         </div>
       </div>
@@ -6195,7 +6228,7 @@
         if (b) {
           const active = (opt === n) || (![2, 3].includes(opt) && n === 1);
           b.style.background = active ? 'var(--hw-ink)' : 'transparent';
-          b.style.color = active ? '#F8F5EE' : 'var(--hw-muted)';
+          b.style.color = active ? '#FCFAF6' : 'var(--hw-muted)';
         }
       });
     }
