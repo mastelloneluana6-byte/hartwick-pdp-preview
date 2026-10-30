@@ -1198,21 +1198,22 @@
       color: var(--hw-ink);
     }
     .hw-v2-var-row {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 16px;
+      display: flex !important;
+      justify-content: flex-start !important;
+      align-items: center !important;
+      gap: 12px !important;
       flex-wrap: wrap;
+      width: fit-content;
     }
     .hw-v2-price {
       display: inline-block;
       font-family: var(--font-mono);
-      font-size: 18px;
+      font-size: 17.5px;
       font-weight: 600;
       letter-spacing: 0.06em;
       color: var(--hw-ink);
       white-space: nowrap;
-      margin-top: 0;
+      margin: 0 0 14px 4px !important;
       flex-shrink: 0;
     }
     .hw-v2-sub {
@@ -1240,7 +1241,9 @@
       margin-bottom: 6px;
     }
     .hw-v2-var-grid {
-      display: flex;
+      display: inline-flex !important;
+      width: auto !important;
+      flex: 0 1 auto !important;
       gap: 10px;
       flex-wrap: wrap;
     }
