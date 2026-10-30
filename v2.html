@@ -647,11 +647,50 @@
     .d1-tot-split__sub {
       font-family: var(--font-mono);
       font-weight: 600;
-      font-size: 9px;
-      letter-spacing: 0.22em;
+      font-size: 10px;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: rgba(248, 245, 238, 0.86);
-      margin-top: 6px;
+      color: rgba(248, 245, 238, 0.94);
+      margin-top: 8px;
+      text-shadow: 0 1px 12px rgba(36, 25, 20, 0.55);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+    .d1-tot-split__card img {
+      transition: transform 1.4s var(--hw-ease-out), opacity 0.45s ease;
+    }
+    .d1-tot-split__card.is-switching img,
+    .d1-tot-split__card.is-switching .d1-tot-split__sub {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    .d1-tot-edit-bar {
+      background: #F8F5EE;
+      border-bottom: 1px solid var(--hw-border);
+      padding: 10px 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .d1-tot-edit-pill {
+      background: none;
+      border: none;
+      border-bottom: 1.5px solid transparent;
+      padding: 4px 0;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--hw-muted);
+      cursor: pointer;
+      transition: color 0.25s ease, border-color 0.25s ease;
+    }
+    .d1-tot-edit-pill:hover,
+    .d1-tot-edit-pill.active {
+      color: var(--hw-ink);
+      border-bottom-color: var(--hw-ink);
     }
     .d1-tot-grid-sec {
       background: var(--hw-bg);
@@ -4330,43 +4369,44 @@
           &ldquo;Wearing handspun and handwoven fabric has a different feeling than wearing industrially produced fabrics; handwoven natural fibres drape and breathe with a supple softness in a rhythm that can only be created by a human hand. The feeling is truly luxurious.&rdquo;
         </p>
 
-        <div class="d1-tot-center__pillars">
-          <span class="t-detail-meta" style="color:var(--hw-ink);">I &middot; Handspun &amp; Handwoven Fabrics.</span>
-          <span class="t-detail-meta" style="color:var(--hw-ink);">II &middot; Natural &amp; Ayurvedic Dyes.</span>
-          <span class="t-detail-meta" style="color:var(--hw-ink);">III &middot; Exquisite Heritage Handwork.</span>
-          <span class="t-detail-meta" style="color:var(--hw-ink);">IV &middot; Finely Tailored, Heirloom Quality.</span>
-        </div>
-
         <a href="#d1-in-focus" class="d1-tot-chevron" aria-label="Scroll down">&#8964;</a>
       </section>
 
       <!-- 3. Section 5 (Part A) — Seamless 50/50 Dual Portrait Split ("IN FOCUS: APPAREL" & "FINE SILK & JEWELLERY EDIT") -->
-      <section id="d1-in-focus" class="d1-tot-split">
-        <div class="d1-tot-split__card" onclick="openCollection('Skirts & Dresses')">
-          <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/b9443331-bc80-48fb-814c-1c473d3d8bdc/001_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_AMMAN_SHIRT.jpg" alt="In Focus — Apparel" />
+      <section id="d1-in-focus" class="d1-tot-split" onmouseenter="pauseInFocusRotation(true)" onmouseleave="pauseInFocusRotation(false)">
+        <div class="d1-tot-split__card" id="in-focus-left-card" onclick="openInFocusCard('left')">
+          <img id="in-focus-left-img" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/b9443331-bc80-48fb-814c-1c473d3d8bdc/001_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_AMMAN_SHIRT.jpg" alt="In Focus Edit" />
           <div class="d1-tot-split__overlay">
-            <h3 class="d1-tot-split__label">IN FOCUS &middot; APPAREL</h3>
-            <span class="d1-tot-split__sub">SKIRTS &middot; SHIRTS &middot; TROUSERS &middot; LOUNGE</span>
+            <h3 class="d1-tot-split__label" id="in-focus-left-head">IN FOCUS EDIT</h3>
+            <span class="d1-tot-split__sub" id="in-focus-left-desc">MATKA SILK</span>
           </div>
         </div>
 
-        <div class="d1-tot-split__card" onclick="openCollection('Fine Silk')">
-          <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/19c9c1dd-0fcf-4c77-a43d-59d41df9860f/009073_HARTWICK_HANDWOVEN_PALMA_SKIRT_SILK_NATURALDYE_BLOCKPRINT_AMMAN_SHIRT_LINEN.jpg?format=1500w" alt="Fine Silk & Heritage Edit" />
+        <div class="d1-tot-split__card" id="in-focus-right-card" onclick="openInFocusCard('right')">
+          <img id="in-focus-right-img" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/19c9c1dd-0fcf-4c77-a43d-59d41df9860f/009073_HARTWICK_HANDWOVEN_PALMA_SKIRT_SILK_NATURALDYE_BLOCKPRINT_AMMAN_SHIRT_LINEN.jpg?format=1500w" alt="In Focus Edit" />
           <div class="d1-tot-split__overlay">
-            <h3 class="d1-tot-split__label">FINE SILK &amp; JEWELLERY EDIT</h3>
-            <span class="d1-tot-split__sub">DUPATTAS &middot; STOLES &middot; HEIRLOOM GOLD</span>
+            <h3 class="d1-tot-split__label" id="in-focus-right-head">IN FOCUS EDIT</h3>
+            <span class="d1-tot-split__sub" id="in-focus-right-desc">FINE SILK &amp; JEWELLERY</span>
           </div>
         </div>
       </section>
 
+      <!-- Dynamic Editorial Theme Switcher Bar -->
+      <div class="d1-tot-edit-bar" onmouseenter="pauseInFocusRotation(true)" onmouseleave="pauseInFocusRotation(false)">
+        <button type="button" class="d1-tot-edit-pill active" onclick="setInFocusRotation(0)">MATKA SILK</button>
+        <button type="button" class="d1-tot-edit-pill" onclick="setInFocusRotation(1)">WINTER COLLECTION</button>
+        <button type="button" class="d1-tot-edit-pill" onclick="setInFocusRotation(2)">IKAT</button>
+        <button type="button" class="d1-tot-edit-pill" onclick="setInFocusRotation(3)">FINE SILK &amp; JEWELLERY</button>
+      </div>
+
       <!-- 4. Section 5 (Part B) — 3-Column Collection Edit on Warm Khadi-Linen (#EDE5D8) -->
       <section class="d1-tot-grid-sec">
         <div class="d1-tot-grid-head">
-          <h2 class="t-heading-md" style="margin:0;">COLLECTIONS</h2>
-          <button type="button" class="t-detail-link" onclick="openCollection('Skirts & Dresses')">SEE ALL</button>
+          <h2 class="t-heading-md" id="d1-dynamic-grid-title" style="margin:0;">COLLECTIONS &middot; MATKA SILK</h2>
+          <button type="button" class="t-detail-link" id="d1-dynamic-grid-cta" onclick="openCollection('Skirts & Dresses')">SEE ALL</button>
         </div>
 
-        <div class="d1-tot-grid">
+        <div class="d1-tot-grid" id="d1-dynamic-edit-grid">
           <div class="d1-tot-pcard" onclick="openProduct(1)">
             <div class="d1-tot-pcard__media hw-dual-media">
               <img class="img-primary" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/0e0c3b00-61cb-4eed-8741-db304f1fd896/004034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w" alt="Tribeca Emerald Skirt" />
@@ -6361,6 +6401,147 @@
       }
     }
 
+    
+    /* ==========================================================================
+       DYNAMIC "IN FOCUS EDIT" ROTATION LOGIC (PULLS FROM COLLECTION TAGS)
+       ========================================================================== */
+    const IN_FOCUS_EDITS = [
+      {
+        tag: 'MATKA SILK',
+        leftHead: 'IN FOCUS EDIT',
+        leftDesc: 'MATKA SILK',
+        leftImg: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/b9443331-bc80-48fb-814c-1c473d3d8bdc/001_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_AMMAN_SHIRT.jpg',
+        leftCol: 'Skirts & Dresses',
+        rightHead: 'IN FOCUS EDIT',
+        rightDesc: 'FINE SILK & JEWELLERY',
+        rightImg: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/19c9c1dd-0fcf-4c77-a43d-59d41df9860f/009073_HARTWICK_HANDWOVEN_PALMA_SKIRT_SILK_NATURALDYE_BLOCKPRINT_AMMAN_SHIRT_LINEN.jpg?format=1500w',
+        rightCol: 'Fine Silk',
+        gridTitle: 'COLLECTIONS · MATKA SILK EDIT',
+        gridCol: 'Skirts & Dresses',
+        productIds: [1, 38, 7]
+      },
+      {
+        tag: 'WINTER COLLECTION',
+        leftHead: 'IN FOCUS EDIT',
+        leftDesc: 'WINTER COLLECTION',
+        leftImg: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/8d28d4d4-4b30-44c7-999b-636e1a552025/002+_HARTWICK_HANDWOVEN_MARYLEBONE_COAT_IKAT_BOMBAY_TROUSERS_SITGES_TOTEBAG.jpg',
+        leftCol: 'Coats & Bags',
+        rightHead: 'IN FOCUS EDIT',
+        rightDesc: 'IKAT',
+        rightImg: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1761416723143-GHM3L5OF7UA3UZ8FMPZR/038002_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_KHADI_TOKYO_SHIRT_IKAT4R1A3873.jpg?format=1500w',
+        rightCol: 'Shirts & Blouses',
+        gridTitle: 'COLLECTIONS · WINTER COLLECTION',
+        gridCol: 'Coats & Bags',
+        productIds: [40, 41, 53]
+      },
+      {
+        tag: 'IKAT',
+        leftHead: 'IN FOCUS EDIT',
+        leftDesc: 'IKAT',
+        leftImg: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fcda712d-37c3-4440-9896-a9968e7e7369/010_HARTWICK_HANDWOVEN_LUCCA_TROUSERS_SANTAFE_SHIRT_IKAT.jpg?format=1500w',
+        leftCol: 'Shirts & Blouses',
+        rightHead: 'IN FOCUS EDIT',
+        rightDesc: 'MATKA SILK',
+        rightImg: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/0e0c3b00-61cb-4eed-8741-db304f1fd896/004034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg?format=1500w',
+        rightCol: 'Skirts & Dresses',
+        gridTitle: 'COLLECTIONS · IKAT EDIT',
+        gridCol: 'Shirts & Blouses',
+        productIds: [16, 19, 22]
+      },
+      {
+        tag: 'FINE SILK & JEWELLERY',
+        leftHead: 'IN FOCUS EDIT',
+        leftDesc: 'FINE SILK & JEWELLERY',
+        leftImg: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a12d1e92-239b-42af-b6ad-cca9ce9cea6a/230_HARTWICK_FINESILK_DUPATTA_SCARF_NATURALDYE_BLOCKPRINT.jpg?format=1500w',
+        leftCol: 'Fine Silk',
+        rightHead: 'IN FOCUS EDIT',
+        rightDesc: 'LIMINAL FINE JEWELLERY',
+        rightImg: 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a00dafc2-eaeb-476b-872d-879c49cdcb79/v005HARTWICK_LIMINAL_STEP_RING_24KGOLD_RHODOLITE_SILVER_HANDCRAFTED.jpg',
+        rightCol: 'Fine Jewellery',
+        gridTitle: 'COLLECTIONS · FINE SILK & JEWELLERY',
+        gridCol: 'Fine Silk',
+        productIds: [57, 79, 84]
+      }
+    ];
+
+    let currentInFocusIdx = 0;
+    let inFocusTimer = null;
+    let inFocusPaused = false;
+
+    function setInFocusRotation(idx) {
+      currentInFocusIdx = ((idx % IN_FOCUS_EDITS.length) + IN_FOCUS_EDITS.length) % IN_FOCUS_EDITS.length;
+      const item = IN_FOCUS_EDITS[currentInFocusIdx];
+      const leftCard = document.getElementById('in-focus-left-card');
+      const rightCard = document.getElementById('in-focus-right-card');
+      const leftImg = document.getElementById('in-focus-left-img');
+      const rightImg = document.getElementById('in-focus-right-img');
+      const leftHead = document.getElementById('in-focus-left-head');
+      const rightHead = document.getElementById('in-focus-right-head');
+      const leftDesc = document.getElementById('in-focus-left-desc');
+      const rightDesc = document.getElementById('in-focus-right-desc');
+
+      document.querySelectorAll('.d1-tot-edit-pill').forEach((btn, i) => {
+        btn.classList.toggle('active', i === currentInFocusIdx);
+      });
+
+      if (leftCard && rightCard) {
+        leftCard.classList.add('is-switching');
+        rightCard.classList.add('is-switching');
+        setTimeout(() => {
+          if (leftImg) leftImg.src = item.leftImg;
+          if (rightImg) rightImg.src = item.rightImg;
+          if (leftHead) leftHead.textContent = item.leftHead;
+          if (rightHead) rightHead.textContent = item.rightHead;
+          if (leftDesc) leftDesc.textContent = item.leftDesc;
+          if (rightDesc) rightDesc.textContent = item.rightDesc;
+          leftCard.classList.remove('is-switching');
+          rightCard.classList.remove('is-switching');
+        }, 220);
+      }
+
+      // Dynamically update the 3-card collection highlight row below from PRODUCTS
+      const gridTitle = document.getElementById('d1-dynamic-grid-title');
+      const gridCta = document.getElementById('d1-dynamic-grid-cta');
+      const gridEl = document.getElementById('d1-dynamic-edit-grid');
+      if (gridTitle) gridTitle.textContent = item.gridTitle;
+      if (gridCta) gridCta.setAttribute('onclick', "openCollection('" + item.gridCol.replace(/'/g, "\\'") + "')");
+      if (gridEl && typeof PRODUCTS !== 'undefined') {
+        const picked = item.productIds.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
+        if (picked.length > 0) {
+          gridEl.innerHTML = picked.map(p => `
+            <div class="d1-tot-pcard" onclick="openProduct(${p.id})">
+              <div class="d1-tot-pcard__media hw-dual-media">
+                <img class="img-primary" src="${p.imgs[0]}" alt="${p.title}" />
+                <img class="img-secondary" src="${p.imgs[1] || p.imgs[0]}" alt="${p.title} detail" />
+              </div>
+              <div class="d1-tot-pcard__meta">
+                <span class="d1-tot-pcard__name">${p.subtitle || p.title} &middot; ${p.technique || p.fibre}</span>
+                <span class="d1-tot-pcard__price">${p.price}</span>
+              </div>
+            </div>
+          `).join('');
+        }
+      }
+    }
+
+    function openInFocusCard(side) {
+      const item = IN_FOCUS_EDITS[currentInFocusIdx] || IN_FOCUS_EDITS[0];
+      openCollection(side === 'left' ? item.leftCol : item.rightCol);
+    }
+
+    function pauseInFocusRotation(pause) {
+      inFocusPaused = !!pause;
+    }
+
+    function startInFocusRotation() {
+      if (inFocusTimer) clearInterval(inFocusTimer);
+      inFocusTimer = setInterval(() => {
+        if (!inFocusPaused && document.getElementById('view-home')?.classList.contains('active')) {
+          setInFocusRotation(currentInFocusIdx + 1);
+        }
+      }, 4600);
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
       renderBag();
       const h = window.location.hash || '';
@@ -6384,6 +6565,7 @@
       }
       initLuxuryScrollChoreography();
       initHwVideoElements(document);
+      startInFocusRotation();
     });
   </script>
 </body>
