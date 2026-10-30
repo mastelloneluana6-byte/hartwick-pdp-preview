@@ -251,104 +251,141 @@
     }
 
     /* ==========================================================================
-       MADE BY MASTERS — UNIFIED FIBRE-TO-GARMENT DESIGN LANGUAGE
-       COMPACT TOP SPACING SO LEFT LIST & RIGHT VIDEO/TEXT/PRODUCTS STAY ABOVE FOLD
+       MADE BY MASTERS — TWO HIGH-END OPTIONS (OPTION 01 & OPTION 02)
+       STRICT TOP SPACING SO LEFT LIST & RIGHT VIDEO/TEXT/PRODUCTS STAY ABOVE FOLD
        ========================================================================== */
     .hw-masters-page {
-      padding: 6px clamp(1.5rem, 4vw, 4rem) 48px;
+      padding: 4px clamp(1.5rem, 4vw, 4rem) 44px;
       max-width: 1360px;
       margin: 0 auto;
+      transition: background-color 0.3s ease;
     }
 
-    /* Compact Top Intro Bar — Keeps Workbench High Above the Fold */
+    /* Ultra-Compact Top Bar + High-End Option Switcher (Stays Above the Fold) */
     .hw-masters-top-bar {
       display: grid;
-      grid-template-columns: minmax(260px, 0.38fr) minmax(380px, 0.62fr);
-      gap: 32px;
-      align-items: baseline;
-      padding: 4px 0 8px;
+      grid-template-columns: auto 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 4px 0 7px;
       margin-bottom: 10px;
       border-bottom: 1px solid var(--hw-border-strong);
     }
-    .hw-masters-eyebrow {
-      display: block;
-      font-family: var(--font-mono);
-      font-size: 8.5px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--hw-muted);
-      margin-bottom: 2px;
+    .hw-masters-title-group {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
     }
     .hw-masters-title {
       font-family: var(--font-heading);
-      font-size: clamp(19px, 1.9vw, 24px);
+      font-size: clamp(17px, 1.65vw, 21px);
       font-weight: 500;
-      line-height: 1.08;
+      line-height: 1.05;
       letter-spacing: 0.13em;
       text-transform: uppercase;
       color: var(--hw-ink);
       margin: 0;
+      white-space: nowrap;
     }
-    .hw-masters-lead-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
+    .hw-masters-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--hw-muted);
+      white-space: nowrap;
     }
-    .hw-masters-lead-p {
+    .hw-masters-lead-inline {
       font-family: var(--font-body);
-      font-size: 14.5px;
-      font-weight: 500;
-      line-height: 1.4;
-      color: var(--hw-ink);
-      margin: 0;
-    }
-    .hw-masters-nuance {
-      font-family: var(--font-body);
-      font-style: italic;
       font-size: 13.5px;
       font-weight: 500;
+      line-height: 1.32;
       color: var(--hw-muted);
       margin: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    .hw-masters-lead-inline em {
+      color: var(--hw-ink);
+      font-style: italic;
     }
 
-    /* 2-Column Workbench: Left = 14 Techniques in Fibre-to-Garment Feel, Right = Video + Sheet Text + Products */
+    /* Sleek 2-Option Switcher in Top Bar */
+    .hw-masters-opt-switcher {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--hw-border-strong);
+      background: rgba(248, 245, 238, 0.55);
+      padding: 2px;
+      gap: 2px;
+      flex-shrink: 0;
+    }
+    .hw-masters-opt-pill {
+      font-family: var(--font-mono);
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      color: var(--hw-muted);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .hw-masters-opt-pill:hover {
+      color: var(--hw-ink);
+    }
+    .hw-masters-opt-pill.is-active {
+      background: var(--hw-ink);
+      color: #F8F5EE;
+    }
+
+    /* 2-Column Workbench: Left = Simplified 01-14 List, Right = Video + Sheet Text + Products */
     .hw-masters-workbench {
       display: grid;
-      grid-template-columns: minmax(320px, 0.38fr) minmax(420px, 0.62fr);
-      gap: 38px;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 36px;
       align-items: start;
     }
 
     /* ==========================================================================
-       FIBRE TO GARMENT SECTION DESIGN LANGUAGE (SHARED BY LEFT & RIGHT COLUMNS)
+       LEFT SIDEBAR: SIMPLIFIED 14 TECHNIQUES (01 / KHADI ... 14 / MUGA SILK)
+       NO BUTTONS, NO SECONDARY DESCRIPTORS, CLEAN FIBRE-TO-GARMENT LINES
        ========================================================================== */
     .hw-ftg-section {
       padding: 0;
       margin: 0;
+      position: sticky;
+      top: 62px;
     }
     .hw-ftg-heading {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      gap: 12px;
-      padding: 0 0 7px;
+      gap: 10px;
+      padding: 0 0 6px;
       border-bottom: 1px solid var(--hw-border-strong);
     }
     .hw-static-section-title {
       font-family: var(--font-heading);
-      font-size: 12.5px;
+      font-size: 11.5px;
       font-weight: 500;
       letter-spacing: 0.13em;
       text-transform: uppercase;
       color: var(--hw-ink);
-      line-height: 1.3;
+      line-height: 1.25;
     }
     .hw-ftg-heading-hint {
       font-family: var(--font-mono);
-      font-size: 8.5px;
+      font-size: 8px;
       font-weight: 600;
-      letter-spacing: 0.13em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--hw-muted);
       white-space: nowrap;
@@ -360,41 +397,34 @@
       position: relative;
       width: 100%;
       border-bottom: 1px solid var(--hw-border);
-      padding: 7.5px 8px;
+      padding: 6.5px 4px;
       cursor: pointer;
       text-align: left;
       display: block;
       user-select: none;
-      transition: background-color 0.25s ease, padding-left 0.25s var(--hw-ease-out);
+      transition: color 0.2s ease, padding-left 0.22s var(--hw-ease-out), background-color 0.22s ease;
     }
-    .hw-ftg-open-row::before {
+    .hw-ftg-open-row:hover {
+      padding-left: 8px;
+    }
+    .hw-ftg-open-row.is-active {
+      border-bottom-color: var(--hw-border-strong);
+      padding-left: 10px;
+    }
+    .hw-ftg-open-row.is-active::before {
       content: '';
       position: absolute;
       left: 0;
       top: 0;
       bottom: 0;
-      width: 2px;
+      width: 1.5px;
       background: var(--hw-ink);
-      transform: scaleY(0);
-      transition: transform 0.25s var(--hw-ease-out);
-    }
-    .hw-ftg-open-row:hover {
-      background: rgba(248, 245, 238, 0.55);
-      padding-left: 11px;
-    }
-    .hw-ftg-open-row.is-active {
-      background: #F4EFE6;
-      border-bottom-color: var(--hw-border-strong);
-      padding-left: 13px;
-    }
-    .hw-ftg-open-row.is-active::before {
-      transform: scaleY(1);
     }
     .hw-ftg-row-top {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      gap: 10px;
+      gap: 8px;
     }
     .hw-ftg-step {
       font-family: var(--font-mono);
@@ -403,48 +433,43 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--hw-muted);
-      line-height: 1.4;
-      transition: color 0.25s ease;
+      line-height: 1.35;
+      transition: color 0.2s ease;
       display: inline-flex;
       align-items: baseline;
-      gap: 8px;
+      gap: 6px;
     }
     .hw-ftg-step-num {
       font-family: var(--font-mono);
-      font-size: 8.5px;
+      font-size: 9px;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       color: var(--hw-light);
-      min-width: 18px;
+    }
+    .hw-ftg-step-slash {
+      opacity: 0.45;
+      font-weight: 400;
     }
     .hw-ftg-open-row:hover .hw-ftg-step,
     .hw-ftg-open-row.is-active .hw-ftg-step,
     .hw-ftg-open-row.is-active .hw-ftg-step-num {
       color: var(--hw-ink);
     }
-    .hw-ftg-val {
+    .hw-ftg-ind {
       font-family: var(--font-mono);
-      font-size: 9.5px;
-      font-weight: 600;
-      line-height: 1.4;
-      color: var(--hw-ink);
-      text-align: right;
-      letter-spacing: 0.06em;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .hw-ftg-arrow {
-      opacity: 0.42;
       font-size: 9px;
-      margin-left: 4px;
-      display: inline-block;
-      transition: opacity 0.25s ease, transform 0.25s ease;
+      color: var(--hw-ink);
+      opacity: 0;
+      transform: translateX(-3px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
     }
-    .hw-ftg-open-row:hover .hw-ftg-arrow,
-    .hw-ftg-open-row.is-active .hw-ftg-arrow {
+    .hw-ftg-open-row:hover .hw-ftg-ind {
+      opacity: 0.4;
+      transform: translateX(0);
+    }
+    .hw-ftg-open-row.is-active .hw-ftg-ind {
       opacity: 1;
-      transform: translateX(1.5px);
+      transform: translateX(0);
     }
 
     /* ==========================================================================
@@ -455,25 +480,25 @@
       width: 100%;
     }
     @keyframes hwStageFade {
-      from { opacity: 0; transform: translateY(5px); }
+      from { opacity: 0; transform: translateY(4px); }
       to { opacity: 1; transform: translateY(0); }
     }
     .hw-masters-stage__inner {
-      animation: hwStageFade 0.35s var(--hw-ease-silk) both;
+      animation: hwStageFade 0.3s var(--hw-ease-silk) both;
     }
 
-    /* Top Right Video Frame + Fibre-to-Garment Caption Row */
+    /* 1. Top Right Video Frame + Fibre-to-Garment Caption Row */
     .hw-craft-video-wrap {
-      margin-top: 8px;
+      margin-top: 6px;
       border-bottom: 1px solid var(--hw-border);
-      padding-bottom: 7px;
+      padding-bottom: 6px;
     }
     .hw-craft-video-frame {
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
-      max-height: 245px;
-      background: #14110F;
+      max-height: 215px;
+      background: #181412;
       overflow: hidden;
       border: 1px solid var(--hw-border);
     }
@@ -488,11 +513,11 @@
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      padding-top: 6px;
+      padding-top: 5px;
     }
     .hw-video-toggle-btn {
       font-family: var(--font-mono);
-      font-size: 9px;
+      font-size: 8.5px;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -503,9 +528,9 @@
     }
     .hw-video-toggle-btn:hover { opacity: 0.7; }
 
-    /* Middle Right: Short Text from the Sheets Doc + Fibre-to-Garment Spec Rows */
+    /* 2. Middle Right: Short Text from the Sheets Doc */
     .hw-masters-sheet-copy {
-      padding: 10px 0 8px;
+      padding: 8px 0;
       border-bottom: 1px solid var(--hw-border);
     }
     .hw-masters-sheet-copy__head {
@@ -513,11 +538,11 @@
       justify-content: space-between;
       align-items: baseline;
       gap: 12px;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
     .hw-masters-sheet-copy__title {
       font-family: var(--font-heading);
-      font-size: clamp(16px, 1.55vw, 20px);
+      font-size: clamp(15px, 1.4vw, 18px);
       font-weight: 500;
       letter-spacing: 0.11em;
       text-transform: uppercase;
@@ -526,64 +551,64 @@
     }
     .hw-masters-sheet-copy__sub {
       font-family: var(--font-mono);
-      font-size: 8.5px;
+      font-size: 8px;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--hw-muted);
       text-align: right;
     }
-    .hw-masters-sheet-copy p {
+    .hw-masters-sheet-copy__paras p {
       font-family: var(--font-body);
-      font-size: 15.5px;
+      font-size: 14.5px;
       font-weight: 500;
-      line-height: 1.52;
+      line-height: 1.46;
       color: var(--hw-ink);
-      margin: 0 0 7px 0;
+      margin: 0 0 5px 0;
     }
-    .hw-masters-sheet-copy p:last-child {
+    .hw-masters-sheet-copy__paras p:last-child {
       margin-bottom: 0;
     }
-    .hw-masters-sheet-copy p strong {
+    .hw-masters-sheet-copy__paras p strong {
       font-family: var(--font-mono);
-      font-size: 9px;
+      font-size: 8.5px;
       font-weight: 600;
-      letter-spacing: 0.13em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--hw-ink);
     }
-    .hw-masters-sheet-copy em {
+    .hw-masters-sheet-copy__paras em {
       font-family: var(--font-body);
       font-style: italic;
-      font-size: 14.5px;
+      font-size: 14px;
       color: var(--hw-muted);
     }
 
     /* Ayurvedic Botanicals & Minerals Filter Bar (for Natural Dye 06) */
     .hw-m-dye-pills {
-      padding: 8px 0;
+      padding: 6px 0;
       border-bottom: 1px solid var(--hw-border);
     }
     .hw-m-dye-pills__label {
       display: block;
       font-family: var(--font-mono);
-      font-size: 8.5px;
+      font-size: 8px;
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--hw-muted);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
     .hw-m-dye-pills__grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 5px;
+      gap: 4px;
     }
     .hw-m-dye-pill {
       border: 1px solid var(--hw-border-strong);
-      padding: 3px 8px;
+      padding: 2.5px 7px;
       font-family: var(--font-mono);
-      font-size: 8.5px;
+      font-size: 8px;
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -597,17 +622,17 @@
       border-color: var(--hw-ink);
     }
 
-    /* Bottom Right: Products Crafted with This Technique */
+    /* 3. Bottom Right: Products Crafted with This Technique */
     .hw-m-garments {
-      padding-top: 10px;
+      padding-top: 8px;
     }
     .hw-m-garments__head {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       gap: 12px;
-      padding-bottom: 7px;
-      margin-bottom: 10px;
+      padding-bottom: 5px;
+      margin-bottom: 8px;
       border-bottom: 1px solid var(--hw-border);
     }
     .hw-m-garments__actions {
@@ -618,19 +643,20 @@
     .hw-m-garments__grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
+      gap: 12px;
     }
     .hw-m-garment-card {
       text-decoration: none;
       color: var(--hw-ink);
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 2px;
       cursor: pointer;
     }
     .hw-m-garment-card__img {
       width: 100%;
-      aspect-ratio: 2 / 3;
+      aspect-ratio: 3 / 4;
+      max-height: 195px;
       background: #E6DEC8;
       overflow: hidden;
       margin-bottom: 2px;
@@ -639,7 +665,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center center;
+      object-position: center top;
       display: block;
       transition: transform 0.65s var(--hw-ease-silk);
     }
@@ -654,19 +680,19 @@
     }
     .hw-m-garment-card__title {
       font-family: var(--font-heading);
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--hw-ink);
-      line-height: 1.25;
+      line-height: 1.2;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
     .hw-m-garment-card__price {
       font-family: var(--font-mono);
-      font-size: 9px;
+      font-size: 8.5px;
       font-weight: 600;
       letter-spacing: 0.06em;
       color: var(--hw-ink);
@@ -675,12 +701,74 @@
     .hw-m-garment-card__sub {
       font-family: var(--font-body);
       font-style: italic;
-      font-size: 12.5px;
+      font-size: 12px;
       color: var(--hw-muted);
-      line-height: 1.22;
+      line-height: 1.2;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+
+    /* ==========================================================================
+       HIGH-END OPTION 02: SOFT PASTEL / NEUTRAL ATELIER DOSSIER
+       - Soft warm alabaster & pastel sand/sage surface tones (#F6F3EC / #EFECE6)
+       - Editorial 2-column book-spread text under the top-right video + 4-column products
+       ========================================================================== */
+    body.is-option-2 {
+      background-color: #F4F0E8;
+    }
+    body.is-option-2 .hw-site-header {
+      background: rgba(244, 240, 232, 0.96);
+    }
+    .hw-masters-page.is-option-2 .hw-masters-workbench {
+      grid-template-columns: 245px minmax(0, 1fr);
+      gap: 28px;
+    }
+    .hw-masters-page.is-option-2 .hw-ftg-section {
+      background: #FAF8F3;
+      border: 1px solid rgba(36, 25, 20, 0.11);
+      padding: 10px 14px 6px;
+    }
+    .hw-masters-page.is-option-2 .hw-ftg-open-row {
+      padding: 6px 2px;
+      border-bottom: 1px solid rgba(36, 25, 20, 0.09);
+    }
+    .hw-masters-page.is-option-2 .hw-ftg-open-row:last-child {
+      border-bottom: none;
+    }
+    .hw-masters-page.is-option-2 .hw-ftg-open-row.is-active {
+      background: #ECE6DA;
+      padding-left: 8px;
+      padding-right: 6px;
+    }
+    .hw-masters-page.is-option-2 .hw-masters-stage {
+      background: #FAF8F3;
+      border: 1px solid rgba(36, 25, 20, 0.11);
+      padding: 12px 18px 16px;
+    }
+    .hw-masters-page.is-option-2 .hw-craft-video-frame {
+      max-height: 195px;
+    }
+    .hw-masters-page.is-option-2 .hw-masters-sheet-copy__paras {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .hw-masters-page.is-option-2 .hw-masters-sheet-copy__paras p {
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+    .hw-masters-page.is-option-2 .hw-m-garments__grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .hw-masters-page.is-option-2 .hw-m-garment-card {
+      background: #F2EDE2;
+      padding: 6px 6px 8px;
+      border: 1px solid rgba(36, 25, 20, 0.08);
+    }
+    .hw-masters-page.is-option-2 .hw-m-garment-card__img {
+      max-height: 165px;
     }
 
     /* ==========================================================================
@@ -970,31 +1058,30 @@
        ========================================================================== -->
   <main class="hw-masters-page" id="design1">
     <header class="hw-masters-top-bar">
-      <div>
-        <span class="hw-masters-eyebrow">Fibre to Garment · Craft Origins (01 — 14)</span>
+      <div class="hw-masters-title-group">
         <h1 class="hw-masters-title">Made by Masters</h1>
+        <span class="hw-masters-eyebrow">Fibre to Garment &middot; 01&ndash;14</span>
       </div>
-      <div class="hw-masters-lead-wrap">
-        <p class="hw-masters-lead-p">
-          Textile History dates back to the beginning of human civilization. Hartwick Atelier specializes in hand spun and handwoven fabrics, natural and ayurvedic dyes, and exquisite heritage handwork — relying on rare knowledge and the natural cycles of the sun, wind and rain.
-        </p>
-        <p class="hw-masters-nuance">
-          &ldquo;Handwork naturally results in variations. We cherish these nuances for their human touch.&rdquo;
-        </p>
+      <p class="hw-masters-lead-inline">
+        Hand spun and handwoven fabrics, natural and ayurvedic dyes, and heritage handwork in tune with the sun, wind and rain. <em>&ldquo;We cherish these nuances for their human touch.&rdquo;</em>
+      </p>
+      <div class="hw-masters-opt-switcher" role="tablist" aria-label="High-End Layout Options">
+        <button type="button" class="hw-masters-opt-pill is-active" id="opt-pill-1" onclick="setMastersOption(1)">Option 01 &middot; Ledger</button>
+        <button type="button" class="hw-masters-opt-pill" id="opt-pill-2" onclick="setMastersOption(2)">Option 02 &middot; Pastel Atelier</button>
       </div>
     </header>
 
     <div class="hw-masters-workbench">
-      <!-- LEFT COLUMN: ALL 14 TECHNIQUES IN FIBRE-TO-GARMENT FEEL -->
+      <!-- LEFT SIDEBAR: ONLY THE 14 TECHNIQUE NUMBERS & NAMES (NO BUTTONS, NO SECONDARY DESCRIPTORS) -->
       <aside class="hw-ftg-section" aria-label="14 Heritage Techniques">
         <div class="hw-ftg-heading">
-          <span class="hw-static-section-title">The Techniques — 01 to 14</span>
-          <span class="hw-ftg-heading-hint">Fibre to Garment</span>
+          <span class="hw-static-section-title">The Techniques</span>
+          <span class="hw-ftg-heading-hint">01 / 14</span>
         </div>
         <div class="hw-ftg-list" id="masters-ftg-list"></div>
       </aside>
 
-      <!-- RIGHT COLUMN: TOP RIGHT VIDEO -> SHORT SHEETS DOC TEXT -> PRODUCTS -->
+      <!-- RIGHT CONTENT AREA: 1. TOP RIGHT VIDEO -> 2. SHORT SHEETS DOC TEXT -> 3. RELATED PRODUCTS -->
       <section class="hw-masters-stage" id="masters-stage" aria-live="polite"></section>
     </div>
   </main>
@@ -1389,6 +1476,20 @@
       btn.textContent = v.muted ? 'Sound Off' : 'Sound On';
     }
 
+    let currentMastersOption = 1;
+
+    function setMastersOption(optNum) {
+      currentMastersOption = optNum === 2 ? 2 : 1;
+      const pageEl = document.querySelector('.hw-masters-page');
+      if (pageEl) pageEl.classList.toggle('is-option-2', currentMastersOption === 2);
+      document.body.classList.toggle('is-option-2', currentMastersOption === 2);
+      const p1 = document.getElementById('opt-pill-1');
+      const p2 = document.getElementById('opt-pill-2');
+      if (p1) p1.classList.toggle('is-active', currentMastersOption === 1);
+      if (p2) p2.classList.toggle('is-active', currentMastersOption === 2);
+      renderMastersWorkbench();
+    }
+
     function renderMastersList() {
       const listEl = document.getElementById('masters-ftg-list');
       if (!listEl) return;
@@ -1397,9 +1498,10 @@
           <div class="hw-ftg-row-top">
             <span class="hw-ftg-step">
               <span class="hw-ftg-step-num">${t.num}</span>
+              <span class="hw-ftg-step-slash">/</span>
               <span>${t.name}</span>
             </span>
-            <span class="hw-ftg-val">${t.ftgVal} <span class="hw-ftg-arrow">${idx === activeTechIndex ? '→' : '↗'}</span></span>
+            <span class="hw-ftg-ind">${idx === activeTechIndex ? '—' : '↗'}</span>
           </div>
         </div>
       `).join('');
@@ -1417,7 +1519,8 @@
       }
 
       const allProds = prodIds.map(id => PRODUCTS_DB[id]).filter(Boolean);
-      const visibleProds = showAllProducts ? allProds : allProds.slice(0, 3);
+      const defaultLimit = currentMastersOption === 2 ? 4 : 3;
+      const visibleProds = showAllProducts ? allProds : allProds.slice(0, defaultLimit);
 
       const dyePillsHtml = t.id === 'naturaldye' ? `
         <div class="hw-m-dye-pills">
@@ -1434,8 +1537,8 @@
         <div class="hw-masters-stage__inner">
           <!-- 1. TOP RIGHT: FIBRE-TO-GARMENT HEADER + ATELIER PROCESS VIDEO -->
           <div class="hw-ftg-heading">
-            <span class="hw-static-section-title">${t.num} / 14 &mdash; ${t.name}</span>
-            <span class="hw-ftg-heading-hint">${t.region}</span>
+            <span class="hw-static-section-title">${t.num} / ${t.name}</span>
+            <span class="hw-ftg-heading-hint">Atelier Process Film &middot; ${t.region}</span>
           </div>
 
           <div class="hw-craft-video-wrap">
@@ -1443,7 +1546,7 @@
               <video id="hw-master-video" autoplay muted loop playsinline poster="${t.img}"></video>
             </div>
             <div class="hw-video-ftg-bar">
-              <span class="hw-ftg-step">Atelier Process Film &middot; ${t.name}</span>
+              <span class="hw-ftg-step">${t.num} / ${t.name} &mdash; In Motion</span>
               <div style="display:inline-flex; gap:14px; align-items:center;">
                 <button type="button" class="hw-video-toggle-btn" onclick="toggleVideoPlay('hw-master-video', this)">Pause Film</button>
                 <button type="button" class="hw-video-toggle-btn" onclick="toggleVideoMute('hw-master-video', this)">Sound Off</button>
@@ -1451,25 +1554,27 @@
             </div>
           </div>
 
-          <!-- 2. MIDDLE RIGHT: SHORT TEXT ABOUT THE TECHNIQUE FROM THE GOOGLE SHEETS DOC -->
+          <!-- 2. MIDDLE RIGHT: SHORT DESCRIPTION TEXT FROM GOOGLE SHEETS -->
           <div class="hw-masters-sheet-copy">
             <div class="hw-masters-sheet-copy__head">
               <h2 class="hw-masters-sheet-copy__title">${t.name}</h2>
               <span class="hw-masters-sheet-copy__sub">${t.sub}</span>
             </div>
-            ${(t.paragraphs || []).map(p => `<p>${p}</p>`).join('')}
+            <div class="hw-masters-sheet-copy__paras">
+              ${(t.paragraphs || []).map(p => `<p>${p}</p>`).join('')}
+            </div>
           </div>
 
           ${dyePillsHtml}
 
-          <!-- 3. BOTTOM RIGHT: RELATED PRODUCTS WHICH USE THIS SPECIFIC TECHNIQUE -->
+          <!-- 3. BOTTOM RIGHT: RELATED PRODUCTS USING THIS TECHNIQUE -->
           <div class="hw-m-garments">
             <div class="hw-m-garments__head">
               <span class="hw-static-section-title">Products Using ${t.name} (${allProds.length})</span>
               <div class="hw-m-garments__actions">
-                ${allProds.length > 3 ? `
+                ${allProds.length > defaultLimit ? `
                   <button type="button" class="hw-video-toggle-btn" onclick="toggleShowAllProducts()">
-                    ${showAllProducts ? 'Show Top 3 Pieces ↑' : 'View All ' + allProds.length + ' Pieces ↓'}
+                    ${showAllProducts ? 'Show Featured ' + defaultLimit + ' ↑' : 'View All ' + allProds.length + ' Pieces ↓'}
                   </button>
                 ` : ''}
                 <a class="hw-video-toggle-btn" href="v2.html">Explore Collection &rarr;</a>
@@ -1504,8 +1609,12 @@
 
     function initFromHash() {
       const h = (window.location.hash || '').replace(/^#/, '').toLowerCase();
-      if (!h || h === 'design1' || h === 'design2' || h === 'design3' || h === 'design4') {
-        renderMastersWorkbench();
+      if (h === 'design2' || h === 'option2') {
+        setMastersOption(2);
+        return;
+      }
+      if (h === 'design1' || h === 'option1') {
+        setMastersOption(1);
         return;
       }
       const foundIdx = TECHNIQUES.findIndex(t => t.id === h);

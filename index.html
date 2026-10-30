@@ -1986,6 +1986,29 @@
       letter-spacing: 0.08em;
       color: var(--hw-ink);
     }
+    .hw-masters-page.is-option-2 {
+      background-color: #F4F0E8;
+    }
+    .hw-masters-page.is-option-2 .hw-masters-ftg-left {
+      background: #FAF8F3;
+      border: 1px solid rgba(36, 25, 20, 0.11);
+      padding: 10px 14px 6px;
+    }
+    .hw-masters-page.is-option-2 .hw-masters-card {
+      background: #FAF8F3;
+      border: 1px solid rgba(36, 25, 20, 0.11);
+      padding: 12px 18px 16px;
+    }
+    .hw-masters-page.is-option-2 .hw-masters-card__body {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .hw-masters-page.is-option-2 .hw-m-garment-card {
+      background: #F2EDE2;
+      padding: 6px 6px 8px;
+      border: 1px solid rgba(36, 25, 20, 0.08);
+    }
     @media (max-width: 960px) {
       .hw-masters-top-bar {
         grid-template-columns: 1fr;
@@ -4719,28 +4742,27 @@
     <div class="hw-masters-page" id="glossary">
       <div class="hw-masters-shell">
 
-        <!-- 1. COMPACT TOP BAR (WATCHING TOP SPACING SO WORKBENCH STAYS ABOVE THE FOLD) -->
-        <header class="hw-masters-top-bar">
-          <div>
-            <span class="hw-masters-eyebrow">FIBRE TO GARMENT &middot; ARCHIVAL CRAFT INDEX</span>
-            <h1 class="hw-masters-title">Made by Masters</h1>
+        <!-- 1. COMPACT TOP BAR + 2 HIGH-END OPTIONS SWITCHER (STAYS ABOVE THE FOLD) -->
+        <header class="hw-masters-top-bar" style="grid-template-columns: auto 1fr auto; align-items: center; padding: 4px 0 8px; margin-bottom: 10px;">
+          <div style="display:flex; align-items:baseline; gap:12px;">
+            <h1 class="hw-masters-title" style="font-size:clamp(17px, 1.7vw, 21px);">Made by Masters</h1>
+            <span class="hw-masters-eyebrow" style="margin:0;">FIBRE TO GARMENT &middot; 01&ndash;14</span>
           </div>
-          <div>
-            <p class="hw-masters-lead-p">
-              Hartwick Atelier specializes in hand spun and handwoven fabrics, natural and ayurvedic dyes, and exquisite heritage handwork in tune with the cycles of the sun, wind and rain.
-            </p>
-            <p class="hw-masters-nuance">
-              &ldquo;Handwork naturally results in variations. We cherish these nuances for their human touch.&rdquo;
-            </p>
+          <p class="hw-masters-lead-p" style="font-size:13.5px; line-height:1.32;">
+            Hand spun and handwoven fabrics, natural and ayurvedic dyes, and heritage handwork in tune with the sun, wind and rain. <em style="color:var(--hw-ink);">&ldquo;We cherish these nuances for their human touch.&rdquo;</em>
+          </p>
+          <div style="display:inline-flex; border:1px solid var(--hw-border-strong); background:rgba(248,245,238,0.55); padding:2px; gap:2px;">
+            <button type="button" id="v2-masters-opt-1" onclick="setV2MastersOption(1)" style="font-family:var(--font-mono); font-size:8.5px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border:none; cursor:pointer; background:var(--hw-ink); color:#F8F5EE;">Option 01 &middot; Ledger</button>
+            <button type="button" id="v2-masters-opt-2" onclick="setV2MastersOption(2)" style="font-family:var(--font-mono); font-size:8.5px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border:none; cursor:pointer; background:transparent; color:var(--hw-muted);">Option 02 &middot; Pastel Atelier</button>
           </div>
         </header>
 
-        <!-- 2. 2-COLUMN WORKBENCH: FIBRE-TO-GARMENT LIST ON LEFT + VIDEO, SHEETS TEXT & PRODUCTS ON RIGHT -->
-        <div class="hw-masters-grid">
+        <!-- 2. 2-COLUMN WORKBENCH: SIMPLIFIED 01-14 LIST ON LEFT + VIDEO, SHEETS TEXT & PRODUCTS ON RIGHT -->
+        <div class="hw-masters-grid" style="grid-template-columns: 250px minmax(0, 1fr); gap: 34px;">
           <aside class="hw-masters-ftg-left" aria-label="14 Heritage Techniques">
-            <div class="hw-ftg-heading" style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;">
-              <span>FIBRE TO GARMENT &middot; THE 14 TECHNIQUES</span>
-              <span style="color:var(--hw-light); font-size:8.5px;">SELECT ROW</span>
+            <div class="hw-ftg-heading" style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;">
+              <span>THE TECHNIQUES</span>
+              <span style="color:var(--hw-light); font-size:8px;">01 / 14</span>
             </div>
             <div class="hw-ftg-list" id="masters-accordion-list"></div>
           </aside>
@@ -6037,6 +6059,23 @@
       return PRODUCTS.filter(p => Array.isArray(p.mbmIds) && p.mbmIds.includes(m.id));
     }
 
+    function setV2MastersOption(opt) {
+      const page = document.getElementById('glossary');
+      if (!page) return;
+      const isOpt2 = opt === 2;
+      page.classList.toggle('is-option-2', isOpt2);
+      const b1 = document.getElementById('v2-masters-opt-1');
+      const b2 = document.getElementById('v2-masters-opt-2');
+      if (b1) {
+        b1.style.background = isOpt2 ? 'transparent' : 'var(--hw-ink)';
+        b1.style.color = isOpt2 ? 'var(--hw-muted)' : '#F8F5EE';
+      }
+      if (b2) {
+        b2.style.background = isOpt2 ? 'var(--hw-ink)' : 'transparent';
+        b2.style.color = isOpt2 ? '#F8F5EE' : 'var(--hw-muted)';
+      }
+    }
+
     let showAllMasterProducts = false;
 
     const MASTER_FTG_LABELS = {"khadi":"Handspun & Handwoven","handspun":"Charkha Spun Yarn","handwoven":"Wooden Handloom","blockprint":"Hand-Stamped Print","woodenblocks":"Carved Teakwood Sets","naturaldye":"Ayurvedic Botanicals","ajrakh":"16-Step Resist Print","ikat":"Tied, Dyed & Woven","zari":"Zari Ribbon Appliqué","jamdani":"UNESCO Loom Inlay","brocade":"Varanasi Silk & Zari","mashru":"Satin Silk · Cotton Back","kora":"Raw Unbleached Cotton","muga":"Golden-Cream Wild Silk"};
@@ -6047,12 +6086,10 @@
 
       const core14 = MASTERS.slice(0, 14);
       accList.innerHTML = core14.map((item, idx) => {
-        const ftgLabel = MASTER_FTG_LABELS[item.id] || 'Heritage Craft';
         return `
           <div class="hw-ftg-open-row ${idx === 0 ? 'is-active' : ''}" id="master-acc-${item.id}" data-master-id="${item.id}" role="option" aria-selected="${idx === 0}" tabindex="0" onclick="selectMasterTechnique('${item.id}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectMasterTechnique('${item.id}');}">
             <div class="hw-ftg-row-top">
-              <span class="hw-ftg-step"><span class="hw-m-num" style="margin-right:8px;">${item.num}</span>${item.name}</span>
-              <span class="hw-ftg-val">${ftgLabel} <span style="opacity:0.55; margin-left:3px;">${idx === 0 ? '→' : '↗'}</span></span>
+              <span class="hw-ftg-step"><span class="hw-m-num" style="margin-right:5px;">${item.num}</span><span style="opacity:0.45; margin-right:5px;">/</span>${item.name}</span>
             </div>
           </div>
         `;
