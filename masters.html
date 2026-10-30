@@ -1399,20 +1399,34 @@
       transform: scale(0.978);
     }
 
-    /* ==========================================================================
-       FULL UNCROPPED PRODUCT & GARMENT IMAGE GUARANTEE
+        /* ==========================================================================
+       UNIFORM IDENTICAL PHOTO SIZES ACROSS MASTERPAGE
        ========================================================================== */
     .hw-m-garment-card__img {
       aspect-ratio: 2 / 3 !important;
+      width: 100% !important;
+      overflow: hidden !important;
       background: #EDE5D8;
     }
     .hw-m-garment-card__img img,
     .hw-m-garment-card:hover .hw-m-garment-card__img img {
       width: 100% !important;
       height: 100% !important;
-      object-fit: contain !important;
+      object-fit: cover !important;
       object-position: center center !important;
-      transform: none !important;
+      display: block !important;
+    }
+    .hw-craft-video-frame {
+      aspect-ratio: 16 / 9 !important;
+      width: 100% !important;
+      overflow: hidden !important;
+      background: #14110F;
+    }
+    .hw-craft-video-frame video {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
     }
   </style>
 </head>
