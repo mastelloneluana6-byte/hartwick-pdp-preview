@@ -1398,6 +1398,22 @@
     .hw-m-garment-card:active {
       transform: scale(0.978);
     }
+
+    /* ==========================================================================
+       FULL UNCROPPED PRODUCT & GARMENT IMAGE GUARANTEE
+       ========================================================================== */
+    .hw-m-garment-card__img {
+      aspect-ratio: 2 / 3 !important;
+      background: #EDE5D8;
+    }
+    .hw-m-garment-card__img img,
+    .hw-m-garment-card:hover .hw-m-garment-card__img img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;
+      object-position: center center !important;
+      transform: none !important;
+    }
   </style>
 </head>
 <body>

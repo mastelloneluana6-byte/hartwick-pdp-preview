@@ -3628,6 +3628,100 @@
       }
     }
 
+
+    /* ==========================================================================
+       FULL UNCROPPED PRODUCT & GARMENT IMAGE GUARANTEE ACROSS ENTIRE SITE
+       Ensures top & bottom hems (e.g. Tribeca Emerald) are never cropped out
+       ========================================================================== */
+    .hw-product-card-media,
+    .d1-tot-pcard__media,
+    .hw-related-carousel .hw-product-card-media,
+    .hw-m-garment-card__img,
+    .hw-sqs-ig-item,
+    .hw-finale__diptych-item {
+      aspect-ratio: 2 / 3 !important;
+      background: #EDE5D8;
+    }
+    .d1-tot-split__card {
+      aspect-ratio: 2 / 3 !important;
+      max-height: none !important;
+      background: #EDE5D8;
+    }
+    .hw-v2-lookbook-item {
+      aspect-ratio: 2 / 3 !important;
+      background: #EDE5D8;
+    }
+    .hw-v2-lookbook-item.hero-span {
+      grid-column: span 2;
+      aspect-ratio: auto !important;
+    }
+    .hw-v2-lookbook-item.hero-span img {
+      width: 100% !important;
+      height: auto !important;
+      object-fit: contain !important;
+      object-position: center center !important;
+      transform: none !important;
+    }
+    .hw-product-card-media img,
+    .d1-tot-pcard__media img,
+    .hw-dual-media img,
+    .d1-tot-split__card img,
+    .hw-v2-lookbook-item img,
+    .hw-v2-var-thumb img,
+    .hw-m-garment-card__img img,
+    .d1-tot-craft__img img,
+    .hw-img-zoom img,
+    .hw-sqs-ig-item img,
+    .hw-finale__diptych-item img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;
+      object-position: center center !important;
+      transform: none !important;
+    }
+    .hw-story__hero-frame,
+    .hw-chapter__img-wrap,
+    .hw-chapter__img-wrap--landscape,
+    .hw-concierge__visual {
+      aspect-ratio: auto !important;
+      background: #EDE5D8;
+    }
+    .hw-story__hero-frame img,
+    .hw-chapter__img-wrap img,
+    .hw-concierge__visual img {
+      width: 100% !important;
+      height: auto !important;
+      object-fit: contain !important;
+      object-position: center center !important;
+      transform: none !important;
+    }
+    .hw-v2-var-thumb {
+      width: 76px !important;
+      height: 114px !important;
+      background: #EDE5D8;
+    }
+    .d1-tot-craft__img {
+      width: 118px !important;
+      height: 177px !important;
+      background: #EDE5D8;
+    }
+    .hw-search-result-item img {
+      width: 38px !important;
+      height: 57px !important;
+      object-fit: contain !important;
+      object-position: center center !important;
+      background: #EDE5D8;
+    }
+    @media (max-width: 768px) {
+      .hw-v2-var-thumb {
+        width: 64px !important;
+        height: 96px !important;
+      }
+      .d1-tot-craft__img {
+        width: 82px !important;
+        height: 123px !important;
+      }
+    }
   </style>
 </head>
 <body class="d1-seamless-nav">
