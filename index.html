@@ -2793,7 +2793,8 @@
     .hw-sqs-ig-section {
       max-width: 1380px;
       margin: 0 auto;
-      padding: 6px 40px 24px;
+      padding: 28px 40px 24px;
+      border-top: 1px solid var(--hw-border);
       border-bottom: none;
     }
     /* LAYER 1: SUBTLE COMPACT EDITORIAL QUOTE WITHOUT SEPARATING LINES */
@@ -2818,9 +2819,9 @@
     /* LAYER 2: ASYMMETRIC DUAL CTA (IG LIFESTYLE GRID + THE DISPATCH NEWSLETTER) */
     .hw-footer-dual-cta {
       display: grid;
-      grid-template-columns: 1.18fr 0.82fr;
+      grid-template-columns: 0.9fr 1.1fr;
       gap: 44px;
-      align-items: center;
+      align-items: end;
     }
     .hw-sqs-ig-head {
       display: flex;
@@ -5258,20 +5259,16 @@
     <div class="hw-sqs-ig-section">
       <!-- Onderste laag: The Dual CTA (IG Lifestyle Grid + The Dispatch) -->
       <div class="hw-footer-dual-cta">
-        <div class="hw-footer-ig-col">
-          <div class="hw-sqs-ig-head">
-            <div class="hw-sqs-ig-title">
-              FOLLOW US <a href="https://instagram.com/worldofhartwickatelier" target="_blank" rel="noopener">@WORLDOFHARTWICKATELIER</a>
+        <div class="hw-footer-ig-col" style="padding-bottom:12px;">
+          <span class="hw-dispatch-kicker">INSTAGRAM &middot; COMMUNITY</span>
+          <div class="hw-sqs-ig-head" style="margin-bottom:6px;">
+            <div class="hw-sqs-ig-title" style="font-size:clamp(1.05rem, 1.45vw, 1.3rem); letter-spacing:0.14em;">
+              FOLLOW US <a href="https://instagram.com/worldofhartwickatelier" target="_blank" rel="noopener" style="text-decoration:underline; text-underline-offset:4px;">@WORLDOFHARTWICKATELIER</a>
             </div>
           </div>
-          <div class="hw-sqs-ig-grid">
-            <a class="hw-sqs-ig-item" onclick="openProduct(1)"><img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1761394286610-IZ46RMUKJAHY9K3G8K4Z/034_HARTWICK_HANDWOVEN_TRIBECA_SKIRT_SILK_AMMAN_SHIRT_LINEN_SILK.jpg" alt="Hartwick Instagram 1" loading="lazy" /></a>
-            <a class="hw-sqs-ig-item" onclick="openProduct(43)"><img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1761392514754-DYC1QWQ3N3J75IQF4AHO/019_HARTWICK_HANDWOVEN_SAMARKAND_DRESS_SILKCOTTON_VICTORIANROUGE_NATURALDYE_BLOCKPRINT.jpg.jpg" alt="Hartwick Instagram 2" loading="lazy" /></a>
-            <a class="hw-sqs-ig-item" onclick="openProduct(3)"><img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/eaf5c63f-ec73-47a3-b917-5d78d5a93577/001073_HARTWICK_HANDWOVEN_PALMA_SKIRT_SILK_NATURALDYE_BLOCKPRINT_AMMAN_SHIRT_LINEN.jpg" alt="Hartwick Instagram 3" loading="lazy" /></a>
-            <a class="hw-sqs-ig-item" onclick="openProduct(40)"><img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/8d28d4d4-4b30-44c7-999b-636e1a552025/002+_HARTWICK_HANDWOVEN_MARYLEBONE_COAT_IKAT_BOMBAY_TROUSERS_SITGES_TOTEBAG.jpg" alt="Hartwick Instagram 4" loading="lazy" /></a>
-            <a class="hw-sqs-ig-item" onclick="openProduct(57)"><img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1739485853760-7GB5PB4HDZ3AIJE2XE1K/214_HARTWICK_FINESILK_DUPATTA_SCARF_NATURALDYE_BLOCKPRINT.jpg" alt="Hartwick Instagram 5" loading="lazy" /></a>
-            <a class="hw-sqs-ig-item" onclick="openProduct(81)"><img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fad0ba3a-a1b3-41a6-bec9-9c82b64c30f5/CROP_HARTWICK_LIMINAL_SILVER_GOLD_EMERALD_RINGS_TOURMELINE_RHODOLITE_1781.jpg" alt="Hartwick Instagram 6" loading="lazy" /></a>
-          </div>
+          <p class="hw-dispatch-copy" style="margin:0;">
+            Behind the looms, studio dispatches, and archival pieces in motion.
+          </p>
         </div>
 
         <aside class="hw-dispatch-box">
