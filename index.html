@@ -109,6 +109,39 @@
       background: rgba(250, 248, 244, 0.95);
       backdrop-filter: blur(8px);
     }
+    /* ==========================================================================
+       SEAMLESS TRANSPARENT HEADER OVERLAY FOR 50/50 SPLIT HERO (OVER DE MENUBALK)
+       - Applies to BOTH Fine Jewellery (Template: celestial) & Fine Silk (Template: liminal)
+       ========================================================================== */
+    body.hw-split-hero-nav:not(.is-scrolled) .hw-site-header {
+      background: linear-gradient(180deg, rgba(250, 248, 244, 0.44) 0%, rgba(250, 248, 244, 0.14) 60%, rgba(250, 248, 244, 0) 100%) !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      border-bottom: none !important;
+      box-shadow: none !important;
+    }
+    body.hw-split-hero-nav:not(.is-scrolled) .hw-site-header .hw-nav-link,
+    body.hw-split-hero-nav:not(.is-scrolled) .hw-site-header .hw-search-input,
+    body.hw-split-hero-nav:not(.is-scrolled) .hw-site-header .hw-mobile-menu-btn,
+    body.hw-split-hero-nav:not(.is-scrolled) .hw-site-header .hw-mobile-bag-btn {
+      color: var(--hw-ink);
+      text-shadow: 0 1px 12px rgba(250, 248, 244, 0.92), 0 0 8px rgba(250, 248, 244, 0.85);
+    }
+    body.hw-split-hero-nav:not(.is-scrolled) .hw-site-header .hw-search-input::placeholder {
+      color: var(--hw-ink);
+      opacity: 0.88;
+    }
+    body.hw-split-hero-nav:not(.is-scrolled) .hw-site-header .hw-search-icon {
+      stroke: var(--hw-ink);
+    }
+    body.hw-split-hero-nav:not(.is-scrolled) .hw-site-header .hw-search-box {
+      border-bottom-color: rgba(36, 25, 20, 0.55);
+    }
+    body.hw-split-hero-nav.is-scrolled .hw-site-header {
+      background: rgba(250, 248, 244, 0.95) !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+    }
     .hw-header-inner {
       max-width: 1600px;
       margin: 0 auto;
@@ -971,7 +1004,8 @@
 
     /* ==========================================================================
        FULL-SCREEN 50/50 SPLIT HERO HEADER (FINE JEWELLERY & FINE SILK)
-       - 100vw wide, ~100vh tall, two equal 50% vertical sections
+       - Runs seamlessly OVER / BEHIND the menu bar (margin-top: var(--hw-header-pull, -98px); height: 100vh)
+       - 100vw wide, 100vh tall, two equal 50% vertical sections
        - Zero gaps, borders, or spacing between left photo and right video area
        - Right side structured as a clean Shopify video container with placeholder
        ========================================================================== */
@@ -982,14 +1016,14 @@
       right: 50%;
       margin-left: -50vw;
       margin-right: -50vw;
-      height: calc(100vh - 86px);
-      min-height: 620px;
-      max-height: 1080px;
+      margin-top: var(--hw-header-pull, -98px);
+      height: 100vh;
+      min-height: 640px;
+      max-height: 1120px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0;
       padding: 0;
-      margin-top: 0;
       margin-bottom: 36px;
       border: none;
       overflow: hidden;
@@ -1091,7 +1125,10 @@
     }
     .hw-split-hero__video-placeholder-frame {
       position: absolute;
-      inset: clamp(20px, 2.6vw, 38px);
+      top: calc(var(--hw-header-h, 96px) + 16px);
+      left: clamp(20px, 2.6vw, 38px);
+      right: clamp(20px, 2.6vw, 38px);
+      bottom: clamp(20px, 2.6vw, 38px);
       border: 1px solid rgba(250, 248, 244, 0.24);
       z-index: 2;
       pointer-events: none;
@@ -1146,8 +1183,8 @@
 
     @media (max-width: 1024px) {
       .hw-split-hero {
-        height: 78vh;
-        min-height: 500px;
+        height: 86vh;
+        min-height: 540px;
       }
     }
     @media (max-width: 768px) {
@@ -1173,7 +1210,10 @@
         letter-spacing: 0.18em;
       }
       .hw-split-hero__video-placeholder-frame {
-        inset: 14px;
+        top: 14px;
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
         padding: 14px;
       }
       .hw-split-hero__slot-bottom {
@@ -4941,10 +4981,12 @@
 
   <!-- ==========================================================================
        VIEW 2: SPECIFIC PRODUCT PAGE (VERSION 2 — 2-COLUMN EDITORIAL LOOKBOOK)
+       - SEPARATE TOP 50/50 SPLIT HERO FOR TEMPLATE CELESTIAL (FINE JEWELLERY) & TEMPLATE LIMINAL (FINE SILK)
        - FIBRE TO GARMENT: OPEN (NOT COLLAPSING)
        - BULLET POINTS: COLLAPSING WITH ELEGANT "+"
        ========================================================================== -->
-  <section id="view-product" class="hw-view">
+  <section id="view-product" class="hw-view" data-product-template="default">
+    <section class="hw-split-hero" id="pdp-split-hero" style="display:none;" aria-label="Product Template Editorial Hero"></section>
     <div class="hw-v2-container">
       <div class="hw-v2-grid">
         <!-- Left: 2-Column Editorial Lookbook Gallery -->
@@ -5740,6 +5782,15 @@
       if (mob) mob.classList.remove('open');
     }
 
+    function syncSplitHeroHeaderOverlap() {
+      const hdr = document.querySelector('.hw-site-header');
+      if (hdr && hdr.offsetHeight > 20) {
+        document.documentElement.style.setProperty('--hw-header-pull', (-hdr.offsetHeight) + 'px');
+        document.documentElement.style.setProperty('--hw-header-h', hdr.offsetHeight + 'px');
+      }
+    }
+    window.addEventListener('resize', syncSplitHeroHeaderOverlap);
+
     function openView(viewName, skipScrollTop) {
       closeAllNavDropdowns();
       document.querySelectorAll('.hw-view').forEach(v => v.classList.remove('active'));
@@ -5749,6 +5800,10 @@
         el.classList.add('active');
       }
       document.body.classList.toggle('d1-seamless-nav', viewName === 'home');
+      const colHeroVisible = viewName === 'collection' && document.getElementById('col-split-hero')?.style.display !== 'none';
+      const pdpHeroVisible = viewName === 'product' && document.getElementById('pdp-split-hero')?.style.display !== 'none';
+      document.body.classList.toggle('hw-split-hero-nav', Boolean(colHeroVisible || pdpHeroVisible));
+      syncSplitHeroHeaderOverlap();
       if (viewName === 'story' || viewName === 'nature') setActiveNav('nav-about');
       if (viewName === 'nature') history.replaceState(null, '', '#nature');
       if (viewName === 'story') history.replaceState(null, '', '#story');
@@ -6346,47 +6401,144 @@
       currentProduct = p;
       currentCollection = p.category;
 
-      if (p.navGroup === 'Fine Jewellery') setActiveNav('nav-jewellery');
-      else if (p.navGroup === 'Fine Silk') setActiveNav('nav-silk');
+      const isJewelProd = p.navGroup === 'Fine Jewellery';
+      const isSilkProd = p.navGroup === 'Fine Silk' || p.navGroup === 'Fine Silk Scarves';
+
+      if (isJewelProd) setActiveNav('nav-jewellery');
+      else if (isSilkProd) setActiveNav('nav-silk');
       else setActiveNav('nav-apparel');
 
-            const gal = document.getElementById('pdp-gallery');
-      const films = getProductFilms(p);
-      const galleryHtml = [];
-      p.imgs.forEach((url, idx) => {
-        galleryHtml.push(`
-          <div class="hw-v2-lookbook-item ${idx === 0 ? 'hero-span' : ''}" style="--stagger:${idx * 75}ms;" onclick="swapHeroImage(${idx})">
-            <img src="${url}" alt="${p.title} view ${idx + 1}" />
-            ${idx === 0 ? `<button type="button" class="hw-hero-watch-pill" onclick="event.stopPropagation(); openHwFilmLightbox('${films.primary.id}', '${p.title.replace(/'/g, "\\'")}', '${films.primary.kicker.replace(/'/g, "\\'")}', '${p.imgs[0]}')">▶ IN MOTION &middot; WATCH FILM (${films.primary.dur})</button>` : ''}
-          </div>
-        `);
-        if (idx === 0) {
-          galleryHtml.push(`
-            <div class="hw-v2-lookbook-item hw-lookbook-video-tile" style="--stagger:60ms;">
-              <video class="hw-stream-video" data-sqs-id="${films.primary.id}" poster="${p.imgs[1] || p.imgs[0]}" autoplay muted loop playsinline></video>
-              <div class="hw-film-badge-top">
-                <span class="hw-film-tag">IN MOTION &middot; ${films.primary.dur}</span>
-                <span class="hw-film-tag">ATELIER FILM</span>
+      // STRICT TEMPLATE ISOLATION:
+      // - Template 1: Fine Jewellery ("celestial") -> Standalone 50/50 Split Hero over Menu Bar + 100% Clean Photos
+      // - Template 2: Fine Silk ("liminal") -> Standalone 50/50 Split Hero over Menu Bar + 100% Clean Photos
+      // - Template 3: Apparel ("default") -> Standard Apparel Product Page
+      const viewProdEl = document.getElementById('view-product');
+      const pdpSplitHeroEl = document.getElementById('pdp-split-hero');
+      if (viewProdEl) {
+        viewProdEl.setAttribute('data-product-template', isJewelProd ? 'celestial' : (isSilkProd ? 'liminal' : 'default'));
+      }
+      if (pdpSplitHeroEl) {
+        if (isJewelProd) {
+          pdpSplitHeroEl.className = 'hw-split-hero hw-split-hero--jewellery';
+          pdpSplitHeroEl.innerHTML = `
+            <!-- TEMPLATE CELESTIAL (FINE JEWELLERY ONLY): LEFT 50% LUXURY PHOTO -->
+            <div class="hw-split-hero__pane hw-split-hero__pane--photo">
+              <img class="hw-split-hero__img" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a00dafc2-eaeb-476b-872d-879c49cdcb79/v005HARTWICK_LIMINAL_STEP_RING_24KGOLD_RHODOLITE_SILVER_HANDCRAFTED.jpg" alt="Hartwick Atelier Fine Jewellery — Template Celestial" loading="eager" />
+              <div class="hw-split-hero__veil"></div>
+              <div class="hw-split-hero__editorial-caption">
+                <span class="hw-split-hero__eyebrow">HARTWICK ATELIER &middot; FINE JEWELLERY (TEMPLATE CELESTIAL)</span>
+                <h2 class="hw-split-hero__heading">HANDCRAFTED IN JAIPUR</h2>
+                <p class="hw-split-hero__sub">High-karat 23k gold, solid sterling silver, and hand-carved gemstones crafted to order by master goldsmiths.</p>
               </div>
-              <div class="hw-film-controls">
-                <div class="hw-film-progress-track"><div class="hw-film-progress-bar"></div></div>
-                <div class="hw-film-ctrl-row">
-                  <div class="hw-film-ctrl-left">
-                    <button type="button" class="hw-film-ctrl-btn" onclick="event.stopPropagation(); toggleHwFilmPlay(this)">PAUSE</button>
-                    <button type="button" class="hw-film-ctrl-btn" onclick="event.stopPropagation(); toggleHwFilmMute(this)">SOUND OFF</button>
+            </div>
+            <!-- TEMPLATE CELESTIAL (FINE JEWELLERY ONLY): RIGHT 50% SHOPIFY VIDEO CONTAINER PLACEHOLDER -->
+            <div class="hw-split-hero__pane hw-split-hero__pane--video" data-shopify-video-slot="celestial-fine-jewellery">
+              <div class="hw-split-hero__video-slot">
+                <img class="hw-split-hero__placeholder-img" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/12175f73-48f1-45f7-b89f-346dc2151fde/009HARTWICK_LIMINAL_STEP_RING_24KGOLD_RHODOLITE_SILVER_HANDCRAFTED.jpg" alt="Fine Jewellery Shopify Video Placeholder" loading="eager" />
+                <div class="hw-split-hero__veil"></div>
+                <div class="hw-split-hero__video-placeholder-frame">
+                  <div class="hw-split-hero__slot-top">
+                    <span class="hw-split-hero__slot-tag">SHOPIFY VIDEO PLACEHOLDER</span>
+                    <span class="hw-split-hero__slot-meta">TEMPLATE CELESTIAL &middot; 50% VIDEO AREA</span>
                   </div>
-                  <button type="button" class="hw-film-ctrl-btn" onclick="event.stopPropagation(); openHwFilmLightboxFromStage(this, '${p.title.replace(/'/g, "\\'")}', '${films.primary.kicker.replace(/'/g, "\\'")}')">FULLSCREEN</button>
+                  <div class="hw-split-hero__slot-bottom">
+                    <span class="hw-split-hero__slot-caption">Fine Jewellery Film Container &mdash; Ready for direct Shopify video upload</span>
+                    <span class="hw-split-hero__slot-meta">JAIPUR ATELIER &middot; MADE TO ORDER</span>
+                  </div>
                 </div>
               </div>
             </div>
+          `;
+          pdpSplitHeroEl.style.display = 'grid';
+        } else if (isSilkProd) {
+          pdpSplitHeroEl.className = 'hw-split-hero hw-split-hero--silk';
+          pdpSplitHeroEl.innerHTML = `
+            <!-- TEMPLATE LIMINAL (FINE SILK ONLY): LEFT 50% LUXURY SILK PHOTO -->
+            <div class="hw-split-hero__pane hw-split-hero__pane--photo">
+              <img class="hw-split-hero__img" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1039e18a-9953-4c39-8a01-9d0480047793/002_HARTWICK_ATELIER_FINESILK_NATURAL_DYE_SHAYLA4R1A6078.jpg" alt="Hartwick Atelier Fine Silk — Template Liminal" loading="eager" />
+              <div class="hw-split-hero__veil"></div>
+              <div class="hw-split-hero__editorial-caption">
+                <span class="hw-split-hero__eyebrow">HARTWICK ATELIER &middot; FINE SILK (TEMPLATE LIMINAL)</span>
+                <h2 class="hw-split-hero__heading">BLOCK PRINTED BY HAND</h2>
+                <p class="hw-split-hero__sub">Luminous Mashru silk printed with hand-carved wooden blocks, natural mineral &amp; botanical dyes, and hand-rolled edges.</p>
+              </div>
+            </div>
+            <!-- TEMPLATE LIMINAL (FINE SILK ONLY): RIGHT 50% SHOPIFY VIDEO CONTAINER PLACEHOLDER -->
+            <div class="hw-split-hero__pane hw-split-hero__pane--video" data-shopify-video-slot="liminal-fine-silk">
+              <div class="hw-split-hero__video-slot">
+                <img class="hw-split-hero__placeholder-img" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/31a9d117-730e-45ba-9a75-4e2144af03e0/267_HARTWICK_FINESILK_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg" alt="Fine Silk Shopify Video Placeholder" loading="eager" />
+                <div class="hw-split-hero__veil"></div>
+                <div class="hw-split-hero__video-placeholder-frame">
+                  <div class="hw-split-hero__slot-top">
+                    <span class="hw-split-hero__slot-tag">SHOPIFY VIDEO PLACEHOLDER</span>
+                    <span class="hw-split-hero__slot-meta">TEMPLATE LIMINAL &middot; 50% VIDEO AREA</span>
+                  </div>
+                  <div class="hw-split-hero__slot-bottom">
+                    <span class="hw-split-hero__slot-caption">Fine Silk Film Container &mdash; Ready for direct Shopify video upload</span>
+                    <span class="hw-split-hero__slot-meta">MASTER PRINTERS &middot; 100% NATURAL DYE</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          pdpSplitHeroEl.style.display = 'grid';
+        } else {
+          pdpSplitHeroEl.style.display = 'none';
+          pdpSplitHeroEl.innerHTML = '';
+        }
+      }
+
+      const gal = document.getElementById('pdp-gallery');
+      const films = getProductFilms(p);
+      const galleryHtml = [];
+      p.imgs.forEach((url, idx) => {
+        if (isJewelProd || isSilkProd) {
+          // 100% Clean Photos for Fine Jewellery (celestial) & Fine Silk (liminal) — First image is a pure photo, no video button or video tile
+          galleryHtml.push(`
+            <div class="hw-v2-lookbook-item ${idx === 0 ? 'hero-span' : ''}" style="--stagger:${idx * 75}ms;" onclick="swapHeroImage(${idx})">
+              <img src="${url}" alt="${p.title} view ${idx + 1}" />
+            </div>
           `);
+        } else {
+          galleryHtml.push(`
+            <div class="hw-v2-lookbook-item ${idx === 0 ? 'hero-span' : ''}" style="--stagger:${idx * 75}ms;" onclick="swapHeroImage(${idx})">
+              <img src="${url}" alt="${p.title} view ${idx + 1}" />
+              ${idx === 0 ? `<button type="button" class="hw-hero-watch-pill" onclick="event.stopPropagation(); openHwFilmLightbox('${films.primary.id}', '${p.title.replace(/'/g, "\\'")}', '${films.primary.kicker.replace(/'/g, "\\'")}', '${p.imgs[0]}')">▶ IN MOTION &middot; WATCH FILM (${films.primary.dur})</button>` : ''}
+            </div>
+          `);
+          if (idx === 0) {
+            galleryHtml.push(`
+              <div class="hw-v2-lookbook-item hw-lookbook-video-tile" style="--stagger:60ms;">
+                <video class="hw-stream-video" data-sqs-id="${films.primary.id}" poster="${p.imgs[1] || p.imgs[0]}" autoplay muted loop playsinline></video>
+                <div class="hw-film-badge-top">
+                  <span class="hw-film-tag">IN MOTION &middot; ${films.primary.dur}</span>
+                  <span class="hw-film-tag">ATELIER FILM</span>
+                </div>
+                <div class="hw-film-controls">
+                  <div class="hw-film-progress-track"><div class="hw-film-progress-bar"></div></div>
+                  <div class="hw-film-ctrl-row">
+                    <div class="hw-film-ctrl-left">
+                      <button type="button" class="hw-film-ctrl-btn" onclick="event.stopPropagation(); toggleHwFilmPlay(this)">PAUSE</button>
+                      <button type="button" class="hw-film-ctrl-btn" onclick="event.stopPropagation(); toggleHwFilmMute(this)">SOUND OFF</button>
+                    </div>
+                    <button type="button" class="hw-film-ctrl-btn" onclick="event.stopPropagation(); openHwFilmLightboxFromStage(this, '${p.title.replace(/'/g, "\\'")}', '${films.primary.kicker.replace(/'/g, "\\'")}')">FULLSCREEN</button>
+                  </div>
+                </div>
+              </div>
+            `);
+          }
         }
       });
       gal.innerHTML = galleryHtml.join('');
 
       const pdpFilmBand = document.getElementById('pdp-film-band');
       if (pdpFilmBand) {
-        pdpFilmBand.innerHTML = `
+        if (isJewelProd || isSilkProd) {
+          pdpFilmBand.style.display = 'none';
+          pdpFilmBand.innerHTML = '';
+        } else {
+          pdpFilmBand.style.display = '';
+          pdpFilmBand.innerHTML = `
           <div class="hw-pdp-film-band-head">
             <div>
               <span class="hw-home-film-kicker" style="text-align:left; margin-bottom:4px;">MOVING IMAGE DOSSIER &middot; SILHOUETTE &amp; CRAFT</span>
@@ -6438,6 +6590,7 @@
             </div>
           </div>
         `;
+        }
       }
 
       document.getElementById('pdp-breadcrumb').innerHTML = `
@@ -6452,7 +6605,7 @@
       document.getElementById('pdp-price').textContent = p.price;
       document.getElementById('pdp-sub').textContent = p.commercial;
 
-      const siblings = PRODUCTS.filter(x => x.styleFamily === p.styleFamily);
+      const siblings = PRODUCTS.filter(x => x.styleFamily === p.styleFamily && x.navGroup === p.navGroup);
       document.getElementById('pdp-var-label').innerHTML = `${p.styleFamily}`;
       document.getElementById('pdp-var-grid').innerHTML = siblings.map(s => {
         const shortName = s.title.replace(new RegExp('^' + s.subtitle.split(' ')[0] + '\\s*', 'i'), '').trim() || s.title;
