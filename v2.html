@@ -970,6 +970,220 @@
     }
 
     /* ==========================================================================
+       FULL-SCREEN 50/50 SPLIT HERO HEADER (FINE JEWELLERY & FINE SILK)
+       - 100vw wide, ~100vh tall, two equal 50% vertical sections
+       - Zero gaps, borders, or spacing between left photo and right video area
+       - Right side structured as a clean Shopify video container with placeholder
+       ========================================================================== */
+    .hw-split-hero {
+      position: relative;
+      width: 100vw;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      height: calc(100vh - 86px);
+      min-height: 620px;
+      max-height: 1080px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      padding: 0;
+      margin-top: 0;
+      margin-bottom: 36px;
+      border: none;
+      overflow: hidden;
+      background: #1A1411;
+    }
+    .hw-split-hero__pane {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      border: none;
+      overflow: hidden;
+      background: #1A1411;
+    }
+    .hw-split-hero__img,
+    .hw-split-hero__video,
+    .hw-split-hero__placeholder-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      margin: 0;
+      padding: 0;
+      border: none;
+      transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hw-split-hero__pane:hover .hw-split-hero__img,
+    .hw-split-hero__pane:hover .hw-split-hero__placeholder-img {
+      transform: scale(1.02);
+    }
+    .hw-split-hero__veil {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hw-split-hero--jewellery .hw-split-hero__pane--photo .hw-split-hero__veil {
+      background: linear-gradient(180deg, rgba(18, 13, 10, 0.08) 0%, rgba(18, 13, 10, 0.02) 55%, rgba(18, 13, 10, 0.52) 100%);
+    }
+    .hw-split-hero--jewellery .hw-split-hero__pane--video .hw-split-hero__veil {
+      background: linear-gradient(180deg, rgba(24, 18, 14, 0.14) 0%, rgba(24, 18, 14, 0.06) 55%, rgba(24, 18, 14, 0.48) 100%);
+    }
+    .hw-split-hero--silk .hw-split-hero__pane--photo .hw-split-hero__veil {
+      background: linear-gradient(180deg, rgba(36, 25, 20, 0.06) 0%, rgba(36, 25, 20, 0.02) 55%, rgba(36, 25, 20, 0.46) 100%);
+    }
+    .hw-split-hero--silk .hw-split-hero__pane--video .hw-split-hero__veil {
+      background: linear-gradient(180deg, rgba(36, 25, 20, 0.10) 0%, rgba(36, 25, 20, 0.04) 55%, rgba(36, 25, 20, 0.44) 100%);
+    }
+    .hw-split-hero__editorial-caption {
+      position: absolute;
+      left: clamp(24px, 3.5vw, 52px);
+      right: clamp(24px, 3.5vw, 52px);
+      bottom: clamp(26px, 3.8vw, 48px);
+      z-index: 2;
+      pointer-events: none;
+      color: #FAF8F4;
+    }
+    .hw-split-hero__eyebrow {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(250, 248, 244, 0.84);
+      margin-bottom: 8px;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35);
+    }
+    .hw-split-hero__heading {
+      font-family: var(--font-heading);
+      font-size: clamp(22px, 2.4vw, 36px);
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      line-height: 1.18;
+      color: #FAF8F4;
+      margin: 0 0 6px 0;
+      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.38);
+    }
+    .hw-split-hero__sub {
+      font-family: var(--font-body);
+      font-size: clamp(15px, 1.25vw, 18.5px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.45;
+      color: rgba(250, 248, 244, 0.92);
+      margin: 0;
+      max-width: 520px;
+      text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+    }
+    /* Right-side Shopify Video Placeholder Container */
+    .hw-split-hero__video-slot {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .hw-split-hero__video-placeholder-frame {
+      position: absolute;
+      inset: clamp(20px, 2.6vw, 38px);
+      border: 1px solid rgba(250, 248, 244, 0.24);
+      z-index: 2;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(16px, 2vw, 28px);
+    }
+    .hw-split-hero__slot-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .hw-split-hero__slot-tag {
+      font-family: var(--font-mono);
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(250, 248, 244, 0.86);
+      background: rgba(24, 18, 14, 0.38);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      padding: 5px 11px;
+      border: 1px solid rgba(250, 248, 244, 0.2);
+    }
+    .hw-split-hero__slot-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+    }
+    .hw-split-hero__slot-caption {
+      font-family: var(--font-body);
+      font-size: clamp(14.5px, 1.15vw, 17px);
+      font-style: italic;
+      color: rgba(250, 248, 244, 0.92);
+      line-height: 1.4;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, 0.38);
+    }
+    .hw-split-hero__slot-meta {
+      font-family: var(--font-mono);
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(250, 248, 244, 0.78);
+      white-space: nowrap;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+    }
+
+    @media (max-width: 1024px) {
+      .hw-split-hero {
+        height: 78vh;
+        min-height: 500px;
+      }
+    }
+    @media (max-width: 768px) {
+      .hw-split-hero {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: 0;
+        max-height: none;
+        margin-bottom: 20px;
+      }
+      .hw-split-hero__pane {
+        height: 54vh;
+        min-height: 360px;
+        max-height: 520px;
+      }
+      .hw-split-hero__editorial-caption {
+        left: 20px;
+        right: 20px;
+        bottom: 22px;
+      }
+      .hw-split-hero__heading {
+        font-size: 20px;
+        letter-spacing: 0.18em;
+      }
+      .hw-split-hero__video-placeholder-frame {
+        inset: 14px;
+        padding: 14px;
+      }
+      .hw-split-hero__slot-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+    }
+
+    /* ==========================================================================
        COLLECTION VIEW — EXACT FOTO 1 LAYOUT:
        SIDE-BY-SIDE 3-COLUMN LARGE IMAGES WITH STYLE + VARIANT + CRAFT UNDERNEATH
        ========================================================================== */
@@ -4712,12 +4926,12 @@
        SIDE-BY-SIDE 3-COLUMN LARGE THUMBNAILS WITH STYLE + VARIANT + CRAFT UNDERNEATH
        ========================================================================== -->
   <main id="view-collection" class="hw-view">
+    <section class="hw-split-hero" id="col-split-hero" style="display:none;" aria-label="Collection Editorial Hero"></section>
     <div class="hw-collection-wrap">
       <div class="hw-col-positioning-quote" id="col-positioning-quote" style="display:none;">
         <p class="hw-col-positioning-quote-text">Positioning Statement — Space Saver: Inspired by traditional Indian jewellery, Byzantine and Anatolian archaeological findings, and vintage Italian gold chains. Each piece is Made to Order and handcrafted by master stonecutters, stone setters and goldsmiths in Jaipur.</p>
         <div class="hw-col-positioning-quote-meta" style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:14px;">
           <span>HA JEWELLERY POSITIONING QUOTE &middot; SPACE SAVER (FINAL QUOTE TBC) &middot; ALL JEWELLERY MADE TO ORDER</span>
-          <button type="button" class="hw-film-cta-link" onclick="openHwFilmLightbox('a97ea5d7-c28c-47e3-b7c0-7ffd8b263fae', 'FINE JEWELLERY · LIMINAL COLLECTION', 'JAIPUR GOLDSMITHS · MADE TO ORDER', 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fad0ba3a-a1b3-41a6-bec9-9c82b64c30f5/CROP_HARTWICK_LIMINAL_SILVER_GOLD_EMERALD_RINGS_TOURMELINE_RHODOLITE_1781.jpg')">WATCH FILM</button>
         </div>
       </div>
       <div class="hw-subfilter-bar" id="col-subfilters"></div>
@@ -5985,6 +6199,80 @@
 
       const isJewelCol = colName === 'Fine Jewellery' || ['Rings','Earrings','Bangles + Bracelets','Necklaces + Pendants'].includes(colName);
       const isSilkCol = colName === 'Fine Silk' || ['Dupattas','Classic Stoles','Shaylas','Large Squares','Medium Squares','Petit Squares','Rich Ribbons'].includes(colName);
+      const splitHeroEl = document.getElementById('col-split-hero');
+      if (splitHeroEl) {
+        if (isJewelCol) {
+          splitHeroEl.className = 'hw-split-hero hw-split-hero--jewellery';
+          splitHeroEl.innerHTML = `
+            <!-- LEFT SIDE: 50% FULL-HEIGHT LUXURY EDITORIAL PHOTOGRAPH -->
+            <div class="hw-split-hero__pane hw-split-hero__pane--photo">
+              <img class="hw-split-hero__img" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a00dafc2-eaeb-476b-872d-879c49cdcb79/v005HARTWICK_LIMINAL_STEP_RING_24KGOLD_RHODOLITE_SILVER_HANDCRAFTED.jpg" alt="Hartwick Atelier Fine Jewellery — Handcrafted in Jaipur" loading="eager" />
+              <div class="hw-split-hero__veil"></div>
+              <div class="hw-split-hero__editorial-caption">
+                <span class="hw-split-hero__eyebrow">HARTWICK ATELIER &middot; FINE JEWELLERY</span>
+                <h1 class="hw-split-hero__heading">HANDCRAFTED IN JAIPUR</h1>
+                <p class="hw-split-hero__sub">High-karat 23k gold, solid sterling silver, and hand-carved gemstones crafted to order by master goldsmiths.</p>
+              </div>
+            </div>
+            <!-- RIGHT SIDE: 50% FULL-HEIGHT SHOPIFY VIDEO CONTAINER (PLACEHOLDER READY FOR SHOPIFY UPLOAD) -->
+            <div class="hw-split-hero__pane hw-split-hero__pane--video" data-shopify-video-slot="fine-jewellery">
+              <div class="hw-split-hero__video-slot">
+                <!-- SHOPIFY VIDEO SLOT: Replace placeholder image with {{ section.settings.jewellery_hero_video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, class: 'hw-split-hero__video' }} -->
+                <img class="hw-split-hero__placeholder-img" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/12175f73-48f1-45f7-b89f-346dc2151fde/009HARTWICK_LIMINAL_STEP_RING_24KGOLD_RHODOLITE_SILVER_HANDCRAFTED.jpg" alt="Fine Jewellery Shopify Video Placeholder" loading="eager" />
+                <div class="hw-split-hero__veil"></div>
+                <div class="hw-split-hero__video-placeholder-frame">
+                  <div class="hw-split-hero__slot-top">
+                    <span class="hw-split-hero__slot-tag">SHOPIFY VIDEO PLACEHOLDER</span>
+                    <span class="hw-split-hero__slot-meta">FINE JEWELLERY &middot; 50% VIDEO AREA</span>
+                  </div>
+                  <div class="hw-split-hero__slot-bottom">
+                    <span class="hw-split-hero__slot-caption">Atelier Film Container &mdash; Ready for direct Shopify video upload</span>
+                    <span class="hw-split-hero__slot-meta">JAIPUR ATELIER &middot; MADE TO ORDER</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          splitHeroEl.style.display = 'grid';
+        } else if (isSilkCol) {
+          splitHeroEl.className = 'hw-split-hero hw-split-hero--silk';
+          splitHeroEl.innerHTML = `
+            <!-- LEFT SIDE: 50% FULL-HEIGHT LUXURY SILK EDITORIAL PHOTOGRAPH -->
+            <div class="hw-split-hero__pane hw-split-hero__pane--photo">
+              <img class="hw-split-hero__img" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1039e18a-9953-4c39-8a01-9d0480047793/002_HARTWICK_ATELIER_FINESILK_NATURAL_DYE_SHAYLA4R1A6078.jpg" alt="Hartwick Atelier Fine Silk — Block Printed by Hand" loading="eager" />
+              <div class="hw-split-hero__veil"></div>
+              <div class="hw-split-hero__editorial-caption">
+                <span class="hw-split-hero__eyebrow">HARTWICK ATELIER &middot; FINE SILK</span>
+                <h1 class="hw-split-hero__heading">BLOCK PRINTED BY HAND</h1>
+                <p class="hw-split-hero__sub">Luminous Mashru silk printed with hand-carved wooden blocks, natural mineral &amp; botanical dyes, and hand-rolled edges.</p>
+              </div>
+            </div>
+            <!-- RIGHT SIDE: 50% FULL-HEIGHT SHOPIFY VIDEO CONTAINER (PLACEHOLDER READY FOR SHOPIFY UPLOAD) -->
+            <div class="hw-split-hero__pane hw-split-hero__pane--video" data-shopify-video-slot="fine-silk">
+              <div class="hw-split-hero__video-slot">
+                <!-- SHOPIFY VIDEO SLOT: Replace placeholder image with {{ section.settings.silk_hero_video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, class: 'hw-split-hero__video' }} -->
+                <img class="hw-split-hero__placeholder-img" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/31a9d117-730e-45ba-9a75-4e2144af03e0/267_HARTWICK_FINESILK_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg" alt="Fine Silk Shopify Video Placeholder" loading="eager" />
+                <div class="hw-split-hero__veil"></div>
+                <div class="hw-split-hero__video-placeholder-frame">
+                  <div class="hw-split-hero__slot-top">
+                    <span class="hw-split-hero__slot-tag">SHOPIFY VIDEO PLACEHOLDER</span>
+                    <span class="hw-split-hero__slot-meta">FINE SILK &middot; 50% VIDEO AREA</span>
+                  </div>
+                  <div class="hw-split-hero__slot-bottom">
+                    <span class="hw-split-hero__slot-caption">Atelier Film Container &mdash; Ready for direct Shopify video upload</span>
+                    <span class="hw-split-hero__slot-meta">MASTER PRINTERS &middot; 100% NATURAL DYE</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          splitHeroEl.style.display = 'grid';
+        } else {
+          splitHeroEl.style.display = 'none';
+          splitHeroEl.innerHTML = '';
+        }
+      }
+
       const quoteEl = document.getElementById('col-positioning-quote');
       if (quoteEl) {
         if (isSilkCol) {
@@ -5992,7 +6280,6 @@
             <p class="hw-col-positioning-quote-text">All fine silk pieces are fine Mashru silk, block printed by hand by Master Printers with all-natural mineral and plant dyes, and finished with hand-rolled edges. Handcraft is refined work and artisans are the caretakers of valuable heritage — rooted in thousands of years of knowledge, these pieces are made using the natural rhythms of the sun, wind, and water.</p>
             <div class="hw-col-positioning-quote-meta" style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:14px;">
               <span>FINE MASHRU SILK &middot; BLOCK PRINTED BY HAND &middot; 100% NATURAL DYE &middot; HAND-ROLLED EDGES</span>
-              <button type="button" class="hw-film-cta-link" onclick="openHwFilmLightbox('1d9d5412-4154-4b6e-a7de-6477ab4c1c9d', 'FINE SILK · BLOCK PRINTED MASHRU', 'MASTER PRINTERS · 100% NATURAL DYE', 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/31a9d117-730e-45ba-9a75-4e2144af03e0/267_HARTWICK_FINESILK_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg')">WATCH FILM</button>
             </div>
           `;
           quoteEl.style.display = 'block';
@@ -6001,7 +6288,6 @@
             <p class="hw-col-positioning-quote-text">Positioning Statement — Space Saver: Inspired by traditional Indian jewellery, Byzantine and Anatolian archaeological findings, and vintage Italian gold chains. Each piece is Made to Order and handcrafted by master stonecutters, stone setters and goldsmiths in Jaipur.</p>
             <div class="hw-col-positioning-quote-meta" style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:14px;">
               <span>HA JEWELLERY POSITIONING QUOTE &middot; SPACE SAVER (FINAL QUOTE TBC) &middot; ALL JEWELLERY MADE TO ORDER</span>
-              <button type="button" class="hw-film-cta-link" onclick="openHwFilmLightbox('a97ea5d7-c28c-47e3-b7c0-7ffd8b263fae', 'FINE JEWELLERY · LIMINAL COLLECTION', 'JAIPUR GOLDSMITHS · MADE TO ORDER', 'https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/fad0ba3a-a1b3-41a6-bec9-9c82b64c30f5/CROP_HARTWICK_LIMINAL_SILVER_GOLD_EMERALD_RINGS_TOURMELINE_RHODOLITE_1781.jpg')">WATCH FILM</button>
             </div>
           `;
           quoteEl.style.display = 'block';
