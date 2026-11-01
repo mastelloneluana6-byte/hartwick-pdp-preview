@@ -2226,7 +2226,7 @@
     }
     #view-masters .hw-video-ftg-bar {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       gap: 12px;
       padding-top: 5px;
@@ -6977,8 +6977,7 @@
           if (customProds.length > 0) allMatchingProds = customProds;
         }
       }
-      const defaultLimit = 3;
-      const visibleProds = showAllMasterProducts ? allMatchingProds : allMatchingProds.slice(0, defaultLimit);
+      const visibleProds = allMatchingProds;
       const region = MASTER_REGIONS[m.id] || 'India';
 
       const dyePillsHtml = m.id === 'naturaldye' ? `
@@ -7005,7 +7004,6 @@
               <video id="hw-master-video" autoplay muted loop playsinline poster="${m.img}"></video>
             </div>
             <div class="hw-video-ftg-bar">
-              <span class="hw-ftg-step">${m.num} / ${m.name} &mdash; In Motion</span>
               <div style="display:inline-flex; gap:14px; align-items:center;">
                 <button type="button" class="hw-video-toggle-btn" onclick="toggleMasterVideoPlay('hw-master-video', this)">Pause Film</button>
                 <button type="button" class="hw-video-toggle-btn" onclick="toggleMasterVideoMute('hw-master-video', this)">Sound Off</button>
@@ -7031,11 +7029,6 @@
             <div class="hw-m-garments__head">
               <span class="hw-static-section-title">Products Using ${m.name} (${allMatchingProds.length})</span>
               <div class="hw-m-garments__actions">
-                ${allMatchingProds.length > defaultLimit ? `
-                  <button type="button" class="hw-video-toggle-btn" onclick="toggleAllMasterProducts('${m.id}', '${activeDyeId}')">
-                    ${showAllMasterProducts ? 'Show Featured ' + defaultLimit + ' ↑' : 'View All ' + allMatchingProds.length + ' Pieces ↓'}
-                  </button>
-                ` : ''}
                 <button type="button" class="hw-video-toggle-btn" onclick="openCollection('Apparel')">Explore Collection &rarr;</button>
               </div>
             </div>

@@ -515,7 +515,7 @@
     }
     .hw-video-ftg-bar {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       gap: 12px;
       padding-top: 5px;
@@ -1684,8 +1684,7 @@
       }
 
       const allProds = prodIds.map(id => PRODUCTS_DB[id]).filter(Boolean);
-      const defaultLimit = (currentMastersOption === 2 || currentMastersOption === 3) ? 4 : 3;
-      const visibleProds = showAllProducts ? allProds : allProds.slice(0, defaultLimit);
+      const visibleProds = allProds;
 
       const dyePillsHtml = t.id === 'naturaldye' ? `
         <div class="hw-m-dye-pills">
@@ -1711,7 +1710,6 @@
               <video id="hw-master-video" autoplay muted loop playsinline poster="${t.img}"></video>
             </div>
             <div class="hw-video-ftg-bar">
-              <span class="hw-ftg-step">${t.num} / ${t.name} &mdash; In Motion</span>
               <div style="display:inline-flex; gap:14px; align-items:center;">
                 <button type="button" class="hw-video-toggle-btn" onclick="toggleVideoPlay('hw-master-video', this)">Pause Film</button>
                 <button type="button" class="hw-video-toggle-btn" onclick="toggleVideoMute('hw-master-video', this)">Sound Off</button>
@@ -1737,11 +1735,6 @@
             <div class="hw-m-garments__head">
               <span class="hw-static-section-title">Products Using ${t.name} (${allProds.length})</span>
               <div class="hw-m-garments__actions">
-                ${allProds.length > defaultLimit ? `
-                  <button type="button" class="hw-video-toggle-btn" onclick="toggleShowAllProducts()">
-                    ${showAllProducts ? 'Show Featured ' + defaultLimit + ' ↑' : 'View All ' + allProds.length + ' Pieces ↓'}
-                  </button>
-                ` : ''}
                 <a class="hw-video-toggle-btn" href="v2.html">Explore Collection &rarr;</a>
               </div>
             </div>
