@@ -316,6 +316,12 @@
       visibility: visible;
       transform: translateY(0);
     }
+    .hw-nav-item.dropdown-closed .hw-dropdown {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      transform: translateY(6px) !important;
+    }
     .hw-dropdown-btn {
       display: block;
       width: 100%;
@@ -1024,7 +1030,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 0;
       padding: 0;
-      margin-bottom: 36px;
+      margin-bottom: 18px;
       border: none;
       overflow: hidden;
       background: #1A1411;
@@ -1230,12 +1236,12 @@
     .hw-collection-wrap {
       max-width: 1540px;
       margin: 0 auto;
-      padding: 28px 40px 90px;
+      padding: 18px 40px 90px;
     }
     .hw-col-positioning-quote {
       max-width: 860px;
-      margin: 4px auto 26px;
-      padding: 18px 28px 20px;
+      margin: 0 auto 20px;
+      padding: 14px 28px 16px;
       text-align: center;
       border-top: 1px solid var(--hw-border);
       border-bottom: 1px solid var(--hw-border);
@@ -1367,7 +1373,7 @@
     .hw-v2-container {
       max-width: 1460px;
       margin: 0 auto;
-      padding: 28px 40px 80px;
+      padding: 18px 40px 80px;
     }
     .hw-v2-grid {
       display: grid;
@@ -1403,7 +1409,7 @@
       top: 90px;
       background: #FAF8F4;
       border: none;
-      padding: 12px 18px 32px;
+      padding: 0 18px 32px;
       box-shadow: none;
       animation: hwDossierSlide 0.75s var(--hw-ease-silk) 0.08s both;
     }
@@ -2001,7 +2007,7 @@
     #view-masters .hw-masters-page {
       background-color: var(--hw-masters-bg);
       color: var(--hw-ink);
-      padding: 4px clamp(1.5rem, 4vw, 4rem) 44px;
+      padding: 18px clamp(1.5rem, 4vw, 4rem) 44px;
       max-width: 1360px;
       margin: 0 auto;
       font-family: var(--font-body);
@@ -2014,8 +2020,8 @@
       grid-template-columns: auto 1fr;
       gap: 24px;
       align-items: center;
-      padding: 4px 0 7px;
-      margin-bottom: 10px;
+      padding: 0 0 10px;
+      margin-bottom: 14px;
       border-bottom: 1px solid var(--hw-border-strong);
     }
     #view-masters .hw-masters-title-group {
@@ -2046,16 +2052,13 @@
     }
     #view-masters .hw-masters-lead-inline {
       font-family: var(--font-body);
-      font-size: 13.5px;
+      font-size: 14.5px;
       font-weight: 500;
-      line-height: 1.32;
+      line-height: 1.48;
       color: var(--hw-muted);
       margin: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
+      overflow: visible;
+      display: block;
     }
     #view-masters .hw-masters-lead-inline em {
       font-family: var(--font-mono);
@@ -2504,7 +2507,7 @@
       color: var(--hw-ink);
       width: 100%;
       box-sizing: border-box;
-      padding: 16px clamp(1.5rem, 5vw, 5.5rem) 104px;
+      padding: 18px clamp(1.5rem, 5vw, 5.5rem) 104px;
       font-family: var(--font-body);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
@@ -2520,7 +2523,7 @@
       border-bottom: 1px solid var(--hw-border);
     }
     .hw-story__hero-copy {
-      padding-top: 8px;
+      padding-top: 0;
     }
     .hw-story__eyebrow {
       display: inline-block;
@@ -2530,7 +2533,7 @@
       letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--hw-accent);
-      margin-bottom: 16px;
+      margin-bottom: 10px;
     }
     .hw-story__title {
       font-family: var(--font-heading);
@@ -2540,7 +2543,7 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--hw-ink);
-      margin: 0 0 22px 0;
+      margin: 0 0 14px 0;
     }
     .hw-story__subtitle {
       font-family: var(--font-body);
@@ -2844,7 +2847,7 @@
       color: var(--hw-ink);
       width: 100%;
       box-sizing: border-box;
-      padding: 64px clamp(1.5rem, 5vw, 5.5rem) 96px;
+      padding: 18px clamp(1.5rem, 5vw, 5.5rem) 96px;
       font-family: var(--hw-st-sans);
       -webkit-font-smoothing: antialiased;
       font-weight: 600;
@@ -2938,7 +2941,7 @@
       background: transparent;
       border: none;
       border-top: 1px solid var(--hw-border-strong);
-      padding: 28px 0 0 0;
+      padding: 18px 0 0 0;
       box-shadow: none;
     }
     .hw-concierge__topics { margin-bottom: 34px; }
@@ -5471,7 +5474,7 @@
        ========================================================================== -->
   <section class="hw-view hw-story" id="view-nature" style="padding-top: 0;">
     <!-- Full-Bleed Nature Hero Banner (Cotton Fields & Natural Cycles) -->
-    <div style="position:relative; width:100vw; margin-left:calc(50% - 50vw); height:clamp(340px, 52vh, 520px); overflow:hidden; margin-bottom:56px; border-bottom:1px solid var(--hw-border);">
+    <div style="position:relative; width:100vw; margin-left:calc(50% - 50vw); height:clamp(340px, 52vh, 520px); overflow:hidden; margin-bottom:22px; border-bottom:1px solid var(--hw-border);">
       <img src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/0f9d2225-1884-49cd-83e8-e835a79aaf42/002_HARTWICK_HANDWOVEN_PALMA_SKIRT_KHADI_PRAGUE_SHIRT_NATURALDYE_COTTONFIELDS.jpg?format=2500w" alt="Limited By Nature — Cotton Fields & Natural Cycles" style="width:100%; height:100%; object-fit:cover; object-position:center 38%; display:block;" />
       <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(250,248,244,0.18) 0%, rgba(36,25,20,0.38) 100%); display:flex; flex-direction:column; align-items:center; justify-content:flex-end; padding:40px 24px; text-align:center;">
         <span style="font-family:var(--font-mono); font-size:9.5px; font-weight:600; letter-spacing:0.26em; text-transform:uppercase; color:#FAF8F4; margin-bottom:8px;">HARTWICK ATELIER &middot; ETHOS</span>
@@ -5891,6 +5894,18 @@
       if (viewName === 'story' || viewName === 'nature') setActiveNav('nav-about');
       if (viewName === 'nature') history.replaceState(null, '', '#nature');
       if (viewName === 'story') history.replaceState(null, '', '#story');
+      if (viewName === 'masters') {
+        setActiveNav('nav-masters');
+        const accList = document.getElementById('masters-accordion-list');
+        if (accList && accList.children.length === 0) {
+          buildMasterAccordionOnce();
+        }
+        const stageInner = document.getElementById('masters-library-card-inner');
+        if (stageInner && !stageInner.innerHTML.trim() && Array.isArray(MASTERS) && MASTERS.length) {
+          updateMasterSidebarActiveState(MASTERS[0].id);
+          renderMasterLibraryCard(MASTERS[0], false);
+        }
+      }
       if (viewName === 'contact') {
         setActiveNav('nav-appointment');
         history.replaceState(null, '', '#contact');
@@ -5899,7 +5914,7 @@
         history.replaceState(null, '', '#orders');
       }
       if (!skipScrollTop) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo(0, 0);
       }
       setTimeout(initLuxuryScrollChoreography, 40);
     }
@@ -7054,7 +7069,13 @@
       `;
 
       const vEl = document.getElementById('hw-master-video');
-      if (vEl) attachMasterHlsVideo(vEl, m);
+      if (vEl) {
+        try {
+          attachMasterHlsVideo(vEl, m);
+        } catch (err) {
+          console.warn('Master video init warning:', err);
+        }
+      }
     }
 
     function updateMasterSidebarActiveState(masterId) {
@@ -7082,6 +7103,7 @@
 
     function openMasters(masterId, scrollToItem = false) {
       showAllMasterProducts = false;
+      openView('masters', true);
       const accList = document.getElementById('masters-accordion-list');
       if (accList && accList.children.length === 0) {
         buildMasterAccordionOnce();
@@ -7094,9 +7116,14 @@
 
       updateMasterSidebarActiveState(m.id);
       renderMasterLibraryCard(m, false);
-
-      openView('masters', false);
       history.replaceState(null, '', '#masters/' + m.id);
+
+      if (scrollToItem && window.innerWidth <= 1024) {
+        const stage = document.getElementById('masters-library-card');
+        if (stage) stage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        window.scrollTo(0, 0);
+      }
     }
 
     function addCurrentToBag() {
@@ -7237,15 +7264,9 @@
         '.hw-v2-purchase-block',
         '.hw-v2-story-block',
         '.hw-static-fit-block',
-        '.hw-ftg-open-row',
+        '#view-product .hw-ftg-open-row',
         '.hw-related-section',
-        /* Made By Masters (#view-masters) */
-        '.hw-masters-intro',
-        '.hw-m-btn',
-        '.hw-masters-card',
-        '.hw-m-garment-card',
         /* Story, Concierge & Footer */
-        '.hw-story__hero',
         '.hw-chapter',
         '.hw-finale',
         '.hw-concierge__info',
@@ -7537,8 +7558,7 @@
       }, 4600);
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
-      renderBag();
+    function handleHashRoute() {
       const h = window.location.hash || '';
       if (h.startsWith('#product/')) {
         const slug = decodeURIComponent(h.replace('#product/', ''));
@@ -7563,6 +7583,18 @@
       } else {
         openProduct(1);
       }
+    }
+
+    window.addEventListener('hashchange', handleHashRoute);
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderBag();
+      buildMasterAccordionOnce();
+      if (Array.isArray(MASTERS) && MASTERS.length) {
+        updateMasterSidebarActiveState(MASTERS[0].id);
+        renderMasterLibraryCard(MASTERS[0], false);
+      }
+      handleHashRoute();
       initLuxuryScrollChoreography();
       initHwVideoElements(document);
       startInFocusRotation();
