@@ -5043,7 +5043,6 @@
        SIDE-BY-SIDE 3-COLUMN LARGE THUMBNAILS WITH STYLE + VARIANT + CRAFT UNDERNEATH
        ========================================================================== -->
   <main id="view-collection" class="hw-view">
-    <section class="hw-split-hero" id="col-split-hero" style="display:none;" aria-label="Collection Editorial Hero"></section>
     <div class="hw-collection-wrap">
       <div class="hw-col-positioning-quote" id="col-positioning-quote" style="display:none;">
         <p class="hw-col-positioning-quote-text">Positioning Statement — Space Saver: Inspired by traditional Indian jewellery, Byzantine and Anatolian archaeological findings, and vintage Italian gold chains. Each piece is Made to Order and handcrafted by master stonecutters, stone setters and goldsmiths in Jaipur.</p>
@@ -5872,9 +5871,8 @@
         el.classList.add('active');
       }
       document.body.classList.toggle('d1-seamless-nav', viewName === 'home');
-      const colHeroVisible = viewName === 'collection' && document.getElementById('col-split-hero')?.style.display !== 'none';
       const pdpHeroVisible = viewName === 'product' && document.getElementById('pdp-split-hero')?.style.display !== 'none';
-      document.body.classList.toggle('hw-split-hero-nav', Boolean(colHeroVisible || pdpHeroVisible));
+      document.body.classList.toggle('hw-split-hero-nav', Boolean(pdpHeroVisible));
       syncSplitHeroHeaderOverlap();
       if (viewName === 'story' || viewName === 'nature') setActiveNav('nav-about');
       if (viewName === 'nature') history.replaceState(null, '', '#nature');
@@ -6326,79 +6324,6 @@
 
       const isJewelCol = colName === 'Fine Jewellery' || ['Rings','Earrings','Bangles + Bracelets','Necklaces + Pendants'].includes(colName);
       const isSilkCol = colName === 'Fine Silk' || ['Dupattas','Classic Stoles','Shaylas','Large Squares','Medium Squares','Petit Squares','Rich Ribbons'].includes(colName);
-      const splitHeroEl = document.getElementById('col-split-hero');
-      if (splitHeroEl) {
-        if (isJewelCol) {
-          splitHeroEl.className = 'hw-split-hero hw-split-hero--jewellery';
-          splitHeroEl.innerHTML = `
-            <!-- LEFT SIDE: 50% FULL-HEIGHT LUXURY EDITORIAL PHOTOGRAPH -->
-            <div class="hw-split-hero__pane hw-split-hero__pane--photo">
-              <img class="hw-split-hero__img" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/a00dafc2-eaeb-476b-872d-879c49cdcb79/v005HARTWICK_LIMINAL_STEP_RING_24KGOLD_RHODOLITE_SILVER_HANDCRAFTED.jpg" alt="Hartwick Atelier Fine Jewellery — Handcrafted in Jaipur" loading="eager" />
-              <div class="hw-split-hero__veil"></div>
-              <div class="hw-split-hero__editorial-caption">
-                <span class="hw-split-hero__eyebrow">HARTWICK ATELIER &middot; FINE JEWELLERY</span>
-                <h1 class="hw-split-hero__heading">HANDCRAFTED IN JAIPUR</h1>
-                <p class="hw-split-hero__sub">High-karat 23k gold, solid sterling silver, and hand-carved gemstones crafted to order by master goldsmiths.</p>
-              </div>
-            </div>
-            <!-- RIGHT SIDE: 50% FULL-HEIGHT SHOPIFY VIDEO CONTAINER (PLACEHOLDER READY FOR SHOPIFY UPLOAD) -->
-            <div class="hw-split-hero__pane hw-split-hero__pane--video" data-shopify-video-slot="fine-jewellery">
-              <div class="hw-split-hero__video-slot">
-                <!-- SHOPIFY VIDEO SLOT: Replace placeholder image with {{ section.settings.jewellery_hero_video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, class: 'hw-split-hero__video' }} -->
-                <img class="hw-split-hero__placeholder-img" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/12175f73-48f1-45f7-b89f-346dc2151fde/009HARTWICK_LIMINAL_STEP_RING_24KGOLD_RHODOLITE_SILVER_HANDCRAFTED.jpg" alt="Fine Jewellery Shopify Video Placeholder" loading="eager" />
-                <div class="hw-split-hero__veil"></div>
-                <div class="hw-split-hero__video-placeholder-frame">
-                  <div class="hw-split-hero__slot-top">
-                    <span class="hw-split-hero__slot-tag">SHOPIFY VIDEO PLACEHOLDER</span>
-                    <span class="hw-split-hero__slot-meta">FINE JEWELLERY &middot; 50% VIDEO AREA</span>
-                  </div>
-                  <div class="hw-split-hero__slot-bottom">
-                    <span class="hw-split-hero__slot-caption">Atelier Film Container &mdash; Ready for direct Shopify video upload</span>
-                    <span class="hw-split-hero__slot-meta">JAIPUR ATELIER &middot; MADE TO ORDER</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          `;
-          splitHeroEl.style.display = 'grid';
-        } else if (isSilkCol) {
-          splitHeroEl.className = 'hw-split-hero hw-split-hero--silk';
-          splitHeroEl.innerHTML = `
-            <!-- LEFT SIDE: 50% FULL-HEIGHT LUXURY SILK EDITORIAL PHOTOGRAPH -->
-            <div class="hw-split-hero__pane hw-split-hero__pane--photo">
-              <img class="hw-split-hero__img" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/1039e18a-9953-4c39-8a01-9d0480047793/002_HARTWICK_ATELIER_FINESILK_NATURAL_DYE_SHAYLA4R1A6078.jpg" alt="Hartwick Atelier Fine Silk — Block Printed by Hand" loading="eager" />
-              <div class="hw-split-hero__veil"></div>
-              <div class="hw-split-hero__editorial-caption">
-                <span class="hw-split-hero__eyebrow">HARTWICK ATELIER &middot; FINE SILK</span>
-                <h1 class="hw-split-hero__heading">BLOCK PRINTED BY HAND</h1>
-                <p class="hw-split-hero__sub">Luminous Mashru silk printed with hand-carved wooden blocks, natural mineral &amp; botanical dyes, and hand-rolled edges.</p>
-              </div>
-            </div>
-            <!-- RIGHT SIDE: 50% FULL-HEIGHT SHOPIFY VIDEO CONTAINER (PLACEHOLDER READY FOR SHOPIFY UPLOAD) -->
-            <div class="hw-split-hero__pane hw-split-hero__pane--video" data-shopify-video-slot="fine-silk">
-              <div class="hw-split-hero__video-slot">
-                <!-- SHOPIFY VIDEO SLOT: Replace placeholder image with {{ section.settings.silk_hero_video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, class: 'hw-split-hero__video' }} -->
-                <img class="hw-split-hero__placeholder-img" src="https://images.squarespace-cdn.com/content/v1/662ec4008fa24077e0d8b6b0/31a9d117-730e-45ba-9a75-4e2144af03e0/267_HARTWICK_FINESILK_PALMA_SKIRT_NATURALDYE_BLOCKPRINT.jpg" alt="Fine Silk Shopify Video Placeholder" loading="eager" />
-                <div class="hw-split-hero__veil"></div>
-                <div class="hw-split-hero__video-placeholder-frame">
-                  <div class="hw-split-hero__slot-top">
-                    <span class="hw-split-hero__slot-tag">SHOPIFY VIDEO PLACEHOLDER</span>
-                    <span class="hw-split-hero__slot-meta">FINE SILK &middot; 50% VIDEO AREA</span>
-                  </div>
-                  <div class="hw-split-hero__slot-bottom">
-                    <span class="hw-split-hero__slot-caption">Atelier Film Container &mdash; Ready for direct Shopify video upload</span>
-                    <span class="hw-split-hero__slot-meta">MASTER PRINTERS &middot; 100% NATURAL DYE</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          `;
-          splitHeroEl.style.display = 'grid';
-        } else {
-          splitHeroEl.style.display = 'none';
-          splitHeroEl.innerHTML = '';
-        }
-      }
 
       const quoteEl = document.getElementById('col-positioning-quote');
       if (quoteEl) {
